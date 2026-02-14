@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trigonometry Reference Guide</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                line-height: 1.6;
+                color: white;
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 20px;
+                background: linear-gradient(to right, #536976, #292E49);
+            }
+
+            header {
+                text-align: center;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            h1 {
+                margin-bottom: 10px;
+            }
+
+            .subtitle {
+                color: #7f8c8d;
+                font-style: italic;
+            }
+
+            section {
+                background: linear-gradient(to right, #1a2980, #26d0ce);
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+
+            h2,
+            h3 {
+                margin-top: 0;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 15px 0;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                text-align: center;
+                border: 1px solid #ddd;
+            }
+
+            th:hover,
+            td:hover {
+                background-color: rgba(0, 0, 0, 0.701);
+            }
+
+            th {
+                background-color: black;
+                font-weight: bold;
+            }
+
+            tr:nth-child(even) {
+                background-color: rgba(0, 0, 0, 0.027);
+            }
+
+            ul {
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            .formulas-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin: 15px 0;
+            }
+
+            .formula-box {
+                background-color: #3d4043;
+                border: 1px solid #d0e3ff;
+                border-radius: 4px;
+                padding: 10px 15px;
+                font-family: 'Courier New', monospace;
+                font-size: 0.95rem;
+                color: white;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .formula-box:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 0 10px black;
+            }
+
+            .calculator {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                align-items: center;
+                margin-top: 15px;
+            }
+
+            input {
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 1rem;
+            }
+
+            button {
+                background-color: #3498db;
+                color: white;
+                border: none;
+                padding: 8px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 0.95rem;
+                transition: background-color 0.2s;
+            }
+
+            button:hover {
+                background-color: #2980b9;
+            }
+
+            #result {
+                font-weight: bold;
+                margin-top: 10px;
+                padding: 8px;
+                background-color: #f8f8f8;
+                border-radius: 4px;
+                display: inline-block;
+                min-width: 200px;
+            }
+
+            @media (max-width: 768px) {
+                body {
+                    padding: 15px;
+                }
+
+                .formulas-container {
+                    gap: 8px;
+                }
+
+                .formula-box {
+                    padding: 8px 12px;
+                    font-size: 0.85rem;
+                }
+
+                .calculator {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Trigonometry Reference Guide</h1>
+            <div class="subtitle">Inverse Trigonometric Functions and Identities</div>
+        </header>
+
+        <section>
+            <h2>Introduction to Trigonometry</h2>
+            <p>Trigonometry (from Greek trigonon "triangle" + metron "measure") is the study of relationships between
+                angles and sides of triangles, particularly right triangles.</p>
+
+            <h3>Right Triangle Configuration:</h3>
+            <ul>
+                <li>Right angle (90°) at vertex B</li>
+                <li>Angle θ at vertex A</li>
+                <li>Third angle at vertex C (90° - θ)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Core Trigonometric Ratios</h2>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Definition</th>
+                    <th>Reciprocal</th>
+                </tr>
+                <tr>
+                    <td>sin θ</td>
+                    <td>opposite/hypotenuse</td>
+                    <td>cosec θ</td>
+                </tr>
+                <tr>
+                    <td>cos θ</td>
+                    <td>adjacent/hypotenuse</td>
+                    <td>sec θ</td>
+                </tr>
+                <tr>
+                    <td>tan θ</td>
+                    <td>opposite/adjacent</td>
+                    <td>cot θ</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Standard Angle Values</h2>
+            <table>
+                <tr>
+                    <th>θ</th>
+                    <th>0°</th>
+                    <th>30°</th>
+                    <th>45°</th>
+                    <th>60°</th>
+                    <th>90°</th>
+                </tr>
+                <tr>
+                    <td>sin θ</td>
+                    <td>0</td>
+                    <td>1/2</td>
+                    <td>√2/2</td>
+                    <td>√3/2</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>cos θ</td>
+                    <td>1</td>
+                    <td>√3/2</td>
+                    <td>√2/2</td>
+                    <td>1/2</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>tan θ</td>
+                    <td>0</td>
+                    <td>1/√3</td>
+                    <td>1</td>
+                    <td>√3</td>
+                    <td>∞</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Trigonometric Identities</h2>
+            <div class="formulas-container">
+                <div class="formula-box">sin²θ + cos²θ = 1</div>
+                <div class="formula-box">1 + tan²θ = sec²θ</div>
+                <div class="formula-box">1 + cot²θ = cosec²θ</div>
+                <div class="formula-box">sin(A±B) = sinAcosB ± cosAsinB</div>
+                <div class="formula-box">cos(A±B) = cosAcosB ∓ sinAsinB</div>
+                <div class="formula-box">tan(A±B) = (tanA±tanB)/(1∓tanAtanB)</div>
+                <div class="formula-box">sin2A = 2sinAcosA</div>
+                <div class="formula-box">cos2A = cos²A - sin²A</div>
+                <div class="formula-box">tan2A = 2tanA/(1-tan²A)</div>
+                <div class="formula-box">sinA + sinB = 2sin[(A+B)/2]cos[(A-B)/2]</div>
+                <div class="formula-box">cosA + cosB = 2cos[(A+B)/2]cos[(A-B)/2]</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Inverse Trigonometric Functions</h2>
+            <div class="formulas-container">
+                <div class="formula-box">sin⁻¹x + cos⁻¹x = π/2</div>
+                <div class="formula-box">tan⁻¹x + cot⁻¹x = π/2</div>
+                <div class="formula-box">tan⁻¹x + tan⁻¹y = tan⁻¹[(x+y)/(1-xy)]</div>
+                <div class="formula-box">2tan⁻¹x = sin⁻¹[2x/(1+x²)]</div>
+                <div class="formula-box">sin⁻¹x = tan⁻¹[x/√(1-x²)]</div>
+                <div class="formula-box">cos⁻¹x = tan⁻¹[√(1-x²)/x]</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>General Solutions</h2>
+            <div class="formulas-container">
+                <div class="formula-box">sinθ = sinα ⇒ θ = nπ + (-1)ⁿα</div>
+                <div class="formula-box">cosθ = cosα ⇒ θ = 2nπ ± α</div>
+                <div class="formula-box">tanθ = tanα ⇒ θ = nπ + α</div>
+                <div class="formula-box">sinθ = 0 ⇒ θ = nπ</div>
+                <div class="formula-box">cosθ = 0 ⇒ θ = (2n+1)π/2</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Trigonometric Calculator</h2>
+            <div class="calculator">
+                <input type="text" placeholder="Enter angle in degrees">
+                <button onclick="calculate('sin')">Calculate sin</button>
+                <button onclick="calculate('cos')">Calculate cos</button>
+                <button onclick="calculate('tan')">Calculate tan</button>
+            </div>
+            <div>
+                <p>Result: <span id="result">Awaiting input...</span></p>
+            </div>
+        </section>
+
+        <script>
+            function calculate(func) {
+                const input = document.querySelector('input').value;
+                const resultElement = document.getElementById('result');
+
+                if (!input || isNaN(input)) {
+                    resultElement.textContent = "Error: Please enter a valid number";
+                    resultElement.style.color = "red";
+                    return;
+                }
+
+                const angle = parseFloat(input);
+                const radians = angle * Math.PI / 180;
+                let value;
+
+                switch (func) {
+                    case 'sin':
+                        value = Math.sin(radians);
+                        resultElement.textContent = `sin(${ angle }°) = ${ value.toFixed(4) }`;
+                        break;
+                    case 'cos':
+                        value = Math.cos(radians);
+                        resultElement.textContent = `cos(${ angle }°) = ${ value.toFixed(4) }`;
+                        break;
+                    case 'tan':
+                        if (angle % 90 === 0 && angle % 180 !== 0) {
+                            resultElement.textContent = `tan(${ angle }°) = Undefined`;
+                        } else {
+                            value = Math.tan(radians);
+                            resultElement.textContent = `tan(${ angle }°) = ${ value.toFixed(4) }`;
+                        }
+                        break;
+                }
+
+                resultElement.style.color = "#2c3e50";
+            }
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>An Elementary School Classroom in a Slum</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: radial-gradient(circle at top right, rgb(36, 9, 119) 0%, rgb(36, 9, 119) 48%, rgb(72, 7, 149) 48%, rgb(72, 7, 149) 53%, rgb(109, 5, 178) 53%, rgb(109, 5, 178) 56%, rgb(145, 2, 208) 56%, rgb(145, 2, 208) 69%, rgb(181, 0, 237) 69%, rgb(181, 0, 237) 100%) fixed no-repeat center/cover;
+
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                min-height: 100vh;
+                color: white;
+            }
+
+            /* Typography */
+            h1,
+            h2,
+            h3 {
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 15px 0;
+            }
+
+            h3 {
+                color: #ff6b6b;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                line-height: 1.6;
+            }
+
+            /* Layout Components */
+            .heading {
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.18);
+                border-radius: 20px;
+                margin: 20px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .heading::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(5px);
+                z-index: -1;
+            }
+
+            .section-container {
+                background: rgba(0, 0, 0, 0.7);
+                border: 2px solid #ff4d4d;
+                margin: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            .section-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .section-container:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 15px rgba(255, 0, 0, 0.2);
+            }
+
+            .content-wrapper {
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Character Cards */
+            .character-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .character {
+                background: rgba(180, 180, 180, 0.1);
+                border-radius: 8px;
+                padding: 1.5rem;
+                width: 300px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .character::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .character:hover {
+                transform: translateY(-5px);
+                box-shadow: inset 0 0 20px red, 0 5px 15px rgba(0, 0, 0, 0.3);
+                background: rgba(180, 180, 180, 0.2);
+            }
+
+            /* Questions Section */
+            .character-lists {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .character-lists .character {
+                width: 100%;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .character-list {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .character {
+                    width: 90%;
+                    margin: 10px 0;
+                }
+
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            #the_end {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .button {
+                margin-top: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                position: relative;
+                top: 20px;
+                border-radius: 5px;
+                background: linear-gradient(45deg, red, blue);
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                margin-bottom: 40px;
+            }
+
+            .btn:hover {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, blue, red);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <header class="heading">
+            <h1>Flamingo (Poetry) – "An Elementary School Classroom in a Slum" by Stephen Spender</h1>
+        </header>
+
+        <main>
+            <!-- Summary Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>SHORT SUMMARY</h2>
+                    <p>"An Elementary School Classroom in a Slum" portrays the grim realities of children living in
+                        poverty. The poem describes a classroom filled with underprivileged students whose faces reflect
+                        sadness, malnutrition, and hopelessness. Their education seems meaningless as they remain
+                        trapped in a cycle of deprivation. The poet criticizes social injustice and urges authorities to
+                        provide real opportunities, breaking the barriers of poverty and offering them a brighter
+                        future.</p>
+                </div>
+            </section>
+
+            <!-- Theme Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Theme</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Social Injustice</h3>
+                            <p>The poem highlights the stark contrast between the privileged and underprivileged,
+                                emphasizing the need for social reform.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Poverty and Hopelessness</h3>
+                            <p>Children in the slum classroom suffer from malnutrition and lack of resources, leading to
+                                a bleak future.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Need for Change</h3>
+                            <p>The poet appeals to authorities to break the cycle of poverty through proper education
+                                and opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Important Questions Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Important Questions</h2>
+                    <div class="character-lists">
+                        <div class="character">
+                            <h3>What is the setting of the poem?</h3>
+                            <p>The poem is set in a poor classroom located in a slum, where children suffer from
+                                deprivation.</p>
+                        </div>
+                        <div class="character">
+                            <h3>How does the poet describe the children?</h3>
+                            <p>The children are pale, weak, and malnourished, with dreams that seem unattainable due to
+                                poverty.</p>
+                        </div>
+                        <div class="character">
+                            <h3>What message does the poet convey?</h3>
+                            <p>He urges the powerful to provide real education and opportunities to break the cycle of
+                                poverty.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Quotes Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Key Quotes</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <p>"These children’s faces. Like rootless weeds, the hair torn round their pallor."</p>
+                        </div>
+                        <div class="character">
+                            <p>"Far far from rivers, capes, and stars of words."</p>
+                        </div>
+                        <div class="character">
+                            <p>"Break O break open till they break the town And show the children to green fields."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Literary Devices Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Literary Devices</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Imagery</h3>
+                            <p>Vivid descriptions of pale children, torn hair, and broken structures evoke empathy.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Metaphor</h3>
+                            <p>"Like rootless weeds" symbolizes the neglected state of slum children.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Symbolism</h3>
+                            <p>The slum represents poverty, while "green fields" symbolize hope and freedom.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="the_end">
+                <div class="button">THE END</div>
+                <button class="btn the_end" onclick="Back()">BACK</button>
+            </div>
+        </main>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

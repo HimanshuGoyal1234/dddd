@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feedback Section</title>
+        <link rel="icon" type="image/png" href="logo.png">
+        <style>
+            body {
+                font-family: 'Segoe UI', sans-serif;
+                background: #f2f3f5;
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .form-container {
+                width: 100%;
+                max-width: 700px;
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                margin: 20px;
+            }
+
+            .form-header {
+                padding: 25px;
+                background: linear-gradient(45deg, #f09433, #e6683c, #dc2743);
+                color: white;
+                text-align: center;
+            }
+
+            .form-header h2 {
+                margin: 0;
+                font-size: 24px;
+            }
+
+            .form-header p {
+                margin: 10px 0 0;
+                opacity: 0.9;
+            }
+
+            .form-iframe {
+                width: 100%;
+                height: 500px;
+                border: none;
+            }
+
+            @media (max-width: 768px) {
+                .form-container {
+                    margin: 10px;
+                    border-radius: 10px;
+                }
+
+                .form-header {
+                    padding: 15px;
+                }
+
+                .form-iframe {
+                    height: 400px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                body {
+                    padding: 0;
+                }
+
+                .form-iframe {
+                    height: 500px;
+                }
+            }
+        </style>
+    </head>
+    ̥
+
+    <body>
+        <div class="form-container">
+            <div class="form-header">
+                <h2>We Value Your Feedback</h2>
+                <p>Please take a moment to share your thoughts with us</p>
+            </div>
+            <iframe class="form-iframe"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSc7X6XvuJzi92VsbotUihwoPB-eJSJ0ATK-RGvZJdXLqqQX5Q/viewform?embedded=true"
+                frameborder="0" marginheight="0" marginwidth="0">Loading…
+
+            </iframe>
+        </div>
+    </body>
+
+</html>

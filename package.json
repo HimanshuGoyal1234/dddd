@@ -1,0 +1,25 @@
+{
+  "name": "class-12th-pcm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HimanshuGoyal1234/Class-12th-PCM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HimanshuGoyal1234/Class-12th-PCM/issues"
+  },
+  "homepage": "https://github.com/HimanshuGoyal1234/Class-12th-PCM#readme",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
+  }
+}

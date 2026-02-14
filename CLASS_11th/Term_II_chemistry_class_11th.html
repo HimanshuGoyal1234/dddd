@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Header</title>
+    <link rel="icon" type="image/png" href="../logo.png">
+    <style>
+      :root {
+        --light-bg: #f4f4f4;
+        --light-text: #222;
+        --dark-bg: #121212;
+        --dark-text: #f1f1f1;
+      }
+
+      body {
+        background-color: white;
+        color: black;
+        font-family: Arial, sans-serif;
+        font-size: 1.3rem;
+      }
+
+      header {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .exam-info {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 40px;
+        margin-top: -35px;
+      }
+
+      .re {
+        border: 1px solid black;
+        margin: 20px;
+      }
+
+      .instructions {
+        margin-left: 40px;
+      }
+
+      .instructions-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .__center__ {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        text-decoration: underline;
+        margin: 20px 0;
+      }
+
+      .questions {
+        margin-left: 40px;
+      }
+
+      .options {
+        list-style-type: lower-alpha;
+        margin-left: 20px;
+      }
+
+      li {
+        padding: 3px;
+      }
+
+      .dark-mode {
+        background-color: var(--dark-bg);
+        color: var(--dark-text);
+      }
+
+      .toggle-btn {
+        background: none;
+        border: 0px;
+        border-radius: 50px;
+        padding: 10px 25px;
+        cursor: pointer;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: inherit;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .toggle-btn:hover {
+        border-color: #666;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      .icon {
+        font-size: 24px;
+        display: inline-block;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+        position: absolute;
+        left: 10px;
+      }
+
+      .sun {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+
+      .moon {
+        opacity: 0;
+        transform: rotate(180deg);
+      }
+
+      .dark-mode .sun {
+        opacity: 0;
+        transform: rotate(180deg);
+      }
+
+      .dark-mode .moon {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .text-label {
+        padding-left: 35px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="progressContainer" style="position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: #ccc;">
+      <div id="progressBar" style="height: 3px; width: 0%; background: #000;"></div>
+    </div>
+    <button class="toggle-btn" onclick="toggleMode()">
+      <span class="icon sun">🌞</span>
+      <span class="icon moon">🌙</span>
+      &nbsp;
+    </button>
+    <header>
+      <h1>PERIODIC ASSESSMENT – II (2024-25)</h1>
+      <h2>CLASS - XI</h2>
+      <h2>SUBJECT - CHEMISTRY</h2>
+      <div class="exam-info">
+        <p><strong>MM:</strong> 70</p>
+        <p><strong>Time:</strong> 3 Hours</p>
+      </div>
+    </header>
+
+    <div class="re"></div>
+
+    <div class="instructions">
+      <div class="instructions-title">General Instructions:</div>
+      <ol>
+        <li>There are 33 questions in this question paper with internal choice.</li>
+        <li>SECTION A consists of 16 multiple-choice questions carrying 1 mark each.</li>
+        <li>SECTION B consists of 5 short answer questions carrying 2 marks each.</li>
+        <li>SECTION C consists of 7 short answer questions carrying 3 marks each.</li>
+        <li>SECTION D consists of 2 case-based questions carrying 4 marks each.</li>
+        <li>SECTION E consists of 3 long answer questions carrying 5 marks each.</li>
+        <li>All questions are compulsory.</li>
+        <li>Use of log tables and calculators is not allowed.</li>
+        <div>Questions numbers 13 to 16 Directions:</div>
+        <div>Each question contains Assertion and Reason.</div>
+        <div>(a) Both assertion and reason are correct; reason is a correct explanation for assertion.</div>
+        <div>(b) Assertion is correct, reason is correct; reason is not a correct explanation for assertion.</div>
+        <div>(c) Assertion is correct, reason is incorrect.</div>
+        <div>(d) Assertion is incorrect, reason is correct.</div>
+      </ol>
+    </div>
+
+    <div class="__center__">SECTION – A (Multiple Choice Questions)</div>
+
+    <ol class="questions">
+      <li>
+        Enthalpy of combustion is always
+        <ul class="options">
+          <li>positive</li>
+          <li>negative</li>
+          <li>0</li>
+          <li>infinity</li>
+        </ul>
+      </li>
+      <li>
+        In case of the decomposition of hydrogen molecule into two hydrogen atoms, the enthalpy of atomization is same
+        as the
+        <ul class="options">
+          <li>bond dissociation enthalpy</li>
+          <li>enthalpy of formation</li>
+          <li>enthalpy of combustion</li>
+          <li> enthalpy of sublimation</li>
+        </ul>
+      </li>
+      <li>
+        When work is done on system or by a system there is a change in
+        <ul class="options">
+          <li>external energy</li>
+          <li>internal energy</li>
+          <li>adiabatic energy</li>
+          <li>isothermal energy</li>
+
+
+        </ul>
+      <li>
+        What’s the bond order of Oxygen?
+        <ul class="options">Multiple Choice Questions
+          <li>3</li>
+          <li>2</li>
+          <li>1</li>
+          <li>0</li>
+        </ul>
+      </li>
+      <li>
+        Which of the following is correct regarding repulsive interaction?
+        <ul class="options">
+          <li>Lone pair–Lone pair is greater than Lone pair–Bond pair is greater than Bond pair–Bond pair</li>
+          <li>Lone pair–Lone pair is less than Lone pair–Bond pair is less than Bond pair–Bond pair</li>
+          <li>Lone pair–Bond pair is greater than Lone pair–Lone pair is greater than Bond pair–Bond pair</li>
+          <li>Lone pair–Bond pair is greater than Lone pair–Bond pair is less than Bond pair–Bond pair</li>
+        </ul>
+      <li>
+        What is the shape of the molecule NH₃?
+        <ul class="options">
+          <li>Square pyramidal</li>
+          <li>V-shape</li>
+          <li>Trigonal pyramidal</li>
+          <li>Tetrahedral</li>
+        </ul>
+      </li>
+      <li>
+        What is the oxidation state of Cr in CrO₅?
+        <ul class="options">
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+        </ul>
+      </li>
+      <li>
+        In this reaction Cu⁺² + Zn → Cu + Zn⁺², what is an oxidising agent?
+        <ul class="options">
+          <li>copper</li>
+          <li>zinc</li>
+          <li>hydrogen</li>
+          <li>oxygen</li>
+        </ul>
+      </li>
+      <li>
+        The exchange of salt between zinc and copper is an example of
+        <ul class="options">
+          <li>combustion</li>
+          <li>decomposition</li>
+          <li>disproportionation</li>
+          <li>displacement</li>
+        </ul>
+      </li>
+      <li>
+        A strong acid has a ________.
+        <ul class="options">
+          <li>weak conjugate acid</li>
+          <li>weak conjugate base</li>
+          <li>strong conjugate base</li>
+          <li>strong conjugate acid</li>
+        </ul>
+      </li>
+      <li>
+        Which of the following substances cannot act as both acid as well as a base?
+        <ul class="options">
+          <li>amphoteric substance</li>
+          <li>amphiprotic</li>
+          <li>ampholyte</li>
+          <li>protophilic</li>
+        </ul>
+      </li>
+      <li>
+        When is a reaction nonspontaneous?
+        <ul class="options">
+          <li>Gibbs free energy is positive</li>
+          <li>Gibbs free energy is negative</li>
+          <li>Gibbs free energy is zero</li>
+          <li>Does not depend on Gibbs free energy</li>
+        </ul>
+      </li>
+      <li>
+        Assertion (A): Enthalpy of formation of graphite is zero but of diamond it is not zero.<br>
+        Reason (R): Enthalpy of formation of the most stable allotrope is taken as zero.
+      </li>
+      <li>
+        Assertion (A): In a reaction Zn(s) + CuSO₄ (aq) → ZnSO₄(aq) + Cu(s) Zn is a reductant but itself gets
+        oxidized.<br>
+        Reason (R): In a redox reaction, oxidant is reduced by accepting electrons and reductant is oxidized by losing
+        electrons.
+      </li>
+      <li>
+        Assertion (A): The bond order of helium is always zero.
+        <br>
+        Reason (R): The number of electrons in bonding molecular orbital and antibonding molecular orbital is equal.
+      </li>
+      <li>
+        Assertion (A): Kₚ can be less than, greater than or equal to Kc.
+        <br>
+        Reason (R): Relation between Kₚ and Kc depends on the change in number of moles of gaseous reactants and
+        products
+        (Δn).
+      </li>
+      <div class="__center__">SECTION – B (Short Questions)</div>
+    </ol>
+    <ol class="questions" start="17">
+      <li>
+        Explain why PCl₅ is trigonal bipyramidal whereas IF₅ is square pyramidal.
+      </li>
+      <li>Give reasons for the following:
+        <br>
+        (i) Covalent bonds are directional bonds while ionic bonds are nondirectional.
+        <br>
+        (ii) Water molecule has bent structure whereas carbon dioxide molecule is linear.
+      </li>
+      <li>The enthalpy of atomisation for the reaction CH₄(g) → C(g) + 4H (g) is 1665 kJ mol⁻¹. What is the bond energy
+        of C–H bond?</li>
+      <li>The aqueous solution of sodium chloride does not conduct electricity. However, when sodium chloride is added
+        to water, it conducts electricity. How will you explain this statement on the basis of ionisation and how is it
+        affected by the concentration of sodium chloride?</li>
+      <li>MnO₄²⁻ undergoes a disproportionation reaction in an acidic medium but MnO₄⁻ does not. Give a reason.</li>
+      <div class="__center__">SECTION – C (Short Answer Questions – 3 Marks)</div>
+
+      <li>Balance the following ionic equations (Any 3):
+        <br>
+        (i) Cr₂O₇²⁻ + Fe²⁺ + H⁺ → Cr³⁺ + Fe³⁺ + H₂O
+        <br>
+        (ii) SO₃²⁻ + Cr₂O₇²⁻ + H⁺ → Cr³⁺ + SO₄²⁻ + H₂O
+        <br>
+        (iii) MnO₄⁻ + Br⁻ → Mn²⁺ + Br₂
+        <br>
+        (iv) MnO₄⁻ + H₂O₂ → Mn²⁺ + O₂ + H₂O
+      </li>
+      <li>
+        The value of Kc for the reaction 2HI (g) ⇌ H₂ (g) + I₂ (g) is 1 × 10⁻⁴. At a given time, the composition of
+        reaction mixture is [HI] = 2 × 10⁻⁵ mol, [H₂] = 1 × 10⁻⁵ mol, [I₂] = 1 × 10⁻⁵ mol. Determine the direction in
+        which the reaction will proceed?
+      </li>
+      <li>On the basis of the equation pH = – log [H⁺], the pH of 10⁻⁸ mol dm⁻³ solution of HCl should be 8. However, it
+        is observed to be less than 7.0. Explain the reason.</li>
+      <li>The enthalpy of vaporisation of CCl₄ is 30.5 kJ mol⁻¹. Calculate the heat required for the vaporisation of 284
+        g
+        of CCl₄ at constant pressure. (Molar mass of CCl₄ = 154 g mol⁻¹).</li>
+      <li>Give postulates of VSEPR Theory.</li>
+      <li>Using molecular orbital theory, compare the bond energy and magnetic character of O₂⁺ and O₂⁻ species.</li>
+      <li>Which method can be used to find out the strength of the reductant/oxidant in a solution? Explain with an
+        example.</li>
+    </ol>
+
+    <div class="__center__">SECTION – D (Case-Based Questions – 4 Marks)</div>
+
+    <ol class="questions" start="29">
+      <li>Read the following passage and answer the following questions:
+        <br>
+        The variables pressure, volume, concentration and temperature may change the state of Equilibrium. The change is
+        governed by the Le-Chatelier’s principle. The decomposition of NH₃(g) can be made spontaneous by increasing the
+        temperature and lowering pressure. In the reaction, removal of any product from the reaction mixture makes the
+        reversible reaction irreversible and therefore, reaction proceeds to completion.
+        <br>
+        (a) When will the equilibrium Solid ⇌ Liquid ⇌ Gas will shift in forward direction?
+        <br>
+        (b) What kind of change in free energy for the equilibrium, in a gaseous reaction, PCl₅ → PCl₃ + Cl₂ takes place
+        on addition of an inert gas at constant pressure and at constant volume?
+        <br>
+        (c) At 700 K, the equilibrium constant Kp for the reaction 2SO₃ (g) ⇌ 2SO₂ (g) + O₂ (g) is (1.80 × 10⁻³ kPa)².
+        What is the numerical value in moles per litre of Kc for this reaction at the same temperature?
+        <br>
+        (d) For the reaction, N₂ (g) + 3H₂ (g) ⇌ 2NH₃ (g), the partial pressures of N₂ and H₂ are 0.80 and 0.40 atm
+        respectively...
+    </ol>
+    <ol class="questions" start="30">
+      <li>
+        Read the passage given below and answer the following questions. <br><br>
+        <span class="text-label">
+          In chemical thermodynamics, the type of work involved is mostly pressure–volume work that is the work done
+          when a system (gas) expands or contracts against an external opposing pressure. Hence, work is also defined as
+          the transfer of energy that can be used to change the height of a mass in the surrounding.<br><br>
+          <b>Pressure–volume work:</b> The work <i>w</i> that is done due to the expansion or compression of a gas
+          against an external opposing pressure P is called pressure–volume work. <br>
+          W = –P<sub>ext</sub> ΔV
+        </span><br><br>
+
+        <ol type="i">
+          <li>Which of the following statement is correct?
+            <ul class="options">
+              <li>ΔU = q₍ᵥₐₗₐₜᵢc₎</li>
+              <li>W = –ve, when work is done by the system</li>
+              <li>W = +ve, when work is done on the system</li>
+              <li>All of the above</li>
+            </ul>
+          </li>
+          <li>A process in which the system does not exchange heat with the surroundings is known as
+            <ul class="options">
+              <li>isothermal</li>
+              <li>isobaric</li>
+              <li>isochoric</li>
+              <li>adiabatic</li>
+            </ul>
+          </li>
+          <li>Which of the following is correct match as far as the thermodynamic processes are involved?
+            <ul class="options">
+              <li>1 – i, 2 – ii, 3 – iii, 4 – iv</li>
+              <li>1 – ii, 2 – iv, 3 – iii, 4 – i</li>
+              <li>1 – iii, 2 – ii, 3 – iv, 4 – i</li>
+              <li>1 – iv, 2 – iii, 3 – ii, 4 – i</li>
+            </ul>
+          </li>
+          <li>3 moles of an ideal gas are expanded isothermally and reversibly from 10⁻² m³ to 20 m³ at 300 K. The work
+            done is:
+            <ul class="options">
+              <li>+5.187 kJ</li>
+              <li>–5.187 kJ</li>
+              <li>–2.175 kJ</li>
+              <li>+3.750 kJ</li>
+            </ul>
+          </li>
+        </ol>
+      </li>
+    </ol>
+
+    <div class="__center__">SECTION – E (Long Answer Questions)</div>
+    <ol class="questions" start="31">
+      <li>
+        Write a balanced chemical equation for the following reactions: <br>
+        (i) Permanganate ion (MnO₄⁻) reacts with sulphur dioxide gas in an acidic medium to produce Mn²⁺ and hydrogen
+        sulphate ion. (Balance by ion electron method) <br>
+        (ii) Reaction of liquid hydrazine (N₂H₄) with chlorate ion (ClO₃⁻) in basic medium produces nitric oxide gas and
+        chloride ion in a gaseous state. (Balance by oxidation number method)
+      </li>
+      <li>
+        (a) The solubility product of Al(OH)₃ is 2.7 × 10⁻¹¹. Calculate its solubility in g/L and also find out the pH
+        of this solution. (Atomic mass of Al = 27 u). <br>
+        (b) A reaction between ammonia and boron trifluoride is given below: <br>
+        NH₃ + BF₃ → H₃N:→BF₃ <br>
+        Identify the acid and base in this reaction. What theory explains it? What is the hybridisation of the
+        reactants?
+      </li>
+      <li>
+        (a) Predict the shapes of the following molecules on the basis of hybridization: BCl₃, CCl₄, CO₂ <br>
+        (b) Draw the resonating structures of the following: <br>
+        (i) Ozone molecule <br>
+        (ii) Nitrate ion
+      </li>
+    </ol>
+
+    <div class="__center__">
+      <<< PAPER ENDED>>>
+    </div>
+  </body>
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+    window.onscroll = function () {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("progressBar").style.width = scrolled + "%";
+    };
+  </script>
+
+</html>

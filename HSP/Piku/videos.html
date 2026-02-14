@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Video Player</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <script src="auth-check.js"></script>
+        <script src="system.js"></script>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button-container {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .control-btn {
+                padding: 12px 24px;
+                background-color: #ff6b6b;
+                color: white;
+                border: none;
+                border-radius: 30px;
+                font-size: 18px;
+                cursor: pointer;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+            }
+
+            .control-btn:hover {
+                background-color: #ff5252;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .modal-content {
+                background-color: white;
+                padding: 20px;
+                border-radius: 15px;
+                max-width: 90%;
+                max-height: 90%;
+                width: auto;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .close-btn {
+                position: absolute;
+                transform: translate(10px, -14px);
+                top: 10px;
+                right: 15px;
+                font-size: 28px;
+                font-weight: bold;
+                color: #aaa;
+                cursor: pointer;
+                transition: color 0.3s;
+            }
+
+            .close-btn:hover {
+                color: #333;
+            }
+
+            video {
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+                max-width: 100%;
+                max-height: 80vh;
+                outline: none;
+            }
+
+            .video-info {
+                text-align: center;
+                margin: 15px 0;
+                font-size: 18px;
+                color: #333;
+                font-weight: bold;
+            }
+
+            .nav-buttons {
+                display: flex;
+                gap: 20px;
+                margin-top: 15px;
+            }
+
+            .nav-btn {
+                padding: 8px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: all 0.3s;
+            }
+
+            .nav-btn:hover {
+                background-color: #45a049;
+                transform: scale(1.05);
+            }
+
+            .nav-btn:disabled {
+                background-color: #cccccc;
+                cursor: not-allowed;
+                transform: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="button-container">
+            <button class="control-btn" id="randomBtn">Random Video</button>
+            <button class="control-btn" id="firstVideoBtn">First Video</button>
+            <button class="control-btn" id="lastVideoBtn">Last Video</button>
+        </div>
+
+        <div class="modal" id="videoModal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeBtn">&times;</span>
+                <video id="randomVideo" controls>
+                    <source id="videoSource" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-info" id="videoInfo">Video #0</div>
+                <div class="nav-buttons">
+                    <button class="nav-btn" id="prevBtn">Previous</button>
+                    <button class="nav-btn" id="nextBtn">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const randomBtn = document.getElementById('randomBtn');
+            const firstVideoBtn = document.getElementById('firstVideoBtn');
+            const lastVideoBtn = document.getElementById('lastVideoBtn');
+            const videoModal = document.getElementById('videoModal');
+            const closeBtn = document.getElementById('closeBtn');
+            const randomVideo = document.getElementById('randomVideo');
+            const videoSource = document.getElementById('videoSource');
+            const videoInfo = document.getElementById('videoInfo');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Total number of videos available (33 videos named 1.mp4 to 33.mp4)
+            const totalVideos = 34;
+            let currentVideoIndex = 0;
+
+            // Function to load video
+            function loadVideo(index) {
+                if (index < 1 || index > totalVideos) return;
+
+                currentVideoIndex = index;
+                videoSource.setAttribute('src', `videos/${ currentVideoIndex }.mp4`);
+                videoInfo.textContent = `Video #${ currentVideoIndex }`;
+                randomVideo.load();
+
+                // Update button states
+                prevBtn.disabled = currentVideoIndex <= 1;
+                nextBtn.disabled = currentVideoIndex >= totalVideos;
+            }
+
+            // Random video button
+            randomBtn.addEventListener('click', () => {
+                const randomIndex = Math.floor(Math.random() * totalVideos) + 1;
+                loadVideo(randomIndex);
+                videoModal.style.display = 'flex';
+                randomVideo.play().catch(e => console.log("Autoplay prevented:", e));
+            });
+
+            // First video button
+            firstVideoBtn.addEventListener('click', () => {
+                loadVideo(1);
+                videoModal.style.display = 'flex';
+                randomVideo.play().catch(e => console.log("Autoplay prevented:", e));
+            });
+
+            // Last video button
+            lastVideoBtn.addEventListener('click', () => {
+                loadVideo(totalVideos);
+                videoModal.style.display = 'flex';
+                randomVideo.play().catch(e => console.log("Autoplay prevented:", e));
+            });
+
+            // Previous button
+            prevBtn.addEventListener('click', () => {
+                if (currentVideoIndex > 1) {
+                    loadVideo(currentVideoIndex - 1);
+                    randomVideo.play().catch(e => console.log("Autoplay prevented:", e));
+                }
+            });
+
+            // Next button
+            nextBtn.addEventListener('click', () => {
+                if (currentVideoIndex < totalVideos) {
+                    loadVideo(currentVideoIndex + 1);
+                    randomVideo.play().catch(e => console.log("Autoplay prevented:", e));
+                }
+            });
+
+            // Close modal
+            closeBtn.addEventListener('click', () => {
+                randomVideo.pause();
+                videoModal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (event) => {
+                if (event.target === videoModal) {
+                    randomVideo.pause();
+                    videoModal.style.display = 'none';
+                }
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && videoModal.style.display === 'flex') {
+                    randomVideo.pause();
+                    videoModal.style.display = 'none';
+                }
+
+                // Keyboard navigation (left/right arrows)
+                if (videoModal.style.display === 'flex') {
+                    if (event.key === 'ArrowLeft' && currentVideoIndex > 1) {
+                        loadVideo(currentVideoIndex - 1);
+                        randomVideo.play().catch(e => console.log("Autoplay prevented:", e));
+                    } else if (event.key === 'ArrowRight' && currentVideoIndex < totalVideos) {
+                        loadVideo(currentVideoIndex + 1);
+                        randomVideo.play().catch(e => console.log("Autoplay prevented:", e));
+                    }
+                }
+            });
+            prevBtn.disabled = true;
+            nextBtn.disabled = true;
+            const b = document.body;
+            b.style.background = `url(photos/${ Math.floor(Math.random() * 5) }.png)`;
+            b.style.backgroundPosition = `center center`;
+            b.style.backgroundSize = `contain`;
+            b.style.backgroundAttachment = `fixed`;
+        </script>
+    </body>
+
+</html>

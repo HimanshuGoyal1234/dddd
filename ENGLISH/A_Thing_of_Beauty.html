@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>A Thing of Beauty</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-image: radial-gradient(circle at top right, rgb(36, 9, 119)0%, rgb(36, 9, 119) 48%, rgb(72, 7, 149) 48%, rgb(72, 7, 149) 53%, rgb(109, 5, 178) 53%, rgb(109, 5, 178)56%, rgb(145, 2, 208) 56%, rgb(145, 2, 208) 69%, rgb(181, 0, 237) 69%, rgb(181, 0, 237) 100%);
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                min-height: 100vh;
+                color: white;
+            }
+
+            /* Typography */
+            h1,
+            h2,
+            h3 {
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 15px 0;
+            }
+
+            h3 {
+                color: #ff6b6b;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                line-height: 1.6;
+            }
+
+            /* Layout Components */
+            .heading {
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.18);
+                border-radius: 20px;
+                margin: 20px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .heading::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(5px);
+                z-index: -1;
+            }
+
+            .section-container {
+                background: rgba(0, 0, 0, 0.7);
+                border: 2px solid #ff4d4d;
+                margin: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            .section-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .section-container:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 15px rgba(255, 0, 0, 0.2);
+            }
+
+            .content-wrapper {
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Character Cards */
+            .character-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .character {
+                background: rgba(180, 180, 180, 0.1);
+                border-radius: 8px;
+                padding: 1.5rem;
+                width: 300px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .character::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .character:hover {
+                transform: translateY(-5px);
+                box-shadow: inset 0 0 20px red, 0 5px 15px rgba(0, 0, 0, 0.3);
+                background: rgba(180, 180, 180, 0.2);
+            }
+
+            /* Questions Section */
+            .character-lists {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .character-lists .character {
+                width: 100%;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .character-list {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .character {
+                    width: 90%;
+                    margin: 10px 0;
+                }
+
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            #the_end {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .button {
+                margin-top: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                position: relative;
+                top: 20px;
+                border-radius: 5px;
+                background: linear-gradient(45deg, red, blue);
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                margin-bottom: 40px;
+            }
+
+            .btn:hover {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, blue, red);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <header class="heading">
+            <h1>Flamingo (Poetry) – "A Thing of Beauty" by John Keats</h1>
+        </header>
+
+        <main>
+            <!-- Summary Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>SHORT SUMMARY</h2>
+                    <p>"A Thing of Beauty" is an excerpt from John Keats' poem "Endymion." The poem highlights the
+                        everlasting joy and comfort that beautiful things provide. Keats expresses that beauty is a
+                        source of eternal happiness, offering relief from despair, sorrow, and negativity. Nature, art,
+                        and noble deeds are all examples of beauty that uplift the human spirit and connect us with the
+                        divine.</p>
+                </div>
+            </section>
+
+            <!-- Theme Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Theme</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Everlasting Beauty</h3>
+                            <p>Keats emphasizes that true beauty is eternal and continues to provide joy and peace.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Nature's Role</h3>
+                            <p>The poem glorifies nature as a healing force that brings comfort and inspiration.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Escape from Suffering</h3>
+                            <p>Beauty acts as a refuge from life's hardships, sorrows, and negativity.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Important Questions Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Important Questions</h2>
+                    <div class="character-lists">
+                        <div class="character">
+                            <h3>What is the central idea of the poem?</h3>
+                            <p>The poem conveys that beauty provides eternal joy, offering relief from life’s struggles.
+                            </p>
+                        </div>
+                        <div class="character">
+                            <h3>How does beauty help us in life?</h3>
+                            <p>Beauty inspires us, gives us hope, and helps us overcome sorrow and negativity.</p>
+                        </div>
+                        <div class="character">
+                            <h3>What examples of beauty does Keats mention?</h3>
+                            <p>Keats mentions the sun, moon, trees, daffodils, clear streams, and heroic tales as
+                                sources of beauty.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Quotes Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Key Quotes</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <p>"A thing of beauty is a joy forever: Its loveliness increases; it will never Pass into
+                                nothingness."</p>
+                        </div>
+                        <div class="character">
+                            <p>"Some shape of beauty moves away the pall From our dark spirits."</p>
+                        </div>
+                        <div class="character">
+                            <p>"Therefore, on every morrow, are we wreathing A flowery band to bind us to the earth."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Literary Devices Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Literary Devices</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Alliteration</h3>
+                            <p>"Some shape of beauty" - The repetition of the 's' sound creates a musical effect.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Imagery</h3>
+                            <p>Vivid descriptions of nature evoke a sense of peace and admiration.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Metaphor</h3>
+                            <p>"Flowery band" symbolizes the connection between humans and nature.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="the_end">
+                <div class="button">THE END</div>
+                <button class="btn the_end" onclick="Back()">BACK</button>
+            </div>
+        </main>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aunt Jennifer’s Tigers</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: radial-gradient(circle at top right, rgb(36, 9, 119) 0%, rgb(36, 9, 119) 48%, rgb(72, 7, 149) 48%, rgb(72, 7, 149) 53%, rgb(109, 5, 178) 53%, rgb(109, 5, 178) 56%, rgb(145, 2, 208) 56%, rgb(145, 2, 208) 69%, rgb(181, 0, 237) 69%, rgb(181, 0, 237) 100%) fixed no-repeat center/cover;
+
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                min-height: 100vh;
+                color: white;
+            }
+
+            /* Typography */
+            h1,
+            h2,
+            h3 {
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 15px 0;
+            }
+
+            h3 {
+                color: #ff6b6b;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                line-height: 1.6;
+            }
+
+            /* Layout Components */
+            .heading {
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.18);
+                border-radius: 20px;
+                margin: 20px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .heading::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(5px);
+                z-index: -1;
+            }
+
+            .section-container {
+                background: rgba(0, 0, 0, 0.7);
+                border: 2px solid #ff4d4d;
+                margin: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            .section-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .section-container:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 15px rgba(255, 0, 0, 0.2);
+            }
+
+            .content-wrapper {
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Character Cards */
+            .character-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .character {
+                background: rgba(180, 180, 180, 0.1);
+                border-radius: 8px;
+                padding: 1.5rem;
+                width: 300px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .character::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .character:hover {
+                transform: translateY(-5px);
+                box-shadow: inset 0 0 20px red, 0 5px 15px rgba(0, 0, 0, 0.3);
+                background: rgba(180, 180, 180, 0.2);
+            }
+
+            /* Questions Section */
+            .character-lists {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .character-lists .character {
+                width: 100%;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .character-list {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .character {
+                    width: 90%;
+                    margin: 10px 0;
+                }
+
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            #the_end {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .button {
+                margin-top: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                position: relative;
+                top: 20px;
+                border-radius: 5px;
+                background: linear-gradient(45deg, red, blue);
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                margin-bottom: 40px;
+            }
+
+            .btn:hover {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, blue, red);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <header class="heading">
+            <h1>Flamingo (Poetry) – "Aunt Jennifer’s Tigers" by Adrienne Rich</h1>
+        </header>
+
+        <main>
+            <!-- Summary Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>SHORT SUMMARY</h2>
+                    <p>"Aunt Jennifer’s Tigers" explores themes of gender oppression and artistic expression. The poem
+                        describes Aunt Jennifer’s embroidery of majestic tigers, which symbolize strength and
+                        freedom—qualities she lacks in her own life. Trapped in a patriarchal marriage, Aunt Jennifer's
+                        hands tremble under the weight of her responsibilities. The poem contrasts her constrained
+                        existence with the bold and fearless tigers she creates.</p>
+                </div>
+            </section>
+
+            <!-- Theme Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Theme</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Gender Oppression</h3>
+                            <p>The poem highlights the struggles of women in a patriarchal society, symbolized through
+                                Aunt Jennifer’s trembling hands.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Freedom vs. Confinement</h3>
+                            <p>The fearless tigers represent the freedom Aunt Jennifer desires but cannot attain.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Art as an Escape</h3>
+                            <p>Aunt Jennifer finds solace in her embroidery, creating a world where strength and
+                                independence exist.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Important Questions Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Important Questions</h2>
+                    <div class="character-lists">
+                        <div class="character">
+                            <h3>What do Aunt Jennifer’s tigers symbolize?</h3>
+                            <p>They symbolize power, freedom, and confidence, which contrast with Aunt Jennifer’s
+                                oppressed life.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Why are Aunt Jennifer’s hands described as trembling?</h3>
+                            <p>Her hands tremble due to the weight of her marital constraints and societal pressures.
+                            </p>
+                        </div>
+                        <div class="character">
+                            <h3>What does the poem say about gender roles?</h3>
+                            <p>It critiques traditional gender roles where women like Aunt Jennifer are burdened by
+                                societal expectations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Quotes Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Key Quotes</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <p>"Aunt Jennifer’s tigers prance across a screen, bright topaz denizens of a world of
+                                green."</p>
+                        </div>
+                        <div class="character">
+                            <p>"The massive weight of Uncle’s wedding band Sits heavily upon Aunt Jennifer’s hand."</p>
+                        </div>
+                        <div class="character">
+                            <p>"When Aunt is dead, her terrified hands will lie still ringed with ordeals she was
+                                mastered by."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Literary Devices Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Literary Devices</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Symbolism</h3>
+                            <p>The tigers symbolize freedom and power, while Aunt Jennifer represents oppressed women.
+                            </p>
+                        </div>
+                        <div class="character">
+                            <h3>Metaphor</h3>
+                            <p>"The massive weight of Uncle’s wedding band" metaphorically represents the burdens of
+                                marriage.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Imagery</h3>
+                            <p>Vivid descriptions of the tigers and Aunt Jennifer’s struggles make the poem visually
+                                powerful.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="the_end">
+                <div class="button">THE END</div>
+                <button class="btn the_end" onclick="Back()">BACK</button>
+            </div>
+        </main>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

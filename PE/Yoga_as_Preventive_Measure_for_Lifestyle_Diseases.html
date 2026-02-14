@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <title>Yoga as Preventive Measure for Lifestyle Diseases</title>
+        <style>
+            :root {
+                --primary: #4fc3f7;
+                --secondary: #00796b;
+                --accent: #81c784;
+                --text: #e0e0e0;
+                --bg: #121212;
+                --card-bg: #1e1e1e;
+                --table-header: #00796b;
+                --yoga-card: #5d4037;
+                --disease-card: #4527a0;
+            }
+
+            .button {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 50px;
+                background: linear-gradient(45deg, #ff0000, #0066ff);
+                color: white;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0066ff, #ff0000);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn:hover::before {
+                opacity: 1;
+            }
+
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                background-color: var(--bg);
+                color: var(--text);
+            }
+
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background-color: var(--card-bg);
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                color: var(--primary);
+                text-align: center;
+                border-bottom: 2px solid var(--secondary);
+                padding-bottom: 10px;
+            }
+
+            h2 {
+                color: var(--accent);
+                margin-top: 30px;
+                border-left: 4px solid var(--secondary);
+                padding-left: 12px;
+                background-color: rgba(0, 121, 107, 0.1);
+            }
+
+            h3 {
+                color: var(--primary);
+                margin-top: 20px;
+            }
+
+            .card {
+                background-color: #263238;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+                border-left: 3px solid var(--primary);
+            }
+
+            .yoga-card {
+                background-color: var(--yoga-card);
+                border-left: 3px solid #ffb74d;
+            }
+
+            .disease-card {
+                background-color: var(--disease-card);
+                border-left: 3px solid #7e57c2;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                background-color: #263238;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid #455a64;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+            }
+
+            th {
+                background-color: var(--table-header);
+                color: #ffffff;
+                font-weight: 600;
+            }
+
+            tr:nth-child(even) {
+                background-color: #37474f;
+            }
+
+            tr:hover {
+                background-color: #455a64;
+            }
+
+            ul,
+            ol {
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            strong {
+                color: var(--primary);
+            }
+
+            .comparison {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+            }
+
+            .comparison div {
+                flex: 1;
+                padding: 15px;
+                border-radius: 5px;
+                background-color: #263238;
+                border-top: 3px solid var(--primary);
+            }
+
+            .benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+                margin: 20px 0;
+            }
+
+            .benefit-item {
+                background-color: #1b5e20;
+                padding: 15px;
+                border-radius: 5px;
+                border-left: 3px solid var(--accent);
+            }
+
+            @media (max-width: 768px) {
+
+                .comparison,
+                .benefits-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .asana-demo {
+                text-align: center;
+                margin: 20px 0;
+                padding: 15px;
+                background-color: #37474f;
+                border-radius: 5px;
+            }
+
+            .asana-demo img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Chapter 3: Yoga as Preventive Measure for Lifestyle Diseases</h1>
+
+            <h2>1. Introduction to Yoga and Lifestyle Diseases</h2>
+
+            <div class="card">
+                <h3>What are Lifestyle Diseases?</h3>
+                <p>Lifestyle diseases are disorders associated with the way people live and work. These include:</p>
+                <ul>
+                    <li>Obesity</li>
+                    <li>Diabetes (Type 2)</li>
+                    <li>Hypertension</li>
+                    <li>Cardiovascular diseases</li>
+                    <li>Chronic respiratory diseases</li>
+                    <li>Stress-related disorders</li>
+                </ul>
+            </div>
+
+            <div class="card yoga-card">
+                <h3>Yoga as Preventive Therapy</h3>
+                <p>Yoga helps prevent lifestyle diseases through:</p>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <strong>Physical Benefits</strong>
+                        <p>Improves flexibility, strength and posture</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong>Physiological Benefits</strong>
+                        <p>Enhances respiratory, circulatory and digestive functions</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong>Psychological Benefits</strong>
+                        <p>Reduces stress, anxiety and depression</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong>Lifestyle Benefits</strong>
+                        <p>Promotes healthy habits and self-discipline</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>2. Yoga for Specific Lifestyle Diseases</h2>
+
+            <div class="card disease-card">
+                <h3>Yoga for Obesity</h3>
+                <p><strong>Recommended Asanas:</strong> Surya Namaskar, Dhanurasana, Bhujangasana, Vajrasana</p>
+                <p><strong>Pranayama:</strong> Kapalbhati, Bhastrika</p>
+                <p><strong>Benefits:</strong> Boosts metabolism, burns fat, improves digestion</p>
+
+                <div class="asana-demo">
+                    <h4>Surya Namaskar (Sun Salutation)</h4>
+                    <p>12-step sequence that provides complete workout</p>
+                    <!-- Image placeholder for asana -->
+                    <div
+                        style="background-color: #455a64; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                        <img src="data:image/png;base64,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"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card disease-card">
+                <h3>Yoga for Diabetes</h3>
+                <p><strong>Recommended Asanas:</strong> Mandukasana, Paschimottanasana, Ardha Matsyendrasana</p>
+                <p><strong>Pranayama:</strong> Bhramari, Nadi Shodhana</p>
+                <p><strong>Benefits:</strong> Stimulates pancreas, improves insulin sensitivity</p>
+            </div>
+
+            <div class="comparison">
+                <div class="card">
+                    <h3>Yoga for Hypertension</h3>
+                    <ul>
+                        <li>Shavasana (Corpse Pose)</li>
+                        <li>Viparita Karani (Legs-up-the-wall)</li>
+                        <li>Balasana (Child's Pose)</li>
+                        <li>Pranayama: Sheetali, Sheetkari</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Yoga for Heart Health</h3>
+                    <ul>
+                        <li>Tadasana (Mountain Pose)</li>
+                        <li>Utthita Trikonasana (Triangle Pose)</li>
+                        <li>Pranayama: Anulom Vilom</li>
+                        <li>Meditation techniques</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>3. Important Yoga Asanas and Their Benefits</h2>
+
+            <table>
+                <tr>
+                    <th>Asana</th>
+                    <th>Procedure</th>
+                    <th>Benefits</th>
+                    <th>Contraindications</th>
+                </tr>
+                <tr>
+                    <td>Bhujangasana (Cobra Pose)</td>
+                    <td>Lie prone, place hands near chest, lift upper body</td>
+                    <td>Strengthens spine, improves digestion</td>
+                    <td>Pregnancy, hernia</td>
+                </tr>
+                <tr>
+                    <td>Dhanurasana (Bow Pose)</td>
+                    <td>Lie prone, hold ankles, lift chest and thighs</td>
+                    <td>Improves posture, massages abdominal organs</td>
+                    <td>High BP, migraine</td>
+                </tr>
+                <tr>
+                    <td>Ardha Matsyendrasana (Half Spinal Twist)</td>
+                    <td>Sit with legs extended, bend right knee, twist torso</td>
+                    <td>Improves spinal flexibility, stimulates pancreas</td>
+                    <td>Spinal injury, pregnancy</td>
+                </tr>
+            </table>
+
+            <h2>4. Pranayama Techniques for Stress Management</h2>
+
+            <div class="card yoga-card">
+                <h3>Key Pranayama Techniques</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Kapalbhati</h4>
+                        <p><strong>Technique:</strong> Forceful exhalations with passive inhalations</p>
+                        <p><strong>Benefits:</strong> Cleanses respiratory system, improves digestion</p>
+                    </div>
+                    <div>
+                        <h4>Anulom Vilom</h4>
+                        <p><strong>Technique:</strong> Alternate nostril breathing</p>
+                        <p><strong>Benefits:</strong> Balances nervous system, reduces stress</p>
+                    </div>
+                </div>
+
+                <div class="comparison">
+                    <div>
+                        <h4>Bhramari</h4>
+                        <p><strong>Technique:</strong> Humming bee sound during exhalation</p>
+                        <p><strong>Benefits:</strong> Calms mind, relieves tension</p>
+                    </div>
+                    <div>
+                        <h4>Sheetali</h4>
+                        <p><strong>Technique:</strong> Cooling breath through curled tongue</p>
+                        <p><strong>Benefits:</strong> Cools body, reduces anxiety</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>5. Yoga Routine for Healthy Lifestyle</h2>
+
+            <div class="card">
+                <h3>Daily Yoga Practice Schedule</h3>
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Duration</th>
+                    </tr>
+                    <tr>
+                        <td>Morning</td>
+                        <td>Surya Namaskar (5 rounds)</td>
+                        <td>15 mins</td>
+                    </tr>
+                    <tr>
+                        <td>Morning</td>
+                        <td>Selected Asanas (3-5 poses)</td>
+                        <td>15 mins</td>
+                    </tr>
+                    <tr>
+                        <td>Morning</td>
+                        <td>Pranayama (Kapalbhati, Anulom Vilom)</td>
+                        <td>10 mins</td>
+                    </tr>
+                    <tr>
+                        <td>Evening</td>
+                        <td>Meditation/Relaxation</td>
+                        <td>10-15 mins</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Yogic Diet Recommendations</h3>
+                <ul>
+                    <li>Fresh, seasonal fruits and vegetables</li>
+                    <li>Whole grains and pulses</li>
+                    <li>Moderate amounts of dairy</li>
+                    <li>Avoid processed foods and excess sugar/salt</li>
+                    <li>Mindful eating practices</li>
+                    <li>Adequate water intake</li>
+                </ul>
+            </div>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="Back()">BACK</button>
+        </div>
+    </body>
+    <script>
+        function Back() {
+            window.history.back();
+        }
+    </script>
+
+</html>

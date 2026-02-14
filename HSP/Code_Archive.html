@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Code Archive | Cyberpunk Gallery</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <script src="auth-check.js"></script>
+        <script src="system.js"></script>
+        <style>
+            :root {
+                --neon-cyan: #00ffcc;
+                --neon-blue: #0099ff;
+                --neon-light: #66ffff;
+                --dark-bg: rgba(0, 0, 0, 0.76);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                background: url(wallpaper/cyberpunk-mclaren-supercars-neon-art-3840x2160-1003.jpg);
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                font-family: 'Orbitron', sans-serif;
+                min-height: 100vh;
+                overflow-x: hidden;
+                color: #fff;
+                margin: 0;
+                padding: 0;
+
+            }
+
+            header {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                padding: 20px 0;
+                margin: 10px;
+                border-radius: 10px;
+                border: 2px solid rgba(0, 255, 254, 0.5);
+                background-color: rgba(0, 0, 0, 0.6);
+                box-shadow: 0 0 20px rgba(0, 255, 254, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            header:hover {
+                box-shadow: 0 0 30px rgba(0, 255, 254, 0.5);
+                transform: translateY(-2px);
+            }
+
+            h1 {
+                background: linear-gradient(#ffffff, #23d5ab);
+                background-clip: text;
+                color: transparent;
+                font-size: clamp(1.5rem, 6vw, 2.5rem);
+                letter-spacing: 2px;
+                text-align: center;
+                text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+                margin: 0;
+                padding: 0 10px;
+            }
+
+            a {
+                text-transform: capitalize;
+            }
+
+            .container {
+                width: 95%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 10px;
+            }
+
+            .sci-fi-list {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .sci-fi-item {
+                padding: 12px 15px;
+                margin-bottom: 8px;
+                border-left: 3px solid var(--neon-cyan);
+                background-color: var(--dark-bg);
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                position: relative;
+            }
+
+            .sci-fi-item:hover {
+                transform: translateX(5px);
+                border-radius: 10px;
+            }
+
+            .sci-fi-item:hover .item-number,
+            .sci-fi-item:hover .item-date,
+            .sci-fi-item:hover .item-content,
+            .sci-fi-item:hover .item-title {
+                color: red;
+            }
+
+            .item-number {
+                font-size: 25px;
+                margin-right: 10px;
+                color: var(--neon-blue);
+                min-width: 25px;
+            }
+
+            .item-content {
+                flex-grow: 1;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .item-title {
+                font-weight: bold;
+                color: var(--neon-cyan);
+                text-decoration: none;
+                text-align: center;
+                font-size: clamp(0.9rem, 4vw, 1.1rem);
+                margin: 0 5px;
+                flex: 1 1 auto;
+            }
+
+            .item-date {
+                font-size: clamp(0.7rem, 3vw, 0.8rem);
+                font-size: 25px;
+                color: var(--neon-light);
+                opacity: 0.7;
+                letter-spacing: 1px;
+                margin-left: auto;
+                white-space: nowrap;
+            }
+
+            /* Mobile-specific adjustments */
+            @media (max-width: 600px) {
+                header {
+                    padding: 15px 0;
+                    margin: 10px 5px;
+                }
+
+                .sci-fi-item {
+                    padding: 10px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .item-number {
+                    margin-bottom: 5px;
+                }
+
+                .item-content {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+
+                .item-title {
+                    text-align: left;
+                    margin: 5px 0;
+                    flex: 0 0 100%;
+                }
+
+                .item-date {
+                    margin-left: 0;
+                    margin-top: 5px;
+                }
+            }
+
+            /* Animation for header text */
+            @keyframes neon-pulse {
+                0% {
+                    background: linear-gradient(45deg,
+                            #ff0000, #ff7300, #fffb00, #48ff00,
+                            #00ffd5, #002bff, #7a00ff, #ff00c8);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    background-size: 400% 400%;
+                    background-position: 0% 50%;
+                    text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+                }
+
+                25% {
+                    background-position: 50% 50%;
+                    text-shadow: 0 0 10px rgba(0, 255, 213, 0.5);
+                }
+
+                50% {
+                    background-position: 100% 50%;
+                    text-shadow: 0 0 15px rgba(122, 0, 255, 0.7);
+                }
+
+                75% {
+                    background-position: 50% 50%;
+                    text-shadow: 0 0 10px rgba(255, 0, 200, 0.5);
+                }
+
+                100% {
+                    background-position: 0% 50%;
+                    text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+                }
+            }
+
+            /* How to apply it */
+            .neon-pulse {
+                animation: neon-pulse 8s ease infinite;
+            }
+        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+
+    <body>
+        <header>
+            <h1 class="neon-pulse"><i class="fas fa-code"></i> Code Archive</h1>
+        </header>
+        <div class="container">
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">01</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes\2024_05_13_09_12_43.py" class="item-title" target="_blank">
+                            Json Question Answer
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">02</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-05-29_19_28_44.py" class="item-title" target="_blank">
+                            File Opening after 3 sec
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">03</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-05-30_17_25_21.html" class="item-title" target="_blank">
+                            remove question, dot, etc. symbol
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">04</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-01_22_50_21.py" class="item-title" target="_blank">
+                            remove question, dot, etc. symbol
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">05</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-01_23_31_59.py" class="item-title" target="_blank">
+                            animation for logos
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">06</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-02_09_40_33.py" class="item-title" target="_blank">
+                            gerneate python code of elif makes
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">07</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-02_11_54_04.py" class="item-title" target="_blank">
+                            you chatbot by defult by selenium
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">08</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-02_11_54_33.py" class="item-title" target="_blank">
+                            open chatgpt by defult by selenium
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">09</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-02_11_54_50.py" class="item-title" target="_blank">
+                            open keybr.com by defult by selenium
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">10</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-02_11_58_08.html" class="item-title" target="_blank">
+                            Image Slider HTML,CSS,JS
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">11</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-02_11_58_24.html" class="item-title" target="_blank">
+                            Advance version of image slider
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">12</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-02_16_47_57.py" class="item-title" target="_blank">
+                            2024-06-02_16_47_57.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">13</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-02_19_46_54.py" class="item-title" target="_blank">
+                            json data
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">14</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-02_21_18_07.py" class="item-title" target="_blank">
+                            question answer chatbot
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">15</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-02_23_40_53.py" class="item-title" target="_blank">
+                            2024-06-02_23_40_53.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">16</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-03_09_05_19.py" class="item-title" target="_blank">
+                            remove that item which used multiple times in json
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">17</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-03_10_05_41.py" class="item-title" target="_blank">
+                            2024-06-03_10_05_41.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">18</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-03_14_15_44.py" class="item-title" target="_blank">
+                            2024-06-03_14_15_44.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">19</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-04_18_00_50.py" class="item-title" target="_blank">
+                            2024-06-04_18_00_50.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">20</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-05_15_17_20.py" class="item-title" target="_blank">
+                            making txt data
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">21</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-05_17_13_43.py" class="item-title" target="_blank">
+                            REMOVE all the dupicate items in the list
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">22</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-05_21_44_45.py" class="item-title" target="_blank">
+                            2024-06-05_21_44_45.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">23</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-06_14_11_20.py" class="item-title" target="_blank">
+                            highlighting word, speak, etc in python
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">24</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-06_23_34_25.py" class="item-title" target="_blank">
+                            animated terminal
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">25</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-09_12_33_51.py" class="item-title" target="_blank">
+                            printing time
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">26</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-10_17_53_26.py" class="item-title" target="_blank">
+                            2024-06-10_17_53_26.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">27</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-06-16_17_49_16.py" class="item-title" target="_blank">
+                            songs data adding
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">28</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-07-06_13_56_38.py" class="item-title" target="_blank">
+                            2024-07-06_13_56_38.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">29</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-07-07_23_07_10.py" class="item-title" target="_blank">
+                            2024-07-07_23_07_10.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">30</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-07-11_13_19_13.py" class="item-title" target="_blank">
+                            2024-07-11_13_19_13.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">31</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-08-13_16_26_18.py" class="item-title" target="_blank">
+                            TURE,FLASE FUNCTION
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">32</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-09-02_20_20_33.py" class="item-title" target="_blank">
+                            Rename files
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">33</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-12-16_17_31_47.py" class="item-title" target="_blank">
+                            Google search
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">34</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-12-20_10_34_54.py" class="item-title" target="_blank">
+                            Automatic connect to wifi
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">35</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-12-24_07_49_09.py" class="item-title" target="_blank">
+                            How many windows open in your device
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">36</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2024-12-24_19_55_56.py" class="item-title" target="_blank">
+                            Instagram Fatching
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">37</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-03-16_15_15_54.py" class="item-title" target="_blank">
+                            Decimal equivalent
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">38</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-03-19_19_35_37.py" class="item-title" target="_blank">
+                            Image text extracter
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">39</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-03-22_21_03_51.py" class="item-title" target="_blank">
+                            taking ScreenShot by speifice area
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">40</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-03-22_21_04_19.py" class="item-title" target="_blank">
+                            Image texted text
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">41</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-03-23_12_38_38.py" class="item-title" target="_blank">
+                            2025-03-23_12_38_38.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">42</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-03-23_12_39_22.py" class="item-title" target="_blank">
+                            2025-03-23_12_39_22.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">43</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-03-23_23_44_48.py" class="item-title" target="_blank">
+                            2025-03-23_23_44_48.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">44</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-03-26_21_56_23.py" class="item-title" target="_blank">
+                            2025-03-26_21_56_23.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">45</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-03-27_10_55_18.py" class="item-title" target="_blank">
+                            tkinter
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">46</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-03-27_14_19_01.py" class="item-title" target="_blank">
+                            Selenium
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">47</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/2025-04-08_15_13_40.html" class="item-title" target="_blank">
+                            si fi obrder animation
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">50</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/SORRY MISSING FILE.py" class="item-title" target="_blank">
+                            2025-04-25_05_59_15.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">51</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/ads.html" class="item-title" target="_blank">
+                            potrait of for my gf
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">52</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/battery.py" class="item-title" target="_blank">
+                            battery
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">53</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/copy_in_json.py" class="item-title" target="_blank">
+                            question answer
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">54</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/delete.py" class="item-title" target="_blank">
+                            delete useless files
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">55</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/df.py" class="item-title" target="_blank">
+                            delete folder in python
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">56</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/download instagram biography.py" class="item-title"
+                            target="_blank">
+                            download instagram biography </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">57</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/download instagram is private or not.py" class="item-title"
+                            target="_blank">
+                            check instagram is private or not
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">58</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/download instagram posts.py" class="item-title" target="_blank">
+                            download instagram posts.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">59</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/dragon_drop.py" class="item-title" target="_blank">
+                            dragon drop
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">60</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/for_formula_number_19.py" class="item-title" target="_blank">
+                            seperate time date in the image title
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">61</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/lkj.py" class="item-title" target="_blank">
+                            check wifi connected or not
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">62</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/previous_code.html" class="item-title" target="_blank">
+                            netflix image slider
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">63</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/print_items_in_dir.py" class="item-title" target="_blank">
+                            random folder name printer
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">64</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/rename.py" class="item-title" target="_blank">
+                            rename files name
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">65</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/sd.py" class="item-title" target="_blank">
+                            sd.py
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">66</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/success_template.py" class="item-title" target="_blank">
+                            success template
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">67</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes/turtle_code.py" class="item-title" target="_blank">
+                            turtle code
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">68</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes\2024_05_12_12_31_33.py" class="item-title" target="_blank">
+                            Json Question Answer
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="sci-fi-list">
+                <li class="sci-fi-item">
+                    <span class="item-number">68</span>
+                    <div class="item-content">
+                        <a href="your_previous_codes\live_code_editor.py" class="item-title" target="_blank">
+                            Live Code Editor
+                        </a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Should Wizard</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: radial-gradient(circle at top right, rgb(36, 9, 119) 0%, rgb(36, 9, 119) 48%, rgb(72, 7, 149) 48%, rgb(72, 7, 149) 53%, rgb(109, 5, 178) 53%, rgb(109, 5, 178) 56%, rgb(145, 2, 208) 56%, rgb(145, 2, 208) 69%, rgb(181, 0, 237) 69%, rgb(181, 0, 237) 100%) fixed no-repeat center/cover;
+
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                min-height: 100vh;
+                color: white;
+            }
+
+            /* Typography */
+            h1,
+            h2,
+            h3 {
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 15px 0;
+            }
+
+            h3 {
+                color: #ff6b6b;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                line-height: 1.6;
+            }
+
+            /* Layout Components */
+            .heading {
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.18);
+                border-radius: 20px;
+                margin: 20px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .heading::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(5px);
+                z-index: -1;
+            }
+
+            .section-container {
+                background: rgba(0, 0, 0, 0.7);
+                border: 2px solid #ff4d4d;
+                margin: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            .section-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .section-container:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 15px rgba(255, 0, 0, 0.2);
+            }
+
+            .content-wrapper {
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Character Cards */
+            .character-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .character {
+                background: rgba(180, 180, 180, 0.1);
+                border-radius: 8px;
+                padding: 1.5rem;
+                width: 300px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .character::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .character:hover {
+                transform: translateY(-5px);
+                box-shadow: inset 0 0 20px red, 0 5px 15px rgba(0, 0, 0, 0.3);
+                background: rgba(180, 180, 180, 0.2);
+            }
+
+            /* Questions Section */
+            .character-lists {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .character-lists .character {
+                width: 100%;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .character-list {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .character {
+                    width: 90%;
+                    margin: 10px 0;
+                }
+
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            #the_end {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .button {
+                margin-top: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                position: relative;
+                top: 20px;
+                border-radius: 5px;
+                background: linear-gradient(45deg, red, blue);
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                margin-bottom: 40px;
+            }
+
+            .btn:hover {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, blue, red);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <header class="heading">
+            <h1>Vistas (Prose) – "Should Wizard Hit Mommy?" by John Updike</h1>
+        </header>
+
+        <main>
+            <!-- Summary Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>SHORT SUMMARY</h2>
+                    <p>The story explores the themes of childhood, parental authority, and differing perspectives on
+                        reality. It follows a father, Jack, who tells his daughter, Jo, a bedtime story about Roger
+                        Skunk, a creature who smells bad and is shunned by others. The wizard helps Roger by giving him
+                        a pleasant smell, but his mother disapproves and forces him to revert to his original state. Jo,
+                        who represents innocence and imagination, wants a different ending, but Jack insists on the
+                        traditional resolution, highlighting the contrast between a child's worldview and an adult's
+                        perspective.</p>
+                </div>
+            </section>
+
+            <!-- Theme Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Theme</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Parental Authority vs. Childhood Imagination</h3>
+                            <p>Jack enforces traditional values, while Jo desires a different ending, showing a clash
+                                between perspectives.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Innocence vs. Experience</h3>
+                            <p>Jo's innocence contrasts with Jack's belief in accepting reality as it is.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Social Acceptance vs. Individuality</h3>
+                            <p>Roger Skunk's struggle reflects society’s pressure to conform.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Important Questions Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Important Questions</h2>
+                    <div class="character-lists">
+                        <div class="character">
+                            <h3>Why did Roger Skunk go to the wizard?</h3>
+                            <p>He wanted to change his bad smell so that other animals would play with him.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Why was Jo unhappy with the ending?</h3>
+                            <p>She felt Roger’s mother was wrong and wanted the wizard to hit her.</p>
+                        </div>
+                        <div class="character">
+                            <h3>What does the story suggest about adult-child relationships?</h3>
+                            <p>It highlights how adults impose their views on children, sometimes ignoring their
+                                feelings.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Quotes Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Key Quotes</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <p>"Then she said, 'But the other little animals run away!'"</p>
+                        </div>
+                        <div class="character">
+                            <p>"But Daddy, then he said about the wizard, 'Make him smell very bad again.'"</p>
+                        </div>
+                        <div class="character">
+                            <p>"She was starting to fuss with her hands and look up with red eyes."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Literary Devices Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Literary Devices</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Symbolism</h3>
+                            <p>Roger Skunk represents the struggle for social acceptance.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Irony</h3>
+                            <p>Jo expects a happy ending, but reality contradicts her expectations.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Foreshadowing</h3>
+                            <p>Jo's insistence on changing the ending hints at her growing independence.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="the_end">
+                <div class="button">THE END</div>
+                <button class="btn the_end" onclick="Back()">BACK</button>
+            </div>
+        </main>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

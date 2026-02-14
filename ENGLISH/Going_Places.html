@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Going Places</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: radial-gradient(circle at top right, rgb(36, 9, 119) 0%, rgb(36, 9, 119) 48%, rgb(72, 7, 149) 48%, rgb(72, 7, 149) 53%, rgb(109, 5, 178) 53%, rgb(109, 5, 178) 56%, rgb(145, 2, 208) 56%, rgb(145, 2, 208) 69%, rgb(181, 0, 237) 69%, rgb(181, 0, 237) 100%) fixed no-repeat center/cover;
+
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                min-height: 100vh;
+                color: white;
+            }
+
+            /* Typography */
+            h1,
+            h2,
+            h3 {
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 15px 0;
+            }
+
+            h3 {
+                color: #ff6b6b;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                line-height: 1.6;
+            }
+
+            /* Layout Components */
+            .heading {
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.18);
+                border-radius: 20px;
+                margin: 20px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .heading::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(5px);
+                z-index: -1;
+            }
+
+            .section-container {
+                background: rgba(0, 0, 0, 0.7);
+                border: 2px solid #ff4d4d;
+                margin: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            .section-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .section-container:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 15px rgba(255, 0, 0, 0.2);
+            }
+
+            .content-wrapper {
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Character Cards */
+            .character-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .character {
+                background: rgba(180, 180, 180, 0.1);
+                border-radius: 8px;
+                padding: 1.5rem;
+                width: 300px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .character::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .character:hover {
+                transform: translateY(-5px);
+                box-shadow: inset 0 0 20px red, 0 5px 15px rgba(0, 0, 0, 0.3);
+                background: rgba(180, 180, 180, 0.2);
+            }
+
+            /* Questions Section */
+            .character-lists {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .character-lists .character {
+                width: 100%;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .character-list {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .character {
+                    width: 90%;
+                    margin: 10px 0;
+                }
+
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            #the_end {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .button {
+                margin-top: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                position: relative;
+                top: 20px;
+                border-radius: 5px;
+                background: linear-gradient(45deg, red, blue);
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                margin-bottom: 40px;
+            }
+
+            .btn:hover {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, blue, red);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <header class="heading">
+            <h1>Flamingo (Prose) – "Going Places" by A.R. Barton</h1>
+        </header>
+
+        <main>
+            <!-- Summary Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>SHORT SUMMARY</h2>
+                    <p>"Going Places" explores the theme of adolescent dreams and fantasies through the story of Sophie,
+                        a teenage girl who often escapes into a world of imagination. She dreams of owning a boutique,
+                        becoming an actress, or even a fashion designer, despite coming from a working-class family.
+                        Sophie fantasizes about meeting the famous footballer Danny Casey, which contrasts with her
+                        brother Geoff’s realistic outlook. The story highlights the contrast between aspirations and
+                        reality, and the inevitable realization of life's limitations.</p>
+                </div>
+            </section>
+
+            <!-- Characters Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Characters</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Sophie</h3>
+                            <p>A teenage girl with high aspirations and a tendency to indulge in fantasies about a
+                                glamorous future.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Geoff</h3>
+                            <p>Sophie's elder brother who is realistic and reserved, representing maturity and
+                                pragmatism.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Danny Casey</h3>
+                            <p>A famous Irish footballer whom Sophie fantasizes about meeting, symbolizing her escapism.
+                            </p>
+                        </div>
+                        <div class="character">
+                            <h3>Sophie's Father</h3>
+                            <p>A practical and hardworking man who dismisses Sophie’s dreams as unrealistic.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Theme Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Theme</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Adolescent Dreams</h3>
+                            <p>Explores teenage aspirations and the gap between imagination and reality.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Fantasy vs Reality</h3>
+                            <p>Highlights how Sophie’s fantasies contrast with her real-world limitations.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Class Differences</h3>
+                            <p>Depicts the struggles of a working-class family and their realistic approach to life.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Important Questions</h2>
+                    <div class="character-lists">
+                        <div class="character">
+                            <h3>What are Sophie’s dreams for the future?</h3>
+                            <p>Sophie dreams of owning a boutique, becoming an actress, or being a fashion designer,
+                                despite financial limitations.</p>
+                        </div>
+                        <div class="character">
+                            <h3>How is Geoff different from Sophie?</h3>
+                            <p>Geoff is more mature, realistic, and reserved, whereas Sophie is imaginative and indulges
+                                in daydreams.</p>
+                        </div>
+                        <div class="character">
+                            <h3>What does Danny Casey symbolize for Sophie?</h3>
+                            <p>He symbolizes her dreams, aspirations, and desire to escape her mundane life.</p>
+                        </div>
+                        <div class="character">
+                            <h3>How does Sophie’s family react to her dreams?</h3>
+                            <p>They dismiss her fantasies as unrealistic and impractical.</p>
+                        </div>
+                        <div class="character">
+                            <h3>What is the significance of the title "Going Places"?</h3>
+                            <p>It reflects Sophie’s longing to break free from her ordinary life and achieve something
+                                greater.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Key Quotes</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <p>"Sophie knew no one in the world would believe her."</p>
+                        </div>
+                        <div class="character">
+                            <p>"She was conscious of a vast world out there waiting for her."</p>
+                        </div>
+                        <div class="character">
+                            <p>"I’ll have a boutique someday..."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Literary Devices</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Symbolism</h3>
+                            <p>Danny Casey symbolizes Sophie's dreams and escapism.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Irony</h3>
+                            <p>Sophie’s dreams are unattainable, yet she continues to believe in them.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Imagery</h3>
+                            <p>Detailed descriptions of Sophie’s fantasies vs her real-world surroundings.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="the_end">
+                <div class="button">THE END</div>
+                <button class="btn the_end" onclick="Back()">BACK</button>
+            </div>
+        </main>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

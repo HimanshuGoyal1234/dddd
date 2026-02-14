@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <title>Class 12 PE - Chapter 10: Training_in_Sports</title>
+        <style>
+            :root {
+                --bg-dark: #121212;
+                --bg-darker: #1e1e1e;
+                --text-primary: #e0e0e0;
+                --text-secondary: #aaaaaa;
+                --accent-color: #4CAF50;
+                --accent-secondary: #8BC34A;
+                --border-color: #333333;
+                --table-header: #2E3D28;
+            }
+
+            .button {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 50px;
+                background: linear-gradient(45deg, #ff0000, #0066ff);
+                color: white;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0066ff, #ff0000);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn:hover::before {
+                opacity: 1;
+            }
+
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: var(--text-primary);
+                background-color: var(--bg-dark);
+            }
+
+            h1 {
+                color: var(--accent-color);
+                text-align: center;
+                border-bottom: 2px solid var(--accent-secondary);
+                padding-bottom: 10px;
+                margin-bottom: 30px;
+            }
+
+            h2 {
+                color: var(--accent-secondary);
+                margin-top: 30px;
+                border-left: 5px solid var(--accent-color);
+                padding-left: 10px;
+                background: linear-gradient(90deg, rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
+            }
+
+            h3 {
+                color: var(--accent-color);
+                margin-top: 20px;
+            }
+
+            .topic {
+                background-color: var(--bg-darker);
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 25px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                border: 1px solid var(--border-color);
+            }
+
+            .definition {
+                background-color: #1e2b1e;
+                padding: 12px;
+                border-left: 4px solid var(--accent-secondary);
+                margin: 15px 0;
+                border-radius: 0 5px 5px 0;
+            }
+
+            .important {
+                font-weight: bold;
+                color: var(--accent-secondary);
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                border: 1px solid var(--border-color);
+            }
+
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+                border: 1px solid var(--border-color);
+            }
+
+            th {
+                background-color: var(--table-header);
+                color: white;
+                font-weight: 600;
+            }
+
+            tr:nth-child(even) {
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            tr:hover {
+                background-color: rgba(255, 255, 255, 0.08);
+            }
+
+            ul,
+            ol {
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            .highlight-box {
+                background-color: #2a3a2a;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+                border-left: 5px solid var(--accent-color);
+            }
+
+            .training-method {
+                background-color: #1e281e;
+                padding: 10px;
+                margin: 10px 0;
+                border-radius: 5px;
+                border-left: 3px solid var(--accent-secondary);
+            }
+
+            @media (max-width: 768px) {
+                body {
+                    padding: 10px;
+                }
+
+                .topic {
+                    padding: 10px;
+                }
+
+                th,
+                td {
+                    padding: 8px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Chapter 10: Training in Sports</h1>
+
+        <div class="topic">
+            <h2>1. Principles of Sports Training</h2>
+
+            <div class="definition">
+                <p><strong>Sports Training:</strong> A planned and controlled process aimed at improving performance
+                    capacity in sports activities.</p>
+            </div>
+
+            <h3>1.1 Key Principles</h3>
+            <div class="highlight-box">
+                <ul>
+                    <li><span class="important">Principle of Individuality:</span> Training should be tailored to
+                        individual needs</li>
+                    <li><span class="important">Principle of Specificity:</span> Training should match sport-specific
+                        demands</li>
+                    <li><span class="important">Principle of Progressive Overload:</span> Gradually increasing training
+                        demands</li>
+                    <li><span class="important">Principle of Variation:</span> Changing training stimuli to prevent
+                        adaptation</li>
+                    <li><span class="important">Principle of Reversibility:</span> Training effects are lost when
+                        training stops</li>
+                    <li><span class="important">Principle of Recovery:</span> Adequate rest between training sessions
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>2. Training Methods</h2>
+
+            <h3>2.1 Strength Training Methods</h3>
+            <div class="training-method">
+                <h4>Isometric Training</h4>
+                <p>Muscle contraction without movement (e.g., wall sits)</p>
+                <p><span class="important">Benefits:</span> Good for rehabilitation, requires minimal equipment</p>
+            </div>
+
+            <div class="training-method">
+                <h4>Isotonic Training</h4>
+                <p>Muscle contraction with movement (e.g., weight lifting)</p>
+                <p><span class="important">Types:</span> Concentric (muscle shortening), Eccentric (muscle lengthening)
+                </p>
+            </div>
+
+            <div class="training-method">
+                <h4>Circuit Training</h4>
+                <p>Series of exercises performed at stations with minimal rest</p>
+                <p><span class="important">Benefits:</span> Improves both strength and endurance</p>
+            </div>
+
+            <h3>2.2 Endurance Training Methods</h3>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                    <th>Intensity</th>
+                </tr>
+                <tr>
+                    <td>Continuous Training</td>
+                    <td>Steady pace for extended period</td>
+                    <td>60-80% HR max</td>
+                </tr>
+                <tr>
+                    <td>Interval Training</td>
+                    <td>Alternating work and recovery periods</td>
+                    <td>80-90% HR max (work phase)</td>
+                </tr>
+                <tr>
+                    <td>Fartlek Training</td>
+                    <td>Speed play with varied intensity</td>
+                    <td>Varies between 60-90% HR max</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="topic">
+            <h2>3. Periodization in Sports Training</h2>
+
+            <div class="definition">
+                <p><strong>Periodization:</strong> The systematic planning of athletic training to reach peak
+                    performance at the right time.</p>
+            </div>
+
+            <h3>3.1 Cycles of Periodization</h3>
+            <ul>
+                <li><span class="important">Macrocycle:</span> Annual training plan (1 year)</li>
+                <li><span class="important">Mesocycle:</span> Training phase (2-6 months)</li>
+                <li><span class="important">Microcycle:</span> Weekly training plan (7-14 days)</li>
+            </ul>
+
+            <h3>3.2 Training Phases</h3>
+            <table>
+                <tr>
+                    <th>Phase</th>
+                    <th>Duration</th>
+                    <th>Focus</th>
+                </tr>
+                <tr>
+                    <td>Preparatory</td>
+                    <td>3-6 months</td>
+                    <td>Building fitness base</td>
+                </tr>
+                <tr>
+                    <td>Competitive</td>
+                    <td>1-3 months</td>
+                    <td>Sport-specific skills and tactics</td>
+                </tr>
+                <tr>
+                    <td>Transition</td>
+                    <td>2-4 weeks</td>
+                    <td>Active recovery</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="topic">
+            <h2>4. Load and Recovery in Training</h2>
+
+            <h3>4.1 Components of Training Load</h3>
+            <ul>
+                <li><span class="important">Volume:</span> Quantity of training (time, distance, reps)</li>
+                <li><span class="important">Intensity:</span> Quality of training (% of max capacity)</li>
+                <li><span class="important">Frequency:</span> Number of training sessions</li>
+            </ul>
+
+            <h3>4.2 Recovery Methods</h3>
+            <div class="highlight-box">
+                <ul>
+                    <li><span class="important">Active Recovery:</span> Light exercise between intense sessions</li>
+                    <li><span class="important">Nutritional Recovery:</span> Proper post-exercise nutrition</li>
+                    <li><span class="important">Sleep:</span> Essential for physiological recovery</li>
+                    <li><span class="important">Hydrotherapy:</span> Contrast baths, cold water immersion</li>
+                    <li><span class="important">Massage:</span> Improves circulation and relaxation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>5. Skill Training in Sports</h2>
+
+            <h3>5.1 Types of Skills</h3>
+            <ul>
+                <li><span class="important">Gross Motor Skills:</span> Large muscle movements (e.g., running)</li>
+                <li><span class="important">Fine Motor Skills:</span> Precise movements (e.g., archery)</li>
+                <li><span class="important">Open Skills:</span> Performed in unpredictable environments</li>
+                <li><span class="important">Closed Skills:</span> Performed in stable environments</li>
+            </ul>
+
+            <h3>5.2 Stages of Skill Learning</h3>
+            <table>
+                <tr>
+                    <th>Stage</th>
+                    <th>Characteristics</th>
+                    <th>Training Focus</th>
+                </tr>
+                <tr>
+                    <td>Cognitive</td>
+                    <td>Understanding the skill</td>
+                    <td>Demonstrations, verbal instructions</td>
+                </tr>
+                <tr>
+                    <td>Associative</td>
+                    <td>Refining the skill</td>
+                    <td>Practice with feedback</td>
+                </tr>
+                <tr>
+                    <td>Autonomous</td>
+                    <td>Automatic performance</td>
+                    <td>Game-like situations</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="topic">
+            <h2>6. Training for Different Components of Fitness</h2>
+
+            <h3>6.1 Strength Training</h3>
+            <ul>
+                <li>Methods: Free weights, resistance machines, bodyweight exercises</li>
+                <li>Sets/Reps: 3-5 sets of 6-12 reps for hypertrophy</li>
+                <li>Rest: 2-3 minutes between sets</li>
+            </ul>
+
+            <h3>6.2 Speed Training</h3>
+            <ul>
+                <li>Methods: Sprints, agility drills, plyometrics</li>
+                <li>Duration: Short bursts (5-10 seconds)</li>
+                <li>Recovery: Full recovery between repetitions</li>
+            </ul>
+
+            <h3>6.3 Flexibility Training</h3>
+            <ul>
+                <li>Methods: Static stretching, dynamic stretching, PNF</li>
+                <li>Timing: Dynamic before activity, static after</li>
+                <li>Duration: Hold static stretches 15-30 seconds</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h2>7. Doping in Sports</h2>
+
+            <h3>7.1 Common Performance Enhancing Drugs</h3>
+            <table>
+                <tr>
+                    <th>Substance</th>
+                    <th>Effects</th>
+                    <th>Risks</th>
+                </tr>
+                <tr>
+                    <td>Anabolic Steroids</td>
+                    <td>Increase muscle mass</td>
+                    <td>Liver damage, hormonal imbalance</td>
+                </tr>
+                <tr>
+                    <td>EPO</td>
+                    <td>Increases red blood cells</td>
+                    <td>Blood clots, heart attack</td>
+                </tr>
+                <tr>
+                    <td>Stimulants</td>
+                    <td>Increase alertness</td>
+                    <td>Heart problems, addiction</td>
+                </tr>
+            </table>
+
+            <h3>7.2 Anti-Doping Agencies</h3>
+            <ul>
+                <li>WADA (World Anti-Doping Agency)</li>
+                <li>NADA (National Anti-Doping Agency)</li>
+                <li>Prohibited List: Updated annually</li>
+                <li>Doping Control Process: Testing, sanctions, appeals</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h2>Key Terms and Definitions</h2>
+
+            <div class="definition">
+                <p><strong>Overload:</strong> Exposing the body to greater stress than it's accustomed to, leading to
+                    adaptation.</p>
+            </div>
+
+            <div class="definition">
+                <p><strong>Supercompensation:</strong> The body's adaptation to training stress by rebuilding to a
+                    higher level.</p>
+            </div>
+
+            <div class="definition">
+                <p><strong>Plyometrics:</strong> Exercises that enable muscles to reach maximum strength in shortest
+                    time (jump training).</p>
+            </div>
+
+            <div class="definition">
+                <p><strong>Tapering:</strong> Reducing training load before competition to allow full recovery and peak
+                    performance.</p>
+            </div>
+
+            <div class="definition">
+                <p><strong>VO2 Max:</strong> Maximum oxygen uptake during intense exercise, indicator of aerobic
+                    endurance.</p>
+            </div>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="Back()">BACK</button>
+        </div>
+    </body>
+    <script>
+        function Back() {
+            window.history.back();
+        }
+    </script>
+
+</html>

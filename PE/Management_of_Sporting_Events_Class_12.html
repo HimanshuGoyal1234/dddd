@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Management of Sporting Events - Class 12</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+
+            .button {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 50px;
+                background: linear-gradient(45deg, #ff0000, #0066ff);
+                color: white;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0066ff, #ff0000);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn:hover::before {
+                opacity: 1;
+            }
+
+
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background-color: #1e1e1e;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                color: #4fc3f7;
+                text-align: center;
+                border-bottom: 2px solid #00796b;
+                padding-bottom: 10px;
+                margin-bottom: 25px;
+            }
+
+            h2 {
+                color: #4db6ac;
+                margin-top: 30px;
+                border-left: 4px solid #00796b;
+                padding-left: 12px;
+                background-color: rgba(0, 121, 107, 0.1);
+            }
+
+            h3 {
+                color: #81c784;
+                margin-top: 20px;
+            }
+
+            h4 {
+                color: #a5d6a7;
+            }
+
+            .definition {
+                background-color: #263238;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+                border-left: 3px solid #4fc3f7;
+            }
+
+            .importance {
+                background-color: #1b5e20;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+                border-left: 3px solid #81c784;
+            }
+
+            .example {
+                background-color: #37474f;
+                padding: 15px;
+                border-left: 3px solid #ffb74d;
+                margin: 15px 0;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                background-color: #263238;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid #455a64;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #00796b;
+                color: #ffffff;
+                font-weight: 600;
+            }
+
+            tr:nth-child(even) {
+                background-color: #37474f;
+            }
+
+            tr:hover {
+                background-color: #455a64;
+            }
+
+            .committee {
+                background-color: #4527a0;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+                border-left: 3px solid #7e57c2;
+            }
+
+            .report-format {
+                background-color: #5d4037;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+                border-left: 3px solid #8d6e63;
+            }
+
+            ul,
+            ol {
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            strong {
+                color: #4fc3f7;
+            }
+
+            p {
+                margin-bottom: 15px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Management of Sporting Events</h1>
+
+            <h2>1. Meaning and Importance of Tournament</h2>
+
+            <div class="definition">
+                <h3>Tournament ka matlab kya hota hai?</h3>
+                <p>Tournament ek organized competition hoti hai jisme multiple participants ya teams ek structured
+                    format mein apne skills ka pradarshan karti hain aur winner ka faisla matches ke through hota hai.
+                    Har tournament ke kuch fixed rules aur regulations hote hain jo sab participants ko follow karne
+                    hote hain.</p>
+            </div>
+
+            <div class="importance">
+                <h3>Tournament kyun zaroori hote hain?</h3>
+                <ul>
+                    <li><strong>Skill Development:</strong> Players ko apne skills improve karne ka mauka milta hai</li>
+                    <li><strong>Exposure:</strong> Different playing styles aur strategies dekhne ko milti hain</li>
+                    <li><strong>Healthy Competition:</strong> Competitive spirit develop hota hai</li>
+                    <li><strong>Talent Identification:</strong> New talents ko recognize karne ka platform milta hai
+                    </li>
+                    <li><strong>Physical Fitness:</strong> Regular practice aur matches fitness maintain karne mein help
+                        karte hain</li>
+                    <li><strong>Sportsmanship:</strong> Teamwork, discipline aur fair play seekhne ko milta hai</li>
+                </ul>
+            </div>
+
+            <h2>2. Types of Tournaments</h2>
+
+            <h3>Knock-Out Tournament (Ek baar haar jao toh bahar)</h3>
+            <p>Is format mein ek baar haarne wali team immediately tournament se bahar ho jati hai. Yeh format
+                time-saving hota hai aur jyada exciting bhi kyunki har match do-or-die situation hoti hai.</p>
+
+            <div class="example">
+                <p><strong>Example:</strong> FIFA World Cup knockout stages, Wimbledon Tennis Championship</p>
+            </div>
+
+            <h3>League or Round Robin Tournament (Har team sabke against khelti hai)</h3>
+            <p>Is format mein har team tournament mein shamil sabhi dusri teams ke against khelti hai. Points system ke
+                through winner ka faisla hota hai. Yeh format sabse fair mana jata hai kyunki har team ko equal
+                opportunities milti hain.</p>
+
+            <div class="example">
+                <p><strong>Example:</strong> IPL (Indian Premier League), English Premier League</p>
+            </div>
+
+            <h3>Combination Tournament (Jaise knock-out + league)</h3>
+            <p>Is format mein dono league aur knock-out formats ko combine kiya jata hai. Pehle group stage hota hai
+                (league format) jisme har team apne group ki dusri teams ke against khelti hai, phir top teams knock-out
+                stage mein pahunchti hain.</p>
+
+            <div class="example">
+                <p><strong>Example:</strong> FIFA World Cup (group stage + knockout), Cricket World Cup</p>
+            </div>
+
+            <h3>Challenge Tournament (Jaise kisi ne challenge diya — winner stays, loser out)</h3>
+            <p>Is format mein ek champion hota hai jise dusri teams challenge karti hain. Agar challenger jeet jaye toh
+                woh naya champion ban jata hai. Yeh format boxing aur wrestling mein common hai.</p>
+
+            <div class="example">
+                <p><strong>Example:</strong> Professional boxing championships, WWE wrestling matches</p>
+            </div>
+
+            <h2>3. Procedure to Draw Fixtures</h2>
+
+            <h3>Knock-out fixture kaise banate hain?</h3>
+            <p>Knock-out tournament ke fixtures banane ke liye:</p>
+            <ol>
+                <li>Total number of teams (N) count karein</li>
+                <li>Next higher power of two of N find karein (like 4, 8, 16, 32 etc.)</li>
+                <li>Number of byes = (Next power of two - N)</li>
+                <li>Byes ko upper half aur lower half mein distribute karein</li>
+                <li>Teams ko randomly place karein ya seeding ke according</li>
+            </ol>
+
+            <div class="example">
+                <h4>Example: 6 Teams ke liye Knock-out Fixture</h4>
+                <p>Next power of two = 8 (since 6 ke baad 8 aata hai)</p>
+                <p>Number of byes = 8 - 6 = 2</p>
+                <p>Byes distribution: 1 upper half, 1 lower half</p>
+
+                <table>
+                    <tr>
+                        <th>Round 1</th>
+                        <th>Quarter Finals</th>
+                        <th>Semi Finals</th>
+                        <th>Final</th>
+                    </tr>
+                    <tr>
+                        <td>Team 1 vs Team 2</td>
+                        <td rowspan="2">Winner 1 vs Winner 2</td>
+                        <td rowspan="4">Winner QF1 vs Winner QF2</td>
+                        <td rowspan="8">Winner SF1 vs Winner SF2</td>
+                    </tr>
+                    <tr>
+                        <td>Team 3 vs Team 4</td>
+                    </tr>
+                    <tr>
+                        <td>Team 5 (Bye)</td>
+                        <td>Team 5 vs Winner 3</td>
+                    </tr>
+                    <tr>
+                        <td>Team 6 (Bye)</td>
+                        <td>Team 6 vs Winner 4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>League fixture (seeding & bye dena)</h3>
+            <p>League tournament mein fixtures banane ke liye cyclic method use kiya jata hai:</p>
+            <ol>
+                <li>Teams ko numbering karein (1 se N tak)</li>
+                <li>Ek fixed team (usually last number wali) ko center mein rakhein</li>
+                <li>Baki teams ko clockwise rotate karte hue fixtures banayein</li>
+                <li>Har round ke baad positions change karein except fixed team</li>
+            </ol>
+
+            <div class="example">
+                <h4>Example: 4 Teams ke liye League Fixture</h4>
+                <table>
+                    <tr>
+                        <th>Round 1</th>
+                        <th>Round 2</th>
+                        <th>Round 3</th>
+                    </tr>
+                    <tr>
+                        <td>1 vs 4</td>
+                        <td>1 vs 3</td>
+                        <td>1 vs 2</td>
+                    </tr>
+                    <tr>
+                        <td>2 vs 3</td>
+                        <td>4 vs 2</td>
+                        <td>3 vs 4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>4. Intramural and Extramural Tournaments</h2>
+
+            <h3>Intramural – School ke andar hi (class vs class)</h3>
+            <p>Intramural tournaments woh hote hain jo school/college ke boundary ke andar hi organize kiye jate hain.
+                Isme different classes ya houses ke beech competition hota hai. Yeh mainly students ke liye recreational
+                purpose se organize kiye jate hain.</p>
+
+            <div class="example">
+                <p><strong>Example:</strong> Inter-class cricket tournament, Annual sports day competitions</p>
+            </div>
+
+            <h3>Extramural – School ke bahar wale events (inter-school)</h3>
+            <p>Extramural tournaments mein different schools/colleges ki teams participate karti hain. Yeh tournaments
+                usually higher level ke hote hain aur inme competition bhi jyada intense hota hai.</p>
+
+            <div class="example">
+                <p><strong>Example:</strong> CBSE Cluster tournaments, State level school competitions</p>
+            </div>
+
+            <h2>5. Objectives of Intramural and Extramural</h2>
+
+            <h3>Intramural ke Objectives:</h3>
+            <ul>
+                <li>Maximum students ko participate karne ka mauka dena</li>
+                <li>School ke andar healthy competition promote karna</li>
+                <li>Physical fitness ko encourage karna</li>
+                <li>Team spirit aur sportsmanship develop karna</li>
+                <li>Hidden talents ko identify karna</li>
+            </ul>
+
+            <h3>Extramural ke Objectives:</h3>
+            <ul>
+                <li>Different schools ke beech healthy rivalry create karna</li>
+                <li>Students ko higher level competition ka experience dilana</li>
+                <li>School ka reputation sports mein improve karna</li>
+                <li>State/national level players ko identify karna</li>
+                <li>Cultural exchange aur social interaction ka mauka dena</li>
+            </ul>
+
+            <h2>6. Tournament Committees and Their Responsibilities</h2>
+
+            <div class="committee">
+                <h3>Organising Committee – Pura event ka plan</h3>
+                <ul>
+                    <li>Tournament ki overall planning karna</li>
+                    <li>Budget prepare karna</li>
+                    <li>Different sub-committees ko form karna</li>
+                    <li>Schedule final karna</li>
+                    <li>All approvals lena</li>
+                </ul>
+            </div>
+
+            <div class="committee">
+                <h3>Technical Committee – Rules & fixtures</h3>
+                <ul>
+                    <li>Game ke rules aur regulations decide karna</li>
+                    <li>Fixtures prepare karna</li>
+                    <li>Referees aur umpires ko appoint karna</li>
+                    <li>Technical disputes solve karna</li>
+                    <li>Results declare karna</li>
+                </ul>
+            </div>
+
+            <div class="committee">
+                <h3>Discipline Committee – Shanti banaye rakhna</h3>
+                <ul>
+                    <li>Players, officials aur spectators ka discipline maintain karna</li>
+                    <li>Code of conduct enforce karna</li>
+                    <li>Misbehavior cases handle karna</li>
+                    <li>Crowd control ensure karna</li>
+                </ul>
+            </div>
+
+            <div class="committee">
+                <h3>Reception Committee – Guests ka welcome</h3>
+                <ul>
+                    <li>Chief guests aur VIPs ko invite karna</li>
+                    <li>Participants ka welcome karna</li>
+                    <li>Accommodation arrange karna (if needed)</li>
+                    <li>Transport facilities manage karna</li>
+                </ul>
+            </div>
+
+            <div class="committee">
+                <h3>First Aid Committee – Emergency mein help</h3>
+                <ul>
+                    <li>Medical team arrange karna</li>
+                    <li>First aid kits available rakhna</li>
+                    <li>Emergency services ka coordination karna</li>
+                    <li>Ambulance facility arrange karna</li>
+                </ul>
+            </div>
+
+            <h2>7. Writing a Sports Event Report</h2>
+
+            <div class="report-format">
+                <h3>Ek sports event ke baad report kaise likhte hain</h3>
+                <p>Sports event report likhne ka format:</p>
+
+                <p><strong>Heading:</strong> Event ka naam (Bold aur center aligned)</p>
+
+                <p><strong>Introduction:</strong></p>
+                <ul>
+                    <li>Event ka naam, date aur venue</li>
+                    <li>Organizing body ka naam</li>
+                    <li>Event ka purpose/motive</li>
+                </ul>
+
+                <p><strong>Main Body:</strong></p>
+                <ul>
+                    <li>Participating teams/individuals ke naam</li>
+                    <li>Chief guest/Special invitees ke naam</li>
+                    <li>Event ka brief description (opening ceremony, matches etc.)</li>
+                    <li>Important moments/highlights</li>
+                    <li>Final results aur winners ke naam</li>
+                </ul>
+
+                <p><strong>Conclusion:</strong></p>
+                <ul>
+                    <li>Prize distribution ceremony ka description</li>
+                    <li>Chief guest ke speech ka summary</li>
+                    <li>Event ka overall success/failure</li>
+                    <li>Thanks-giving note</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>Example Report:</h4>
+                <p><strong>Annual Inter-School Cricket Tournament 2023</strong></p>
+                <p>The Annual Inter-School Cricket Tournament was organized by XYZ Sports Association on 15th-20th
+                    November 2023 at ABC Sports Complex. The tournament aimed to promote cricket among school students
+                    and identify young talents.</p>
+                <p>Eight schools participated in the week-long tournament conducted in league-cum-knockout format. The
+                    opening ceremony was graced by Mr. Rahul Sharma, former Ranji Trophy player. After intense matches,
+                    the final was played between Modern School and Delhi Public School.</p>
+                <p>Modern School won the tournament by 35 runs in a thrilling final match. Rohit Verma of Modern School
+                    was declared Player of the Tournament for scoring 215 runs and taking 8 wickets. The prize
+                    distribution ceremony was attended by District Sports Officer Mrs. Priya Singh who congratulated all
+                    participants.</p>
+                <p>The tournament was a grand success with excellent sportsmanship displayed by all teams. The
+                    organizing committee thanked all participants, officials and sponsors for making the event
+                    memorable.</p>
+            </div>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="Back()">BACK</button>
+        </div>
+    </body>
+    <script>
+        function Back() {
+            window.history.back();
+        }
+    </script>
+
+</html>

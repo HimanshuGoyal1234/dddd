@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exam Header</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            :root {
+                --light-bg: #f4f4f4;
+                --light-text: #222;
+                --dark-bg: #121212;
+                --dark-text: #f1f1f1;
+            }
+
+            body {
+                background-color: white;
+                color: black;
+                font-family: Arial, sans-serif;
+                font-size: 1.3rem;
+            }
+
+            header {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .exam-info {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 40px;
+                margin-top: -35px;
+            }
+
+            .re {
+                border: 1px solid black;
+                margin: 20px;
+            }
+
+            .instructions {
+                margin-left: 40px;
+            }
+
+            .instructions-title {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .__center__ {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                text-decoration: underline;
+                margin: 20px 0;
+            }
+
+            .questions {
+                margin-left: 40px;
+            }
+
+            .options {
+                list-style-type: lower-alpha;
+                margin-left: 20px;
+            }
+
+            li {
+                padding: 3px;
+            }
+
+            .dark-mode {
+                background-color: var(--dark-bg);
+                color: var(--dark-text);
+            }
+
+            .toggle-btn {
+                background: none;
+                border: 0px;
+                border-radius: 50px;
+                padding: 10px 25px;
+                cursor: pointer;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: inherit;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .toggle-btn:hover {
+                border-color: #666;
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            .icon {
+                font-size: 24px;
+                display: inline-block;
+                transition: transform 0.6s ease, opacity 0.6s ease;
+                position: absolute;
+                left: 10px;
+            }
+
+            .sun {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            .moon {
+                opacity: 0;
+                transform: rotate(180deg);
+            }
+
+            .dark-mode .sun {
+                opacity: 0;
+                transform: rotate(180deg);
+            }
+
+            .dark-mode .moon {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            h1 {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+
+            .text-label {
+                padding-left: 35px;
+            }
+
+            /* folder */
+            #readds {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="progressContainer"
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: #ccc;">
+            <div id="progressBar" style="height: 3px; width: 0%; background: #000;"></div>
+        </div>
+        <button class="toggle-btn" onclick="toggleMode()">
+            <span class="icon sun">🌞</span>
+            <span class="icon moon">🌙</span>
+            &nbsp;
+        </button>
+        <header>
+            <h1>ANNUAL - TERM EXAMINATION (2024-25)</h1>
+            <h2>CLASS - XI</h2>
+            <h2>SUBJECT - CHEMISTRY</h2>
+            <div class="exam-info">
+                <p><strong>MM:</strong> 70</p>
+                <p><strong>Time:</strong> 3 Hours</p>
+            </div>
+        </header>
+
+        <div class="re"></div>
+
+        <div class="instructions">
+            <div class="instructions-title">General Instructions:</div>
+            <ol>
+                <li>There are 33 questions in this question paper with internal choice.</li>
+                <li>SECTION A consists of 16 multiple-choice questions carrying 1 mark each.</li>
+                <li>SECTION B consists of 5 short answer questions carrying 2 marks each.</li>
+                <li>SECTION C consists of 7 short answer questions carrying 3 marks each.</li>
+                <li>SECTION D consists of 2 case-based questions carrying 4 marks each.</li>
+                <li>SECTION E consists of 3 long answer questions carrying 5 marks each.</li>
+                <li>All questions are compulsory.</li>
+                <li>Use of log tables and calculators is not allowed.</li>
+            </ol>
+        </div>
+
+        <div class="__center__">SECTION - A</div>
+
+        <ol class="questions">
+            <li>
+                The number of atoms present in one mole of an element is equal to Avogadro’s number. Which of the
+                following elements contains the greatest number of atoms?
+                <ul class="options">
+                    <li>4 g He</li>
+                    <li>46 g Na</li>
+                    <li>0.40 g Ca</li>
+                    <li>12 g He</li>
+                </ul>
+            </li>
+            <li>
+                The quantum number which determines the size and energy of the orbital is:
+                <ul class="options">
+                    <li>Azimuthal quantum number</li>
+                    <li>Spin orbital quantum number</li>
+                    <li>Principal quantum number</li>
+                    <li>Magnetic orbital quantum number</li>
+                </ul>
+            </li>
+            <li>
+                Which of the following statements is not correct about the characteristics of cathode rays?
+                <ul class="options">
+                    <li>They start from the cathode and move towards the anode.</li>
+                    <li>They travel in straight lines in the absence of an external electrical or magnetic field.</li>
+                    <li>Characteristics of cathode rays do not depend upon the material of electrodes in the cathode ray
+                        tube.</li>
+                    <li>Characteristics of cathode rays depend upon the nature of gas present in the cathode ray tube.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The electronic configuration of dysprosium (atomic number 66) is:
+                <ul class="options">
+                    <li>[Xe]4f<sup>14</sup>4d<sup>9</sup>6s<sup>2</sup></li>
+                    <li>[Xe]4f<sup>10</sup>5d<sup>4</sup>6s<sup>2</sup></li>
+                    <li>[Xe]6s<sup>2</sup>4f<sup>14</sup></li>
+                    <li>[Xe]4f<sup>10</sup>6s<sup>2</sup></li>
+                </ul>
+            </li>
+            <li>
+                Thermodynamics is not concerned about:
+                <ul class="options">
+                    <li>energy changes involved in a chemical reaction.</li>
+                    <li>the extent to which a chemical reaction proceeds.</li>
+                    <li>the rate at which a reaction proceeds.</li>
+                    <li>the feasibility of a chemical reaction.</li>
+                </ul>
+            </li>
+            <li>
+                Which of the following statements is correct?
+                <ul class="options">
+                    <li>The presence of reacting species in a covered beaker is an example of an open system.</li>
+                    <li>There is an exchange of energy as well as matter between the system and the surroundings in a
+                        closed system.</li>
+                    <li>The presence of reactants in a closed vessel made up of copper is an example of a closed system.
+                    </li>
+                    <li>The presence of reactants in a thermos flask or any other closed insulated vessel is an example
+                        of a closed system.</li>
+                </ul>
+            </li>
+            <li>
+                During complete combustion of one mole of butane, 2658 kJ of heat is released. The thermochemical
+                reaction for the above change is:
+                <ul class="options">
+                    <li>C<sub>4</sub>H<sub>10</sub>(g) + 13O<sub>2</sub>(g) → 8CO<sub>2</sub>(g) + 10H<sub>2</sub>O(l);
+                        ΔH = −2658.0 kJ mol<sup>−1</sup></li>
+                    <li>C<sub>4</sub>H<sub>10</sub>(g) + 13O<sub>2</sub>(g) → 4CO<sub>2</sub>(g) + 5H<sub>2</sub>O(g);
+                        ΔH = −1329.0 kJ mol<sup>−1</sup></li>
+                    <li>C<sub>4</sub>H<sub>10</sub>(g) + 13O<sub>2</sub>(g) → 5H<sub>2</sub>O(l); ΔH = −2658.0 kJ
+                        mol<sup>−1</sup></li>
+                    <li>C<sub>4</sub>H<sub>10</sub>(g) + 13O<sub>2</sub>(g) → 4CO<sub>2</sub>(g) + 5H<sub>2</sub>O(l);
+                        ΔH = +2658.0 kJ mol<sup>−1</sup></li>
+                </ul>
+            </li>
+            <li>
+                The volume of gas is reduced to half from its original volume. The specific heat will be:
+                <ul class="options">
+                    <li>reduced to half</li>
+                    <li>be doubled</li>
+                    <li>remain constant</li>
+                    <li>increase four times</li>
+                </ul>
+            </li>
+            <li>
+                Which of the following is not an example of a redox reaction?
+                <ul class="options">
+                    <li>CuO + H<sub>2</sub> → Cu + H<sub>2</sub>O</li>
+                    <li>2K + F<sub>2</sub> → 2KF</li>
+                    <li>Fe<sub>2</sub>O<sub>3</sub> + 3CO → 2Fe + 3CO<sub>2</sub></li>
+                    <li>PbCl<sub>2</sub> + H<sub>2</sub>SO<sub>4</sub> → PbSO<sub>4</sub> + 2HCl</li>
+                </ul>
+            </li>
+            <li>
+                E° values of some redox couples are given below. On the basis of these values, choose the correct
+                option.
+                E° values:
+                Br<sub>2</sub>/Br<sup>−</sup> = +1.90
+                <br>
+                Ag<sup>+</sup>/Ag(s) = +0.80
+                <br>
+                Cu <sup>2+/Cu(s) = + 0.34</sup>
+                <br>
+                I<sub>2</sub>I<sub>-</sub> = + 0.54
+                <ul class="options">
+                    <br>
+                    (A) Cu will reduce br<sup>-</sup>
+                    <br>
+                    (B) Cu will reduce Ag
+                    <br>
+                    (C) Cu will reduce I<sup>-</sup>
+                    <br>
+                    (D) Cu will reduce Br<sub>2</sub>
+                </ul>
+            </li>
+            <li>
+                Thiosulphate reacts differently with iodine and bromine in the reactions given below:
+                <br> 2S<sub>2</sub>O<sub>3</sub><sup>2−</sup> + I<sub>2</sub> → S<sub>4</sub>O<sub>6</sub><sup>2−</sup>
+                + 2I<sup>−</sup>
+                <br> S<sub>2</sub>O<sub>3</sub><sup>2−</sup> + Br<sub>2</sub> + 5H<sub>2</sub>O →
+                2SO<sub>4</sub><sup>2−</sup> + 2Br<sup>−</sup> + 10H<sup>+</sup>
+                <br>Which of the following statements justifies the above dual behaviour of thiosulphate?
+                <ul class="options">
+                    <li>Iodine is a stronger oxidant than bromine.</li>
+                    <li>Bromine is a weaker oxidant than iodine.</li>
+                    <li>Thiosulphate undergoes oxidation by bromine and reduction by iodine in these reactions.</li>
+                    <li>Bromine undergoes oxidation and iodine undergoes reduction in these reactions.</li>
+                </ul>
+            </li>
+            <li> The addition of HCl to an alkene proceeds in two steps. The first step is the attack of H<sup>−</sup>
+                ion to &gt;C=C&lt; portion which can be shown as:
+                <ul class="options">
+                    <li> <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="266.000000pt" height="87.000000pt"
+                            viewBox="0 0 266.000000 87.000000" preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,87.000000) scale(0.100000,-0.100000)" fill="#000000"
+                                stroke="none">
+                                <path
+                                    d="M1805 660 c-4 -6 -4 -18 -1 -28 3 -9 1 -24 -4 -32 -8 -12 -13 -13 -27 -2 -89 63 -134 68 -198 24 -74 -51 -104 -127 -74 -184 14 -26 -2 -38 -48 -38 -24 0 -33 -5 -33 -16 0 -14 7 -16 48 -9 26 4 80 8 119 8 90 2 102 21 16 25 -59 3 -62 4 -72 34 -13 38 -5 73 26 116 49 65 112 78 178 36 37 -24 33 -26 -25 -8 -16 5 -20 2 -20 -15 0 -11 6 -21 13 -21 7 0 32 -9 56 -21 59 -28 77 -23 73 21 -1 19 2 49 7 66 7 25 5 33 -10 42 -12 7 -20 8 -24 2z" />
+                                <path
+                                    d="M2138 617 c-104 -81 -152 -115 -171 -123 -21 -8 -22 -23 -2 -30 8 -3 27 4 42 15 16 12 74 55 131 97 92 66 116 95 79 94 -7 -1 -42 -24 -79 -53z" />
+                                <path
+                                    d="M887 581 c-15 -5 6 -22 95 -75 62 -38 121 -76 131 -84 23 -21 47 -1 27 23 -7 8 -16 15 -20 15 -10 0 -169 97 -191 116 -17 16 -17 15 -42 5z" />
+                                <path
+                                    d="M452 461 c-4 -12 -11 -22 -15 -22 -36 4 -37 -16 -2 -25 14 -3 23 -10 20 -14 -3 -4 2 -10 10 -14 9 -3 15 0 15 10 0 8 8 18 18 22 15 6 14 10 -10 36 l-27 30 -9 -23z" />
+                                <path
+                                    d="M1810 462 c-30 -15 -36 -24 -44 -65 -7 -42 -6 -53 11 -75 25 -34 60 -47 104 -38 46 9 67 22 53 36 -7 7 -20 6 -42 -2 -27 -11 -37 -10 -59 2 -77 43 -16 162 62 120 20 -11 28 -11 38 -1 9 10 8 15 -7 27 -26 19 -73 17 -116 -4z" />
+                                <path
+                                    d="M551 452 c-6 -2 -11 -10 -11 -18 0 -12 12 -15 58 -13 56 3 109 -15 192 -65 52 -32 97 -45 157 -48 67 -3 78 -12 38 -30 -25 -11 -33 -32 -15 -43 5 -3 29 10 54 29 25 19 55 37 66 41 25 8 22 24 -6 39 -10 6 -35 21 -55 33 -40 26 -64 29 -72 10 -3 -9 9 -20 34 -31 51 -23 52 -41 2 -31 -21 4 -56 10 -78 14 -22 4 -65 20 -95 36 -30 15 -73 38 -95 49 -36 19 -148 37 -174 28z" />
+                                <path
+                                    d="M1226 418 c-32 -26 -36 -34 -36 -76 1 -71 17 -85 97 -86 54 -1 68 2 71 15 2 13 -6 15 -50 11 -63 -5 -79 8 -82 64 -1 29 4 40 28 57 25 18 32 19 62 8 33 -12 54 -9 54 9 0 11 -34 22 -76 26 -23 1 -42 -6 -68 -28z" />
+                                <path
+                                    d="M198 382 c-26 -3 -41 -22 -17 -22 5 0 8 -4 4 -9 -3 -5 -1 -12 5 -16 15 -9 12 -78 -5 -101 -23 -30 -18 -44 14 -44 33 0 49 16 32 33 -6 6 -11 21 -11 33 0 19 6 22 45 26 25 2 50 -1 54 -5 10 -10 2 -47 -10 -47 -5 0 -9 -7 -9 -15 0 -11 11 -15 40 -15 36 0 55 13 30 22 -14 4 -15 127 -1 141 19 19 12 25 -25 25 -32 0 -35 -2 -29 -21 12 -42 10 -50 -20 -59 -42 -12 -75 -2 -75 22 0 11 4 20 9 20 14 0 21 28 8 32 -7 2 -24 2 -39 0z" />
+                                <path
+                                    d="M1443 343 c-13 -2 -23 -10 -23 -17 0 -19 229 -9 250 10 12 12 -2 14 -95 13 -61 -1 -120 -4 -132 -6z" />
+                                <path
+                                    d="M1950 300 c0 -5 18 -21 40 -35 22 -14 82 -52 132 -85 50 -33 95 -60 100 -60 21 0 6 41 -19 51 -15 5 -49 26 -75 45 -26 18 -52 34 -56 34 -5 0 -26 13 -48 30 -39 29 -74 39 -74 20z" />
+                                <path
+                                    d="M1097 246 c-7 -8 -58 -45 -113 -82 -96 -66 -114 -81 -114 -96 0 -25 62 10 147 81 13 11 26 21 31 23 30 12 101 65 102 76 0 16 -35 15 -53 -2z" />
+                            </g>
+                        </svg></li>
+                    <li> <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300.000000pt" height="96.000000pt"
+                            viewBox="0 0 300.000000 96.000000" preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)" fill="#000000"
+                                stroke="none">
+                                <path
+                                    d="M682 644 c-61 -42 -142 -319 -89 -301 7 2 15 35 19 73 12 110 67 214 113 214 24 0 85 -52 85 -74 0 -13 -4 -13 -29 2 -35 20 -53 9 -25 -16 39 -35 95 -74 101 -69 5 6 21 63 30 110 4 20 1 27 -10 27 -8 0 -17 -13 -20 -30 -8 -39 -23 -38 -37 3 -19 58 -95 92 -138 61z" />
+                                <path
+                                    d="M1758 654 c-5 -4 -8 -18 -8 -31 0 -16 -6 -23 -20 -23 -11 0 -20 -4 -20 -10 0 -5 9 -10 20 -10 11 0 21 -4 21 -10 1 -5 2 -15 3 -22 2 -25 26 -19 26 6 0 19 5 26 20 26 11 0 20 7 20 15 0 8 -8 15 -18 15 -10 0 -22 11 -28 26 -5 14 -12 23 -16 18z" />
+                                <path
+                                    d="M2723 582 c-18 -2 -37 -11 -42 -20 -8 -15 -4 -17 34 -14 25 2 46 10 49 18 7 17 -1 20 -41 16z" />
+                                <path
+                                    d="M2453 517 c-2 -4 1 -15 7 -23 9 -9 11 -36 8 -79 l-6 -65 40 0 c28 0 46 7 63 25 26 25 34 65 14 65 -7 0 -9 11 -6 27 9 48 -7 63 -64 61 -28 -1 -53 -6 -56 -11z m84 -22 c3 -9 -2 -22 -12 -29 -17 -12 -17 -13 4 -19 25 -6 29 -48 5 -68 -13 -10 -17 -10 -25 2 -10 16 -12 112 -2 122 11 12 23 8 30 -8z" />
+                                <path
+                                    d="M1868 493 c-25 -4 -26 -5 -12 -31 18 -35 18 -103 -1 -128 -10 -13 -14 -15 -15 -5 0 10 -10 12 -38 7 -54 -8 -82 13 -82 63 0 59 42 83 85 49 l27 -21 -4 29 c-3 26 -7 29 -44 32 -33 2 -48 -2 -73 -24 -29 -24 -32 -31 -29 -72 3 -40 8 -49 38 -70 22 -15 43 -21 60 -17 14 3 51 6 83 7 31 1 57 4 57 5 0 2 -7 15 -16 28 -25 39 -12 57 38 53 45 -3 49 -9 34 -55 -6 -19 -4 -23 13 -23 39 0 52 10 40 32 -6 11 -9 48 -7 81 3 61 3 62 -24 65 -26 3 -27 1 -25 -34 2 -38 2 -38 -40 -41 -40 -4 -43 -2 -43 22 0 14 7 28 15 31 14 6 11 26 -3 23 -4 -1 -19 -4 -34 -6z" />
+                                <path
+                                    d="M2276 490 c-3 -8 -6 -24 -8 -34 -2 -13 -15 -23 -36 -28 -43 -11 -41 -28 3 -28 32 0 35 -2 35 -30 0 -20 5 -30 15 -30 10 0 15 11 15 35 0 31 3 35 25 35 14 0 25 6 25 14 0 9 -8 12 -25 8 -21 -4 -25 0 -25 19 0 13 -4 31 -10 39 -8 13 -10 13 -14 0z" />
+                                <path
+                                    d="M2667 483 c-4 -3 -17 -6 -29 -7 -21 -1 -24 -7 -28 -58 -5 -55 -4 -58 17 -58 27 0 38 16 23 35 -16 19 -3 55 21 55 10 0 19 6 19 14 0 17 -14 28 -23 19z" />
+                                <path
+                                    d="M1450 424 c0 -8 12 -19 28 -25 38 -13 42 -61 6 -77 -21 -10 -35 -42 -18 -42 9 0 134 84 134 90 0 8 -123 70 -137 70 -7 0 -13 -7 -13 -16z" />
+                                <path
+                                    d="M755 421 c-25 -5 -27 -8 -14 -16 19 -12 35 -120 19 -130 -18 -11 0 -25 34 -25 56 0 105 62 72 89 -12 10 -13 19 -5 39 17 45 -24 61 -106 43z m75 -41 c0 -13 -7 -20 -20 -20 -13 0 -20 7 -20 20 0 13 7 20 20 20 13 0 20 -7 20 -20z m10 -69 c0 -26 -21 -43 -37 -30 -16 14 -17 41 -1 57 14 14 38 -2 38 -27z" />
+                                <path
+                                    d="M125 386 c-17 -7 -36 -20 -44 -29 -19 -24 -16 -95 5 -118 23 -26 73 -38 104 -26 14 5 44 9 68 8 39 -2 55 10 32 24 -5 3 -10 20 -10 36 0 29 1 30 43 27 l42 -3 -3 -44 c-3 -37 -1 -43 13 -37 9 3 23 6 31 6 12 0 12 4 4 21 -7 11 -10 50 -8 85 3 64 3 64 -24 64 -29 0 -37 -17 -17 -37 18 -18 0 -33 -41 -33 -45 0 -57 12 -34 35 24 23 6 37 -34 26 -20 -6 -45 -6 -64 0 -18 5 -33 9 -33 9 0 -1 -14 -7 -30 -14z m123 -83 l3 -61 -68 1 -68 2 -9 38 c-14 57 0 72 63 71 28 -1 51 3 51 8 0 5 6 8 13 6 7 -3 13 -28 15 -65z" />
+                                <path
+                                    d="M923 378 c-29 -8 -31 -11 -23 -33 5 -14 7 -38 4 -54 -5 -24 -3 -29 20 -33 30 -6 40 0 27 16 -5 6 -11 25 -13 41 -3 26 0 30 20 28 13 -2 22 3 22 11 0 24 -23 34 -57 24z" />
+                                <path
+                                    d="M2057 383 c-13 -12 -7 -23 11 -23 14 0 18 -8 19 -35 1 -31 -2 -35 -20 -33 -11 2 -22 -2 -24 -9 -6 -17 33 -26 57 -13 18 10 20 17 14 58 -4 26 -7 48 -8 48 -7 7 -44 13 -49 7z" />
+                                <path
+                                    d="M1318 364 c-2 -1 -55 -4 -117 -6 -107 -3 -134 -9 -115 -28 5 -5 95 -3 204 5 107 8 196 15 198 15 1 0 2 5 2 10 0 9 -163 13 -172 4z" />
+                                <path d="M561 311 c-70 -6 -100 -31 -38 -31 105 0 217 14 217 26 0 15 -53 16 -179 5z" />
+                                <path
+                                    d="M430 276 c0 -9 7 -16 16 -16 11 0 14 -6 9 -20 -4 -11 -2 -20 4 -20 6 0 11 -7 11 -16 0 -10 -6 -13 -19 -9 -12 3 -21 0 -25 -10 -8 -21 47 -21 65 1 19 23 -10 98 -39 102 -15 2 -22 -2 -22 -12z" />
+                            </g>
+                        </svg> </li>
+                    <li> <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="280.000000pt" height="92.000000pt"
+                            viewBox="0 0 280.000000 92.000000" preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(-2,91.000000) scale(0.100000,-0.100000)" fill="#000000"
+                                stroke="none">
+                                <path
+                                    d="M1000 818 c-14 -6 -51 -21 -83 -35 -92 -39 -287 -178 -287 -204 0 -20 35 -7 76 30 97 85 235 163 328 185 44 11 205 9 219 -2 7 -5 27 -13 46 -17 47 -10 153 -76 230 -144 63 -55 67 -72 10 -52 -24 8 -31 7 -36 -5 -8 -21 -3 -23 64 -39 95 -23 91 -26 88 63 -3 69 -5 77 -24 80 -20 3 -21 0 -15 -60 4 -44 3 -59 -5 -48 -5 8 -8 17 -5 21 8 14 -179 169 -205 169 -4 0 -12 5 -19 12 -6 6 -42 22 -79 34 -55 19 -89 23 -173 23 -58 0 -116 -5 -130 -11z" />
+                                <path
+                                    d="M2330 733 c-17 -7 -226 -149 -252 -171 -10 -8 -15 -18 -13 -22 5 -9 47 -1 55 10 5 7 56 44 173 123 31 22 57 46 57 53 0 8 -1 14 -2 13 -2 0 -10 -3 -18 -6z" />
+                                <path
+                                    d="M985 660 c-5 -8 93 -80 109 -80 3 0 31 -18 62 -40 56 -39 94 -51 94 -30 0 6 -8 13 -17 17 -10 3 -34 18 -53 33 -19 15 -51 35 -70 46 -19 10 -50 29 -68 42 -39 24 -48 27 -57 12z" />
+                                <path
+                                    d="M550 541 c-6 -12 -20 -21 -30 -21 -11 0 -20 -4 -20 -10 0 -9 14 -14 32 -11 4 0 10 -8 13 -19 7 -23 25 -27 25 -6 0 7 10 21 23 29 19 14 20 16 4 16 -11 1 -17 7 -15 17 4 25 -19 28 -32 5z" />
+                                <path
+                                    d="M1914 530 c-56 -36 -58 -138 -3 -160 43 -18 108 -18 119 0 15 23 12 33 -7 24 -31 -14 -82 -8 -103 11 -25 23 -26 56 -1 86 16 21 28 24 76 23 46 -1 55 1 51 13 -3 8 -6 17 -6 19 0 14 -99 1 -126 -16z" />
+                                <path
+                                    d="M1385 522 c-30 -4 -101 -50 -91 -59 3 -3 1 -14 -5 -24 -11 -21 8 -76 34 -97 21 -18 96 -19 126 -2 32 16 9 31 -31 19 -63 -18 -104 23 -87 84 7 28 16 38 37 43 15 3 32 7 39 9 6 2 17 -3 23 -11 15 -17 40 -19 40 -1 -1 31 -31 45 -85 39z" />
+                                <path
+                                    d="M1617 483 c-72 -3 -97 -7 -94 -16 3 -9 40 -12 128 -12 138 0 140 0 133 18 -5 14 -18 15 -167 10z" />
+                                <path
+                                    d="M270 448 c0 -9 5 -20 10 -23 12 -7 3 -104 -11 -119 -20 -22 -9 -36 24 -29 41 8 41 7 26 31 -17 27 -5 52 25 52 13 0 31 3 40 6 21 8 33 -23 17 -48 -16 -26 -6 -38 31 -38 29 0 30 1 23 33 -13 50 -7 111 11 124 23 17 8 33 -32 33 -36 0 -39 -5 -25 -44 13 -32 -2 -44 -54 -42 -29 1 -39 5 -37 15 15 68 15 66 -17 66 -22 0 -31 -5 -31 -17z" />
+                                <path
+                                    d="M1615 421 c-72 -5 -90 -9 -93 -22 -2 -13 5 -16 45 -13 26 2 87 6 136 10 83 6 106 15 71 28 -9 3 -28 5 -42 4 -15 -1 -67 -4 -117 -7z" />
+                                <path d="M1 315 c0 -59 3 -83 9 -70 11 26 11 114 0 140 -6 13 -9 -11 -9 -70z" />
+                                <path
+                                    d="M2060 373 c0 -5 21 -23 48 -39 64 -40 71 -44 133 -85 69 -45 86 -52 93 -33 3 9 -2 17 -12 21 -17 6 -93 53 -170 104 -46 31 -92 47 -92 32z" />
+                                <path
+                                    d="M1204 322 c-98 -55 -244 -158 -244 -172 0 -17 25 -11 61 16 51 38 138 94 147 94 5 0 19 11 32 25 13 14 32 25 43 25 10 0 17 5 15 12 -7 19 -21 19 -54 0z" />
+                            </g>
+                        </svg> </li>
+                    <li>All of these are possible</li>
+                </ul>
+            </li>
+            </li>
+            <li>
+                Given below are two statements labelled as Assertion (A) and Reason (R):
+                <br><strong>Assertion (A):</strong> Isotopes of a given element show the same type of chemical
+                behaviour.
+                <br><strong>Reason (R):</strong> The chemical properties of an atom are controlled by the number of
+                electrons in the atom.
+                <br>Select the most appropriate answer from the options given below:
+                <ul class="options">
+                    <li>Both A and R are true and R is the correct explanation of A.</li>
+                    <li>Both A and R are true but R is not the correct explanation of A.</li>
+                    <li>A is true but R is false.</li>
+                    <li>A is false but R is true.</li>
+                </ul>
+            </li>
+            <li>
+                Given below are two statements labelled as Assertion (A) and Reason (R):
+                <br><strong>Assertion (A):</strong> Among halogens, fluorine is the best oxidant.
+                <br><strong>Reason (R):</strong> Fluorine has the most electronegative atom.
+                <br>Select the most appropriate answer from the options given below:
+                <ul class="options">
+                    <li>Both A and R are true and R is the correct explanation of A.</li>
+                    <li>Both A and R are true but R is not the correct explanation of A.</li>
+                    <li>A is true but R is false.</li>
+                    <li>A is false but R is true.</li>
+                </ul>
+            </li>
+            <li>
+                Given below are two statements labelled as Assertion (A) and Reason (R):
+                <br><strong>Assertion (A):</strong> Nitration of benzene with nitric acid requires the use of
+                concentrated sulphuric acid.
+                <br><strong>Reason (R):</strong> The mixture of concentrated sulphuric acid and concentrated nitric acid
+                produces the electrophile, NO<sub>2</sub><sup>+</sup>.
+                <br>Select the most appropriate answer from the options given below:
+                <ul class="options">
+                    <li>Both A and R are true and R is the correct explanation of A.</li>
+                    <li>Both A and R are true but R is not the correct explanation of A.</li>
+                    <li>A is true but R is false.</li>
+                    <li>A is false but R is true.</li>
+                </ul>
+            </li>
+            <li>
+                Given below are two statements labelled as Assertion (A) and Reason (R):
+                <br><strong>Assertion (A):</strong> 1-Butene on reaction with HBr in the presence of a peroxide produces
+                1-bromo-butane.
+                <br><strong>Reason (R):</strong> It involves the free radical mechanism.
+                <br>Select the most appropriate answer from the options given below:
+                <ul class="options">
+                    <li>Both A and R are true and R is the correct explanation of A.</li>
+                    <li>Both A and R are true but R is not the correct explanation of A.</li>
+                    <li>A is true but R is false.</li>
+                    <li>A is false but R is true.</li>
+                </ul>
+            </li>
+        </ol>
+        <div class="__center__">SECTION - B</div>
+
+        <ol class="questions" start="17">
+            <li>
+                Calculate the number of moles in the following masses:
+                <ul class="options">
+                    <li>(a) 7.85 g of Fe</li>
+                    <li>(b) 7.9 mg of Ca</li>
+                </ul>
+            </li>
+            <li>
+                The combination of atoms to form molecules is based on the octet rule.
+                <br>Give two limitations of this rule.
+            </li>
+            <li>
+                Two elements, X and Y, have atomic numbers 36 and 58 respectively, on the basis of electronic
+                configuration, predict the following:
+                <ul class="options">
+                    <li>
+                        The group, period, and block to which each element belongs.
+                    </li>
+                    <li>Are they representative elements?</li>
+                </ul>
+            </li>
+            <li>
+                <ul class="options">
+                    <div id="readds">
+                        <li id="redssa">What does the following diagram indicate?</li>
+                        <li id="redssa">What is it used for?</li>
+                        Show that for an isothermal expansion of an ideal gas:
+                        <br>(i) ΔU = 0<br>(ii) ΔH = 0
+                        <div id="redsasdsd"><img src="32779339945_698c77e800_o.png" alt=""></div>
+                    </div>
+                </ul>
+            </li>
+            <li>
+                <ul class="options">
+                    <li>what is the mesomeric effect?</li>
+                    <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                    <li>Explain the position mesomeric effect with the help of the aniline example.</li>
+                    <br>
+                    <div>Here is the complete solution to your questions, formatted and ready for print, The questions
+                        are prganized with their respective parts:</div>
+                </ul>
+            </li>
+        </ol>
+        <div class="__center__">SECTION - B</div>
+        <ol class="questions" start="22">
+            <li>
+                Two particles A and B have wavelength 1Å = 5×10⁻¹⁰ m × 10⁻¹⁰ m and 1B = 10×10⁻¹⁰ m.
+                <ul class="options">
+                    <li>Find the frequency, wave number, and energies for particle A.</li>
+                    <li>Determine the frequency, wave number, and energies for particle B.</li>
+                    <li> Which has more penetrating power and why?</li>
+                </ul>
+            </li>
+            <li>
+                (a) Using the VSEPR theory, identify the type of hybridization and draw the structure of OF₃. What are
+                the oxidation states of O and F?
+                <br>
+                (b) MgCl₂ is linear, but SnCl₂ is angular. Why?
+            </li>
+            <li>
+                In the following pairs, which species has a larger size? Explain.
+                (a) K or K⁺
+                <br>
+                (b) Br or Br⁻
+            </li>
+            <li>20 g of CaCO₃ and 20 g of H₂SO₄ react to give CaSO₄ along with water and CO₂.
+                <br>
+                (a) How much CaSO₄ will be formed?
+                <br>(b) If 1 mole of gas occupies 22.4 L at STP then calculate the volume of CO₂ evolved in the above
+                reaction.<br>
+                above reaction.
+                <br>
+                [Ca = 40, C = 12, O = 16, H = 1, S = 32]
+            </li>
+            <li>
+                <ul class="options">
+                    (a) The solubility of silver chloride (AgCl) in water at 25°C is 1.08×10⁻⁵ mol L⁻¹. Calculate the
+                    solubility product of AgCl at this temperature.
+                    <br>
+                    (b) The molar solubility of lead iodate is 4.0×10⁻⁵ mol/L at 25°C. Calculate the solubility product
+                    of lead iodate at this temperature.
+                    <br>
+                    (c) Write the Ksp expression for Al(OH)₃.
+                    <br>
+                </ul>
+            </li>
+            <li>Write the resonating structures of SO₃, NO₃, and Ozone.</li>
+            <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+            Calculate the oxidation number of phosphorus in the following species:
+            <br>
+            (a) H₄P₂O₇
+            <br>
+            (b) PO₄³⁻
+            <br>
+            <li>
+                Draw the Newman’s projection of the ethane molecule. Rotation around carbon-carbon single bonds in
+                ethane is not completely free. Justify the statement.</li>
+        </ol>
+        <div class="__center__">SECTION - D</div>
+        <ol class="questions" start="29">
+            <li>
+                Read the following passage and answer the following questions:
+                <br><br>
+                James Maxwell (1870) suggested that when electrically charged particle moves under acceleration,
+                alternating electrical and magnetic fields are produced and transmitted. These fields are transmitted in
+                the form of waves called electromagnetic waves or electromagnetic radiation. These waves do not require
+                any medium for their propagat ion and can move in vacuum. The increasing order of wavelength of these
+                radiations is given as below:
+                Cosmic rays < γ - rays < X - rays < Ultraviolet light < Visible light < Infrared rays < Micro waves <
+                    Radio waves. <br>
+                    <br>
+                    (a) What is the relation between wavelength, wave number, frequency and velocity?
+                    <br>
+                    (b) The three dimensional structure of any orbital is given by which Quantum number?
+                    <br>
+                    (c) The radio 93.5 FM, broadcasts on a frequency of 1,370 kHz (kilo hertz). What will be the
+                    wavelength of the radiation?
+                    <br>
+            </li>
+            <li>
+                Read the following passage and answer the following questions:
+                <br><br>
+                Chemical synthesis is a dynamic process. Even after the equilibrium state is reached, the forward and
+                reverse reactions do not cease. At equilibrium, the rates of the reactions remain constant, and the
+                relative concentrations of reactants and products are maintained. The parameters and characteristics of
+                a system at equilibrium are listed below.
+                The reaction must be reversible and carried out in a closed system. The process of equilibrium is
+                dynamic. Equal forward and reverse rates must be there. The ratio of reactants to products is not
+                required. However, the quantities of reactants and products will always remain constant until
+                equilibrium has been reached, so that there is no longer any change in the concentrations of reactants
+                and products. Therefore, chemical equilibrium will exist between the reactants and products.<br>
+                <br>
+                (a) Mention any two important characteristics of equilibrium.
+                <br>
+                (b) How would you tell the difference between a system that is reacting so slowly that concentration
+                changes are not apparent and one that has reached chemical equilibrium?
+                <br>
+                (c) What do the relative concentrations of reactants vs the products in a particular equilibrium
+                reaction tell us about the effect of differing values for K?
+                <br>
+                (i) When K = 0.96/s
+                <br>
+                (ii) When K = 1.67/s
+                <br>
+                Are reactants or products preferred at equilibrium?
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                PCl₅, PCl₃ and Cl₂ are at equilibrium at 500K and having concentration 1.59 M PCl₃, 1.59 M Cl₂ and 1.41
+                M PCl₅.
+                <br>
+                Calculate Kc for the reaction:
+                <br>
+                PCl₅ ⇌ PCl₃ + Cl₂
+                <br>
+            </li>
+        </ol>
+        <div class="__center__">SECTION - E</div>
+        <ol class="questions" start="31">
+            <li>
+                Attempt any five of the following:
+                <br>
+                (a) Dipole moment of hydrogen halides decreases from HF to HI. Why?
+                <br>
+                (b) What is the covalency of NH₃, NH₄⁺ and [BF₄⁻]?
+                <br>
+                (c) Which of the following compounds does not show resonance: CO, CO₃²⁻, CO₂?
+                <br>
+                (d) Discuss the shape of the following molecules based on VSEPR theory: BCl₃, SiH₄, SiCl₄
+                <br>
+                (e) Name the types of simga and pi bonds in
+                <br>
+                <br>
+                HCO NHCH<sub>3</sub>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||
+                <br>
+                H-C-NH-CH<sub>3</sub>
+                <br>
+                <br>
+                (f) Which hybrid orbitals are used by underlined carbon in the following molecules?
+                <ul class="options" style="list-style: lower-roman">
+                    <li>CH₃ — CHO</li>
+                    <li>CH₃ — CH = CH₂</li>
+                </ul>
+                (g) Explain on the basis of molecular orbital diagram why O₂ should be paramagnetic?
+                <br>
+            </li>
+            <li>(a) Explain the chemistry for the fusion of organic compound with Na metal for the detection of
+                nitrogen.
+                <br>
+                (b) In an estimation of sulphur by carius method, 0.540 g of an organic compound gave 0.999 g of BaSO₄.
+                Find the percentage of sulphur in the compound.
+                (Atomic mass of Ba = 137 u, S = 32 u)
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                <br>
+                (c) Draw the resonance structure of aniline, using curved arrow for electronic movements.
+                <br>
+                (d) Differentiate between the principle of estimation of nitrogen in an organic compound by:
+                <br>
+            </li>
+            <ul class="opriona">
+                (i) Dumas method
+                <br>
+                (ii) Kjeldahl’s method
+            </ul>
+            <li>
+                An alkyl halide C₅H₁₁Br (A) reacts with ethanolic KOH to give an alkene ‘B’, which reacts with Br₂ to
+                give a compound ‘C’, which on dehydrobromination gives an alkyne ‘D’. On treatment with sodium metal in
+                liquid ammonia one mole of ‘D’ gives one mole of sodium salt of ‘D’ and half a mole of hydrogen gas.
+                Complete hydrogenation of ‘D’ yields a straight chain alkane. Identify A, B, C and D. Give the reactions
+                involved.
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                <br>
+                (a) What do you understand by the following:
+                <br>
+                <ul class="options">
+                    (i) Markovnikov’s rule
+                    <br>
+                    (ii) Huckel’s rule
+                </ul>
+                (b) An unsaturated hydrocarbon A’ adds two molecules of H₂ and on reductive ozonolysis gives
+                butane-1,4-dial, ethanol and propanone.
+                <ul class="options">
+                    <br>
+                    (i) Give the structure of A’.
+                    <br>
+                    (ii) Write its IUPAC name
+                    <br>
+                    (iii) Explain the reactions involved.
+                    <br>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="__center__">
+            <<< PAPER ENDED>>>
+        </div>
+    </body>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+        window.onscroll = function () {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+    </script>
+
+</html>

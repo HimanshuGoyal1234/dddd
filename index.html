@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="icon" type="image/png" href="logo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            :root {
+                --primary-color: #6a11cb;
+                --secondary-color: #2575fc;
+                --accent-color: #ff4d4d;
+                --text-color: #ffffff;
+                --bg-overlay: rgba(0, 0, 0, 0.7);
+                --transition-speed: 0.4s;
+            }
+
+            .clickable-title {
+                cursor: pointer;
+                transition: color 0.3s ease;
+                margin: 30px 0px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                text-align: center;
+                background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+                background-clip: text;
+                color: transparent;
+                text-decoration: none;
+            }
+
+            .clickable-title:hover {
+                color: #ff4d4d;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                    url("pxfuel.jpg") center/cover no-repeat fixed;
+                height: 100vh;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: var(--text-color);
+                overflow-y: auto;
+            }
+
+            .navigation {
+                background-color: var(--bg-overlay);
+                border-radius: 25px 4px 25px 4px;
+                transition: all var(--transition-speed) ease-in-out;
+                width: 90%;
+                max-width: 1200px;
+                margin: 5vh auto;
+                padding: 2rem;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .navigation::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 300%;
+                height: 300%;
+                background: radial-gradient(circle,
+                        rgba(106, 17, 203, 0.3) 0%,
+                        rgba(37, 117, 252, 0.2) 30%,
+                        rgba(0, 0, 0, 0) 70%);
+                transform: translate(-50%, -50%);
+                animation: spinGradient 15s linear infinite;
+                z-index: -1;
+                opacity: 0.8;
+                filter: blur(30px);
+                transition: all 1s ease;
+            }
+
+            @keyframes spinGradient {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+
+
+            @keyframes colorPulse {
+                0% {
+                    border: 1px solid #2d00ff;
+                }
+
+                16% {
+                    border: 1px solid #00d9ff;
+                }
+
+                32% {
+                    border: 1px solid #e5ff00;
+                }
+
+                48% {
+                    border: 1px solid #bf00ff;
+                }
+
+                64% {
+                    border: 1px solid #ff0000;
+                }
+
+                80% {
+                    border: 1px solid #ff0099;
+                }
+
+                100% {
+                    border: 1px solid #22ff00;
+                }
+            }
+
+            .navigation ul {
+                list-style: none;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .nav_item {
+                margin: 1.5rem 2rem;
+                position: relative;
+                transition: all var(--transition-speed) ease;
+            }
+
+            .nav_item::before {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--accent-color);
+                transition: width var(--transition-speed) ease;
+            }
+
+            .nav_item:hover::before {
+                width: 100%;
+            }
+
+            .nav_item a {
+                text-decoration: none;
+                color: var(--text-color);
+                font-size: 1.2rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: all var(--transition-speed) ease;
+                position: relative;
+                padding: 0.5rem 1rem;
+            }
+
+            .nav_item i {
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+                transition: all var(--transition-speed) ease;
+            }
+
+            .nav_item:hover a {
+                color: var(--accent-color);
+                transform: translateY(-5px);
+            }
+
+            .nav_item:hover i {
+                transform: scale(1.2) rotate(10deg);
+                color: var(--secondary-color);
+            }
+
+            .nav_item:nth-child(1) i {
+                color: #ff7675;
+            }
+
+            .nav_item:nth-child(2) i {
+                color: #74b9ff;
+            }
+
+            .nav_item:nth-child(3) i {
+                color: #55efc4;
+            }
+
+            .nav_item:nth-child(4) i {
+                color: #a29bfe;
+            }
+
+            .nav_item:nth-child(5) i {
+                color: #fdcb6e;
+            }
+
+            /* Holographic effect on hover */
+            .nav_item a::after {
+                content: '';
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                opacity: 0;
+                transition: all var(--transition-speed) ease;
+                pointer-events: none;
+            }
+
+            .nav_item:hover a::after {
+                opacity: 1;
+                top: -15px;
+                left: -15px;
+                right: -15px;
+                bottom: -15px;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .navigation {
+                    width: 95%;
+                    padding: 1rem;
+                    border-radius: 15px 2px 15px 2px;
+                }
+
+                .navigation ul {
+                    flex-direction: column;
+                }
+
+                .nav_item {
+                    margin: 1rem 0;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .nav_item a {
+                    flex-direction: row;
+                    justify-content: center;
+                }
+
+                .nav_item i {
+                    margin-bottom: 0;
+                    margin-right: 1rem;
+                    font-size: 1.5rem;
+                }
+            }
+
+            /* Custom math symbol */
+            .math-icon {
+                font-family: Arial;
+                font-size: 2rem;
+                font-weight: bold;
+            }
+
+            .math-icon {
+                font-family: Arial;
+                font-size: 2rem;
+                font-weight: bold;
+            }
+
+            .search-container {
+                position: relative;
+                width: auto;
+                perspective: 1000px;
+            }
+
+            .search-box {
+                width: 100%;
+                padding: 15px 60px 15px 30px;
+                font-size: 18px;
+                background: rgba(10, 10, 30, 0.7);
+                border: 2px solid var(--neon-blue);
+                border-radius: 50px;
+                outline: none;
+                color: white;
+                text-shadow: var(--text-glow);
+                box-shadow: 0 0 15px rgba(15, 240, 252, 0.3);
+                transition: all 0.5s ease;
+                transform-style: preserve-3d;
+            }
+
+            .search-box::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+                font-style: italic;
+            }
+
+            .search-box:focus {
+                box-shadow: var(--box-glow);
+                border-color: var(--neon-purple);
+                transform: translateZ(20px);
+            }
+
+            .search-container::before {
+                content: '';
+                position: absolute;
+                top: -5px;
+                left: -5px;
+                right: -5px;
+                bottom: -5px;
+                border-radius: 55px;
+                background: linear-gradient(45deg,
+                        var(--neon-blue),
+                        var(--neon-purple),
+                        var(--neon-blue));
+                background-size: 400%;
+                z-index: -1;
+                opacity: 0;
+                transition: 0.5s;
+                animation: borderGlow 3s linear infinite;
+            }
+
+            .search-container:hover::before,
+            .search-box:focus~.search-container::before {
+                opacity: 1;
+                filter: blur(5px);
+            }
+
+            @keyframes borderGlow {
+                0% {
+                    background-position: 0 0;
+                }
+
+                50% {
+                    background-position: 400% 0;
+                }
+
+                100% {
+                    background-position: 0 0;
+                }
+            }
+
+            /* Digital scanline effect */
+            .scanlines {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: repeating-linear-gradient(0deg,
+                        rgba(0, 255, 252, 0.05),
+                        rgba(0, 255, 252, 0.05) 1px,
+                        transparent 1px,
+                        transparent 3px);
+                pointer-events: none;
+                border-radius: 50px;
+                opacity: 0.5;
+            }
+
+            #nav5 {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            #feedbackBtn i {
+                color: rgb(0, 183, 255);
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navigation">
+            <ul>
+                <li class="nav_item" id="nav1">
+                    <a href="index.html">
+                        <i class="fas fa-home"></i>
+                        <span>HOME</span>
+                    </a>
+                </li>
+                <li class="nav_item" id="nav2">
+                    <a href="ENGLISH/english.html">
+                        <i class="fas fa-book"></i>
+                        <span>ENGLISH</span>
+                    </a>
+                </li>
+                <li class="nav_item" id="nav3">
+                    <a href="#">
+                        <i class="fas fa-atom"></i>
+                        <span>PHYSICS</span>
+                    </a>
+                </li>
+                <li class="nav_item" id="nav4">
+                    <a href="#">
+                        <i class="fas fa-flask"></i>
+                        <span>CHEMISTRY</span>
+                    </a>
+                </li>
+                <li class="nav_item" id="nav5">
+                    <a href="MATHS/maths.html">
+                        <i class="math-icon">∫</i>
+                        <span>MATHS</span>
+                    </a>
+                </li>
+                <li class="nav_item" id="nav5">
+                    <a href="PE/PE.html">
+                        <i class="fas fa-basketball-ball" style="color: rgb(199, 137, 115);"></i>
+                        <span>PHYSICAL EDUCATION</span>
+                    </a>
+                </li>
+                <li class="nav_item" id="nav6">
+                    <a href="feedback.html" id="feedbackBtn">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>FEEDBACK</span>
+                    </a>
+                </li>
+                <li class="nav_item" style="flex-grow: 1; max-width: 400px;">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-box" placeholder="Search..."
+                            aria-label="Search subjects">
+                        <div id="results"></div>
+                    </div>
+            </ul>
+        </nav>
+    </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchInput = document.getElementById("searchInput");
+            const resultsContainer = document.querySelector("#results");
+            let searchData = [];
+            let debounceTimer;
+
+            // Load JSON data
+            async function loadData() {
+                try {
+                    const response = await fetch("data.json");
+                    if (!response.ok) throw new Error("Network response was not ok");
+                    searchData = await response.json();
+                } catch (error) {
+                    console.error("Error loading search data:", error);
+                }
+            }
+
+            // Debounced search
+            function handleSearch() {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    const query = searchInput.value.trim().toLowerCase();
+
+                    if (query === "") {
+                        clearResults();
+                        return;
+                    }
+
+                    const filtered = searchData.filter(item =>
+                        item.title.toLowerCase().includes(query) ||
+                        (item.keywords && item.keywords.some(kw => kw.toLowerCase().includes(query)))
+                    );
+
+                    showResults(filtered);
+                }, 500);
+            }
+
+            // Show results
+            function showResults(results) {
+                resultsContainer.innerHTML = "";
+
+                if (results.length === 0) {
+                    resultsContainer.innerHTML = '<div class="result-item"><p>No results found</p></div>';
+                } else {
+                    results.slice(0, 10).forEach(item => {
+                        const div = document.createElement("div");
+                        div.className = "result-item";
+                        div.innerHTML = `
+                        <h3 class="clickable-title">${ escapeHTML(item.title) }</h3>
+                    `;
+
+                        // Add click listener only to title
+                        div.querySelector(".clickable-title").addEventListener("click", (e) => {
+                            e.stopPropagation();
+                            window.location.href = item.url;
+                        });
+
+                        resultsContainer.appendChild(div);
+                    });
+                }
+
+                resultsContainer.style.display = "block";
+            }
+
+            function clearResults() {
+                resultsContainer.innerHTML = "";
+                resultsContainer.style.display = "none";
+            }
+
+            // HTML escape function
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g,
+                    tag => ({
+                        '&': '&amp;',
+                        '<': '&lt;',
+                        '>': '&gt;',
+                        "'": '&#39;',
+                        '"': '&quot;'
+                    }[tag])
+                );
+            }
+
+            // Event listeners
+            searchInput.addEventListener("input", handleSearch);
+            searchInput.addEventListener("focus", () => {
+                if (searchInput.value.trim() !== "" && resultsContainer.children.length > 0) {
+                    resultsContainer.style.display = "block";
+                }
+            });
+
+            document.addEventListener("click", (e) => {
+                const searchContainer = document.querySelector(".search-container");
+                if (!searchContainer.contains(e.target)) {
+                    clearResults();
+                }
+            });
+
+            // Load the data initially
+            loadData();
+        });
+    </script>
+
+</html>

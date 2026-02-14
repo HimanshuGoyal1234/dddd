@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="icon" type="image/png" href="../../logo.png">
+        <style>
+            .dark-mode {
+                background-color: var(--dark-bg);
+                color: var(--dark-text);
+            }
+
+            :root {
+                --light-bg: #f4f4f4;
+                --light-text: #222;
+                --dark-bg: #121212;
+                --dark-text: #f1f1f1;
+            }
+
+            .toggle-btn {
+                background: none;
+                border: 0px;
+                border-radius: 50px;
+                padding: 10px 25px;
+                cursor: pointer;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: inherit;
+                transition: all 0.3s ease;
+                position: absolute;
+                overflow: hidden;
+            }
+
+            .toggle-btn:hover {
+                border-color: #666;
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            .icon {
+                font-size: 24px;
+                display: inline-block;
+                transition: transform 0.6s ease, opacity 0.6s ease;
+                position: absolute;
+                left: 10px;
+            }
+
+            .sun {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            .moon {
+                opacity: 0;
+                transform: rotate(180deg);
+            }
+
+            .dark-mode .sun {
+                opacity: 0;
+                transform: rotate(180deg);
+            }
+
+            .dark-mode table tr {
+                color: white;
+            }
+
+            .dark-mode table {
+                color: black;
+                border: 1px solid white;
+            }
+
+            .dark-mode .moon {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            .__center__ {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                text-decoration: underline;
+                margin: 20px 0;
+            }
+
+            * {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+
+            table {
+                border-collapse: collapse;
+                margin: 15px 0;
+                border: 1px solid black;
+            }
+
+            th,
+            td {
+                border: 1px solid black;
+                padding: 1px;
+                text-align: center;
+                background-color: rgba(255, 255, 255, 0);
+            }
+
+            th {
+                border: 1px solid black;
+                background: rgba(58, 123, 213, 0.2);
+                color: var(--accent-color);
+            }
+
+            tr:hover {
+                background: rgba(0, 0, 0, 0.03);
+            }
+
+            header {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                box-shadow: 0 0 10px black;
+                padding: 10px;
+            }
+
+            #readds {
+                text-transform: uppercase;
+                text-decoration: underline;
+                margin-top: 0;
+                margin-top: 0;
+            }
+
+            .q-list {
+                list-style: none;
+                counter-reset: question;
+                padding-left: 0;
+            }
+
+            .q-list #pis {
+                counter-increment: question;
+                margin-bottom: 10px;
+                position: relative;
+                padding-left: 35px;
+            }
+
+            .q-list #pis::before {
+                content: "Q" counter(question) ": ";
+                position: absolute;
+                left: 0;
+                font-weight: bold;
+            }
+
+            .options {
+                list-style-type: lower-alpha;
+                margin-left: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="progressContainer"
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: #ccc;">
+            <div id="progressBar" style="height: 3px; width: 0%; background: #000;"></div>
+        </div>
+        <button class="toggle-btn" onclick="toggleMode()">
+            <span class="icon sun">🌞</span>
+            <span class="icon moon">🌙</span>
+            &nbsp;
+        </button>
+        <header>
+            <h1 id="readds">mathematics test</h1>
+            <h1 id="readds">Class - 10 (C.B.SE. Board)</h1>
+        </header>
+        <div style="justify-content: center;align-items: center;display: flex;font-size: 1.5rem;">(section - 'A')</div>
+        <ol class="q-list">
+            <li id="pis">Objective Types Questions-</li>
+            <ol class="questions">
+                <li>
+                    The largest number that divides 70 and 125, which leaves the remainders 5 and 8 is-
+                    <ul class="options">
+                        <li>65</li>
+                        <li>15</li>
+                        <li>13</li>
+                        <li>25</li>
+                    </ul>
+                </li>
+                <li>
+                    If 1/2 is a root of the quadratic equation x<sup>2</sup>- mx - 5 / 4 = 0 then value of m is-
+                    <ul class="options">
+                        <li>2</li>
+                        <li>-3</li>
+                        <li>3</li>
+                        <li>-2</li>
+                    </ul>
+                </li>
+                <li>
+                    The zeroes of x<sup>2</sup> /2x * 8 are -
+                    <ul class="options">
+                        <li>(2,-4)</li>
+                        <li>(4,-2)</li>
+                        <li>(-2,-2)</li>
+                        <li>(4,-4)</li>
+                    </ul>
+                </li>
+                <li>
+                    The value of c for which the pair of equations cx - y = 2 and 6x - 2y = 3 will have infinity many
+                    solutions is-
+                    <ul class="options">
+                        <li>3</li>
+                        <li>-3</li>
+                        <li>-12</li>
+                        <li>No value</li>
+                    </ul>
+                </li>
+                <li>
+                    If the distance between the points (2,-2) and (-1,x) is 5, one of the value of x is-
+                    <ul class="options">
+                        <li>2</li>
+                        <li>-2</li>
+                        <li>1</li>
+                        <li>-1</li>
+                    </ul>
+                </li>
+                <li>
+                    If in triangles ABD and DEF, AB/DE = DC/FD, then they will be similar, if-
+                    <ul class="options">
+                        <li>∠B = ∠E</li>
+                        <li>∠A = ∠D</li>
+                        <li>∠B = ∠D</li>
+                        <li>∠A = ∠F</li>
+                    </ul>
+                </li>
+                <li>
+                    The Value of tan60<sup>O</sup>/tan30<sup>O</sup> is equal to-
+                    <ul class="options">
+                        <li>0</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </li>
+                <li>
+                    If sin A = 1/2, then the value of cot A is-
+                    <ul class="options">
+                        <li>√3</li>
+                        <li>1/√3</li>
+                        <li>√3/2</li>
+                        <li>1</li>
+                    </ul>
+                </li>
+                <li>
+                    The diameter of a wheel is 1.26 m. The distance travelled in 500 revolutions is-
+                    <ul class="options">
+                        <li>2670m</li>
+                        <li>2880m</li>
+                        <li>1980m</li>
+                        <li>1596m</li>
+                    </ul>
+                </li>
+                <li>
+                    If the angle between two radii of a circle is 110 then the angle between the tangetns at the engs of
+                    teh radii is-
+                    <ul class="options">
+                        <li>90deg</li>
+                        <li>70deg</li>
+                        <li>50deg</li>
+                        <li>40deg</li>
+                    </ul>
+                </li>
+            </ol>
+            <div>Directions for questions 19 & 20:</div>
+            <div>In question numbers 19 and 20, a statement of Assertion (A) is followed by a statement of Reason (R).
+                Choose the correct option.</div>
+            </li>
+            <ol class="questions" start="19">
+                <li>
+                    Assertion (A): HCF of 510 and 92 is 2, then LCM of 510 & 92 = 32460
+                    (R): HCF(a, b) × LCM(a, b) = a × b
+                    <ul class="options">
+                        <li>Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of
+                            Assertion (A)</li>
+                        <li>Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of
+                            Assertion (A)</li>
+                        <li>Assertion (A) is true but Reason (R) is false</li>
+                        <li>Assertion (A) is false but Reason (R) is true</li>
+                    </ul>
+                </li>
+                <li>Assertion (A): The ratio in which the line segment joining (2, –3) and (6, 5) is internally divided
+                    by x axis is 1:2
+                    <div>Reason (R): m₁ : m₂ = y₂ – y : y – y₁ is formula for internal division</div>
+                    <ul class="options">
+                        <li>(A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of
+                            Assertion (A)</li>
+                        <li>Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of
+                            Assertion (A)</li>
+                        <li>Assertion (A) is true but Reason (R) is false</li>
+                        <li>Assertion (A) is false but Reason (R) is true</li>
+                    </ul>
+                </li>
+                <li> Solve the following equation:
+                    <div>3x² – 5x – 2 = 0</div>
+                    <div>2x² – 3x + 6 = 0</div>
+                </li>
+                <li> In the given fig. QR/QS = QT/PR, ∠1 = ∠2 and ∠3 = ∠4, then show that ∆PQS ≅ ∆TQR</li>
+                <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                    onclick="toggleImage(this)">
+                    Show
+                </button>
+                <img src="figure22.png" style="border-radius: 10px; display: none; width: 500px; margin-top: 10px;"
+                    alt="Triangle Figure">
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                <div>In the given figure, ∠ACB = ∠CDA, AC = 8cm, AD = 3cm, then find the value of BD.</div>
+                <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                    onclick="toggleImage(this)">
+                    Show
+                </button>
+                <img src="figure22_2.png" style="border-radius: 10px; display: none; width: 500px; margin-top: 10px;"
+                    alt="Triangle Figure">
+
+                <li>The distance between two tangents parallel to each other of a circle is 23 cm. Find the radius of
+                    the circle.</li>
+                <li> Evaluate: <br>
+                    <div> 4(sin²30° + cos²60°) – 3(cos²45° – sin²90°) = ?</div>
+                </li>
+                <li>Find the perimeter of a quadrant of a circle of radius 14 cm.</li>
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                <div>Find the length of a chord of a circle whose radius is 10 cm, subtends a right angle at its centre.
+                </div>
+                <li>Prove that √7 is an irrational number.</li>
+                <li>If one zero of the quadratic polynomial 4x² + (2k + 1)x – 9 is negative of the other, find the value
+                    of k. Also find the roots of the polynomial.</li>
+                <li>For what values of k will the following pair of linear equations have infinitely many solutions?
+                </li>
+                <br>kx + 3y = (k – 3)<br>12x + ky = 0
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                <div>A shopkeeper gives books on rent for reading. She takes a fixed charge for the first two days and
+                    an additional charge for each day thereafter. Latika paid Rs 22 for a book kept for six days, while
+                    Anand paid Rs 16 for the book kept for four days. Find the fixed charges and the charge for each
+                    extra day.</div>
+                <li>If a number x is chosen at random from the numbers –3, –2, –1, 0, 1, 2, 3. What is the probability
+                    that x² ≤ 4?</li>
+                <li>If 3x = cosec A and x = (3 / x) cot A, find the value of 3(x² – 1 / x²)</li>
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                <div>Solve the following: <br>
+                    <div> (cos A – sin A + 1) / (cos A + sin A – 1) = cosec A + cot A</div>
+                </div>
+                <li>In the figure, PQ is a chord of length 6 cm of a circle of radius 5 cm. The tangents at P and Q
+                    intersect at a point T. Find the length TP.
+                    <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                        onclick="toggleImage(this)">
+                        Show
+                    </button>
+                    <img src="figure31.png" style="border-radius: 10px; display: none; width: 500px; margin-top: 10px;"
+                        alt="Triangle Figure">
+                </li>
+                <li>
+                    The difference of the squares of two numbers is 180. The square of the smaller number is 8 times the
+                    greater number. Find the two numbers.
+                    <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                    <div>A motor boat whose speed is 18 km/h in still water takes 1 hour more to go 24 km upstream than
+                        downstream. Find the speed of the stream.</div>
+                </li>
+                <li>Given figure: CM and RN are medians of triangles △ABC and △PQR respectively.Given △𝐴𝐵𝐶∼△𝑃𝑄𝑅
+                    <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                        onclick="toggleImage(this)">
+                        Show
+                    </button>
+                    <img src="figure33.png" style="border-radius: 10px; display: none; width: 500px; margin-top: 10px;"
+                        alt="Triangle Figure">
+                </li>
+                <li>A tent is in the shape of a cylinder surmounted by a conical top. If the height and diameter of the
+                    cylindrical part are 2.1 m and 4 m respectively, and the slant height of the top is 2.8 m, find the
+                    area of canvas used for making tent. Also find the cost of the canvas of the tent at the rate of
+                    ₹1000 per m². (Note that the base of the tent will be covered with canvas)</li>
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                <div>Solid consisting of a right circular cone of height 120 cm and radius 60 cm standing on a
+                    hemisphere of radius 60 cm is placed upright in a right circular cylinder full of water such that it
+                    touches the bottom. Find the volume of water left in the cylinder, if the radius of the cylinder is
+                    60 cm and its height is 180 cm.</div>
+                <li>If the median of the distribution given below is 28.5, find the values of x and y.
+                    <table>
+                        <tr>
+                            <th>Class-interval</th>
+                            <th>Frequency</th>
+                        </tr>
+                        <tr>
+                            <td>0 - 10</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>10 - 20</td>
+                            <td>x</td>
+                        </tr>
+                        <tr>
+                            <td>20 - 30</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>30 - 40</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>40 - 50</td>
+                            <td>y</td>
+                        </tr>
+                        <tr>
+                            <td>50 - 60</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td>60</td>
+                        </tr>
+                    </table>
+                </li>
+                <li>In a GPS, the lines that run east-west are known as lines of latitude, and the lines running
+                    north-south are known as lines of longitude. The latitude and the longitude of a place are its
+                    coordinates and the distance formula is used to find the distance between two places. The distance
+                    between two parallel lines is approximately 150 km. A family from Uttar Pradesh planned a round trip
+                    from Lucknow (L) to Puri (P) via Bhuj (B) and Nashik (N) as shown in the given figure.
+                    <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                        onclick="toggleImage(this)">
+                        Show
+                    </button>
+                    <img src="figure_36.jpg" style="border-radius: 10px; display: none; width: 500px; margin-top: 10px;"
+                        alt="Triangle Figure">
+                    <div>Use the above figure to answer the questions that follow:</div>
+                    <div>(i) Find the distance between Lucknow (L) to Bhuj (B).</div>
+                    <div>(ii) If Kota (K), internally divide the line segment joining Lucknow (L) to Bhuj (B) into 3:2,
+                        then find the coordinate of Kota (K).</div>
+                    <div>(iii) Name the type of triangle formed by the places Lucknow (L), Nashik (N) and Puri (P).
+                    </div>
+                    <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                    <div>Find a place (point) on the longitude (y-axis) which is equidistant from the points Lucknow (L)
+                        and Puri (P).</div>
+                </li>
+
+
+                <li>Push-ups are a fast and effective exercise for building strength. These are helpful in almost all
+                    sports including athletics. While the push-up primarily targets the muscles of the chest, arms, and
+                    shoulders, support required from other muscles helps in toning up the whole
+                    <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                        onclick="toggleImage(this)">
+                        Show
+                    </button>
+                    <img src="figure37.png" style="border-radius: 10px; display: none; width: 500px; margin-top: 10px;"
+                        alt="Triangle Figure">
+                    <div>Nitesh wants to participate in the push-up challenge. He can currently make 3000 push-ups in
+                        one hour. But he wants to achieve a target of 3900 push-ups in 1 hour for which he practices
+                        regularly. With each day of practice, he is able to make 5 more push-ups in one hour as compared
+                        to the previous day. If on first day of practice he makes 3000 push-ups and continues to
+                        practice regularly till his target is achieved. Keeping the above situation in mind answer the
+                        following questions.</div>
+                    <br> (i) Form an A.P. representing the number of push-ups per day
+                    <br> (ii) Find the number of push-ups on 10th day before starting
+                    <br> (iii) Find the minimum number of days he needs to practice before the day his goal is
+                    accomplished?
+                    <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                    <div>Find the total number of push-ups performed by Nitesh up to the day his goal is achieved.</div>
+                </li>
+
+
+                <li>We all have seen the airplanes flying in the sky but might have not thought of how they actually
+                    reach the correct destination. Air Traffic Control (ATC) is a service provided by ground-based air
+                    traffic controllers who direct aircraft on the ground and through a given section of controlled
+                    airspace, and can provide advisory services to aircraft in non-controlled airspace. Actually, all
+                    this air traffic is managed and regulated by using various concepts based on coordinate geometry and
+                    trigonometry.
+                    <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                        onclick="toggleImage(this)">
+                        Show
+                    </button>
+                    <img src="figure_38.jpg" style="border-radius: 10px; display: none; width: 500px; margin-top: 10px;"
+                        alt="Triangle Figure">
+                    <div>At a given instance, ATC finds that the angle of elevation of an airplane from a point on the
+                        ground is 60°. After a flight of 30 seconds, it is observed that the angle of elevation changes
+                        to 30°. The height of the plane remains constantly as 3000√3m. Use the above information to
+                        answer the questions that follow:</div>
+                    <div>(i) Draw a neat labelled figure to show the above situation diagrammatically.</div>
+                    <div>(ii) What is the distance travelled by the plane in 30 seconds?</div>
+                    <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                    Keeping the height constant, during the above flight, it was observed that after 15(√3 -1) seconds,
+                    the angle of elevation changed to 45°. How much is the distance travelled in that duration
+                    <br>
+                    What is the speed of the plane?
+                </li>
+            </ol>
+        </ol>
+        <div class="__center__">
+            <<< PAPER ENDED>>>
+        </div>
+        <script>
+            function toggleMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+            window.onscroll = function () {
+                var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                var scrolled = (winScroll / height) * 100;
+                document.getElementById("progressBar").style.width = scrolled + "%";
+            };
+            function toggleImage(button) {
+                const image = button.nextElementSibling;
+                if (image.style.display === "none") {
+                    image.style.display = "block";
+                    button.innerText = "Hide";
+                } else {
+                    image.style.display = "none";
+                    button.innerText = "Show";
+                }
+            }
+
+        </script>
+    </body>
+
+</html>

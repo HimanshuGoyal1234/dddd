@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Stylish MCQ Quiz</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                line-height: 1.6;
+                margin: 20px;
+                background-color: #121212;
+                color: #ffffff;
+            }
+
+            #quiz-container {
+                max-width: 700px;
+                margin: 0 auto;
+                display: grid;
+                gap: 30px;
+            }
+
+            .box {
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+                background: rgba(48, 48, 48, 0.263);
+                backdrop-filter: blur(5px);
+                padding: 30px;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            }
+
+            .box:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            }
+
+            .question {
+                font-size: 22px;
+                font-weight: 600;
+                margin-bottom: 25px;
+                color: #ffffff;
+                line-height: 1.4;
+                position: relative;
+                padding-left: 15px;
+            }
+
+            .question::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 5px;
+                height: 80%;
+                width: 4px;
+                background: linear-gradient(to bottom, #c5796d, #dbe6f6);
+            }
+
+            .options-container {
+                display: grid;
+                gap: 12px;
+            }
+
+            .option-btn {
+                display: block;
+                width: 100%;
+                padding: 16px 20px;
+                background: #f8f9fa;
+                border: 2px solid #e0e0e0;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 17px;
+                text-align: left;
+                position: relative;
+                transition: all 0.3s ease;
+                overflow: hidden;
+            }
+
+            .option-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 5px;
+                height: 100%;
+                background: transparent;
+                transition: all 0.3s ease;
+            }
+
+            .option-btn:hover {
+                background: #e9ecef;
+                transform: translateX(8px);
+            }
+
+            .option-btn:hover::before {
+                background: linear-gradient(to bottom, #c5796d, #dbe6f6);
+            }
+
+            .correct {
+                background-color: #4CAF50 !important;
+                color: white !important;
+                border-color: #388E3C !important;
+                animation: pulse 0.6s;
+            }
+
+            .wrong {
+                background-color: #f44336 !important;
+                color: white !important;
+                border-color: #d32f2f !important;
+                animation: shake 0.5s;
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.03);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes shake {
+
+                0%,
+                100% {
+                    transform: translateX(0);
+                }
+
+                20%,
+                60% {
+                    transform: translateX(-5px);
+                }
+
+                40%,
+                80% {
+                    transform: translateX(5px);
+                }
+            }
+
+            @media (max-width: 600px) {
+                body {
+                    padding: 20px 10px;
+                }
+
+                .box {
+                    padding: 20px;
+                }
+
+                .question {
+                    font-size: 19px;
+                    margin-bottom: 20px;
+                }
+
+                .option-btn {
+                    font-size: 16px;
+                    padding: 14px 18px;
+                }
+            }
+
+            .button {
+                background: linear-gradient(45deg, #9e2e54, black);
+                color: white;
+                padding: 5px 10px;
+                filter: brightness(2);
+            }
+
+            .button:hover {
+                filter: brightness(1);
+            }
+
+            .butt {
+                margin-top: 20px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+        </style>
+        </style>
+    </head>
+
+    <body>
+        <div id="quiz-container"></div>
+        <div class="butt">
+            <button class="button" onclick="Back()">Back</button>
+        </div>
+        <script>
+            const questions = [
+                {
+                    question: "1. Redox reaction kaun sa hai?",
+                    options: [
+                        { text: "NaCl + AgNO₃ → AgCl + NaNO₃", correct: false },
+                        { text: "H₂ + Cl₂ → 2HCl", correct: true },
+                        { text: "BaCl₂ + Na₂SO₄ → BaSO₄ + 2NaCl", correct: false },
+                        { text: "AgNO₃ + NaCl → AgCl + NaNO₃", correct: false }
+                    ]
+                },
+                {
+                    question: "2. Acid ka formula kya hota hai?",
+                    options: [
+                        { text: "NaOH", correct: false },
+                        { text: "HCl", correct: true },
+                        { text: "KOH", correct: false },
+                        { text: "NH₃", correct: false }
+                    ]
+                }, {
+                    question: "3. Oxidation number of Mn in KMnO₄:",
+                    options: [
+                        { text: "+2", correct: false },
+                        { text: "+4", correct: false },
+                        { text: "+6", correct: false },
+                        { text: "+7", correct: true }
+                    ]
+                }, {
+                    question: "4. which reaction is disproportionation Reaction",
+                    options: [
+                        { text: "Cl₂ + H₂O → HCl + HOCl", correct: true },
+                        { text: "Fe + HCl → FeCl₂ + H₂", correct: false },
+                        { text: "Zn + CuSO₄ → ZnSO₄ + Cu", correct: false },
+                        { text: "HCl + NaOH → NaCl + H₂O", correct: false }
+                    ]
+                }, {
+                    question: "5. Zn + CuSO₄ → ZnSO₄ + Cu → Oxidation, which is Oxidizing agent in this reaction?",
+                    options: [
+                        { text: "Zn", correct: true },
+                        { text: "Cu", correct: false },
+                        { text: "So4", correct: false },
+                    ]
+                }, {
+                    question: "6. Non-redox reaction?",
+                    options: [
+                        { text: "C + O₂ → CO₂", correct: false },
+                        { text: "NaOH + HCl → NaCl + H₂O", correct: true },
+                        { text: "Zn + H₂SO₄ → ZnSO₄ + H₂", correct: false },
+                        { text: "Fe₂O₃ + 2Al → Al₂O₃ + 2Fe", correct: false }
+                    ]
+                }
+                , {
+                    question: "7. Oxidation number of Cr in Cr₂O₇²⁻:",
+                    options: [
+                        { text: "+5", correct: false },
+                        { text: "+3", correct: false },
+                        { text: "+6", correct: true },
+                        { text: "-2", correct: false }
+                    ]
+                },
+                {
+                    question: "8. Hybridization in methane (CH₄) is?",
+                    options: [
+                        { text: "sp", correct: false },
+                        { text: "sp²", correct: false },
+                        { text: "sp³", correct: true },
+                        { text: "dsp²", correct: false }
+                    ]
+                },
+                {
+                    question: "9. Which element has the highest electronegativity?",
+                    options: [
+                        { text: "Oxygen", correct: false },
+                        { text: "Chlorine", correct: false },
+                        { text: "Fluorine", correct: true },
+                        { text: "Nitrogen", correct: false }
+                    ]
+                },
+                {
+                    question: "10. Which of the following is not a property of ionic compounds?",
+                    options: [
+                        { text: "High melting point", correct: false },
+                        { text: "Conducts electricity in molten state", correct: false },
+                        { text: "Low boiling point", correct: true },
+                        { text: "Hard and brittle", correct: false }
+                    ]
+                }
+            ];
+
+            function loadQuiz() {
+                const container = document.getElementById("quiz-container");
+
+                questions.forEach((q, qIndex) => {
+                    const box = document.createElement("div");
+                    box.className = "box";
+
+                    const questionEl = document.createElement("div");
+                    questionEl.className = "question";
+                    questionEl.textContent = q.question;
+                    box.appendChild(questionEl);
+
+                    q.options.forEach((opt) => {
+                        const btn = document.createElement("button");
+                        btn.className = "option-btn";
+                        btn.textContent = opt.text;
+                        btn.onclick = () => handleClick(btn, opt.correct, box);
+                        box.appendChild(btn);
+                    });
+
+                    container.appendChild(box);
+                });
+            }
+
+            function handleClick(button, isCorrect, box) {
+                if (box.getAttribute("data-clicked") === "true") return;
+                box.setAttribute("data-clicked", "true");
+
+                const allBtns = box.querySelectorAll(".option-btn");
+                allBtns.forEach(btn => btn.style.pointerEvents = "none");
+
+                if (isCorrect) {
+                    button.classList.add("correct");
+                } else {
+                    button.classList.add("wrong");
+                    const correctBtn = [...allBtns].find(btn => {
+                        return questions.some(q =>
+                            q.options.some(opt => opt.text === btn.textContent && opt.correct)
+                        );
+                    });
+                    correctBtn?.classList.add("correct");
+                }
+            }
+            function Back() {
+                console.log(window.history.back());
+            }
+            loadQuiz();
+        </script>
+    </body>
+
+</html>

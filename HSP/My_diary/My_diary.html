@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Diary</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: radial-gradient(ellipse at center, #01014b 0%, #000022 100%);
+                min-height: 100vh;
+                font-family: 'Orbitron', sans-serif;
+                color: #e0f8ff;
+                line-height: 1.6;
+            }
+
+            .header {
+                padding: 2rem;
+                text-align: center;
+                border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+                position: relative;
+            }
+
+            .header::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 200px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, #00f3ff, transparent);
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+                text-shadow: 0 0 15px rgba(0, 243, 255, 0.7);
+                letter-spacing: 4px;
+                font-weight: 400;
+                text-transform: uppercase;
+                margin-bottom: 0.5rem;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                padding: 2rem;
+            }
+
+            .log-entries {
+                width: 90%;
+                max-width: 800px;
+                border: 1px solid rgba(0, 243, 255, 0.15);
+                border-radius: 8px;
+                padding: 2rem;
+                background: rgba(0, 243, 255, 0.05);
+                backdrop-filter: blur(5px);
+                box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+            }
+
+            .log-list {
+                list-style: none;
+            }
+
+            .log-entry {
+                padding: 1.2rem;
+                margin: 1rem 0;
+                border-left: 2px solid #00f3ff;
+                background: rgba(0, 243, 255, 0.03);
+                transition: all 0.4s ease;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .log-entry::before {
+                content: ">";
+                position: absolute;
+                left: 0.5rem;
+                color: #00f3ff;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                text-transform: capitalize;
+            }
+
+            .log-entry:hover {
+                background: rgba(0, 243, 255, 0.08);
+                transform: translateX(8px);
+                border-left: 2px solid #ff00ff;
+            }
+
+            .log-entry:hover::before {
+                opacity: 1;
+            }
+
+            .entry-date {
+                color: #ff3366;
+                text-shadow: 0 0 8px rgba(255, 51, 102, 0.5);
+                font-weight: 500;
+                min-width: 120px;
+                margin-right: 1.5rem;
+                letter-spacing: 10px;
+                text-shadow: 0 0 10px brown;
+            }
+
+            .entry-content {
+                color: #e0f8ff;
+                flex-grow: 1;
+            }
+        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header class="header">
+            <h1>My Diary</h1>
+        </header>
+        <div class="container">
+            <div class="log-entries">
+                <ul class="log-list">
+                    <a style="text-decoration: none;" href="_.html" target="_blank">
+                        <li class="log-entry"><span class="entry-date">2025<span style="color: cyan;">-</span>05<span
+                                    style="color: cyan;">-</span>7</span></li>
+                    </a>
+                    <a style="text-decoration: none;" href="asd.html" target="_blank">
+                        <li class="log-entry"><span class="entry-date">2025<span style="color: cyan;">-</span>04<span
+                                    style="color: cyan;">-</span>26</span></li>
+                    </a>
+                    <a style="text-decoration: none;" href="asd.html" target="_blank">
+                        <li class="log-entry"><span class="entry-date">2025<span style="color: cyan;">-</span>04<span
+                                    style="color: cyan;">-</span>25</span></li>
+                    </a>
+                    <a style="text-decoration: none;" href="asd.html" target="_blank">
+                        <li class="log-entry"><span class="entry-date">2025<span style="color: cyan;">-</span>04<span
+                                    style="color: cyan;">-</span>24</span></li>
+                    </a>
+                    <a style="text-decoration: none;" href="asd.html" target="_blank">
+                        <li class="log-entry"><span class="entry-date">2025<span style="color: cyan;">-</span>04<span
+                                    style="color: cyan;">-</span>23</span></li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exam Header</title>
+        <link rel="icon" type="image/png" href="../../logo.png">
+        <style>
+            .button {
+                border: 2px solid black;
+                padding: 5px 10px;
+                border-radius: 10px;
+                transition: all 1s ease;
+            }
+
+            .button:hover {
+                background-color: #ff0000;
+                box-shadow: 0px 0px 5px red;
+                border-color: red;
+                cursor: pointer;
+            }
+
+            :root {
+                --light-bg: #f4f4f4;
+                --light-text: #222;
+                --dark-bg: #121212;
+                --dark-text: #f1f1f1;
+            }
+
+            body {
+                background-color: white;
+                color: black;
+                font-family: Arial, sans-serif;
+                font-size: 1.3rem;
+            }
+
+            header {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .exam-info {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 40px;
+                margin-top: -35px;
+            }
+
+            .re {
+                border: 1px solid black;
+                margin: 20px;
+            }
+
+            .instructions {
+                margin-left: 40px;
+            }
+
+            .instructions-title {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .__center__ {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                text-decoration: underline;
+                margin: 20px 0;
+            }
+
+            .questions {
+                margin-left: 40px;
+            }
+
+            .options {
+                list-style-type: lower-alpha;
+                margin-left: 20px;
+            }
+
+            li {
+                padding: 3px;
+            }
+
+            .dark-mode {
+                background-color: var(--dark-bg);
+                color: var(--dark-text);
+            }
+
+            .toggle-btn {
+                background: none;
+                border: 0px;
+                border-radius: 50px;
+                padding: 10px 25px;
+                cursor: pointer;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: inherit;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .toggle-btn:hover {
+                border-color: #666;
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            .icon {
+                font-size: 24px;
+                display: inline-block;
+                transition: transform 0.6s ease, opacity 0.6s ease;
+                position: absolute;
+                left: 10px;
+            }
+
+            .sun {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            .moon {
+                opacity: 0;
+                transform: rotate(180deg);
+            }
+
+            .dark-mode .sun {
+                opacity: 0;
+                transform: rotate(180deg);
+            }
+
+            .dark-mode table tr {
+                color: white;
+            }
+
+            .dark-mode table {
+                color: black;
+                border: 1px solid white;
+            }
+
+            .dark-mode .moon {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            h1 {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+
+            .text-label {
+                padding-left: 35px;
+            }
+
+
+            th,
+            td {
+                border: 1px solid black;
+                text-align: center;
+                background-color: blanchedalmond;
+            }
+
+            th {
+                border: 1px solid black;
+                background: rgba(58, 123, 213, 0.2);
+                color: var(--accent-color);
+            }
+
+            tr:hover {
+                background: rgba(0, 0, 0, 0.03);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="progressContainer"
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: #ccc;">
+            <div id="progressBar" style="height: 3px; width: 0%; background: #000;"></div>
+        </div>
+        <button class="toggle-btn" onclick="toggleMode()">
+            <span class="icon sun">🌞</span>
+            <span class="icon moon">🌙</span>
+            &nbsp;
+        </button>
+        <header>
+            <h1>PRE-BOARD EXAMINATION (2023–24)</h1>
+            <h2>CLASS - X</h2>
+            <h2>SUBJECT - Mathmatics</h2>
+            <div class="exam-info">
+                <p><strong>MM:</strong> 70</p>
+                <p><strong>Time:</strong> 3 Hours</p>
+            </div>
+        </header>
+
+        <div class="re"></div>
+
+        <div class="instructions">
+            <div class="instructions-title">General Instructions:</div>
+            <ol>
+                <li>This question paper contains 38 questions. All questions are compulsory.</li>
+                <li>Question paper is divided into FIVE sections - Section A, B, C, D and E.</li>
+                <li>In Section A, question number 1 to 18 are multiple choice questions (MCQs) and question number 19
+                    and 20 are Assertion-Reason type questions of 1 mark each.</li>
+                <li>In Section B, question number 21 to 25 are very short answer (VSA) type questions of 2 marks each.
+                </li>
+                <li>In Section C, question number 26 to 31 are short answer (SA) type questions carrying 3 marks each.
+                </li>
+                <li>In Section D, question number 32 to 35 are long answer (LA) type questions carrying 5 marks each.
+                </li>
+                <li>In Section E, question number 36 to 38 are case based questions of assessment of competencies
+                    carrying 4 marks each. Each case study is provided in 2 marks question in each case study.</li>
+                <li>There is no overall choice. However, an internal choice has been provided in 2 questions in Section
+                    B, 2 questions in Section C, 2 questions in Section D and 3 questions in Section E.</li>
+                <li>Draw neat figures wherever required. Take π = 22/7 wherever required if not stated.</li>
+                <li>Use of calculator is not allowed.</li>
+            </ol>
+        </div>
+
+        <div class="__center__">SECTION - A</div>
+
+        <ol class="questions">
+            <li>
+                <div>Let p and q be two natural numbers such that p > q. When p is divided by q, then remainder is r.
+                </div>
+                <div>(i) r CANNOT be (p − q).</div>
+                <div>(ii) r CAN either be q or (p − q).</div>
+                <div>(iii) r is DEFINITELY less than q.</div>
+                <ul class="options">
+                    <li>only (ii)</li>
+                    <li>only (iii)</li>
+                    <li>only (i) and (iii)</li>
+                    <li>cannot be determined without knowing the values of p,q and r</li>
+                </ul>
+            </li>
+            <li>
+                The graph of a polynomial p(x) cuts the X-axis at 3 points and touches it at 2 other points. The number
+                of zeroes of p(x) is
+                <ul class="options">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>5</li>
+                </ul>
+            </li>
+            <li>
+                If the discriminant of the equation 6x² − bx + 2 = 0 is 1, then value of b is:
+                <ul class="options">
+                    <li>7</li>
+                    <li>-7</li>
+                    <li>+7</li>
+                    <li>None of these</li>
+                </ul>
+            </li>
+            <li>
+                What is the value of q if (1/2)p + 3q = 6 and 2p − 2q = 10?
+                <ul class="options">
+                    <li>1</li>
+                    <li>4</li>
+                    <li>6</li>
+                    <li>16</li>
+                </ul>
+            </li>
+            <li>
+                If 7 times the 7th term of an A.P. is equal to 11 times its 11th term, then its 18th term will be
+                <ul class="options">
+                    <li>7</li>
+                    <li>11</li>
+                    <li>18</li>
+                    <li>0</li>
+                </ul>
+            </li>
+            <li>
+                The distance of the point (20, 15) from origin is:
+                <ul class="options">
+                    <li>15 units</li>
+                    <li>20 units</li>
+                    <li>25 units</li>
+                    <li>30 units</li>
+                </ul>
+            </li>
+            <li>
+                In what ratio, does the point (−4, 6) divide the line segment joining the points A(−6, 10) and B(3, −8)?
+                <ul class="options">
+                    <li>2 : 7</li>
+                    <li>7 : 2</li>
+                    <li>1 : 2</li>
+                    <li>2 : 1</li>
+                </ul>
+            </li>
+            <li>
+                The area of the circle that can be inscribed in a square of side 3 cm is:
+                <ul class="options">
+                    <li>3π/2cm<sup>2</sup></li>
+                    <li>5π/4cm<sup>2</sup></li>
+                    <li>7π/2cm<sup>2</sup></li>
+                    <li>9π/4cm<sup>2</sup></li>
+                </ul>
+            </li>
+            <li>
+                In the given figure, if TP and TQ are the two tangents to a circle with centre O such that ∠POQ = 110°,
+                then ∠PTQ is equal to:
+                <ul class="options">
+                    <li>60°</li>
+                    <li>70°</li>
+                    <li>80°</li>
+                    <li>90°</li>
+                </ul>
+            </li>
+            <li>
+                If the sum of the circumferences of two circles with radii R₁ and R₂ is equal to the circumference of a
+                circle of radius R, then:
+                <ul class="options">
+                    <li>R₁ + R₂ = R</li>
+                    <li>R₁ + R₂ > R</li>
+                    <li>R₁ + R₂ < R</li>
+                    <li>Nothing definite can be said about the relation among R₁, R₂ and R</li>
+                </ul>
+            </li>
+            <li>
+                sec θ when expressed in terms of cot θ is equal to:
+                <ul class="options">
+                    <li>1 + cos<sup>2</sup> θ / cot θ</li>
+                    <li>√1 + cot<sup>2</sup> θ</li>
+                    <li>√1 + cot<sup>2</sup> θ / cot θ </li>
+                    <li>√1 - cot<sup>2</sup> θ / cot θ </li>
+                </ul>
+            </li>
+            <li>
+                If tan(5x + 30°) = 1, then x is:
+                <ul class="options">
+                    <li>15°</li>
+                    <li>5°</li>
+                    <li>3°</li>
+                    <li>None of these</li>
+                </ul>
+            </li>
+            <li>
+                If sin A = 12/13, the value of cos A is:
+                <ul class="options">
+                    <li>13/4</li>
+                    <li>13/5</li>
+                    <li>5/13</li>
+                    <li>4/13</li>
+                </ul>
+            </li>
+            <li>
+                If k + 2, 4k − 6 and 3k − 2 are three consecutive terms of A.P. then the value of k is:
+                <ul class="options">
+                    <li>3</li>
+                    <li>-3</li>
+                    <li>4</li>
+                    <li>−4</li>
+                </ul>
+            </li>
+            <li>
+                The sum of the first n terms of an A.P. be 3n² + n and its common difference is 6, then its first term
+                is:
+                <ul class="options">
+                    <li>2</li>
+                    <li>3</li>
+                    <li>1</li>
+                    <li>4</li>
+                </ul>
+            </li>
+            <li>
+                For an event E, P(E) + P(Ē) = 1, then the value of x² - 3 is:
+                <ul class="options">
+                    <li>−2</li>
+                    <li>0</li>
+                    <li>1</li>
+                    <li>−1</li>
+                </ul>
+            </li>
+            <li>
+                Look at the numbers shown below:
+                <br>
+                (i) −0.5
+                <br>
+                (ii) 0.00001
+                <br>
+                (iii) ½
+                <br>
+                (iv) 1
+                <br>
+                (v) 1.00001
+                <br>
+                (vi) 99%
+                <br>
+                Which of the above numbers represent probabilities of events?
+                <ul class="options">
+                    <li>only (ii), (iii) and (iv)</li>
+                    <li>only (i), (ii), (iii) and (iv)</li>
+                    <li>only (ii), (iii), (iv) and (v)</li>
+                    <li>only (ii), (iii), (iv) and (vi)</li>
+                </ul>
+            </li>
+            <li>
+                The empirical relation between the mode, median and mean of a distribution is:
+                <ul class="options">
+                    <li>Mode = 3 Median − 2 Mean</li>
+                    <li>Mode = 3 Mean − 2 Median</li>
+                    <li>Mode = 2 Median − 3 Mean</li>
+                    <li>Mode = 2 Mean − 3 Median</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Assertion (A):</strong> The area of a quadrant of a circle whose circumference is 22 cm is
+                77/8cm<sup>2</sup>.<br>
+                <strong>Reason (R):</strong> Area of a quadrant of a circle with radius r is πr<sup>2</sup>/4.
+                <ul class="options">
+                    <li>Both (A) and (R) are true and (R) is the correct explanation of (A).</li>
+                    <li>Both (A) and (R) are true but (R) is not the correct explanation of (A).</li>
+                    <li>(A) is true but (R) is false.</li>
+                    <li>(A) is false but (R) is true.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Assertion (A):</strong>If the sum of first n terms of an AP is given by Sn = 6n + 7n², then its
+                nth term is 7n² − 8n + 1.<br>
+                <strong>Reason (R):</strong> nth term can use obtained using formula, an = Sn − S<sub>n-1</sub>.
+            </li>
+        </ol>
+        <div class="__center__">SECTION - C</div>
+        <ol class="questions" start="21">
+            <li>Given that √2 is irrational, prove that (5 + 3√2) is an irrational number.</li>
+            <li>
+                In the given figure, if ∠A = 90°, ∠B = 90°, OB = 4.5 cm, OA = 6 cm and AP = 4 cm, then find length of
+                QB.
+                <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                    onclick="toggleImage(this)">
+                    Show
+                </button>
+                <img src="figure21.png" style="border-radius: 10px; display: none; width: 500px; margin-top: 10px;"
+                    alt="Triangle Figure">
+            </li>
+            <li>Find the number of natural numbers between 102 and 998 which are divisible by 2 and 5 both.</li>
+            <li>If tan θ = 1/√5,
+                <br>
+                (A) Evaluate: cosec<sup>2</sup>θ - sec<sup>2</sup>θ
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---------------------
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cosec<sup>2</sup>θ
+                + sec<sup>2</sup>θ
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                (B) Verify the identity: sin²θ + cos²θ = 1
+            </li>
+            <li>Show below are two overlapping sectors of a circle. The radii of the sectors are 6 cm and 8 cm. The
+                figure is divided into three regions – I, II and III.</li>
+            <div>Find the difference in the areas of regions I and III. Show your work. </div>
+            <div>(Note: Take π = 22/7)</div>
+            <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                onclick="toggleImage(this)">
+                Show
+            </button>
+            <img src="figure21.png" style="border-radius: 10px; display: none; width: 500px; margin-top: 10px;"
+                alt="Triangle Figure">
+            <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+            <div>(B) The length of the minute hand of a clock is 6 cm. Find the area swept by it when it moves from 7:05
+                p.m. to 7:40 p.m.</div>
+        </ol>
+        <div class="__center__">SECTION - C</div>
+        <ol class="questions" start="26">
+            <li>Find the greatest number of six digits exactly divisible by 18, 24 and 36.</li>
+            <li>If f(x) = x³ − ax² + (a − 3)x + 6, where a is a non-zero real number. When f(x) is divided by (x + 1),
+                there is no remainder.
+                <br>
+                If f(x) is completely factorable, find the zeroes of f(x). Show your steps.
+            </li>
+            <li>(A) In the figure, ABCDE is a pentagon with BE || CD and BC || DE. BC is perpendicular to CD.
+                AE = AB = 5 cm, BE = x − y, CD = x − y and CD = x + y. If the perimeter of ABCDE is 27 cm, find the
+                value of x and y.
+                <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                    onclick="toggleImage(this)">
+                    Show
+                </button>
+                <img src="figure28.png" style="border-radius: 10px; display: none; width: 400px; margin-top: 10px;"
+                    alt="Pentagon Figure">
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                (B) Determine graphically the co-ordinates of the vertices of triangle, the equations of whose sides are
+                given by
+                2y − x = 8, 5y − x = 14 and y − 2x = 1.
+            </li>
+            <li>
+                (A) In given figure, AB is the diameter of a circle with centre O and AT is a tangent. If ∠AOQ = 68°,
+                find ∠ATR.
+                <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                    onclick="toggleImage(this)">
+                    Show
+                </button>
+                <img src="figure29.png" style="border-radius: 10px; display: none; width: 400px; margin-top: 10px;"
+                    alt="Circle with tangent">
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                (B) If a circle touches the side BC of a triangle ABC at P and extended at Q and R
+                respectively, prove that
+                AQ = ½ (BC + CA + AB).
+            </li>
+            <li>
+                If tan(A + B) = 1 and tan(A − B) = 1/√3 (0° < A + B < 90°, A> B), then find the values of A and B.
+            </li>
+            <li>
+                The frequency distribution of daily rainfall in a town during a certain period is shown below:
+                <table>
+                    <tr>
+                        <th>Rainfall (in mm)</th>
+                        <th>Number of days</th>
+                    </tr>
+                    <tr>
+                        <td>0 - 20</td>
+                        <td>10
+                    </tr>
+                    <tr>
+                        <td>20 - 40</td>
+                        <td>x</td>
+                    </tr>
+                    <tr>
+                        <td>40 - 60</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>60 - 80</td>
+                        <td>8</td>
+                    </tr>
+                </table>
+                <div>Unfortunately, due to manual errors, the information on the 20–40 mm range got deleted from the
+                    data.
+                    <br>
+                    If the mean daily rainfall for the period was 32 mm, find the number of days when the rainfall
+                    ranged between 20–40 mm. Show your work.
+                </div>
+            </li>
+        </ol>
+        <div class="__center__">SECTION - D</div>
+        <ol class="questions" start="32">
+            <li>(A) Seven times a two-digit number is equal to four times the number obtained by reversing the order of
+                its digits. If the difference of the digits is 3, determine the number.</li>
+            <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+            <div>(B) One says, "Give me a hundred, friend! I shall then become twice as rich as you". The other replies,
+                "If you give me ten, I shall be six times as rich as you". Tell me what is the amount of their
+                (respective) capital?</div>
+            <li> In the given figure, ∠ACB = 90° and CD ⊥ AB, prove that CD² = BD × AD.</li>
+            <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                onclick="toggleImage(this)">
+                Show
+            </button>
+            <img src="figure33.png" style="border-radius: 10px; display: none; width: 400px; margin-top: 10px;"
+                alt="Circle with tangent">
+            </button>
+            <li>(A) A right cylindrical container of radius 6 cm and height 15 cm is full of ice-cream. This ice-cream
+                has to be distributed to 10 children in equal cones having hemispherical shape on the top. If the height
+                of the conical portion is 10 cm, find the radius of the ice-cream cone.</li>
+            <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+            <div>(B) A vessel is in the form of a hollow hemisphere mounted by a hollow cylinder. The diameter of the
+                hemisphere is 12 cm and the total height of vessel is 10 cm. Find the inner surface area of the vessel.
+            </div>
+            <li>Find the unknown values in the following table:</li>
+            <table>
+                <tr>
+                    <th>Class Interval</th>
+                    <th>frequency</th>
+                    <th>Cumulative Frequency</th>
+                </tr>
+                <tr>
+                    <td>0 – 10</td>
+                    <td>5</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>10 – 20</td>
+                    <td>7</td>
+                    <td>x₁</td>
+                </tr>
+                <tr>
+                    <td>20 – 30</td>
+                    <td>x₂</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>30 – 40</td>
+                    <td>5</td>
+                    <td>x₃</td>
+                </tr>
+                <tr>
+                    <td>40 – 50</td>
+                    <td>x₄</td>
+                    <td>30</td>
+                </tr>
+            </table>
+        </ol>
+        <div class="__center__">SECTION - E</div>
+        <ol class="questions" start="36">
+            <li>Read the passage below and answer the questions that follows:
+                <br>
+                Varun has been selected by his School to design logo for Sports Day T-shirts for students and staff. The
+                logo is designed in different geometrical shapes and different colours according to the theme. In given
+                figure, a circle with centre O is inscribed in △ABC, such that it touches the sides AB, BC and CA at
+                points D, E and F respectively.
+                The lengths of sides AB, BC and CA are 12 cm, 8 cm and 10 cm respectively.
+            </li>
+            <li>SORRY LAST THIS QUESTIONS MISSING.</li>
+            <li>SORRY LAST THIS QUESTIONS MISSING.</li>
+        </ol>
+
+        <div class="__center__">
+            <<< PAPER ENDED>>>
+        </div>
+    </body>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+        window.onscroll = function () {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+        function toggleImage(button) {
+            const image = button.nextElementSibling;
+            if (image.style.display === "none") {
+                image.style.display = "block";
+                button.innerText = "Hide";
+            } else {
+                image.style.display = "none";
+                button.innerText = "Show";
+            }
+        }
+    </script>
+
+</html>

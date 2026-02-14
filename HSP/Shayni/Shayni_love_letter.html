@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>For The Love of My Life</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <script src="auth-check.js"></script>
+        <script src="system.js"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap"
+            rel="stylesheet">
+        <style>
+            /* Cosmic Background */
+            body {
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #0a0a1a;
+                overflow: hidden;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            /* Stars Animation */
+            .stars {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -2;
+            }
+
+            .star {
+                position: absolute;
+                background: white;
+                border-radius: 50%;
+                animation: twinkle var(--duration) infinite ease-in-out;
+            }
+
+            @keyframes twinkle {
+
+                0%,
+                100% {
+                    opacity: 0.2;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+            }
+
+            /* The Ultimate Love Card */
+            .love-card {
+                position: relative;
+                width: 90%;
+                max-width: 500px;
+                min-height: 600px;
+                background: rgba(20, 20, 40, 0.7);
+                backdrop-filter: blur(10px);
+                border-radius: 25px;
+                box-shadow: 0 0 50px rgba(255, 105, 180, 0.5),
+                    0 0 100px rgba(255, 20, 147, 0.3);
+                overflow: hidden;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                transform-style: preserve-3d;
+                perspective: 1000px;
+                transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                z-index: 10;
+            }
+
+            .love-card:hover {
+                transform: translateY(-20px) rotateX(5deg) rotateY(-5deg);
+                box-shadow: 0 0 80px rgba(255, 105, 180, 0.8),
+                    0 0 150px rgba(255, 20, 147, 0.5);
+            }
+
+            /* 3D Floating Effect */
+            .card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transform-style: preserve-3d;
+                transition: transform 0.8s;
+            }
+
+            /* Photo Frame with Heartbeat Effect */
+            .photo-frame {
+                position: relative;
+                width: 80%;
+                height: 250px;
+                margin: 30px auto;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                border: 5px solid #ff69b4;
+                animation: heartbeat 1.5s infinite;
+                transform: translateZ(30px);
+            }
+
+            @keyframes heartbeat {
+                0% {
+                    transform: scale(1) translateZ(30px);
+                }
+
+                25% {
+                    transform: scale(1.05) translateZ(30px);
+                }
+
+                50% {
+                    transform: scale(1) translateZ(30px);
+                }
+
+                75% {
+                    transform: scale(1.03) translateZ(30px);
+                }
+
+                100% {
+                    transform: scale(1) translateZ(30px);
+                }
+            }
+
+            .photo-frame img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s;
+            }
+
+            .photo-frame:hover img {
+                transform: scale(1.1);
+            }
+
+            /* Title with Gradient Text */
+            .title {
+                font-family: 'Dancing Script', cursive;
+                font-size: 3.5rem;
+                text-align: center;
+                margin: 20px 0;
+                background: linear-gradient(45deg, #ff69b4, #ff8e53, #ff69b4);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+                animation: gradientShift 8s infinite alternate;
+            }
+
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+
+                100% {
+                    background-position: 100% 50%;
+                }
+            }
+
+            /* Love Message */
+            .message {
+                color: white;
+                text-align: center;
+                padding: 0 30px;
+                font-size: 1.1rem;
+                line-height: 1.8;
+                margin-bottom: 30px;
+                transform: translateZ(20px);
+            }
+
+            /* Interactive Love Button */
+            .love-button {
+                display: block;
+                width: 200px;
+                margin: 0 auto 30px;
+                padding: 15px 30px;
+                background: linear-gradient(45deg, #ff1493, #ff69b4);
+                color: white;
+                border: none;
+                border-radius: 50px;
+                font-size: 1.2rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.5s;
+                box-shadow: 0 5px 20px rgba(255, 20, 147, 0.5);
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+            }
+
+            .love-button:hover {
+                transform: translateY(-5px) scale(1.05);
+                box-shadow: 0 10px 30px rgba(255, 20, 147, 0.7);
+            }
+
+            .love-button:active {
+                transform: translateY(0) scale(0.98);
+            }
+
+            .love-button::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #ff69b4, #ff1493);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.5s;
+            }
+
+            .love-button:hover::before {
+                opacity: 1;
+            }
+
+            /* Floating Hearts */
+            .floating-hearts {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            .heart {
+                position: absolute;
+                font-size: 20px;
+                color: #ff69b4;
+                opacity: 0;
+                animation: float-up 6s linear infinite;
+            }
+
+            @keyframes float-up {
+                0% {
+                    transform: translateY(100vh) rotate(0deg);
+                    opacity: 0;
+                }
+
+                10% {
+                    opacity: 1;
+                }
+
+                90% {
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(-100px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+
+            /* Sparkle Particles */
+            .sparkles {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            .sparkle {
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                background: white;
+                border-radius: 50%;
+                filter: blur(1px);
+                animation: sparkle 2s infinite;
+            }
+
+            @keyframes sparkle {
+
+                0%,
+                100% {
+                    opacity: 0;
+                    transform: scale(0);
+                }
+
+                50% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            /* Romantic Glow */
+            .romantic-glow {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                background: radial-gradient(circle, rgba(255, 105, 180, 0.3) 0%, rgba(255, 105, 180, 0) 70%);
+                border-radius: 50%;
+                filter: blur(30px);
+                animation: pulse-glow 4s infinite alternate;
+                z-index: -1;
+            }
+
+            @keyframes pulse-glow {
+                0% {
+                    transform: scale(0.8);
+                    opacity: 0.5;
+                }
+
+                100% {
+                    transform: scale(1.2);
+                    opacity: 0.8;
+                }
+            }
+
+            /* Hidden Love Note (appears on click) */
+            .love-note {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                width: 80%;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 0 0 30px rgba(255, 105, 180, 0.8);
+                text-align: center;
+                color: #d23669;
+                font-family: 'Dancing Script', cursive;
+                font-size: 1.5rem;
+                line-height: 1.6;
+                z-index: 100;
+                transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                opacity: 0;
+            }
+
+            .love-note.active {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+
+            .love-note-close {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: #ff69b4;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Stars Background -->
+        <div class="stars" id="stars"></div>
+
+        <!-- Romantic Glow Effects -->
+        <div class="romantic-glow" style="top: 20%; left: 10%;"></div>
+        <div class="romantic-glow" style="bottom: 10%; right: 15%; animation-delay: 1s;"></div>
+
+        <!-- The Ultimate Love Card -->
+        <div class="love-card">
+            <div class="card-inner">
+                <!-- Floating Hearts -->
+                <div class="floating-hearts" id="floatingHearts"></div>
+
+                <!-- Sparkle Particles -->
+                <div class="sparkles" id="sparkles"></div>
+
+                <!-- Photo Frame -->
+                <div class="photo-frame">
+                    <img src="photos/8.jpg" alt="Our Special Moment">
+                </div>
+
+                <!-- Title -->
+                <h1 class="title">To My Forever Love</h1>
+
+                <!-- Love Message -->
+                <p class="message">
+                    Every moment with you feels like a beautiful dream I never want to wake up from.
+                    Your smile brightens my darkest days, and your love gives me strength I never knew I had.
+                    I fall for you more each day...
+                </p>
+
+                <!-- Love Button -->
+                <button class="love-button" id="loveButton">Click My Heart</button>
+            </div>
+
+            <!-- Hidden Love Note -->
+            <div class="love-note" id="loveNote">
+                <span class="love-note-close" id="noteClose">×</span>
+                <h2>My Dearest,</h2>
+                <p>
+                    If I had to choose between loving you and breathing,<br>
+                    I would use my last breath to say "I Love You"...
+                </p>
+                <p>
+                    Forever Yours,<br>
+                    <span style="font-size: 2rem;">❤️</span>
+                </p>
+            </div>
+        </div>
+
+        <script>
+            // Create stars
+            const stars = document.getElementById('stars');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = `${ Math.random() * 100 }%`;
+                star.style.top = `${ Math.random() * 100 }%`;
+                star.style.width = `${ Math.random() * 3 + 1 }px`;
+                star.style.height = star.style.width;
+                star.style.animationDelay = `${ Math.random() * 5 }s`;
+                star.style.setProperty('--duration', `${ Math.random() * 3 + 2 }s`);
+                stars.appendChild(star);
+            }
+
+            // Create floating hearts
+            const heartsContainer = document.getElementById('floatingHearts');
+            function createHearts() {
+                for (let i = 0; i < 15; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+                    heart.style.left = `${ Math.random() * 100 }%`;
+                    heart.style.top = `${ Math.random() * 100 + 100 }%`;
+                    heart.style.animationDelay = `${ Math.random() * 5 }s`;
+                    heart.style.fontSize = `${ Math.random() * 20 + 10 }px`;
+                    heartsContainer.appendChild(heart);
+                }
+            }
+            createHearts();
+
+            // Create sparkles
+            const sparkles = document.getElementById('sparkles');
+            for (let i = 0; i < 50; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                sparkle.style.left = `${ Math.random() * 100 }%`;
+                sparkle.style.top = `${ Math.random() * 100 }%`;
+                sparkle.style.animationDelay = `${ Math.random() * 2 }s`;
+                sparkles.appendChild(sparkle);
+            }
+
+            // Love button click effect
+            const loveButton = document.getElementById('loveButton');
+            const loveNote = document.getElementById('loveNote');
+            const noteClose = document.getElementById('noteClose');
+
+            loveButton.addEventListener('click', () => {
+                // Show love note
+                loveNote.classList.add('active');
+
+                // Create heart explosion
+                for (let i = 0; i < 50; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = ['❤️', '💖', '💗', '💓', '💘'][Math.floor(Math.random() * 5)];
+                    heart.style.left = `${ Math.random() * 100 }%`;
+                    heart.style.top = `${ Math.random() * 100 }%`;
+                    heart.style.animationDuration = `${ Math.random() * 3 + 2 }s`;
+                    heartsContainer.appendChild(heart);
+                }
+
+                // Play romantic sound (uncomment to add)
+                // const audio = new Audio('https://www.soundjay.com/love/sounds/heartbeat-01.mp3');
+                // audio.play();
+            });
+
+            noteClose.addEventListener('click', () => {
+                loveNote.classList.remove('active');
+            });
+
+            // 3D tilt effect
+            const card = document.querySelector('.love-card');
+            card.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                card.style.transform = `translateY(-20px) rotateX(${ yAxis }deg) rotateY(${ xAxis }deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(-20px) rotateX(0) rotateY(0)';
+            });
+        </script>
+    </body>
+
+</html>

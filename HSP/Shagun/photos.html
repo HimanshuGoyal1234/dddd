@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <title>Pictures</title>
+        <script src="auth-check.js"></script>
+        <script src="system.js"></script>
+
+
+        <style>
+            body {
+                font-family: 'Dancing Script', cursive;
+                background: linear-gradient(135deg, #ff0055, #0200ff);
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                overflow-x: hidden;
+            }
+
+            #backbutton {
+
+                display: block;
+                margin: 30px auto;
+                padding: 12px 30px;
+                background: linear-gradient(135deg, #ff4b91, #ff2e75);
+                color: white;
+                font-family: 'Dancing Script', cursive;
+                font-size: 1.5rem;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(255, 75, 145, 0.4);
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+
+            }
+
+            h1 {
+                text-align: center;
+                background: linear-gradient(red, black);
+                background-clip: text;
+                color: transparent;
+                font-size: 3rem;
+                margin: 20px 0;
+                text-shadow: 2px 2px 4px rgba(255, 75, 145, 0.3);
+            }
+
+            .photo-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 15px;
+                padding: 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .photo-item {
+                position: relative;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 8px 20px rgba(255, 15, 135, 0.3);
+                transition: all 0.3s ease;
+                aspect-ratio: 1;
+                cursor: pointer;
+            }
+
+            .photo-item:hover {
+                transform: translateY(-5px) scale(1.03);
+                box-shadow: 0 12px 25px rgba(255, 105, 180, 0.4);
+            }
+
+            .photo-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .photo-item:hover img {
+                transform: scale(1.1);
+            }
+
+            .photo-item::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, rgba(255, 192, 203, 0.1), rgba(255, 105, 180, 0.2));
+            }
+
+            /* Image Modal Styles */
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .modal.show {
+                display: flex;
+                opacity: 1;
+            }
+
+            .modal-content {
+                max-width: 90%;
+                max-height: 90%;
+                position: relative;
+            }
+
+            .modal-img {
+                max-width: 100%;
+                max-height: 90vh;
+                object-fit: contain;
+                border-radius: 10px;
+                box-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
+                animation: fadeIn 0.5s ease;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                color: white;
+                font-size: 2.5rem;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .close-btn:hover {
+                transform: scale(1.2);
+                color: #ff4b91;
+            }
+
+            .nav-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                font-size: 2.5rem;
+                cursor: pointer;
+                background: rgba(255, 255, 255, 0.2);
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+            .nav-btn:hover {
+                background: rgba(255, 255, 255, 0.3);
+                transform: translateY(-50%) scale(1.1);
+            }
+
+            .prev-btn {
+                left: 30px;
+            }
+
+            .next-btn {
+                right: 30px;
+            }
+
+            .next-btn-page {
+                display: block;
+                margin: 30px auto;
+                padding: 12px 30px;
+                background: linear-gradient(135deg, #ff4b91, #ff2e75);
+                color: white;
+                font-family: 'Dancing Script', cursive;
+                font-size: 1.5rem;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(255, 75, 145, 0.4);
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .next-btn-page:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(255, 75, 145, 0.5);
+            }
+
+            .next-btn-page:active {
+                transform: translateY(0);
+            }
+
+            .next-btn-page::before {
+                content: '❤️';
+                position: absolute;
+                left: -20px;
+                transition: all 0.3s ease;
+            }
+
+            .next-btn-page:hover::before {
+                left: 10px;
+            }
+
+            .next-btn-page::after {
+                content: '❤️';
+                position: absolute;
+                right: -20px;
+                transition: all 0.3s ease;
+            }
+
+            .next-btn-page:hover::after {
+                right: 10px;
+            }
+
+            /* Floating hearts background */
+            .floating-hearts {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            .floating-hearts span {
+                position: absolute;
+                font-size: 20px;
+                opacity: 0;
+                animation: floatUp 10s linear infinite;
+            }
+
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(100vh) rotate(0deg);
+                    opacity: 0;
+                }
+
+                10% {
+                    opacity: 1;
+                }
+
+                90% {
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(-100px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+
+            /* Responsive design */
+            @media (max-width: 768px) {
+                .photo-grid {
+                    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                    gap: 10px;
+                    padding: 10px;
+                }
+
+                h1 {
+                    font-size: 2rem;
+                }
+
+                .next-btn-page {
+                    font-size: 1.2rem;
+                    padding: 10px 25px;
+                }
+
+                .nav-btn {
+                    width: 50px;
+                    height: 50px;
+                    font-size: 2rem;
+                }
+
+                .prev-btn {
+                    left: 10px;
+                }
+
+                .next-btn {
+                    right: 10px;
+                }
+            }
+        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+
+    <body>
+        <h1>Our Beautiful Memories ❤️</h1>
+        <div class="floating-hearts" id="floatingHearts"></div>
+        <div class="photo-grid" id="photoGrid"></div>
+        <button id="nextButton" class="next-btn-page heart-pulse">More Memories</button>
+        <button id="backbutton" onclick="back()">Back</button>
+        <!-- Image Modal -->
+        <div class="modal" id="imageModal">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <div class="nav-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></div>
+            <div class="modal-content">
+                <img class="modal-img" id="modalImage" src="" alt="Enlarged photo">
+            </div>
+            <div class="nav-btn next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></div>
+
+        </div>
+
+        <script>
+            function back() {
+                window.history.back();
+            }
+
+            const photoGrid = document.getElementById('photoGrid');
+            const nextButton = document.getElementById('nextButton');
+            const floatingHearts = document.getElementById('floatingHearts');
+            const imageModal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const closeModal = document.getElementById('closeModal');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const totalImages = 11;
+            const imagesPerPage = 10;
+            let currentPage = 1;
+            let currentImageIndex = 0;
+            let currentImages = [];
+            // Create floating hearts background
+            function createFloatingHearts() {
+                const heartIcons = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🤍', '💖', '💗', '💘'];
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('span');
+                        heart.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                        heart.style.left = Math.random() * 100 + 'vw';
+                        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                        heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                        heart.style.animationDelay = (Math.random() * 5) + 's';
+                        floatingHearts.appendChild(heart);
+                        setTimeout(() => {
+                            heart.remove();
+                        }, 15000);
+                    }, i * 300);
+                }
+            }
+            // Image path generator
+            function getImagePath(index) {
+                return `photos/${ index }.png`; // Replace with your actual path
+            }
+            // Clear grid
+            function clearGrid() {
+                photoGrid.innerHTML = '';
+                currentImages = [];
+            }
+            // Load images with love animation
+            function loadImages(page) {
+                clearGrid();
+                const startIndex = (page - 1) * imagesPerPage + 1;
+                const endIndex = Math.min(startIndex + imagesPerPage - 1, totalImages);
+                for (let i = startIndex; i <= endIndex; i++) {
+                    const photoItem = document.createElement('div');
+                    photoItem.className = 'photo-item';
+                    photoItem.dataset.index = i - startIndex;
+                    const img = new Image();
+                    img.src = getImagePath(i);
+                    img.alt = `Our memory ${ i }`;
+                    img.loading = 'lazy';
+                    photoItem.appendChild(img);
+                    photoGrid.appendChild(photoItem);
+                    // Store current images for modal navigation
+                    currentImages.push({
+                        src: img.src,
+                        alt: img.alt
+                    });
+                    // Add click event to open modal
+                    photoItem.addEventListener('click', () => {
+                        currentImageIndex = parseInt(photoItem.dataset.index);
+                        openModal(currentImageIndex);
+                    });
+                }
+                // Add gentle fade-in animation
+                setTimeout(() => {
+                    const items = document.querySelectorAll('.photo-item');
+                    items.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                        }, index * 50);
+                    });
+                }, 100);
+            }
+            // Open modal with image
+            function openModal(index) {
+                modalImage.src = currentImages[index].src;
+                modalImage.alt = currentImages[index].alt;
+                imageModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+            // Close modal
+            function closeModalFunc() {
+                imageModal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+            // Navigate between images in modal
+            function navigate(direction) {
+                currentImageIndex += direction;
+                if (currentImageIndex < 0) {
+                    currentImageIndex = currentImages.length - 1;
+                } else if (currentImageIndex >= currentImages.length) {
+                    currentImageIndex = 0;
+                }
+                modalImage.src = currentImages[currentImageIndex].src;
+                modalImage.alt = currentImages[currentImageIndex].alt;
+            }
+            // Next button click for pagination
+            nextButton.addEventListener('click', () => {
+                if (currentPage * imagesPerPage < totalImages) {
+                    currentPage++;
+                    loadImages(currentPage);
+                } else {
+                    nextButton.textContent = 'No More Memories ❤️';
+                    nextButton.disabled = true;
+                }
+            });
+            // Modal event listeners
+            closeModal.addEventListener('click', closeModalFunc);
+            prevBtn.addEventListener('click', () => navigate(-1));
+            nextBtn.addEventListener('click', () => navigate(1));
+            // Close modal when clicking outside the image
+            imageModal.addEventListener('click', (e) => {
+                if (e.target === imageModal) {
+                    closeModalFunc();
+                }
+            });
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (imageModal.classList.contains('show')) {
+                    if (e.key === 'Escape') {
+                        closeModalFunc();
+                    } else if (e.key === 'ArrowLeft') {
+                        navigate(-1);
+                    } else if (e.key === 'ArrowRight') {
+                        navigate(1);
+                    }
+                }
+            });
+            // Initialize
+            loadImages(currentPage);
+            createFloatingHearts();
+            setInterval(createFloatingHearts, 15000);
+            // Add initial floating hearts
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createFloatingHearts, i * 500);
+            }
+        </script>
+    </body>
+
+</html>

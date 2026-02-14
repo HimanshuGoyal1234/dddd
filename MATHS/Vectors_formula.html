@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 12 Maths - Vectors Formulas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f7ff;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background-image: linear-gradient(to bottom, #e3f2fd, #f0f7ff);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 100, 0.15);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .formula-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 100, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 6px solid #2a5298;
+        }
+        
+        .formula-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 100, 0.15);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e3f2fd;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            color: #2a5298;
+        }
+        
+        .formula {
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-size: 1.3rem;
+            background-color: #f8fbff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px dashed #a8c6ff;
+            overflow-x: auto;
+        }
+        
+        .description {
+            color: #555;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        
+        .vector-icon {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #2a5298;
+            margin: 5px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #ccc;
+        }
+        
+        .highlight {
+            color: #1e3c72;
+            font-weight: bold;
+        }
+        
+        .note {
+            background-color: #fff8e1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 6px solid #ffc107;
+        }
+        
+        .note h3 {
+            color: #ff8f00;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .formula-card {
+                padding: 20px;
+            }
+        }
+        
+        .print-btn {
+            display: block;
+            margin: 30px auto;
+            background-color: #1e3c72;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 100, 0.2);
+        }
+        
+        .print-btn:hover {
+            background-color: #2a5298;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calculator"></i> Class 12 Mathematics</h1>
+            <h2>Vectors - All Formulas</h2>
+            <p class="subtitle">Complete reference guide for vector algebra including definitions, operations, properties, and important results for CBSE and other board exams</p>
+        </header>
+        
+        <div class="content">
+            <!-- Basic Definitions -->
+            <div class="formula-card">
+                <h3 class="card-title"><i class="fas fa-vector-square"></i> Basic Definitions</h3>
+                <div class="formula">
+                    Vector: <span class="highlight">\(\vec{a} = a_1\hat{i} + a_2\hat{j} + a_3\hat{k}\)</span>
+                </div>
+                <div class="formula">
+                    Magnitude: <span class="highlight">\(|\vec{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}\)</span>
+                </div>
+                <div class="formula">
+                    Unit vector: <span class="highlight">\(\hat{a} = \frac{\vec{a}}{|\vec{a}|}\)</span>
+                </div>
+                <p class="description">A vector has both magnitude and direction. The unit vectors along x, y, z axes are \(\hat{i}, \hat{j}, \hat{k}\) respectively.</p>
+                <div class="vector-icon">
+                    <i class="fas long-arrow-alt-right"></i> → 
+                </div>
+            </div>
+            
+            <!-- Vector Operations -->
+            <div class="formula-card">
+                <h3 class="card-title"><i class="fas fa-plus-circle"></i> Vector Operations</h3>
+                <div class="formula">
+                    Addition: <span class="highlight">\(\vec{a} + \vec{b} = (a_1+b_1)\hat{i} + (a_2+b_2)\hat{j} + (a_3+b_3)\hat{k}\)</span>
+                </div>
+                <div class="formula">
+                    Subtraction: <span class="highlight">\(\vec{a} - \vec{b} = (a_1-b_1)\hat{i} + (a_2-b_2)\hat{j} + (a_3-b_3)\hat{k}\)</span>
+                </div>
+                <div class="formula">
+                    Scalar Multiplication: <span class="highlight">\(m\vec{a} = ma_1\hat{i} + ma_2\hat{j} + ma_3\hat{k}\)</span>
+                </div>
+                <p class="description">Vector addition follows triangle law and parallelogram law. Scalar multiplication changes magnitude but not direction (unless scalar is negative).</p>
+            </div>
+            
+            <!-- Dot Product -->
+            <div class="formula-card">
+                <h3 class="card-title"><i class="fas fa-times-circle"></i> Dot Product (Scalar Product)</h3>
+                <div class="formula">
+                    <span class="highlight">\(\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta\)</span>
+                </div>
+                <div class="formula">
+                    <span class="highlight">\(\vec{a} \cdot \vec{b} = a_1b_1 + a_2b_2 + a_3b_3\)</span>
+                </div>
+                <div class="formula">
+                    Angle between vectors: <span class="highlight">\(\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}\)</span>
+                </div>
+                <p class="description">Dot product gives a scalar quantity. Two vectors are perpendicular if \(\vec{a} \cdot \vec{b} = 0\).</p>
+            </div>
+            
+            <!-- Cross Product -->
+            <div class="formula-card">
+                <h3 class="card-title"><i class="fas fa-times"></i> Cross Product (Vector Product)</h3>
+                <div class="formula">
+                    <span class="highlight">\(\vec{a} \times \vec{b} = |\vec{a}||\vec{b}|\sin\theta\ \hat{n}\)</span>
+                </div>
+                <div class="formula">
+                    <span class="highlight">\(\vec{a} \times \vec{b} = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}\)</span>
+                </div>
+                <div class="formula">
+                    Magnitude: <span class="highlight">\(|\vec{a} \times \vec{b}| = |\vec{a}||\vec{b}|\sin\theta\)</span>
+                </div>
+                <p class="description">Cross product gives a vector perpendicular to both \(\vec{a}\) and \(\vec{b}\). Two vectors are parallel if \(\vec{a} \times \vec{b} = \vec{0}\).</p>
+            </div>
+            
+            <!-- Properties -->
+            <div class="formula-card">
+                <h3 class="card-title"><i class="fas fa-list-alt"></i> Properties of Dot & Cross Product</h3>
+                <div class="formula">
+                    Commutative: <span class="highlight">\(\vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a}\)</span>
+                </div>
+                <div class="formula">
+                    Not Commutative: <span class="highlight">\(\vec{a} \times \vec{b} = -(\vec{b} \times \vec{a})\)</span>
+                </div>
+                <div class="formula">
+                    Distributive: <span class="highlight">\(\vec{a} \cdot (\vec{b} + \vec{c}) = \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c}\)</span>
+                </div>
+                <div class="formula">
+                    Distributive: <span class="highlight">\(\vec{a} \times (\vec{b} + \vec{c}) = \vec{a} \times \vec{b} + \vec{a} \times \vec{c}\)</span>
+                </div>
+                <p class="description">Dot product is commutative but cross product is anti-commutative. Both follow distributive law over addition.</p>
+            </div>
+            
+            <!-- Scalar Triple Product -->
+            <div class="formula-card">
+                <h3 class="card-title"><i class="fas fa-cube"></i> Scalar Triple Product</h3>
+                <div class="formula">
+                    <span class="highlight">\([\vec{a}\ \vec{b}\ \vec{c}] = \vec{a} \cdot (\vec{b} \times \vec{c})\)</span>
+                </div>
+                <div class="formula">
+                    <span class="highlight">\([\vec{a}\ \vec{b}\ \vec{c}] = \begin{vmatrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{vmatrix}\)</span>
+                </div>
+                <div class="formula">
+                    Cyclic Property: <span class="highlight">\([\vec{a}\ \vec{b}\ \vec{c}] = [\vec{b}\ \vec{c}\ \vec{a}] = [\vec{c}\ \vec{a}\ \vec{b}]\)</span>
+                </div>
+                <p class="description">Scalar triple product gives the volume of parallelepiped formed by vectors \(\vec{a}, \vec{b}, \vec{c}\). Vectors are coplanar if \([\vec{a}\ \vec{b}\ \vec{c}] = 0\).</p>
+            </div>
+            
+            <!-- Vector Triple Product -->
+            <div class="formula-card">
+                <h3 class="card-title"><i class="fas fa-cubes"></i> Vector Triple Product</h3>
+                <div class="formula">
+                    <span class="highlight">\(\vec{a} \times (\vec{b} \times \vec{c}) = (\vec{a} \cdot \vec{c})\vec{b} - (\vec{a} \cdot \vec{b})\vec{c}\)</span>
+                </div>
+                <div class="formula">
+                    <span class="highlight">\((\vec{a} \times \vec{b}) \times \vec{c} = (\vec{a} \cdot \vec{c})\vec{b} - (\vec{b} \cdot \vec{c})\vec{a}\)</span>
+                </div>
+                <p class="description">Vector triple product results in a vector in the plane of \(\vec{b}\) and \(\vec{c}\). Note that \(\vec{a} \times (\vec{b} \times \vec{c}) \neq (\vec{a} \times \vec{b}) \times \vec{c}\).</p>
+            </div>
+            
+            <!-- Projection -->
+            <div class="formula-card">
+                <h3 class="card-title"><i class="fas fa-project-diagram"></i> Projection of Vectors</h3>
+                <div class="formula">
+                    Projection of \(\vec{a}\) on \(\vec{b}\): <span class="highlight">\(\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|}\)</span>
+                </div>
+                <div class="formula">
+                    Component of \(\vec{a}\) along \(\vec{b}\): <span class="highlight">\(\left(\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|^2}\right) \vec{b}\)</span>
+                </div>
+                <div class="formula">
+                    Projection of \(\vec{a}\) perpendicular to \(\vec{b}\): <span class="highlight">\(\vec{a} - \left(\frac{\vec{a} \cdot \vec{b}}{|\vec{b}|^2}\right) \vec{b}\)</span>
+                </div>
+                <p class="description">Projection gives the scalar length of shadow, while component gives the vector in direction of \(\vec{b}\).</p>
+            </div>
+            
+            <!-- Important Results -->
+            <div class="formula-card">
+                <h3 class="card-title"><i class="fas fa-lightbulb"></i> Important Results & Identities</h3>
+                <div class="formula">
+                    <span class="highlight">\(\vec{a} \cdot \vec{a} = |\vec{a}|^2\)</span>
+                </div>
+                <div class="formula">
+                    <span class="highlight">\(\vec{a} \times \vec{a} = \vec{0}\)</span>
+                </div>
+                <div class="formula">
+                    Lagrange's Identity: <span class="highlight">\(|\vec{a} \times \vec{b}|^2 = |\vec{a}|^2|\vec{b}|^2 - (\vec{a} \cdot \vec{b})^2\)</span>
+                </div>
+                <div class="formula">
+                    <span class="highlight">\(|\vec{a} + \vec{b}|^2 = |\vec{a}|^2 + |\vec{b}|^2 + 2(\vec{a} \cdot \vec{b})\)</span>
+                </div>
+                <div class="formula">
+                    <span class="highlight">\(|\vec{a} - \vec{b}|^2 = |\vec{a}|^2 + |\vec{b}|^2 - 2(\vec{a} \cdot \vec{b})\)</span>
+                </div>
+                <p class="description">These identities are frequently used in solving vector algebra problems.</p>
+            </div>
+        </div>
+        
+        <button class="print-btn" onclick="window.print()">
+            <i class="fas fa-print"></i> Print Formulas Sheet
+        </button>
+        
+        <div class="note">
+            <h3><i class="fas fa-exclamation-circle"></i> Important Notes</h3>
+            <ul>
+                <li>Vectors are denoted by bold letters (\(\mathbf{a}\)) or with an arrow (\(\vec{a}\)).</li>
+                <li>A zero vector (\(\vec{0}\)) has magnitude 0 and no specific direction.</li>
+                <li>Two vectors are equal if they have same magnitude and direction.</li>
+                <li>Dot product is also called scalar product and cross product is also called vector product.</li>
+                <li>Scalar triple product is zero if any two vectors are equal or all three are coplanar.</li>
+                <li>For position vectors, \(\overrightarrow{AB} = \vec{b} - \vec{a}\) where \(\vec{a}\) and \(\vec{b}\) are position vectors of A and B.</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>Class 12 Mathematics - Vectors Formulas Reference Sheet</p>
+            <p>Useful for CBSE, ICSE, State Boards and competitive exams like JEE</p>
+            <p>© 2023 Maths Formula Guide | Vector Algebra</p>
+        </footer>
+    </div>
+
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script>
+        // Simple script for print functionality
+        document.querySelector('.print-btn').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Highlight current section on scroll
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.formula-card');
+            const scrollPosition = window.scrollY + 100;
+            
+            cards.forEach(card => {
+                const cardTop = card.offsetTop;
+                const cardHeight = card.clientHeight;
+                
+                if (scrollPosition >= cardTop && scrollPosition < cardTop + cardHeight) {
+                    card.style.borderLeftColor = '#ff9800';
+                } else {
+                    card.style.borderLeftColor = '#2a5298';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

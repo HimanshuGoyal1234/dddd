@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <script src="auth-check.js"></script>
+        <script src="system.js"></script>
+        <title>CyberSpace Portal</title>
+        <style>
+            :root {
+                --neon-blue: #0ff0fc;
+                --neon-purple: #bc13fe;
+                --neon-pink: #ff2a6d;
+                --deep-space: #0a0e17;
+                --terminal-green: #00ff41;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: url(wallpaper/cyberpunk-mclaren-supercars-neon-art-3840x2160-1003.jpg);
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                font-family: 'Orbitron', sans-serif;
+                min-height: 100vh;
+                overflow-x: hidden;
+                position: relative;
+            }
+
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: -1;
+            }
+
+            .grid-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background:
+                    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+                background-size: 30px 30px;
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            header {
+                text-align: center;
+                padding: 30px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid var(--neon-blue);
+                box-shadow: 0 0 20px var(--neon-blue);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            h1 {
+                color: var(--neon-blue);
+                font-size: 3rem;
+                text-shadow: 0 0 10px var(--neon-blue);
+                letter-spacing: 3px;
+                animation: pulse 2s infinite alternate;
+                margin-bottom: 10px;
+            }
+
+            @keyframes pulse {
+                from {
+                    text-shadow: 0 0 5px var(--neon-blue);
+                }
+
+                to {
+                    text-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-purple);
+                }
+            }
+
+            header p {
+                color: var(--terminal-green);
+                font-size: 1.2rem;
+                text-shadow: 0 0 5px var(--terminal-green);
+            }
+
+            .navigation {
+                margin: 30px;
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 10px;
+                background: rgba(10, 14, 23, 0.5);
+                border-top: 2px solid var(--neon-blue);
+                border-bottom: 2px solid var(--neon-purple);
+                box-shadow: 0 0 20px rgba(11, 242, 252, 0.3);
+                backdrop-filter: blur(5px);
+                border-radius: 5px;
+            }
+
+            .navigation ul {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                list-style: none;
+                padding: 10px;
+            }
+
+            .nav_item {
+                color: var(--neon-blue);
+                padding: 10px 20px;
+                border: 1px solid var(--neon-purple);
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-transform: uppercase;
+                font-weight: bold;
+                position: relative;
+                overflow: hidden;
+                background: rgba(10, 14, 23, 0.7);
+                text-shadow: 0 0 5px var(--neon-blue);
+            }
+
+            .nav_item a {
+                color: inherit;
+                text-decoration: none;
+                display: block;
+            }
+
+            .nav_item:hover {
+                color: white;
+                background: rgba(188, 19, 254, 0.3);
+                box-shadow: 0 0 15px var(--neon-purple);
+                transform: translateY(-3px);
+            }
+
+            .nav_item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+                transition: 0.5s;
+            }
+
+            .nav_item:hover::before {
+                left: 100%;
+            }
+
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+                .navigation ul {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .h1 {
+                    font-size: 2rem;
+                }
+            }
+
+            .sldkjfsldfkj {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sldkjfsldfkj>ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                list-style: none;
+                gap: 30px;
+            }
+
+            .AA_item {
+                margin: 10px;
+                border: 1px solid rgba(0, 183, 255, 0.3);
+                border-radius: 0;
+                padding: 25px;
+                width: 410px;
+                background: rgba(0, 20, 50, 0.8);
+                position: relative;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 0 10px rgba(0, 183, 255, 0.2);
+                color: white;
+            }
+
+            .AA_item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 0 20px rgba(0, 183, 255, 0.5);
+            }
+
+            .AA_item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg,
+                        transparent,
+                        rgba(0, 183, 255, 0.4),
+                        transparent);
+                transition: 0.5s;
+            }
+
+            .AA_item:hover::before {
+                left: 100%;
+            }
+
+            .AA_item h1 {
+                font-family: 'Orbitron', sans-serif;
+                font-weight: 500;
+                font-size: 30px;
+                margin-bottom: 15px;
+                color: #00f7ff;
+                text-shadow: 0 0 5px #00f7ff;
+                letter-spacing: 2px;
+            }
+
+            .AA_item p {
+                padding-top: 15px;
+                line-height: 1.6;
+                font-weight: 300;
+                font-size: 16px;
+            }
+
+            .AA_item::after {
+                content: '';
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                border: 2px solid #00f7ff;
+                transition: all 0.3s ease;
+            }
+
+            .AA_item::after {
+                top: 5px;
+                left: 5px;
+                border-right: none;
+                border-bottom: none;
+            }
+
+            .AA_item:hover::after {
+                width: 25px;
+                height: 25px;
+            }
+
+            .AA_item .corner-bottom {
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                bottom: 5px;
+                right: 5px;
+                border: 2px solid #00f7ff;
+                border-left: none;
+                border-top: none;
+                transition: all 0.3s ease;
+            }
+
+            .AA_item:hover .corner-bottom {
+                width: 25px;
+                height: 25px;
+            }
+        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="grid-overlay"></div>
+
+        <header>
+            <h1>WELCOME BACK</h1>
+            <p>To Personal Website</p>
+        </header>
+
+        <nav class="navigation">
+            <ul style="display: flex;flex-direction: row;">
+                <li class="nav_item"><a href="HSP_interface.html">Home</a></li>
+                <li class="nav_item"><a href="Shayni/Shayni.html">Shayni</a></li>
+                <li class="nav_item"><a href="piku/piku.html">piku</a></li>
+                <li class="nav_item"><a href="siyaa/siya.html">siyaa</a></li>
+                <li class="nav_item"><a href="Shagun/shagun.html">Shagun</a></li>
+                <li class="nav_item"><a href="Khaterine/photos.html">Khaterine</a></li>
+                <li class="nav_item"><a href="Deepa/deepa.html">Deepa</a></li>
+                <li class="nav_item"><a href="Kritika/1.png">Kritika</a></li>
+                <li class="nav_item"><a href="Nandu/nandini.html">Nandu</a></li>
+                <li class="nav_item"><a href="Samiara/samaira.html">Samiara</a></li>
+                <li class="nav_item"><a href="My_diary/My_diary.html">My Diary</a></li>
+                <li class="nav_item"><a href="">Projects</a></li>
+                <li class="nav_item"><a href="Code_Archive.html">Snippets</a></li>
+                <li class="nav_item"><a href="">Private Vault</a></li>
+            </ul>
+        </nav>
+        <div class="sldkjfsldfkj">
+            <ul>
+                <li class="AA_item" id="item_1" data-url="Code_Archive.html">
+                    <h1>Previous Codes</h1>
+                    <div class="corner-bottom"></div>
+                </li>
+                <li class="AA_item" id="item_1" data-url="My_diary/My_diary.html">
+                    <h1>Diary</h1>
+                    <div class="corner-bottom"></div>
+                </li>
+                <li class="AA_item" id="item_1" data-url="Shayni/Shayni.html">
+                    <h1>Shayni</h1>
+                    <div class="corner-bottom"></div>
+                </li>
+                <li class="AA_item" id="item_1">
+                    <h1>Projects</h1>
+                    <div class="corner-bottom"></div>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            document.querySelectorAll('.AA_item').forEach(item => {
+                item.addEventListener('click', function () {
+                    window.open(this.getAttribute('data-url'), '_blank');
+                });
+            });
+
+        </script>
+
+    </body>
+
+</html>

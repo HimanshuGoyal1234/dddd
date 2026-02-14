@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Call Recordings Player</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <script src="auth-check.js"></script>
+        <script src="system.js"></script>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            body {
+                background: black;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px;
+                color: white;
+            }
+
+            h1 {
+                margin-bottom: 30px;
+                text-align: center;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            }
+
+            .player-container {
+                width: 100%;
+                max-width: 800px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                padding: 25px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                margin-bottom: 30px;
+            }
+
+            .audio-player {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            audio {
+                width: 100%;
+                border-radius: 10px;
+                outline: none;
+            }
+
+            .playlist {
+                width: 100%;
+                max-width: 800px;
+                max-height: 400px;
+                overflow-y: auto;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+                padding: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .playlist-item {
+                padding: 12px 15px;
+                margin-bottom: 8px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .playlist-item:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateX(5px);
+            }
+
+            .playlist-item.active {
+                background: rgba(0, 123, 255, 0.3);
+                border-left: 4px solid #007bff;
+            }
+
+            .playlist-item .date {
+                font-size: 0.9em;
+                color: #aaa;
+            }
+
+            /* Custom scrollbar */
+            .playlist::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            .playlist::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+            }
+
+            .playlist::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 10px;
+            }
+
+            .playlist::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+
+            /* Controls */
+            .controls {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 20px;
+            }
+
+            .control-btn {
+                padding: 10px 20px;
+                background: rgba(0, 123, 255, 0.7);
+                border: none;
+                border-radius: 30px;
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .control-btn:hover {
+                background: rgba(0, 123, 255, 0.9);
+                transform: translateY(-2px);
+            }
+
+            @media (max-width: 600px) {
+
+                .player-container,
+                .playlist {
+                    width: 95%;
+                    padding: 15px;
+                }
+
+                h1 {
+                    font-size: 1.5rem;
+                }
+            }
+        </style>
+    </head>
+
+    <body style="background-color: black;">
+        <h1>Call Recordings</h1>
+
+        <div class="player-container">
+            <div class="audio-player">
+                <audio id="audioPlayer" controls>
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <div class="controls">
+                <button class="control-btn" id="prevBtn">Previous</button>
+                <button class="control-btn" id="nextBtn">Next</button>
+            </div>
+        </div>
+
+        <div class="playlist" id="playlist">
+        </div>
+
+        <script>
+            const b = document.body;
+            b.style.background = `url(photos/${ Math.floor(Math.random() * 314) }.jpg)`;
+            b.style.backgroundPosition = `center center`;
+            b.style.backgroundSize = `contain`;
+            b.style.backgroundAttachment = `fixed`;
+            const callRecordings = [
+                { date: "01-12-2024 00:30:30", file: "call_rec/[01,12,2024],[00,30,30].mp3" },
+                { date: "01-12-2024 22:55:05", file: "call_rec/[01,12,2024],[22,55,05].mp3" },
+                { date: "02-12-2024 21:56:46", file: "call_rec/[02,12,2024],[21,56,46].mp3" },
+                { date: "06-02-2025 22:57:51", file: "call_rec/[06,02,2025],[22,57,51].mp3" },
+                { date: "06-02-2025 23:04:31", file: "call_rec/[06,02,2025],[23,04,31].mp3" },
+                { date: "06-02-2025 23:06:14", file: "call_rec/[06,02,2025],[23,06,14].mp3" },
+                { date: "06-02-2025 23:08:47", file: "call_rec/[06,02,2025],[23,08,47].mp3" },
+                { date: "06-02-2025 23:17:59", file: "call_rec/[06,02,2025],[23,17,59].mp3" },
+                { date: "07-02-2025 00:48:10", file: "call_rec/[07,02,2025],[00,48,10].mp3" },
+                { date: "08-12-2024 22:40:36", file: "call_rec/[08,12,2024],[22,40,36].mp3" },
+                { date: "09-12-2024 22:56:52", file: "call_rec/[09,12,2024],[22,56,52].mp3" },
+                { date: "10-02-2025 00:28:23", file: "call_rec/[10,02,2025],[00,28,23].mp3" },
+                { date: "10-02-2025 01:10:44", file: "call_rec/[10,02,2025],[01,10,44].mp3" },
+                { date: "10-11-2024 15:50:29", file: "call_rec/[10,11,2024],[15,50,29].mp3" },
+                { date: "10-12-2024 23:12:57", file: "call_rec/[10,12,2024],[23,12,57].mp3" },
+                { date: "10-12-2024 23:58:51", file: "call_rec/[10,12,2024],[23,58,51].mp3" },
+                { date: "10-10-2025 14:48:10", file: "call_rec/[10,5,2025],[14,48,9].mp3" },
+                { date: "10-10-2025 15:16:16", file: "call_rec/[10,5,2025],[15,16,16].mp3" },
+                { date: "10-10-2025 15:38:10", file: "call_rec/[10,5,2025],[15,38,0].mp3" },
+                { date: "10-10-2025 22:10:11", file: "call_rec/[10,5,2025],[22,2,11].mp3" },
+                { date: "10-10-2025 23:10:10", file: "call_rec/[10,5,2025],[23,8,1].mp3" },
+                { date: "11-12-2024 22:46:39", file: "call_rec/[11,12,2024],[22,46,39].mp3" },
+                { date: "11-12-2024 23:54:14", file: "call_rec/[11,12,2024],[23,54,14].mp3" },
+                { date: "11-11-2025 18:11:50", file: "call_rec/[11,5,2025],[18,4,50].mp3" },
+                { date: "11-11-2025 19:11:48", file: "call_rec/[11,5,2025],[19,0,48].mp3" },
+                { date: "11-11-2025 22:20:49", file: "call_rec/[11,5,2025],[22,20,49].mp3" },
+                { date: "11-11-2025 22:21:32", file: "call_rec/[11,5,2025],[22,21,32].mp3" },
+                { date: "11-11-2025 22:35:55", file: "call_rec/[11,5,2025],[22,35,55].mp3" },
+                { date: "12-11-2024 23:21:22", file: "call_rec/[12,11,2024],[23,21,22].mp3" },
+                { date: "12-11-2024 23:39:05", file: "call_rec/[12,11,2024],[23,39,05].mp3" },
+                { date: "15-11-2024 15:39:57", file: "call_rec/[15,11,2024],[15,39,57].mp3" },
+                { date: "15-11-2024 15:40:54", file: "call_rec/[15,11,2024],[15,40,54].mp3" },
+                { date: "15-11-2024 15:42:07", file: "call_rec/[15,11,2024],[15,42,07].mp3" },
+                { date: "17-11-2024 22:31:43", file: "call_rec/[17,11,2024],[22,31,43].mp3" },
+                { date: "17-11-2024 22:35:17", file: "call_rec/[17,11,2024],[22,35,17].mp3" },
+                { date: "17-11-2024 23:39:15", file: "call_rec/[17,11,2024],[23,39,15].mp3" },
+                { date: "18-11-2024 22:26:14", file: "call_rec/[18,11,2024],[22,26,14].mp3" },
+                { date: "18-11-2024 23:22:04", file: "call_rec/[18,11,2024],[23,22,04].mp3" },
+                { date: "19-11-2024 22:40:22", file: "call_rec/[19,11,2024],[22,40,22].mp3" },
+                { date: "20-11-2024 22:53:03", file: "call_rec/[20,11,2024],[22,53,03].mp3" },
+                { date: "20-11-2024 22:55:26", file: "call_rec/[20,11,2024],[22,55,26].mp3" },
+                { date: "20-11-2024 22:59:25", file: "call_rec/[20,11,2024],[22,59,25].mp3" },
+                { date: "20-11-2024 23:52:05", file: "call_rec/[20,11,2024],[23,52,05].mp3" },
+                { date: "22-11-2024 22:38:52", file: "call_rec/[22,11,2024],[22,38,52].mp3" },
+                { date: "23-11-2024 23:07:09", file: "call_rec/[23,11,2024],[23,07,09].mp3" },
+                { date: "24-11-2024 23:00:05", file: "call_rec/[24,11,2024],[23,00,05].mp3" },
+                { date: "24-11-2024 23:00:44", file: "call_rec/[24,11,2024],[23,00,44].mp3" },
+                { date: "24-11-2024 23:16:17", file: "call_rec/[24,11,2024],[23,16,17].mp3" },
+                { date: "24-11-2024 23:33:15", file: "call_rec/[24,11,2024],[23,33,15].mp3" },
+                { date: "24-11-2024 23:34:53", file: "call_rec/[24,11,2024],[23,34,53].mp3" },
+                { date: "25-11-2024 22:55:39", file: "call_rec/[25,11,2024],[22,55,39].mp3" },
+                { date: "25-11-2024 23:20:57", file: "call_rec/[25,11,2024],[23,20,57].mp3" },
+                { date: "25-11-2024 23:39:36", file: "call_rec/[25,11,2024],[23,39,36].mp3" },
+                { date: "26-11-2024 22:54:44", file: "call_rec/[26,11,2024],[22,54,44].mp3" },
+                { date: "26-11-2024 23:15:52", file: "call_rec/[26,11,2024],[23,15,52].mp3" },
+                { date: "27-11-2024 23:13:58", file: "call_rec/[27,11,2024],[23,13,58].mp3" },
+                { date: "27-11-2024 23:47:00", file: "call_rec/[27,11,2024],[23,47,00].mp3" },
+                { date: "28-11-2024 23:10:26", file: "call_rec/[28,11,2024],[23,10,26].mp3" },
+                { date: "29-29-2025 23:24:22", file: "call_rec/[29,4,2025],[23,24,22].mp3" },
+                { date: "30-11-2024 22:54:13", file: "call_rec/[30,11,2024],[22,54,13].mp3" },
+                { date: "30-11-2024 23:03:30", file: "call_rec/[30,11,2024],[23,03,30].mp3" },
+                { date: "30-11-2024 23:10:14", file: "call_rec/[30,11,2024],[23,10,14].mp3" },
+                { date: "30-11-2024 23:18:51", file: "call_rec/[30,11,2024],[23,18,51].mp3" },
+                { date: "05-05-2025 17:33:10", file: "call_rec/[5,5,2025],[17,33,10].mp3" },
+                { date: "05-05-2025 17:52:05", file: "call_rec/[5,5,2025],[17,52,3].mp3" },
+                { date: "05-05-2025 18:31:21", file: "call_rec/[5,5,2025],[18,31,21].mp3" },
+                { date: "05-05-2025 18:49:25", file: "call_rec/[5,5,2025],[18,49,25].mp3" },
+                { date: "05-05-2025 22:10:05", file: "call_rec/[5,5,2025],[22,10,2].mp3" },
+                { date: "05-05-2025 22:45:15", file: "call_rec/[5,5,2025],[22,45,15].mp3" },
+                { date: "05-05-2025 22:05:36", file: "call_rec/[5,5,2025],[22,6,36].mp3" },
+                { date: "06-06-2025 11:39:14", file: "call_rec/[6,5,2025],[11,39,14].mp3" },
+                { date: "06-06-2025 11:41:46", file: "call_rec/[6,5,2025],[11,41,46].mp3" },
+                { date: "06-06-2025 14:43:43", file: "call_rec/[6,5,2025],[14,43,43].mp3" },
+                { date: "06-06-2025 20:37:06", file: "call_rec/[6,5,2025],[20,37,5].mp3" },
+                { date: "06-06-2025 22:06:43", file: "call_rec/[6,5,2025],[22,0,43].mp3" },
+                { date: "06-06-2025 22:28:49", file: "call_rec/[6,5,2025],[22,28,49].mp3" },
+                { date: "06-06-2025 22:29:19", file: "call_rec/[6,5,2025],[22,29,19].mp3" },
+                { date: "06-06-2025 22:29:46", file: "call_rec/[6,5,2025],[22,29,46].mp3" },
+                { date: "07-07-2025 13:54:37", file: "call_rec/[7,5,2025],[13,54,37].mp3" },
+                { date: "07-07-2025 22:39:07", file: "call_rec/[7,5,2025],[22,39,4].mp3" },
+                { date: "07-07-2025 22:45:56", file: "call_rec/[7,5,2025],[22,45,56].mp3" },
+                { date: "07-07-2025 22:07:42", file: "call_rec/[7,5,2025],[22,5,42].mp3" },
+                { date: "08-08-2025 22:52:33", file: "call_rec/[8,5,2025],[22,52,33].mp3" },
+                { date: "08-08-2025 22:08:08", file: "call_rec/[8,5,2025],[22,6,3].mp3" },
+                { date: "09-09-2025 20:15:22", file: "call_rec/[9,5,2025],[20,15,22].mp3" },
+                { date: "09-09-2025 21:42:44", file: "call_rec/[9,5,2025],[21,42,44].mp3" },
+                { date: "09-09-2025 22:19:24", file: "call_rec/[9,5,2025],[22,19,24].mp3" },
+                { date: "09-01-2025 23:32:27", file: "call_rec/signal-2025-01-09-23-32-27-574.aac" },
+                { date: "10-01-2025 22:54:38", file: "call_rec/signal-2025-01-10-22-54-38-837.aac" },
+                { date: "12-11-2024 01:30:24", file: "call_rec/[12,11,2024][01,30,24].mp3" },
+                { date: "12-11-2024 23:21:22", file: "call_rec/[12,11,2024][23,21,22].mp3" },
+                { date: "12-11-2024 23:39:05", file: "call_rec/[12,11,2024][23,39,05].mp3" },
+                { date: "15-11-2024 15:39:57", file: "call_rec/[15,11,2024][15,39,57].mp3" },
+                { date: "15-11-2024 15:40:54", file: "call_rec/[15,11,2024][15,40,54].mp3" },
+                { date: "15-11-2024 15:42:07", file: "call_rec/[15,11,2024][15,42,07].mp3" },
+                { date: "17-11-2024 22:31:43", file: "call_rec/[17,11,2024][22,31,43].mp3" },
+                { date: "17-11-2024 22:35:17", file: "call_rec/[17,11,2024][22,35,17].mp3" },
+                { date: "17-11-2024 23:39:15", file: "call_rec/[17,11,2024][23,39,15].mp3" },
+                { date: "18-11-2024 22:26:14", file: "call_rec/[18,11,2024][22,26,14].mp3" },
+                { date: "18-11-2024 23:22:04", file: "call_rec/[18,11,2024][23,22,04].mp3" },
+                { date: "19-11-2024 22:40:22", file: "call_rec/[19,11,2024][22,40,22].mp3" },
+                { date: "20-11-2024 22:53:03", file: "call_rec/[20,11,2024][22,53,03].mp3" },
+                { date: "20-11-2024 22:55:26", file: "call_rec/[20,11,2024][22,55,26].mp3" },
+                { date: "20-11-2024 22:59:25", file: "call_rec/[20,11,2024][22,59,25].mp3" },
+                { date: "20-11-2024 23:52:05", file: "call_rec/[20,11,2024][23,52,05].mp3" },
+                { date: "2024-11-23 23:07:09", file: "call_rec/[2024,11,23][23,07,09].mp3" },
+                { date: "22-11-2024 22:38:52", file: "call_rec/[22,11,2024][22,38,52].mp3" }
+
+            ];
+
+            const audioPlayer = document.getElementById('audioPlayer');
+            const playlist = document.getElementById('playlist');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let currentTrack = 0;
+
+            function generatePlaylist() {
+                playlist.innerHTML = '';
+
+                callRecordings.forEach((recording, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'playlist-item';
+                    if (index === currentTrack) {
+                        item.classList.add('active');
+                    }
+
+                    item.innerHTML = `
+                    <span>Recording ${ index + 1 }</span>
+                    <span class="date">${ recording.date }</span>
+                `;
+
+                    item.addEventListener('click', () => {
+                        playTrack(index);
+                    });
+
+                    playlist.appendChild(item);
+                });
+            }
+
+            function playTrack(index) {
+                if (index < 0 || index >= callRecordings.length) return;
+
+                currentTrack = index;
+                audioPlayer.src = callRecordings[index].file;
+                audioPlayer.play();
+
+                const items = document.querySelectorAll('.playlist-item');
+                items.forEach((item, i) => {
+                    if (i === index) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+
+                items[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                playTrack((currentTrack - 1 + callRecordings.length) % callRecordings.length);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                playTrack((currentTrack + 1) % callRecordings.length);
+            });
+
+            audioPlayer.addEventListener('ended', () => {
+                playTrack((currentTrack + 1) % callRecordings.length);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.code === 'ArrowLeft') {
+                    playTrack((currentTrack - 1 + callRecordings.length) % callRecordings.length);
+                } else if (e.code === 'ArrowRight') {
+                    playTrack((currentTrack + 1) % callRecordings.length);
+                } else if (e.code === 'Space') {
+                    if (audioPlayer.paused) {
+                        audioPlayer.play();
+                    } else {
+                        audioPlayer.pause();
+                    }
+                    e.preventDefault();
+                }
+            });
+            generatePlaylist();
+            playTrack(0);
+        </script>
+    </body>
+
+</html>

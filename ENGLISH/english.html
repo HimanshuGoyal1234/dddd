@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>ENGLISH</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            body {
+                min-height: 100vh;
+                background: radial-gradient(circle at top right, rgb(36, 9, 119) 0%, rgb(36, 9, 119) 48%, rgb(72, 7, 149) 48%, rgb(72, 7, 149) 53%, rgb(109, 5, 178) 53%, rgb(109, 5, 178) 56%, rgb(145, 2, 208) 56%, rgb(145, 2, 208) 69%, rgb(181, 0, 237) 69%, rgb(181, 0, 237) 100%) fixed no-repeat center/cover;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                padding: 20px;
+                font-family: Arial, sans-serif;
+            }
+
+            .uper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                width: 100%;
+                max-width: 1400px;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 300px;
+                padding: 15px;
+                border: 1px solid rgb(0, 166, 255);
+                border-top: 1px solid rgb(255, 0, 0);
+                border-radius: 10px;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                margin-bottom: 15px;
+            }
+
+            .container:hover {
+                animation: alsl 2s infinite;
+            }
+
+            @keyframes alsl {
+                0% {
+                    border-top-color: red;
+                    border-right-color: blue;
+                    border-bottom-color: green;
+                    border-left-color: yellow;
+                    box-shadow: 0 0 20px red;
+                }
+
+                25% {
+                    border-top-color: yellow;
+                    border-right-color: red;
+                    border-bottom-color: blue;
+                    border-left-color: green;
+                    box-shadow: 0 0 20px yellow;
+                }
+
+                50% {
+                    border-top-color: green;
+                    border-right-color: yellow;
+                    border-bottom-color: red;
+                    border-left-color: blue;
+                    box-shadow: 0 0 20px green;
+                }
+
+                75% {
+                    border-top-color: blue;
+                    border-right-color: green;
+                    border-bottom-color: yellow;
+                    border-left-color: red;
+                    box-shadow: 0 0 20px blue;
+                }
+
+                100% {
+                    border-top-color: red;
+                    border-right-color: blue;
+                    border-bottom-color: green;
+                    border-left-color: yellow;
+                    box-shadow: 0 0 20px yellow;
+                }
+            }
+
+            .list_item {
+                padding: 12px 0;
+                transition: transform 0.3s ease;
+                margin: 8px 0;
+                text-align: center;
+            }
+
+            .list_item:hover {
+                transform: scale(1.1);
+            }
+
+            .container div ul {
+                list-style: none;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0;
+            }
+
+            .container div ul a {
+                color: white;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+                font-size: 1rem;
+                font-weight: bold;
+                text-decoration: none;
+                transition: color 0.3s ease;
+                display: block;
+                padding: 5px 0;
+            }
+
+            .container div ul a:hover {
+                color: #00dcff;
+            }
+
+            #item_0 {
+                color: rgb(0, 255, 166);
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+
+            #item_0:hover {
+                transform: scale(1);
+            }
+
+            .button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+                width: 100%;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+                border: none;
+                border-radius: 5px;
+                background: linear-gradient(45deg, red, blue);
+                color: white;
+                cursor: pointer;
+                transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+                width: 150px;
+                max-width: 100%;
+            }
+
+            .btn:hover {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, blue, red);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+
+            @media (max-width: 768px) {
+                .uper {
+                    gap: 15px;
+                }
+
+                .container {
+                    padding: 12px;
+                    max-width: 100%;
+                }
+
+                .list_item {
+                    padding: 10px 0;
+                }
+
+                .container div ul a {
+                    font-size: 0.95rem;
+                }
+
+                #item_0 {
+                    font-size: 1.1rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                body {
+                    padding: 15px;
+                }
+
+                .container {
+                    padding: 10px;
+                }
+
+                .list_item {
+                    padding: 8px 0;
+                }
+
+                .container div ul a {
+                    font-size: 0.9rem;
+                }
+
+                #item_0 {
+                    font-size: 1rem;
+                }
+
+                .btn {
+                    padding: 10px 20px;
+                    font-size: 0.9rem;
+                }
+            }
+
+            /* Disable hover effects on touch devices */
+            @media (hover: none) {
+                .container:hover {
+                    animation: none;
+                }
+
+                .list_item:hover {
+                    transform: none;
+                }
+
+                .container div ul a:hover {
+                    color: white;
+                }
+
+                .btn:hover {
+                    transform: none;
+                    background: linear-gradient(45deg, red, blue);
+                    box-shadow: none;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="uper">
+            <div class="container">
+                <div>
+                    <ul>
+                        <div class="list_item"><a id="item_0" href="">FLAMINGO</a></div>
+                        <li class="list_item" id="item_1"><a href="The_last_lesson.html">The Last Lesson</a></li>
+                        <li class="list_item" id="item_2"><a href="The_lost_spring.html">Lost Spring</a></li>
+                        <li class="list_item" id="item_3"><a href="deep_water.html">Deep Water</a></li>
+                        <li class="list_item" id="item_4"><a href="The_Rattrap.html">The Rattrap</a></li>
+                        <li class="list_item" id="item_5"><a href="Indigo.html">Indigo</a></li>
+                        <li class="list_item" id="item_6"><a href="Poets_and_Pancakes.html">Poets and Pancakes</a></li>
+                        <li class="list_item" id="item_7"><a href="The_Interview.html">The Interview</a></li>
+                        <li class="list_item" id="item_8"><a href="Going_Places.html">Going Places</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div>
+                    <ul>
+                        <div class="list_item"><a id="item_0" href="">POEMS</a></div>
+                        <li class="list_item" id="item_1"><a href="My_Mother_at_Sixty_Six.html">My Mother at
+                                Sixty-Six</a></li>
+                        <li class="list_item" id="item_2"><a href="An_Elementary_School_Classroom_in_a_Slum.html">An
+                                Elementary School Classroom in a Slum</a></li>
+                        <li class="list_item" id="item_3"><a href="Keeping_Quiet.html">Keeping Quiet</a></li>
+                        <li class="list_item" id="item_4"><a href="A_Thing_of_Beauty.html">A Thing of Beauty</a></li>
+                        <li class="list_item" id="item_5"><a href="A_Roadside_Stand.html">A Roadside Stand</a></li>
+                        <li class="list_item" id="item_6"><a href="Aunt_Jennifer’s_Tigers.html">Aunt Jennifer's
+                                Tigers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div>
+                    <ul>
+                        <div class="list_item"><a id="item_0">POETS</a></div>
+                        <li class="list_item" id="item_6"><a>Kamala Das</a></li>
+                        <li class="list_item" id="item_1"><a>Stephen Spender</a></li>
+                        <li class="list_item" id="item_2"><a>Pablo Neruda</a></li>
+                        <li class="list_item" id="item_3"><a>John Keats</a></li>
+                        <li class="list_item" id="item_4"><a>Robert Frost</a></li>
+                        <li class="list_item" id="item_5"><a>Walt Whitman</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div>
+                    <ul>
+                        <div class="list_item"><a id="item_0" href="#">VISTAS</a></div>
+                        <li class="list_item" id="item_1"><a href="the_third_level.html">The Third Level</a></li>
+                        <li class="list_item" id="item_2"><a href="the_tiger_king.html">The Tiger King</a></li>
+                        <li class="list_item" id="item_3"><a href="Journey_To_The_End_Of_The_Earth.html">Journey To The
+                                End Of The Earth</a></li>
+                        <li class="list_item" id="item_4"><a href="The_Enemy.html">The Enemy</a></li>
+                        <li class="list_item" id="item_5"><a href="Should_Wizad_hit_Mommy.html">Should Wizard Hit
+                                Mommy</a></li>
+                        <li class="list_item" id="item_6"><a href="On_The_Face_Of_It.html">On The Face Of It</a></li>
+                        <li class="list_item" id="item_7"><a href="Evans_Tries_an_O-Level.html">Evans Tries an
+                                O-Level</a></li>
+                        <li class="list_item" id="item_8"><a href="Memories_Of_ChildHood.html">Memories Of Childhood</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="Back()">BACK</button>
+        </div>
+        <script>
+            // Improved touch handling for mobile devices
+            function isTouchDevice() {
+                return 'ontouchstart' in window || navigator.maxTouchPoints;
+            }
+
+            if (!isTouchDevice()) {
+                document.querySelectorAll('.container').forEach(container => {
+                    const initialTransform = container.style.transform;
+                    const initialBoxShadow = container.style.boxShadow;
+
+                    container.addEventListener('mousemove', (e) => {
+                        const rect = container.getBoundingClientRect();
+                        const relX = e.clientX - rect.left - rect.width / 2;
+                        const relY = e.clientY - rect.top - rect.height / 2;
+                        const tiltX = (relY / rect.height) * 20;
+                        const tiltY = -(relX / rect.width) * 20;
+                        container.style.transform = `rotateX(${ tiltX }deg) rotateY(${ tiltY }deg) scale(1.02)`;
+                        container.style.transition = 'transform 0.1s linear';
+                        container.style.boxShadow = `0 25px 50px rgba(0, 0, 0, 0.3)`;
+                    });
+
+                    container.addEventListener('mouseleave', () => {
+                        container.style.transform = initialTransform;
+                        container.style.boxShadow = initialBoxShadow;
+                        container.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                    });
+                });
+            }
+
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

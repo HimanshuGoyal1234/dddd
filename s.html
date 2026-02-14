@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Comic Copier</title>
+    <style>
+        /* Basic Reset & Page Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Main Container */
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        /* Typography */
+        h1 {
+            color: #4a4a4a;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* The Magic Button */
+        #copyRandomBtn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            background-color: #28a745; /* Changed to green to signify 'copy' or 'success' */
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        #copyRandomBtn:hover {
+            background-color: #218838; /* Darker green on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+        }
+
+        #copyRandomBtn:active {
+            transform: translateY(-1px);
+        }
+
+        /* URL Display Area */
+        #urlDisplay {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            word-wrap: break-word;
+            color: #333;
+            min-height: 20px;
+            transition: color 0.3s ease; /* Smooth color transition for feedback */
+        }
+
+        /* Countdown Timer Styling */
+        #countdown {
+            margin-top: 15px;
+            font-size: 1em;
+            color: #28a745; /* Changed to green to match the theme */
+            font-weight: 500;
+            min-height: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎲 Random Comic Copier</h1>
+        <p>Click the button below to copy a random comic URL from freecomics.xxx to your clipboard. A new link will be generated and copied automatically every 30 seconds.</p>
+        
+        <!-- Button ID and text updated -->
+        <button id="copyRandomBtn">Copy Random Comic URL</button>
+        
+        <p id="countdown"></p>
+
+        <p id="urlDisplay"></p>
+    </div>
+
+    <script>
+        // Get the button, the display area, and the countdown element from the HTML
+        const copyRandomBtn = document.getElementById('copyRandomBtn');
+        const urlDisplay = document.getElementById('urlDisplay');
+        const countdownDisplay = document.getElementById('countdown');
+
+        let timeLeft = 30;
+
+        // This function now COPIES the URL instead of opening it
+        function copyRandomComicUrl() {
+            // 1. Generate a random integer from 0 to 9999
+            const randomNumber = Math.floor(Math.random() * 10000);
+
+            // 2. Format the number to be 4 digits long (e.g., 5 becomes '0005')
+            const paddedNumber = String(randomNumber).padStart(4, '0');
+
+            // 3. Construct the full URL
+            const baseUrl = 'https://www.freecomics.xxx/books/';
+            const newUrl = `${baseUrl}${paddedNumber}.html`;
+
+            // 4. Use the modern Clipboard API to copy the URL
+            navigator.clipboard.writeText(newUrl).then(() => {
+                // Success: The URL was copied successfully.
+                console.log('URL copied to clipboard!');
+                urlDisplay.textContent = `Copied to clipboard! 📋`;
+                urlDisplay.style.color = '#28a745'; // Green for success
+
+                // After 2 seconds, show the URL that was copied
+                setTimeout(() => {
+                    urlDisplay.textContent = `Last copied: ${newUrl}`;
+                    urlDisplay.style.color = '#333'; // Reset color to default
+                }, 2000);
+
+            }).catch(err => {
+                // Error: Something went wrong (e.g., browser doesn't support it or permissions were denied)
+                console.error('Failed to copy URL: ', err);
+                urlDisplay.textContent = 'Failed to copy. Please check browser permissions.';
+                urlDisplay.style.color = '#dc3545'; // Red for error
+            });
+        }
+
+        // Add a click event listener to the button to call our new function
+        copyRandomBtn.addEventListener('click', copyRandomComicUrl);
+
+        // Set up the automatic trigger every 30 seconds
+        setInterval(copyRandomComicUrl, 30000);
+
+        // Set up the countdown timer to display the remaining time
+        setInterval(() => {
+            timeLeft--;
+            if (timeLeft <= 0) {
+                timeLeft = 30; // Reset timer after it reaches 0
+            }
+            countdownDisplay.textContent = `Next auto-copy in: ${timeLeft}s`;
+        }, 1000); // Update every 1 second (1000 milliseconds)
+
+    </script>
+
+</body>
+</html>

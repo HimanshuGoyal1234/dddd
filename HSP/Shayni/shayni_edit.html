@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <title>Image Gallery</title>
+        <script src="auth-check.js"></script>
+        <script src="system.js"></script>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            body {
+                background: linear-gradient(black, white);
+                background-size: 400% 400%;
+                min-height: 100vh;
+                overflow-x: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .container img {
+                padding-top: 20px;
+                padding-right: 20px;
+                padding-left: 20px;
+                width: 100%;
+                height: 85%;
+                object-fit: cover;
+                transition: all 0.5s ease;
+            }
+
+            .caption {
+                height: 15%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 0 15px;
+                text-align: center;
+                font-size: 1.2rem;
+                font-weight: 600;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+                transition: all 0.3s ease;
+                text-transform: capitalize;
+            }
+
+            button {
+                padding: 10px 20px;
+                background: rgba(0, 0, 0, 0.7);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+            }
+
+            button:hover {
+                background: rgba(0, 0, 0, 0.9);
+                transform: translateY(-2px);
+            }
+
+            .container {
+                width: 300px;
+                height: 400px;
+                border-radius: 15px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                background: rgba(255, 255, 255, 0.826);
+                backdrop-filter: blur(5px);
+                transition: all 0.3s ease-in-out;
+                position: absolute;
+                transform: translate(600px, 100px);
+                animation-iteration-count: 1;
+            }
+
+            @keyframes fifth {
+                0% {
+                    transform: translate(600px, 100px);
+                }
+
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+
+            @keyframes first {
+                0% {
+                    transform: translate(-600px, 100px);
+                }
+
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+
+            @keyframes second {
+                0% {
+                    transform: translate(-600px, -100px) rotate(90deg);
+                }
+
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+
+            @keyframes third {
+                0% {
+                    transform: translate(0px, -300px) rotateX(90deg);
+                }
+
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+
+            @keyframes fourth {
+                0% {
+                    transform: scale3d(1, 1, 1) rotateX(90deg) rotateY(-86deg) rotateZ(0deg) translate3d(60px, 0px, 0px) skew(0deg, 0deg);
+                }
+
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+
+
+            .first {
+                z-index: 0;
+            }
+
+            .second {
+                z-index: 1;
+            }
+
+            .third {
+                z-index: 2;
+            }
+
+            .fourth {
+                z-index: 3;
+            }
+
+            .fifth {
+                z-index: 4;
+            }
+
+            .sixth {
+                z-index: 5;
+            }
+
+            .seventh {
+                z-index: 6;
+            }
+
+            .eighth {
+                z-index: 7;
+            }
+
+            .ninth {
+                z-index: 8;
+            }
+
+            .tenth {
+                z-index: 9;
+            }
+
+            .eleventh {
+                z-index: 10;
+            }
+
+            .tweleth {
+                z-index: 11;
+            }
+
+            .thirteen {
+                z-index: 12;
+            }
+
+            .fourteen {
+                z-index: 13;
+            }
+        </style>
+    </head>
+
+    <body>
+        <button onclick="read()">Play Animation</button>
+        <audio id="bgMusic" src="jeena.mp3"></audio>
+        <div id="first" class="container first">
+            <img src="photos/191.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Aasma Mila</div>
+        </div>
+
+        <div id="second" class="container second">
+            <img src="photos/192.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Zami ko meri</div>
+        </div>
+        <div id="third" class="container third">
+            <img src="photos/251.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">aadhe aadhe</div>
+        </div>
+        <div id="fourth" class="container fourth">
+            <img src="photos/282.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Poore Hain</div>
+        </div>
+        <div id="fifth" class="container fifth">
+            <img src="photos/295.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Hum</div>
+        </div>
+        <div id="sixth" class="container sixth">
+            <img src="photos/213.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Tere naam pe</div>
+        </div>
+        <div id="seventh" class="container seventh">
+            <img src="photos/77.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Meri Zindagi</div>
+        </div>
+        <div id="eighth" class="container eighth">
+            <img src="photos/78.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Likh Di</div>
+        </div>
+        <div id="ninth" class="container ninth">
+            <img src="photos/102.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Mere Hum Dum</div>
+        </div>
+        <div id="tenth" class="container tenth">
+            <img src="photos/105.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Haan Sikha maine Jeena Jeena</div>
+        </div>
+        <div id="eleventh" class="container eleventh">
+            <img src="photos/155.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Kaise</div>
+        </div>
+        <div id="tweleth" class="container tweleth">
+            <img src="photos/153.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Jeena</div>
+        </div>
+        <div id="thirteen" class="container thirteen">
+            <img src="photos/186.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Haan Sikha</div>
+        </div>
+        <div id="fourteen" class="container fourteen">
+            <img src="photos/290.jpg" alt="Gallery image" loading="lazy">
+            <div class="caption">Jeena Jeena</div>
+        </div>
+    </body>
+    <script>
+        function read() {
+            let animations = [
+                "first", "second", "third", "fourth", "fifth"
+            ];
+            const sa = document.getElementById("bgMusic");
+            const first = document.getElementById("first");
+            const second = document.getElementById("second");
+            const third = document.getElementById("third");
+            const fourth = document.getElementById("fourth");
+            const fifth = document.getElementById("fifth");
+            const sixth = document.getElementById("sixth");
+            const seventh = document.getElementById("seventh");
+            const eighth = document.getElementById("eighth");
+            const ninth = document.getElementById("ninth");
+            const tenth = document.getElementById("tenth");
+            const eleventh = document.getElementById("eleventh");
+            const tweleth = document.getElementById("tweleth");
+            const thirteen = document.getElementById("thirteen");
+            const fourteen = document.getElementById("fourteen");
+            sa.play();
+            let randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+            first.style.animation = `${ randomAnimation } 4s ease-in-out 0s forwards`;
+            let randomAnimations = animations[Math.floor(Math.random() * animations.length)];
+            second.style.animation = `${ randomAnimations } 4s ease-in-out 2s forwards`;
+            let randomAnimatiossn = animations[Math.floor(Math.random() * animations.length)];
+            third.style.animation = `${ randomAnimatiossn } 4s ease-in-out 4s forwards`;
+            let randomAnimsation = animations[Math.floor(Math.random() * animations.length)];
+            fourth.style.animation = `${ randomAnimsation } 4s ease-in-out 6s forwards`;
+            let randomAnimatison = animations[Math.floor(Math.random() * animations.length)];
+            fifth.style.animation = `${ randomAnimatison } 4s ease-in-out 8s forwards`;
+            let randomAnimation_ = animations[Math.floor(Math.random() * animations.length)];
+            sixth.style.animation = `${ randomAnimation_ } 4s ease-in-out 11s forwards`;
+            let randomAnimation__ = animations[Math.floor(Math.random() * animations.length)];
+            seventh.style.animation = `${ randomAnimation__ } 4s ease-in-out 13s forwards`;
+            let randomAnimation___ = animations[Math.floor(Math.random() * animations.length)];
+            eighth.style.animation = `${ randomAnimation___ } 4s ease-in-out 15s forwards`;
+            let randomAnimation____ = animations[Math.floor(Math.random() * animations.length)];
+            ninth.style.animation = `${ randomAnimation____ } 4s ease-in-out 17s forwards`;
+            let randomAnimation______ = animations[Math.floor(Math.random() * animations.length)];
+            tenth.style.animation = `${ randomAnimation______ } 4s ease-in-out 21s forwards`;
+            let randomAnimation________ = animations[Math.floor(Math.random() * animations.length)];
+            eleventh.style.animation = `${ randomAnimation________ } 4s ease-in-out 23s forwards`;
+            let randomAnimation__________ = animations[Math.floor(Math.random() * animations.length)];
+            tweleth.style.animation = `${ randomAnimation__________ } 4s ease-in-out 24s forwards`;
+            let randomAnimation______________ = animations[Math.floor(Math.random() * animations.length)];
+            thirteen.style.animation = `${ randomAnimation______________ } 4s ease-in-out 26s forwards`;
+            let randomAnimation____________ = animations[Math.floor(Math.random() * animations.length)];
+            fourteen.style.animation = `${ randomAnimation____________ } 4s ease-in-out 28s forwards`;
+
+        }
+    </script>
+
+</html>

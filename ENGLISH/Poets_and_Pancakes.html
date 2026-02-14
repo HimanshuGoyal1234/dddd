@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Poets and Pancakes</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: radial-gradient(circle at top right, rgb(36, 9, 119) 0%, rgb(36, 9, 119) 48%, rgb(72, 7, 149) 48%, rgb(72, 7, 149) 53%, rgb(109, 5, 178) 53%, rgb(109, 5, 178) 56%, rgb(145, 2, 208) 56%, rgb(145, 2, 208) 69%, rgb(181, 0, 237) 69%, rgb(181, 0, 237) 100%) fixed no-repeat center/cover;
+
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                min-height: 100vh;
+                color: white;
+            }
+
+            /* Typography */
+            h1,
+            h2,
+            h3 {
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 15px 0;
+            }
+
+            h3 {
+                color: #ff6b6b;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                line-height: 1.6;
+            }
+
+            /* Layout Components */
+            .heading {
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.18);
+                border-radius: 20px;
+                margin: 20px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .heading::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(5px);
+                z-index: -1;
+            }
+
+            .section-container {
+                background: rgba(0, 0, 0, 0.7);
+                border: 2px solid #ff4d4d;
+                margin: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            .section-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .section-container:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 15px rgba(255, 0, 0, 0.2);
+            }
+
+            .content-wrapper {
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Character Cards */
+            .character-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .character {
+                background: rgba(180, 180, 180, 0.1);
+                border-radius: 8px;
+                padding: 1.5rem;
+                width: 300px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .character::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .character:hover {
+                transform: translateY(-5px);
+                box-shadow: inset 0 0 20px red, 0 5px 15px rgba(0, 0, 0, 0.3);
+                background: rgba(180, 180, 180, 0.2);
+            }
+
+            /* Questions Section */
+            .character-lists {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .character-lists .character {
+                width: 100%;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .character-list {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .character {
+                    width: 90%;
+                    margin: 10px 0;
+                }
+
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            #the_end {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .button {
+                margin-top: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                position: relative;
+                top: 20px;
+                border-radius: 5px;
+                background: linear-gradient(45deg, red, blue);
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                margin-bottom: 40px;
+            }
+
+            .btn:hover {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, blue, red);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <header class="heading">
+            <h1>Flamingo (Prose) – "Poets and Pancakes" by Asokamitran</h1>
+        </header>
+
+        <main>
+            <!-- Summary Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>SHORT SUMMARY</h2>
+                    <p>"Poets and Pancakes" is an excerpt from Asokamitran’s memoir, which provides an inside look at
+                        the Gemini Studios, a famous film studio in Chennai. The essay humorously describes the working
+                        environment of the studio, focusing on the makeup department, its use of the imported 'Pancake'
+                        makeup, and the various eccentric characters working there. The author also touches upon the
+                        visit of an unknown English poet and how the studio workers reacted to him. The story highlights
+                        the contrast between art and bureaucracy within the film industry.</p>
+                </div>
+            </section>
+
+            <!-- Characters Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Characters</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>The Narrator</h3>
+                            <p>Asokamitran, who worked in Gemini Studios and observed its daily activities with humor
+                                and wit.</p>
+                        </div>
+                        <div class="character">
+                            <h3>The Makeup Department</h3>
+                            <p>A team responsible for applying heavy makeup to actors, often using the 'Pancake' makeup.
+                            </p>
+                        </div>
+                        <div class="character">
+                            <h3>The English Poet</h3>
+                            <p>An unknown poet who visited Gemini Studios and left the workers confused about his
+                                purpose.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Subbu</h3>
+                            <p>A talented assistant who was extremely loyal to the studio head and contributed
+                                creatively to the industry.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Theme Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Theme</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Film Industry Insights</h3>
+                            <p>Gives a humorous account of the Indian film industry, especially the chaotic working
+                                environment of Gemini Studios.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Irony and Humor</h3>
+                            <p>Explores the ironies of the workplace, from over-the-top makeup to misunderstandings
+                                about literature.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Creativity vs. Bureaucracy</h3>
+                            <p>Highlights the struggles of creative minds within the structured and often illogical
+                                system of a film studio.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Important Questions</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>What is 'Pancake' in the story?</h3>
+                            <p>'Pancake' is a type of makeup used extensively in Gemini Studios to prepare actors for
+                                filming.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Why was the English poet’s visit confusing?</h3>
+                            <p>The workers at Gemini Studios did not understand the relevance of the poet’s speech and
+                                his purpose in the studio.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Who was Subbu?</h3>
+                            <p>Subbu was a multi-talented assistant who contributed significantly to the studio but was
+                                often disliked for his success.</p>
+                        </div>
+                        <div class="character">
+                            <h3>What role did Gemini Studios play in the film industry?</h3>
+                            <p>Gemini Studios was one of India’s most prestigious film studios, producing movies and
+                                promoting nationalist sentiments.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Quotes Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Key Quotes</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <p>"The makeup department was a symbol of the absurdity of the film industry."</p>
+                        </div>
+                        <div class="character">
+                            <p>"Subbu was tailor-made for films; he was a poet, a writer, and an actor rolled into one."
+                            </p>
+                        </div>
+                        <div class="character">
+                            <p>"The poet’s visit was a mystery, his words incomprehensible to the audience of Gemini
+                                Studios."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Literary Devices Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Literary Devices</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Irony</h3>
+                            <p>The studio workers admire a poet they do not understand, reflecting the irony of
+                                misplaced admiration.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Satire</h3>
+                            <p>The essay mocks the film industry’s absurdities, from excessive makeup to the rigid
+                                bureaucracy.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Humor</h3>
+                            <p>Uses lighthearted humor to describe the quirky characters and events in Gemini Studios.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="the_end">
+                <div class="button">THE END</div>
+                <button class="btn the_end" onclick="Back()">BACK</button>
+            </div>
+        </main>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

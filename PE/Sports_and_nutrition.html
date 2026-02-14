@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chapter 8: Sports and Nutrition</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            :root {
+                --primary: #4fc3f7;
+                --secondary: #00796b;
+                --accent: #81c784;
+                --text: #e0e0e0;
+                --bg: #121212;
+                --card-bg: #1e1e1e;
+                --table-header: #00796b;
+                --macro-card: #5d4037;
+                --diet-card: #4527a0;
+            }
+
+            .button {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 50px;
+                background: linear-gradient(45deg, #ff0000, #0066ff);
+                color: white;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0066ff, #ff0000);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn:hover::before {
+                opacity: 1;
+            }
+
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                background-color: var(--bg);
+                color: var(--text);
+            }
+
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background-color: var(--card-bg);
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                color: var(--primary);
+                text-align: center;
+                border-bottom: 2px solid var(--secondary);
+                padding-bottom: 10px;
+            }
+
+            h2 {
+                color: var(--accent);
+                margin-top: 30px;
+                border-left: 4px solid var(--secondary);
+                padding-left: 12px;
+                background-color: rgba(0, 121, 107, 0.1);
+            }
+
+            h3 {
+                color: var(--primary);
+                margin-top: 20px;
+            }
+
+            .card {
+                background-color: #263238;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+                border-left: 3px solid var(--primary);
+            }
+
+            .macro-card {
+                background-color: var(--macro-card);
+                border-left: 3px solid #ffb74d;
+            }
+
+            .diet-card {
+                background-color: var(--diet-card);
+                border-left: 3px solid #7e57c2;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                background-color: #263238;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid #455a64;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+            }
+
+            th {
+                background-color: var(--table-header);
+                color: #ffffff;
+                font-weight: 600;
+            }
+
+            tr:nth-child(even) {
+                background-color: #37474f;
+            }
+
+            tr:hover {
+                background-color: #455a64;
+            }
+
+            ul,
+            ol {
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            strong {
+                color: var(--primary);
+            }
+
+            .comparison {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+            }
+
+            .comparison div {
+                flex: 1;
+                padding: 15px;
+                border-radius: 5px;
+                background-color: #263238;
+                border-top: 3px solid var(--primary);
+            }
+
+            .nutrient-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+                margin: 20px 0;
+            }
+
+            .nutrient-item {
+                background-color: #1b5e20;
+                padding: 15px;
+                border-radius: 5px;
+                border-left: 3px solid var(--accent);
+            }
+
+            @media (max-width: 768px) {
+
+                .comparison,
+                .nutrient-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .food-image {
+                text-align: center;
+                margin: 20px 0;
+                padding: 15px;
+                background-color: #37474f;
+                border-radius: 5px;
+            }
+
+            .food-image img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Chapter 8: Sports and Nutrition</h1>
+
+            <h2>1. Macronutrients for Athletes</h2>
+
+            <div class="card macro-card">
+                <h3>Essential Macronutrients</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Carbohydrates</h4>
+                        <ul>
+                            <li><strong>Role:</strong> Primary energy source</li>
+                            <li><strong>Daily Need:</strong> 5-10g/kg body weight</li>
+                            <li><strong>Best Sources:</strong> Whole grains, fruits, vegetables</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Proteins</h4>
+                        <ul>
+                            <li><strong>Role:</strong> Muscle repair/growth</li>
+                            <li><strong>Daily Need:</strong> 1.2-2.0g/kg body weight</li>
+                            <li><strong>Best Sources:</strong> Lean meats, dairy, legumes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-image">
+                    <div
+                        style="background-color: #455a64; height: 150px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                        [Balanced Meal Plate Visualization]
+                    </div>
+                    <p>Ideal athlete's plate: 50% carbs, 25% protein, 25% vegetables</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Pre- and Post-Workout Nutrition</h3>
+                <table>
+                    <tr>
+                        <th>Timing</th>
+                        <th>Carbohydrates</th>
+                        <th>Protein</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>Pre-Workout (2-3hr before)</td>
+                        <td>1-4g/kg</td>
+                        <td>0.15-0.25g/kg</td>
+                        <td>Oatmeal + banana + peanut butter</td>
+                    </tr>
+                    <tr>
+                        <td>Post-Workout (within 30min)</td>
+                        <td>1-1.2g/kg</td>
+                        <td>0.3-0.4g/kg</td>
+                        <td>Chicken + rice + vegetables</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>2. Micronutrients and Hydration</h2>
+
+            <div class="card">
+                <h3>Key Micronutrients for Athletes</h3>
+                <div class="nutrient-grid">
+                    <div class="nutrient-item">
+                        <strong>Iron</strong>
+                        <p>Oxygen transport, prevents anemia</p>
+                        <p>Sources: Red meat, spinach, lentils</p>
+                    </div>
+                    <div class="nutrient-item">
+                        <strong>Calcium</strong>
+                        <p>Bone health, muscle function</p>
+                        <p>Sources: Dairy, leafy greens, almonds</p>
+                    </div>
+                    <div class="nutrient-item">
+                        <strong>Vitamin D</strong>
+                        <p>Bone health, immunity</p>
+                        <p>Sources: Sunlight, fatty fish, eggs</p>
+                    </div>
+                    <div class="nutrient-item">
+                        <strong>Electrolytes</strong>
+                        <p>Hydration balance</p>
+                        <p>Sources: Bananas, coconut water, sports drinks</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card diet-card">
+                <h3>Hydration Guidelines</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Before Exercise</h4>
+                        <ul>
+                            <li>500ml water 2-3 hours before</li>
+                            <li>250ml water 20-30 min before</li>
+                            <li>Monitor urine color (pale yellow ideal)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>During Exercise</h4>
+                        <ul>
+                            <li>150-350ml every 15-20 min</li>
+                            <li>Sports drink if >60 min intense activity</li>
+                            <li>Weigh before/after to estimate sweat loss</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>3. Weight Management in Sports</h2>
+
+            <div class="card">
+                <h3>Calculating Energy Needs</h3>
+                <div class="procedure">
+                    <h4>Step 1: Basal Metabolic Rate (BMR)</h4>
+                    <p><strong>Men:</strong> BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age(y) + 5</p>
+                    <p><strong>Women:</strong> BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age(y) - 161</p>
+
+                    <h4>Step 2: Activity Factor</h4>
+                    <ul>
+                        <li>Sedentary: ×1.2</li>
+                        <li>Light activity: ×1.375</li>
+                        <li>Moderate activity (3-5 days/wk): ×1.55</li>
+                        <li>Very active (6-7 days/wk): ×1.725</li>
+                        <li>Extra active (athlete): ×1.9</li>
+                    </ul>
+
+                    <h4>Step 3: Total Daily Energy Expenditure (TDEE)</h4>
+                    <p>TDEE = BMR × Activity Factor</p>
+                </div>
+            </div>
+
+            <div class="card macro-card">
+                <h3>Safe Weight Loss/Gain Strategies</h3>
+                <table>
+                    <tr>
+                        <th>Goal</th>
+                        <th>Caloric Adjustment</th>
+                        <th>Rate</th>
+                        <th>Key Tips</th>
+                    </tr>
+                    <tr>
+                        <td>Weight Loss</td>
+                        <td>300-500 kcal deficit/day</td>
+                        <td>0.5-1kg/week</td>
+                        <td>High protein, resistance training</td>
+                    </tr>
+                    <tr>
+                        <td>Weight Gain</td>
+                        <td>300-500 kcal surplus/day</td>
+                        <td>0.25-0.5kg/week</td>
+                        <td>Focus on lean mass, progressive overload</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>4. Sports-Specific Nutrition</h2>
+
+            <div class="card diet-card">
+                <h3>Endurance vs Strength Athletes</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Endurance Athletes (Marathon, Cycling)</h4>
+                        <ul>
+                            <li>Higher carb intake (6-10g/kg)</li>
+                            <li>Moderate protein (1.2-1.6g/kg)</li>
+                            <li>Focus on hydration/electrolytes</li>
+                            <li>Carb-loading before events</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Strength Athletes (Weightlifting, Sprinting)</h4>
+                        <ul>
+                            <li>Moderate carb intake (3-5g/kg)</li>
+                            <li>Higher protein (1.6-2.2g/kg)</li>
+                            <li>Creatine supplementation beneficial</li>
+                            <li>Timed protein intake crucial</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Competition Day Nutrition</h3>
+                <ol>
+                    <li><strong>3-4 Days Before:</strong> Carb-loading (7-10g/kg)</li>
+                    <li><strong>Pre-Event (3-4hr):</strong> Familiar, high-carb meal</li>
+                    <li><strong>1hr Before:</strong> Small carb snack if needed</li>
+                    <li><strong>During:</strong> 30-60g carbs/hr for >90min events</li>
+                    <li><strong>Recovery:</strong> 1-1.2g/kg carbs + 0.3g/kg protein within 30min</li>
+                </ol>
+            </div>
+
+            <h2>5. Dietary Supplements</h2>
+
+            <div class="card">
+                <h3>Common Sports Supplements</h3>
+                <table>
+                    <tr>
+                        <th>Supplement</th>
+                        <th>Purpose</th>
+                        <th>Evidence Level</th>
+                    </tr>
+                    <tr>
+                        <td>Whey Protein</td>
+                        <td>Muscle recovery/growth</td>
+                        <td>Strong</td>
+                    </tr>
+                    <tr>
+                        <td>Creatine</td>
+                        <td>Strength/power output</td>
+                        <td>Strong</td>
+                    </tr>
+                    <tr>
+                        <td>Caffeine</td>
+                        <td>Endurance/alertness</td>
+                        <td>Strong</td>
+                    </tr>
+                    <tr>
+                        <td>BCAAs</td>
+                        <td>Muscle preservation</td>
+                        <td>Moderate</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card macro-card">
+                <h3>Supplement Safety Considerations</h3>
+                <ul>
+                    <li>Third-party tested products (NSF, Informed Sport)</li>
+                    <li>Avoid proprietary blends with undisclosed amounts</li>
+                    <li>Consult sports dietitian/doctor before use</li>
+                    <li>More ≠ better - follow dosage guidelines</li>
+                    <li>Check WADA prohibited list for competitive athletes</li>
+                </ul>
+            </div>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="Back()">BACK</button>
+        </div>
+    </body>
+    <script>
+        function Back() {
+            window.history.back();
+        }
+    </script>
+
+</html>

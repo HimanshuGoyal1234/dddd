@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exam Header</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            :root {
+                --light-bg: #f4f4f4;
+                --light-text: #222;
+                --dark-bg: #121212;
+                --dark-text: #f1f1f1;
+            }
+
+            body {
+                background-color: white;
+                color: black;
+                font-family: Arial, sans-serif;
+                font-size: 1.3rem;
+            }
+
+            header {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .exam-info {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 40px;
+                margin-top: -35px;
+            }
+
+            .re {
+                border: 1px solid black;
+                margin: 20px;
+            }
+
+            .instructions {
+                margin-left: 40px;
+            }
+
+            .instructions-title {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .__center__ {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                text-decoration: underline;
+                margin: 20px 0;
+            }
+
+            .questions {
+                margin-left: 40px;
+            }
+
+            .options {
+                list-style-type: lower-alpha;
+                margin-left: 20px;
+            }
+
+            li {
+                padding: 3px;
+            }
+
+            .dark-mode {
+                background-color: var(--dark-bg);
+                color: var(--dark-text);
+            }
+
+            .toggle-btn {
+                background: none;
+                border: 0px;
+                border-radius: 50px;
+                padding: 10px 25px;
+                cursor: pointer;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: inherit;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .toggle-btn:hover {
+                border-color: #666;
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            .icon {
+                font-size: 24px;
+                display: inline-block;
+                transition: transform 0.6s ease, opacity 0.6s ease;
+                position: absolute;
+                left: 10px;
+            }
+
+            .sun {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            .moon {
+                opacity: 0;
+                transform: rotate(180deg);
+            }
+
+            .dark-mode .sun {
+                opacity: 0;
+                transform: rotate(180deg);
+            }
+
+            .dark-mode .moon {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            h1 {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+
+            .text-label {
+                padding-left: 35px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="progressContainer"
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: #ccc;">
+            <div id="progressBar" style="height: 3px; width: 0%; background: #000;"></div>
+        </div>
+        <button class="toggle-btn" onclick="toggleMode()">
+            <span class="icon sun">🌞</span>
+            <span class="icon moon">🌙</span>
+            &nbsp;
+        </button>
+        <header>
+            <h1>I-TERM EXAMINATION (2024-25)</h1>
+            <h2>CLASS - XI</h2>
+            <h2>SUBJECT - CHEMISTRY</h2>
+            <div class="exam-info">
+                <p><strong>MM:</strong> 70</p>
+                <p><strong>Time:</strong> 3 Hours</p>
+            </div>
+        </header>
+
+        <div class="re"></div>
+
+        <div class="instructions">
+            <div class="instructions-title">General Instructions:</div>
+            <ol>
+                <li>There are 33 questions in this question paper with internal choice.</li>
+                <li>SECTION A consists of 16 multiple-choice questions carrying 1 mark each.</li>
+                <li>SECTION B consists of 5 short answer questions carrying 2 marks each.</li>
+                <li>SECTION C consists of 7 short answer questions carrying 3 marks each.</li>
+                <li>SECTION D consists of 2 case-based questions carrying 4 marks each.</li>
+                <li>SECTION E consists of 3 long answer questions carrying 5 marks each.</li>
+                <li>All questions are compulsory.</li>
+                <li>Use of log tables and calculators is not allowed.</li>
+            </ol>
+        </div>
+
+        <div class="__center__">SECTION - A</div>
+
+        <ol class="questions">
+            <li>
+                The mass of an atom of carbon is ________.
+                <ul class="options">
+                    <li>1g</li>
+                    <li>1.99 × 10⁻²³ g</li>
+                    <li>1/12 g</li>
+                    <li>1.99 × 10²³ g</li>
+                </ul>
+            </li>
+            <li>
+                Which of the following pairs of gases contains the same number of molecules?
+                <ul class="options">
+                    <li>16 g of O₂ and 14 g of N₂</li>
+                    <li>6 g of O₂ and 22 g of CO₂</li>
+                    <li>28 g of N₂ and 22 g of CO₂</li>
+                    <li>32 g of CO₂ and 32 g of N₂</li>
+                </ul>
+            </li>
+            <li>
+                The radius of an atomic nucleus is of the order of
+                <ul class="options">
+                    <li>10⁻¹⁰ cm</li>
+                    <li>10⁻¹³ cm</li>
+                    <li>10⁻¹⁵ cm</li>
+                    <li>10⁻⁸ cm</li>
+                </ul>
+            </li>
+            <li>
+                The atomic orbital is
+                <ul class="options">
+                    <li>The circular path of the electron</li>
+                    <li>Elliptical shaped Orbit</li>
+                    <li>Three-dimensional field around nucleus</li>
+                    <li>The region in which there is a maximum probability of finding an electron</li>
+                </ul>
+            </li>
+            <li>
+                The electronic configuration of chromium (Z = 24) is:
+                <ul class="options">
+                    <li>[Ne] 3s² 3p⁶ 3d⁴ 4s²</li>
+                    <li>[Ne] 3s² 3p⁶ 3d⁵ 4s¹</li>
+                    <li>[Ne] 3s² 3p⁶ 3d⁵ 4s²</li>
+                    <li>[Ne] 3s² 3p⁶ 4s² 4p⁴</li>
+                </ul>
+            </li>
+            <li>
+                The element with atomic number 26 will be found in group:
+                <ul class="options">
+                    <li>2</li>
+                    <li>6</li>
+                    <li>8</li>
+                    <li>10</li>
+                </ul>
+            </li>
+            <li>
+                Which of the following electronic configurations of an atom has the lowest ionisation enthalpy?
+                <ul class="options">
+                    <li>1s² 2s² 2p³</li>
+                    <li>1s² 2s² 2p⁶ 3s¹</li>
+                    <li>1s² 2s² 2p⁶</li>
+                    <li>1s² 2s² 2p⁵</li>
+                </ul>
+            </li>
+            <li>
+                Which of the following elements has the maximum negative electron gain enthalpy?
+                <ul class="options">
+                    <li>Oxygen</li>
+                    <li>Chlorine</li>
+                    <li>Fluorine</li>
+                    <li>Nitrogen</li>
+                </ul>
+            </li>
+            <li>
+                In the resonating structures of benzene, the number of sigma and pi bonds are:
+                <ul class="options">
+                    <li>3π and 12σ</li>
+                    <li>3σ and 3π</li>
+                    <li>6σ and 6π</li>
+                    <li>12σ and 12π</li>
+                </ul>
+            </li>
+            <li>
+                The ion which is iso-electronic with CO is _____
+                <ul class="options">
+                    <li>CN⁻</li>
+                    <li>O₂⁻</li>
+                    <li>N₂⁺</li>
+                    <li>O₂⁺</li>
+                </ul>
+            </li>
+            <li>
+                The correct bond order in the following species is _____
+                <ul class="options">
+                    <li>O₂⁻ < O₂ < O₂²⁺</li>
+                    <li>O₂ < O₂⁻ < O₂²⁺</li>
+                    <li>O₂²⁺ < O₂ < O₂⁻</li>
+                    <li>O₂²⁺ < O₂⁻ < O₂</li>
+                </ul>
+            </li>
+            <li>
+                Formation of CO and CO₂ illustrates the law of _____
+                <ul class="options">
+                    <li>Law of conservation of mass</li>
+                    <li>Law of Reciprocal proportion</li>
+                    <li>Law of Constant Proportion</li>
+                    <li>Law of Multiple Proportion</li>
+                </ul>
+            </li>
+            <li>
+                Assertion (A): It is impossible to determine the exact position and exact momentum of an electron
+                simultaneously. <br>
+                Reason (R): The path of an electron in an atom is clearly defined.
+            </li>
+            <li>
+                Assertion (A): One atomic mass unit is defined as one twelfth of the mass of one carbon-12 atom. <br>
+                Reason (R): Carbon-12 isotope is the most abundant isotope of carbon and has been chosen as the
+                standard.
+            </li>
+            <li>
+                Assertion (A): Generally, ionisation enthalpy increases from left to right in a period. <br>
+                Reason (R): When successive electrons are added to orbitals in the same principal quantum level, the
+                shielding effect does not increase enough to offset the nuclear attraction.
+            </li>
+            <li>
+                Assertion (A): Though the central atom of both NH₃ and H₂O molecules is sp³ hybridised, the H-N-H bond
+                angle is greater than the H-O-H bond angle. <br>
+                Reason (R): Nitrogen has one lone pair whereas oxygen has two.
+            </li>
+        </ol>
+
+        <div class="__center__">SECTION - B</div>
+
+        <ol class="questions" start="17">
+            <li>What is the symbol for the SI unit of the mole? How is the mole defined?</li>
+            <li>Calculate the mass percent of calcium,phosphorus and oxygen in calcium, phosphorus and oxygen in calcium
+                phosphate Ca<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub></li>
+            <li>Arrange s,p and d sub-shells of a shell in the incresaing order of effective nuclear charge (Z
+                <sub>zff</sub>) experienced by the electron present in them.
+            </li>
+            <li>Explain why PCl<sub>5</sub> is trigonal bipyramidal whereas IF<sub>5</sub> is square pyramidal.</li>
+            <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+            <div>Write the resonance structures for So<sub>3</sub>,No<sub>2</sub></div>
+            <li>Thle electroic configuration of the valence shell of Cu is 3d<sup>10</sup> 4s¹ and not 3d<sup>9</sup>
+                4s². How is this configuration explained?</li>
+        </ol>
+        <div class="__center__">SECTION - C</div>
+        <ol class="questions" start="22">
+            <li>The density of the 3 molal solution of NaOH is 1.110g mL<sup>-1</sup>. Calculate the molarity of the
+                solution</li>
+            <li>The Balmer series in the hydrogen spectrum corresponds to the transition from n₁ = 2 to n₂ = 3,4,...
+                This series lies in the visible region. Calculate the wave number of the line associated with the
+                transition in the Balmer series when the electron moves to n = 4 orbit. (R_H = 109677 cm⁻¹)</li>
+            <li>Among the elements B, Al, C and Si,
+                <div>(i) Which element has the highest first ionisation enthalpy?</div>
+                <div>(ii) Which element has the most metallic character? Justify your answer in each case.</div>
+            </li>
+            <li>Write short notes on the following:</li>
+            <div>a. Aufbau’s principle</div>
+            <div>b. Pauli’s exclusion principle</div>
+            <div>c. Hund’s rule of maximum multiplicity</div>
+            <li>Define the law of multiple proportions. Explain it with examples. How does this law point to the
+                existence of atoms?</li>
+            <li>What is the difference between the terms orbit and orbital?</li>
+            <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+            <div>Write down the postulates of VSEPR theory.</div>
+            <li>Determine the molecular formula of an oxide of iron, in which the mass percent of iron and oxygen are
+                69.9 and 30.1, respectively.</li>
+        </ol>
+        <div class="__center__">SECTION - D (Case-based question)</div>
+        <ol class="questions" start="29">
+            <li> Orbitals are region or space where there is maximum probability of finding electrons.
+                Qualitatively, these orbitals can be distinguished by their size, shape and orientation. An orbital
+                of small size means there is more chance of finding the electron near the nucleus. Shape and
+                orientation means the direction in which probability of finding electron is maximum. Atomic orbitals
+                can be distinguished (Quantum number) which define energy, shape and orientation but these are not
+                sufficient to explain spectra of multi-electrons atoms,Spin qunatum number (M<sub>s</sub>) determines
+                the spin of electron. Spin angular momentum of electron has two orientations relative to cosen axis
+                which are distinguished by spin quantum numbers (M<sub>s</sub>) which can take value +1/2 and -1/2.</li>
+            <div>Value of
+                'l'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4
+            </div>
+            <div>Notation for
+                subshell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g
+            </div>
+            <div>(a) How many orbitals are associated with n = 3?</div>
+            <div>(b) Describe the orbitals represented by (i) n = 2, l = 1 (ii) n = 4, l = 0.</div>
+            <div>(c) How many electrons are possible in an orbital? Why?</div>
+            <div>(d) What is the shape of ‘s’ and ‘p’ orbitals?</div>
+            <li>The attractive force which holds the two atoms together is called a chemical bond. A covalent bond is
+                formed by an equal sharing of electrons. A coordinate bond is formed by unequal sharing of electrons. An
+                ionic bond is formed by the transfer of electrons from one atom to another. Octet rule, although very
+                useful but is not universally applicable. According to valence bond theory, a covalent bond is formed by
+                overlapping of half-filled atomic orbitals resulting in a lowering of energy and more stability. Bond
+                order is the number of bonds between atoms in a molecule. The higher the bond order more will be the
+                stability and the bond dissociation enthalpy but the smaller the bond length. The polarity of a covalent
+                bond depends upon the difference in electronegativity. The covalent character of a bond depends upon
+                polarising power. Smaller cation and bigger anions have higher polarising power. VSEPR theory helps to
+                predict the shapes of molecules.</li>
+            <div>(a) Write the electron dot structure of N₂O.</div>
+            <div>(b) What are the ions present in CsI₃?</div>
+            <div>(c) Out of CN⁻, CNO⁻, NO, which has the highest bond order?</div>
+            <div>(d) What is the correct sequence among the following: bp – bp, lp – lp, and lp – bp?</div>
+        </ol>
+        <div class="__center__">SECTION - E</div>
+        <ol class="questions" start="31">
+            <li>
+                <div>(i) Calculate the energy and frequency of the radiation emitted when an electron jumps from n = 3
+                    to n = 2 in a hydrogen atom.</div>
+                <div>(ii) Write the difference between sigma and pi bond.</div>
+            </li>
+            <li> Calcium carbonate reacts with aqueous HCl to give CaCl₂ and CO₂ according to the reaction given below:
+            </li>
+            <div>CaCO₃ (s) + 2HCl (aq) → CaCl₂ (aq) + CO₂ (g) + H₂O (l).</div>
+            <div>What mass of CaCl₂ will be formed when 250 mL of 0.76 M HCl reacts with 1000 g of CaCO₃? Name the
+                limiting reagent. Calculate the number of moles of CaCl₂ formed in the reaction.</div>
+            <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+            <div>(a) Use molecular orbital theory to explain why the Be₂ molecule does not exist.</div>
+            <div>(b) Compare the relative stability of the following species and indicate their magnetic properties:
+            </div>
+            <div>O₂, O₂⁺, O₂⁻ (superoxide), O₂²⁻ (peroxide)</div>
+            <li>(i) Arrange the elements N, P, O and S in the order of–</li>
+            <div>(a) increasing first ionisation enthalpy.</div>
+            <div>(b) increasing non-metallic character.</div>
+            <div>Give reason for the arrangement assigned.</div>
+            <div>(ii) Discuss the factors affecting electron gain enthalpy and the trend in its variation in the
+                periodic table.</div>
+        </ol>
+        <div class="__center__">
+            <<< PAPER ENDED>>>
+        </div>
+    </body>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+        window.onscroll = function () {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+    </script>
+
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Deep Water</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: radial-gradient(circle at top right, rgb(36, 9, 119) 0%, rgb(36, 9, 119) 48%, rgb(72, 7, 149) 48%, rgb(72, 7, 149) 53%, rgb(109, 5, 178) 53%, rgb(109, 5, 178) 56%, rgb(145, 2, 208) 56%, rgb(145, 2, 208) 69%, rgb(181, 0, 237) 69%, rgb(181, 0, 237) 100%) fixed no-repeat center/cover;
+
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                min-height: 100vh;
+                color: white;
+            }
+
+            /* Typography */
+            h1,
+            h2,
+            h3 {
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 15px 0;
+            }
+
+            h3 {
+                color: #ff6b6b;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                line-height: 1.6;
+            }
+
+            /* Layout Components */
+            .heading {
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.18);
+                border-radius: 20px;
+                margin: 20px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .heading::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(5px);
+                z-index: -1;
+            }
+
+            .section-container {
+                background: rgba(0, 0, 0, 0.7);
+                border: 2px solid #ff4d4d;
+                margin: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            .section-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .section-container:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 15px rgba(255, 0, 0, 0.2);
+            }
+
+            .content-wrapper {
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Character Cards */
+            .character-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .character {
+                background: rgba(180, 180, 180, 0.1);
+                border-radius: 8px;
+                padding: 1.5rem;
+                width: 300px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .character::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .character:hover {
+                transform: translateY(-5px);
+                box-shadow: inset 0 0 20px red, 0 5px 15px rgba(0, 0, 0, 0.3);
+                background: rgba(180, 180, 180, 0.2);
+            }
+
+            /* Questions Section */
+            .character-lists {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .character-lists .character {
+                width: 100%;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .character-list {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .character {
+                    width: 90%;
+                    margin: 10px 0;
+                }
+
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            #the_end {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .button {
+                margin-top: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                position: relative;
+                top: 20px;
+                border-radius: 5px;
+                background: linear-gradient(45deg, red, blue);
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                margin-bottom: 40px;
+            }
+
+            .btn:hover {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, blue, red);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <header class="heading">
+            <h1>Flamingo (Prose) – "Deep Water" by William Douglas</h1>
+        </header>
+
+        <main>
+            <!-- Summary Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>SHORT SUMMARY</h2>
+                    <p>"Deep Water" is an autobiographical account by William Douglas, where he narrates his
+                        near-drowning experience in the YMCA pool and how he overcame his fear of water. The story
+                        highlights his struggle, determination, and ultimate victory over fear through perseverance and
+                        rigorous training. It emphasizes the idea that fear is only as deep as the mind allows, and with
+                        courage and effort, one can conquer it.</p>
+                </div>
+            </section>
+
+            <!-- Characters Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Characters</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>William Douglas</h3>
+                            <p>The narrator and protagonist, who overcomes his fear of water after a terrifying drowning
+                                incident.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Swimming Instructor</h3>
+                            <p>A professional who helps Douglas gradually overcome his hydrophobia through systematic
+                                training.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Older Boy</h3>
+                            <p>The bully who pushes Douglas into the deep end of the pool, triggering his intense fear
+                                of water.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Theme Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Theme</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Fear and Overcoming It</h3>
+                            <p>The story revolves around conquering one's deep-seated fears through determination.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Perseverance</h3>
+                            <p>Douglas’s journey from fear to mastery symbolizes the importance of persistence.</p>
+                        </div>
+                        <div class="character">
+                            <h3>The Power of the Mind</h3>
+                            <p>The story demonstrates how the human mind can be trained to overcome fear.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Important Questions</h2>
+                    <div class="character-lists">
+                        <div class="character">
+                            <h3>What incident led to William Douglas's fear of water?</h3>
+                            <p>He was pushed into the deep end of a swimming pool by an older boy, which left him
+                                traumatized.</p>
+                        </div>
+                        <div class="character">
+                            <h3>How did Douglas overcome his fear?</h3>
+                            <p>He took swimming lessons and gradually trained his mind to stay calm in water.</p>
+                        </div>
+                        <div class="character">
+                            <h3>What does Douglas learn from his experience?</h3>
+                            <p>He realizes that fear can be conquered with patience, determination, and effort.</p>
+                        </div>
+                        <div class="character">
+                            <h3>What is the significance of the title "Deep Water"?</h3>
+                            <p>It symbolizes both the literal fear of water and the metaphorical depth of human fears.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2 id="short_summary">Key Quotes</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <p>"All we have to fear is fear itself."</p>
+                        </div>
+                        <div class="character">
+                            <p>"I had learned the will to live somehow grows in the heart."</p>
+                        </div>
+                        <div class="character">
+                            <p>"It is only when we face our fears that we truly overcome them."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2 id="short_summary">Literary Devices</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Imagery</h3>
+                            <p>Douglas vividly describes his drowning experience, making readers feel his panic and
+                                struggle.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Symbolism</h3>
+                            <p>Water symbolizes both fear and the challenges one must overcome.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Irony</h3>
+                            <p>Douglas later becomes an expert swimmer despite initially being afraid of water.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Personification</h3>
+                            <p>Fear is described as a living entity that grips Douglas, showing its intense effect.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="the_end">
+                <div class="button">THE END</div>
+                <button class="btn the_end" onclick="Back()">BACK</button>
+            </div>
+        </main>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

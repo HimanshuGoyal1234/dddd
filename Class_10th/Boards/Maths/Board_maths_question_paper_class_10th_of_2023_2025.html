@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exam Header</title>
+        <link rel="icon" type="image/png" href="../../../logo.png">
+        <style>
+            /* ===== Base Styles ===== */
+            :root {
+                --light-bg: #f4f4f4;
+                --light-text: #222;
+                --dark-bg: #121212;
+                --dark-text: #f1f1f1;
+                --primary-color: #3a7bd5;
+                --secondary-color: #00d2ff;
+                --accent-color: #ff6b6b;
+                --border-color: #ddd;
+                --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                --transition: all 0.3s ease;
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: var(--light-text);
+                background-color: white;
+                margin: 0;
+                padding: 0;
+                transition: var(--transition);
+            }
+
+            body.dark-mode {
+                background-color: var(--dark-bg);
+                color: var(--dark-text);
+            }
+
+            /* ===== Typography ===== */
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                margin: 0 0 1rem 0;
+                line-height: 1.2;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: inherit;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                font-weight: 600;
+            }
+
+            p,
+            li {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            /* ===== Layout ===== */
+            header {
+                text-align: center;
+                margin: 2rem 0;
+                padding: 0 1rem;
+            }
+
+            .exam-info {
+                display: flex;
+                justify-content: space-between;
+                max-width: 500px;
+                margin: -2rem auto 0;
+                padding: 0 2rem;
+            }
+
+            .re {
+                border-top: 1px solid var(--border-color);
+                margin: 2rem 1rem;
+            }
+
+            .instructions,
+            .questions {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+
+            .instructions-title {
+                font-weight: bold;
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+            }
+
+            /* ===== Components ===== */
+            .__center__ {
+                text-align: center;
+                font-weight: bold;
+                text-decoration: underline;
+                margin: 2rem 0;
+                font-size: 1.3rem;
+            }
+
+            .options {
+                list-style-type: lower-alpha;
+                margin-left: 2rem;
+                padding-left: 1rem;
+            }
+
+            .options li {
+                padding: 0.5rem 0;
+            }
+
+            /* ===== Buttons ===== */
+            .button {
+                display: inline-block;
+                border: 2px solid var(--border-color);
+                padding: 0.5rem 1rem;
+                border-radius: 10px;
+                background: transparent;
+                color: inherit;
+                cursor: pointer;
+                transition: var(--transition);
+                font-size: 0.9rem;
+                margin: 0.5rem 0;
+            }
+
+            .button:hover {
+                background-color: var(--accent-color);
+                box-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
+                border-color: var(--accent-color);
+                color: white;
+            }
+
+            .toggle-btn {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                background: rgba(0, 0, 0, 0.1);
+                border: none;
+                border-radius: 50px;
+                padding: 0.6rem 1.2rem;
+                cursor: pointer;
+                font-size: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: inherit;
+                transition: var(--transition);
+                z-index: 100;
+            }
+
+            .toggle-btn:hover {
+                background: rgba(0, 0, 0, 0.2);
+            }
+
+            .icon {
+                font-size: 1.2rem;
+                transition: var(--transition);
+                position: relative;
+            }
+
+            .sun {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            .moon {
+                position: absolute;
+                opacity: 0;
+                transform: rotate(90deg);
+            }
+
+            .dark-mode .sun {
+                opacity: 0;
+                transform: rotate(90deg);
+            }
+
+            .dark-mode .moon {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            /* ===== Progress Bar ===== */
+            #progressContainer {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                background: rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            #progressBar {
+                height: 100%;
+                width: 0%;
+                background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+                transition: width 0.1s linear;
+            }
+
+            /* ===== Tables ===== */
+            table {
+                width: 100%;
+                max-width: 600px;
+                border-collapse: collapse;
+                margin: 1.5rem auto;
+                box-shadow: var(--shadow);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            th,
+            td {
+                padding: 0.8rem 1rem;
+                text-align: center;
+                border: 1px solid var(--border-color);
+            }
+
+            th {
+                background: rgba(58, 123, 213, 0.2);
+                font-weight: 600;
+            }
+
+            tr:nth-child(even) {
+                background-color: rgba(0, 0, 0, 0.02);
+            }
+
+            tr:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            /* ===== Images ===== */
+            img {
+                display: none;
+                border-radius: 8px;
+                margin: 1rem 0;
+                box-shadow: var(--shadow);
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* ===== Dark Mode Specific Styles ===== */
+            .dark-mode table th {
+                background: rgba(0, 210, 255, 0.1);
+            }
+
+            .dark-mode table tr:nth-child(even) {
+                background-color: rgba(255, 255, 255, 0.02);
+            }
+
+            .dark-mode table tr:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            /* ===== Responsive Adjustments ===== */
+            @media (max-width: 768px) {
+                h1 {
+                    font-size: 2rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+
+                .exam-info {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: -1rem;
+                }
+
+                .instructions,
+                .questions {
+                    padding: 0 1rem;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="progressContainer"
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: #ccc;">
+            <div id="progressBar" style="height: 3px; width: 0%; background: #000;"></div>
+        </div>
+        <button class="toggle-btn" onclick="toggleMode()">
+            <span class="icon sun">🌞</span>
+            <span class="icon moon">🌙</span>
+            &nbsp;
+        </button>
+        <header>
+            <h1>BOARD EXAMINATION (2023–24)</h1>
+            <h2>CLASS - X</h2>
+            <h2>SUBJECT - MATHS</h2>
+            <div class="exam-info">
+                <p><strong>MM:</strong> 70</p>
+                <p><strong>Time:</strong> 3 Hours</p>
+            </div>
+        </header>
+
+        <div class="re"></div>
+
+        <div class="instructions">
+            <div class="instructions-title">General Instructions:</div>
+            <ol>
+                <li>This question paper contains 38 questions. All questions are compulsory.</li>
+                <li>Question paper is divided into FIVE sections - Section A, B, C, D and E.</li>
+                <li>In Section A, question number 1 to 18 are multiple choice questions (MCQs) and question number 19
+                    and 20 are Assertion-Reason type questions of 1 mark each.</li>
+                <li>In Section B, question number 21 to 25 are very short answer (VSA) type questions of 2 marks each.
+                </li>
+                <li>In Section C, question number 26 to 31 are short answer (SA) type questions carrying 3 marks each.
+                </li>
+                <li>In Section D, question number 32 to 35 are long answer (LA) type questions carrying 5 marks each.
+                </li>
+                <li>In Section E, question number 36 to 38 are case based questions of assessment of competencies
+                    carrying 4 marks each. Each case study is provided in 2 marks question in each case study.</li>
+                <li>There is no overall choice. However, an internal choice has been provided in 2 questions in Section
+                    B, 2 questions in Section C, 2 questions in Section D and 3 questions in Section E.</li>
+                <li>Draw neat figures wherever required. Take π = 22/7 wherever required if not stated.</li>
+                <li>Use of calculator is not allowed.</li>
+            </ol>
+        </div>
+
+        <div class="__center__">SECTION - A</div>
+
+        <ol class="questions">
+            <li>
+                <div>The next (4<sup>th</sup>) term of the A.P. √18, √50, √98, ...is:
+                    <ul class="options">
+                        <li>√128</li>
+                        <li>√140</li>
+                        <li>√162</li>
+                        <li>√200</li>
+                    </ul>
+                </div>
+            <li>If x/3 = 2. y / 3 = 2 cos A, then the value of x<sup>2</sup> + y<sup>2</sup> is:
+                <ul class="options">
+                    <li>36</li>
+                    <li>6</li>
+                    <li>9</li>
+                    <li>18</li>
+                </ul>
+            </li>
+            </li>
+            <li>
+                If 4 sec θ - 5 = 0, then the value of cot θ is:
+                <ul class="options">
+                    <li>3/4</li>
+                    <li>4/5</li>
+                    <li>5/3</li>
+                    <li>4/3</li>
+                </ul>
+            </li>
+            <li>
+                Which out of the follwoing type of straight lines will be represented by the system of equations 3x + 4y
+                = 5 and 6x + 8y = 7?
+                <ul class="options">
+                    <li>Parallel</li>
+                    <li>Interseting</li>
+                    <li>Coincident</li>
+                    <li>Perpendicular to each other</li>
+                </ul>
+            </li>
+            <li>
+                The Ratio of the sum and product of the roots of the quadratic equations 5x<sup>2</sup> - 6x + 21 = 0
+                is:
+                <ul class="options">
+                    <li>5 : 21</li>
+                    <li>2 : 7</li>
+                    <li>21 : 5</li>
+                    <li>7 : 2</li>
+                </ul>
+            </li>
+            <li>
+                For the data 2,9, x + 6x 2x + 3,5,10,5; if the mean is 7, then the value of x is:
+                <ul class="options">
+                    <li>9</li>
+                    <li>6</li>
+                    <li>5</li>
+                    <li>3</li>
+                </ul>
+            </li>
+            <li>
+                One ticket is drawn at random from a bag containing tickets numbered 1 to 40. The probability that hthe
+                selected ticket has a number which is a multiple of 7 is:
+                <ul class="options">
+                    <li>1/7</li>
+                    <li>1/8</li>
+                    <li>1/5</li>
+                    <li>7/40</li>
+                </ul>
+            </li>
+            <li>
+                The perimeer of the sector for a circle of radius 21 cm which subtends an angle of 60deg at the center
+                of
+                cricle, is:
+                <ul class="options">
+                    <li>22cm</li>
+                    <li>42cm</li>
+                    <li>64cm</li>
+                    <li>462cm</li>
+                </ul>
+            </li>
+            <li>
+                The length of an arc of a circle with radius 12 cm is 10π The angle subtended by the arc at the centre
+                of the circle, is:
+                <ul class="options">
+                    <li>120°</li>
+                    <li>6°</li>
+                    <li>75°</li>
+                    <li>150°</li>
+                </ul>
+            </li>
+            <li>
+                The greatest number which divides 281 and 1249, leaving remainder 5 and 7 respectively, is:
+                <ul class="options">
+                    <li>23</li>
+                    <li>276</li>
+                    <li>138</li>
+                    <li>69</li>
+                </ul>
+            </li>
+            <li>
+                The number of terms in the A.P. 3, 6, 9, 12, ..., 111 is:
+                <ul class="options">
+                    <li>36</li>
+                    <li>40</li>
+                    <li>37</li>
+                    <li>30</li>
+                </ul>
+            </li>
+            <li>
+                A chord of a circle of radius 10 cm subtends a right angle at its center. The length of the chord (in
+                cm):
+                <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                    onclick="toggleImage(this)">
+                    Show
+                </button>
+                <img src="figure12.png" style="border-radius: 10px; display: none; width: 197px; margin-top: 10px;"
+                    alt="Circle with tangent">
+
+                <ul class="options">
+                    <li>5√2</li>
+                    <li>10√2</li>
+                    <li>5/√2</li>
+                    <li>5</li>
+                </ul>
+            </li>
+            <li>
+                The LCM of three numbers 28, 44, 132 is:
+                <ul class="options">
+                    <li>258</li>
+                    <li>231</li>
+                    <li>462</li>
+                    <li>924</li>
+                </ul>
+            </li>
+            <li>
+                If the product of two co-prime numbers is 553, then their HCF is:
+                <ul class="options">
+                    <li>1</li>
+                    <li>553</li>
+                    <li>7</li>
+                    <li>79</li>
+                </ul>
+            </li>
+            <li>
+                If α and β are the zeroes of the polynomial p(x) = kx² – 30x + 45k and α + β = αβ, then the value of k
+                is:
+                <ul class="options">
+                    <li>–2/3</li>
+                    <li>–3/2</li>
+                    <li>3/2</li>
+                    <li>2/3</li>
+                </ul>
+            </li>
+            <li>In the given fiure, RJ and RL are two tangents to the circle. If ∠RJL = 42°, then the measure of ∠JOL
+                is:
+                <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                    onclick="toggleImage(this)">
+                    Show
+                </button>
+                <img src="figure16.png" style="border-radius: 10px; display: none; width: 197px; margin-top: 10px;"
+                    alt="Circle with tangent">
+
+                <ul class="options">
+                    <li>42°</li>
+                    <li>84°</li>
+                    <li>86°</li>
+                    <li>138°</li>
+                </ul>
+            </li>
+            <li>
+                In the given figure, in ∆ABC, DE || BC. If AD = 2⋅4 cm, DB = 4 cm and AE = 2 cm, then the length of AC
+                is:
+                <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                    onclick="toggleImage(this)">
+                    Show
+                </button>
+                <img src="figure17.png" style="border-radius: 10px; display: none; width: 197px; margin-top: 10px;"
+                    alt="Circle with tangent">
+
+                <ul class="options">
+                    <li>10/3 cm</li>
+                    <li>3/10 cm</li>
+                    <li>16/3 cm</li>
+                    <li>1⋅2 cm</li>
+                </ul>
+            </li>
+            <li>
+                If a vertical pole of length 7.5 m casts a shadow 5 m long on the ground and at the same time, a tower
+                casts a shadow 24 m long, then the height of the tower is:
+                <ul class="options">
+                    <li>20 m</li>
+                    <li>40 m</li>
+                    <li>60 m</li>
+                    <li>36 m</li>
+                </ul>
+            </li>
+            <br>
+            <br>
+            <div>Questions number 19 and 20 are Assertion and Reason based questions. Two statements are given, one
+                labelled as Assertion (A) and the other is labelled as Reason (R). Select the correct answer to these
+                questions from the codes (A), (B), (C) and (D) as given below.</div>
+            <div>(A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion
+                (A).</div>
+            <div>(B) Both Assertion (A) and Reason (R) are true, but Reason (R) is not the correct explanation of
+                Assertion (A).</div>
+            <div>(C) Assertion (A) is true, but Reason (R) is false.</div>
+            <div>(D) Assertion (A) is false, but Reason (R) is true.</div>
+            <li>Assertion (A): ABCD is a trapezium with DC || AB. E and F are points on AD and BC respectively, such
+                that EF || AB. Then
+                <div style="text-decoration: underline;">AE/ED = BF/FC</div>
+                <div>Reason (R): Any line parallel to parallel sides of a trapezium divides the non-parallel sides
+                    proportionally.</div>
+            </li>
+            <li>Assertion (A): Degree of a zero polynomial is not defined.
+                Reason (R): Degree of a non-zero constant polynomial is 0.</li>
+            <div class="__center__">section - B</div>
+            <li>
+                <div>
+                    If two tangents inclined at an angle of 60° are drawn to a of radius 3 cm, then find the length of
+                    each tangent.
+                </div>
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                <div>Prove that the tangents drawn at the ends of a diameter of a circle are parallel.</div>
+            </li>
+            <li>Evaluate:
+                <br>
+                <div>2tan30°⋅ sec 60°⋅ tan 45° </div>
+                <div>____________________</div>
+                <div> 1 - sin<sup>2</sup> 60°</div>
+            </li>
+            <li>If α, β are zeroes of the polynomial p(x) = 5x² – 6x + 1, then find the value of α + β + αβ.</li>
+            <li>(a) Find the ratio in which the point P(–4, 6) divides the line segment joining the points A(–6, 10) and
+                B(3, –8).</li>
+            <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+            <li>(b) Prove that the points (3, 0), (6, 4) and (–1, 3) are the vertices of an isosceles triangle.</li>
+            <li>A carton consists of 60 shirts of which 48 are good, 8 have major defects and 4 have minor defects.
+                Nigam, a trader, will accept the shirts which are good but Anmol, another trader, will only reject the
+                shirts which have major defects. One shirt is drawn at random from the carton. Find the probability that
+                it is acceptable to Anmol.</li>
+            <div class="__center__">section - C</div>
+            <li>(a) Prove that √3 is an irrational number.
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                (b) Prove that (√2 + √3)² is an irrational number, given that √6 is an irrational number.
+            </li>
+            <li>Prove that the parallelogram circumscribing a circle is a rhombus.</li>
+            <li>Prove that:
+                <br>
+                <br>
+                &nbsp;&nbsp;tan A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cos A
+                <br>
+                ________+___________ = 1 + sec A csc A
+                <br>
+                1 - cot A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 - tan A
+            </li>
+            <li>Three unbiased coins are tossed simultaneously. Find the probability of getting:
+                <br>
+                (i) at least one head.
+                <br>
+                (ii) exactly one tail.
+                <br>
+                (iii) two heads and one tail.
+            </li>
+            <li>An arc of a cricle of radius 10 cm subtends a right angle at the centre of the circle. Find the area of
+                the corresponding major sector. (Use π = 3.14)</li>
+            <li>
+                (a) Find the value of k for which the quadratic equation
+                (k+1)x<sup>2</sup>-6(k+1)x+3(k+9) = 0, k ≠ -1 has real and equl roots.</li>
+            <div>(b) The age of a man is twice the square of the age of his son. Eight years hence, the age of the man
+                will be 4 years more than three times the age of his son. Find their present ages.</div>
+            <li>From a point on a bridge across the river, the angles of depressions of the banks on opposite sides of
+                the river are 30° and 60° respectively. If the bridge is at a height of 4 m from the banks, find the
+                width of the river.</li>
+            <li>(a) In the given figure, ∠FEC = ∠GDB and ∠1 = ∠2. Prove that ∆ADE ~ ∆ABC.</li>
+            <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                onclick="toggleImage(this)">
+                Show
+            </button>
+            <img src="figure34.png" style="border-radius: 10px; display: none; width: 197px; margin-top: 10px;"
+                alt="Circle with tangent">
+
+            <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+            <div>(b) Sides AB and AC and median AD of a ∆ABC are respectively proportional to sides PQ and PR and median
+                PM of another ∆PQR. Show that ∆ABC ~ ∆PQR.</div>
+
+            <li>A wooden article was made by scooping out a hemisphere from each end of a solid cylinder, as shown in
+                the figure. If the height of the cylinder is 8 cm and its base is of radius 21 cm, find the total
+                surface area of the article.</li>
+            <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                onclick="toggleImage(this)">
+                Show
+            </button>
+            <img src="figure35.png" style="border-radius: 10px; display: none; width: 197px; margin-top: 10px;"
+                alt="Circle with tangent">
+
+            </button>
+            <li>Essel World is one of India’s largest amusement parks that offers a diverse range of thrilling rides,
+                water attractions and entertainment options for visitors of all ages. The park is known for its iconic
+                “Water Kingdom” section, making it a popular destination for family outings and fun-filled adventure.
+                The ticket charges for the park are ₹150 per child and ₹250 per adult.
+                <div>On a day, the cashier of the park found that 300 tickets were sold and an amount of ₹55,000 was
+                    collected.</div>
+                <div>Based on the above, answer the following questions:
+                    <br>
+                    (i) If the number of children visited be x and the number of adults visited be y, then write the
+                    given situation algebraically.
+                    <br>
+                    (ii) (a) How many children visited the amusement park that day?
+                    <br>
+                    <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b) How many adults visited the amusement park that day?
+                    <br>
+                    (iii) How much amount will be collected if 250 children and 100 adults visit the amusement park?
+                </div>
+            </li>
+            <li>A garden is in the shape of a square. The gardener grew saplings of Ashoka tree on the boundary of the
+                garden at the distance of 1 m from each other. He wants to decorate the garden with rose plants. He
+                chose a triangular region inside the garden to grow rose plants. In the above situation, the gardener
+                took help from the students of class 10. They made a chart for it which looks like the given figure.
+                <button class="button" style="border: 2px solid black; padding: 5px 10px; border-radius: 10px;"
+                    onclick="toggleImage(this)">
+                    Show
+                </button>
+                <img src="figure37.png" style="border-radius: 10px; display: none; width: 400px; margin-top: 10px;"
+                    alt="Circle with tangent">
+                <div>Based on the above, answer the following questions:</div>
+                <div>(i) If A is taken as origin, what are the coordinates of the vertices of ∆PQR?</div>
+                <div>(ii) (a) Find distances PQ and QR.</div>
+                <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+                <div>(b) Find the coordinates of the point which divides the line segment joining points P and R in the
+                    ratio 2:1 internally.</div>
+                <div>(iii) Find out if ∆PQR is an isosceles triangle.</div>
+            </li>
+
+            <li>Activities like running or cycling reduce stress and the risk of mental disorders like depression.
+                Running helps build endurance. Children develop stronger bones and muscles and are less prone to gain
+                weight.<br>The physical education teacher of a school has decided to conduct an inter-house running
+                tournament in his school premises. The time taken by a group of students to run 100 m was noted as
+                follows:</li>
+            <table>
+                <tr>
+                    <th>Time(in seconds)</th>
+                    <th>Number of students</th>
+                </tr>
+                <tr>
+                    <td>0-20</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>20-40</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>40-60</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>60-80</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>80-100</td>
+                    <td>3</td>
+                </tr>
+            </table>
+            <div>Based on the above, answer the following questions:</div>
+            <div>(i) What is the median class of the above given data?</div>
+            <div>(ii) (a) Find the mean time taken by the students to finish the race</div>
+            <div class="__center__" style="text-decoration: none; padding-right: 90px;margin: 0;">OR</div>
+            <div>(b) Find the mode of the above given data.</div>
+            <div>(iii) How many students took time less than 60 seconds?</div>
+        </ol>
+        <script>
+            function toggleMode() {
+                document.body.classList.toggle('dark-mode');
+            }
+
+            // Add progress bar functionality
+            window.addEventListener('scroll', function () {
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollProgress = (scrollTop / scrollHeight) * 100;
+                document.getElementById('progressBar').style.width = scrollProgress + '%';
+            });
+            function toggleImage(button) {
+                const image = button.nextElementSibling;
+                if (image.style.display === "none") {
+                    image.style.display = "block";
+                    button.innerText = "Hide";
+                } else {
+                    image.style.display = "none";
+                    button.innerText = "Show";
+                }
+            }
+        </script>
+    </body>
+
+</html>

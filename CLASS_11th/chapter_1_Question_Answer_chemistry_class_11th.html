@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quantum Numbers Quiz | Chemistry Learning</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            :root {
+                --primary-color: #3a7bd5;
+                --secondary-color: #00d2ff;
+                --accent-color: #ff6b6b;
+                --text-color: #333;
+                --light-gray: #f5f5f5;
+                --border-color: #e0e0e0;
+                --background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            }
+
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                background-image: linear-gradient(67.5deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75)58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(90deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75)58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(135deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75)58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(0deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75)58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(90deg, rgb(8, 8, 8), rgb(221, 221, 221));
+                background-blend-mode: overlay, overlay, overlay, overlay, normal;
+                color: var(--text-color);
+            }
+
+            .container {
+                max-width: 800px;
+                background: transparent;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            h1 {
+                text-align: center;
+                color: var(--primary-color);
+                margin-bottom: 30px;
+                font-size: 2.2rem;
+            }
+
+            .quiz-card {
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                margin-bottom: 25px;
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .quiz-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            }
+
+            .question {
+                padding: 18px 25px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+                color: white;
+                font-weight: 600;
+                transition: background 0.3s ease;
+            }
+
+            .question:hover {
+                background: linear-gradient(to right, #2a6bc8, #00c2f8);
+            }
+
+            tbody {
+                color: black;
+            }
+
+            .q-number {
+                font-weight: bold;
+                margin-right: 15px;
+                background: white;
+                color: var(--primary-color);
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .q-text {
+                flex-grow: 1;
+            }
+
+            .answer {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease, padding 0.3s ease;
+                background: var(--background);
+            }
+
+            .answer.open {
+                padding: 25px;
+                max-height: 2000px;
+                color: white;
+                background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            }
+
+            .answer-content {
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .answer.open .answer-content {
+                opacity: 1;
+            }
+
+            .step {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px dashed var(--border-color);
+                animation: fadeIn 0.5s ease-out;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .step:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+
+            .step-title {
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #000;
+                display: flex;
+                align-items: center;
+                font-size: 1.1rem;
+            }
+
+            .step-title i {
+                margin-right: 10px;
+                color: var(--accent-color);
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 15px 0;
+                background: #fff;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            }
+
+            th,
+            td {
+                padding: 12px 15px;
+                border: 1px solid var(--border-color);
+                text-align: left;
+            }
+
+            th {
+                background-color: rgba(58, 123, 213, 0.1);
+                color: var(--primary-color);
+                font-weight: 600;
+            }
+
+            tr:nth-child(even) {
+                background-color: rgba(0, 0, 0, 0.02);
+            }
+
+            tr:hover {
+                background-color: rgba(58, 123, 213, 0.05);
+            }
+
+            .highlight {
+                background-color: rgba(255, 107, 107, 0.1);
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-weight: bold;
+                color: var(--accent-color);
+                border-left: 3px solid var(--accent-color);
+            }
+
+            .final-answer {
+                background: rgba(58, 123, 213, 0.1);
+                padding: 15px;
+                border-radius: 8px;
+                margin-top: 20px;
+                border-left: 4px solid var(--primary-color);
+            }
+
+            .icon {
+                transition: transform 0.3s ease;
+                font-size: 1.1rem;
+            }
+
+            .rotate {
+                transform: rotate(180deg);
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding: 15px;
+                }
+
+                .question {
+                    padding: 15px 20px;
+                }
+
+                .answer.open {
+                    padding: 20px;
+                }
+
+                th,
+                td {
+                    padding: 10px 12px;
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                .question {
+                    padding: 12px 15px;
+                    font-size: 0.95rem;
+                }
+
+                .q-number {
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 10px;
+                }
+
+                .step-title {
+                    font-size: 1rem;
+                }
+            }
+
+            .sub {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 12px 24px;
+                margin: 10px 5px;
+                border: none;
+                border-radius: 30px;
+                background: rgb(0, 106, 255);
+                color: white;
+                font-size: 1rem;
+                font-weight: 600;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+                overflow: hidden;
+                margin: 0 100px;
+            }
+
+            .button:hover {
+                color: red;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+
+            .button a {
+                text-decoration: none;
+                transition: all 0.3s ease;
+                color: white;
+            }
+
+            .button a:hover {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1><i class="fas fa-atom"></i> Quantum Numbers Questions</h1>
+
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">1</div>
+                    <div class="q-text">Define the Law of Conservation of Mass and give one example.</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>Definition: Mass can neither be created nor destroyed in a chemical reaction.</li>
+                        <li>Iska matlab:
+                            Jo kuch reactants (starting substances) ke paas mass hoti hai, wahi total mass products
+                            (final substances) ke paas bhi hoti hai.
+                        </li>
+                        <li>🔁 Example:</li>
+                        <li>Reaction:</li>
+                        <li>H2 + 1/2O2 → H2O</li>
+                        <li>H₂ = 2g</li>
+                        <li>O₂ = 16g (0.5 mole)</li>
+                        <li>Total reactant mass = 18g</li>
+                        <li>H₂O = 18g ✅ Mass conserved</li>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">1</div>
+                    <div class="q-text">State the Law of Definite Proportions and give one example.</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>Definition:</li>
+                        <li>A chemical compound always contains the same elements in the same proportion by mass,</li>
+                        <li>no matter how the compound is made or from where it is obtained.</li>
+                        <li>Hindi mein samjhe:</li>
+                        <li>Ek hi compound hamesha apne elements ko ek hi mass ratio mein rakhta hai — chahe woh kisi
+                            lab mein banaya gaya ho ya nature mein mila ho.</li>
+                        <li>🔁 Example:</li>
+                        <li>Water (H₂O):</li>
+                        <li>Har molecule mein 2 Hydrogen atoms aur 1 Oxygen atom hota hai</li>
+                        <li>Hydrogen = 1g/mol, Oxygen = 16g/mol</li>
+                        <li>Mass ratio = 2 x 1 : 16 = 2:16 = 1:8</li>
+                        <li>H₂O mein hamesha H aur O ka ratio 1:8 hi hoga.</li>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">1</div>
+                    <div class="q-text">State Gay Lussac’s Law of Gaseous Volumes with an example.</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="answer-content">Definition:</div>
+                        <div class="answer-content">When gases react together, they do so in simple whole number ratios
+                            by volume, provided all gases are at the same temperature and pressure.</div>
+                        <div class="answer-content">Easy version:</div>
+                        <div class="answer-content">Gases jab react karte hain, toh unka volume ka ratio simple aur pura
+                            number hota hai – jaise 1:1:2, 2:1:2 etc. (Same temp & pressure hone chahiye)</div>
+                        <div class="answer-content">🔁 Example:</div>
+                        <div class="answer-content">H2 (1 volume) + Cl2 (1 volume) → 2HCl (2 volumes)</div>
+                        <div class="answer-content">Toh ratio hai → 1 : 1 : 2 → Simple whole numbers</div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">1</div>
+                    <div class="q-text">State Avogadro’s Law and explain its importance.</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="answer-content">Definition:</div>
+                        <div class="answer-content">Equal volumes of all gases, at the same temperature and pressure,
+                            contain an equal number of molecules</div>
+                        <div class="answer-content">Simple Explanation:</div>
+                        <div class="answer-content">Agar tum 1 litre hydrogen lo aur 1 litre oxygen lo (same temp &
+                            pressure pe), toh dono mein same number of molecules honge — chahe unka mass alag ho.</div>
+                        <div class="answer-content"> Importance</div>
+                        <div class="answer-content">Mole concept ka base hai</div>
+                        <div class="answer-content">1 mole of any gas = 22.4 L at STP</div>
+                        <div class="answer-content">Helps in understanding volume relationships in gaseous reactions
+                        </div>
+                        <div class="answer-content">🔁 Example:</div>
+                        <div class="answer-content">N2(1 vol) + 3H2 (3 vol) → 2NH3 (2 vol)</div>
+                        <div class="answer-content">Volume ratio = 1 : 3 : 2 → molecules bhi isi ratio mein</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub">
+                <button class="button" id="configurations"><a
+                        href="chapter_1_chemistry_class_11th.htm">BACK</a></button>
+            </div>
+            <script>
+
+                function toggleAnswer(element) {
+                    const answer = element.nextElementSibling;
+                    const icon = element.querySelector('.icon');
+
+                    // Toggle the open class
+                    answer.classList.toggle('open');
+                    icon.classList.toggle('rotate');
+
+                    // Close other open answers when opening a new one
+                    if (answer.classList.contains('open')) {
+                        document.querySelectorAll('.answer.open').forEach(openAnswer => {
+                            if (openAnswer !== answer) {
+                                openAnswer.classList.remove('open');
+                                openAnswer.previousElementSibling.querySelector('.icon').classList.remove('rotate');
+                            }
+                        });
+                    }
+                }
+
+                // Add animation to cards when they come into view
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = 1;
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.quiz-card').forEach(card => {
+                    card.style.opacity = 0;
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    observer.observe(card);
+                });
+            </script>
+    </body>
+
+</html>

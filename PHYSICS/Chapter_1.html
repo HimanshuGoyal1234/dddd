@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ultra-Rememberable: Electric Charges & Fields</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            :root {
+                --positive: #e74c3c;
+                --negative: #3498db;
+                --law: #2ecc71;
+                --definition: #9b59b6;
+                --example: #f39c12;
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #2c3e50;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f9f9f9;
+            }
+
+            h1 {
+                text-align: center;
+                padding: 15px;
+                background: linear-gradient(135deg, #3498db, #2ecc71);
+                color: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            h2 {
+                margin-top: 30px;
+                padding: 10px 15px;
+                border-radius: 5px;
+                position: relative;
+            }
+
+            .charge-positive {
+                background-color: rgba(231, 76, 60, 0.1);
+                border-left: 5px solid var(--positive);
+            }
+
+            .charge-negative {
+                background-color: rgba(52, 152, 219, 0.1);
+                border-left: 5px solid var(--negative);
+            }
+
+            .law {
+                background-color: rgba(46, 204, 113, 0.1);
+                border-left: 5px solid var(--law);
+            }
+
+            .definition {
+                background-color: rgba(155, 89, 182, 0.1);
+                border-left: 5px solid var(--definition);
+            }
+
+            .example {
+                background-color: rgba(243, 156, 18, 0.1);
+                border-left: 5px solid var(--example);
+            }
+
+            .memory-hook {
+                background-color: #fffde7;
+                padding: 15px;
+                border-radius: 10px;
+                border: 2px dashed #f39c12;
+                margin: 20px 0;
+                font-style: italic;
+            }
+
+            .formula-box {
+                background: white;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+                font-family: 'Courier New', monospace;
+                border: 1px solid #ddd;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+                position: relative;
+                overflow-x: auto;
+            }
+
+            .formula-box::before {
+                content: "FORMULA";
+                position: absolute;
+                top: -10px;
+                left: 10px;
+                background: white;
+                padding: 0 5px;
+                font-size: 12px;
+                color: #7f8c8d;
+            }
+
+            .mnemonic {
+                background-color: #e8f8f5;
+                padding: 10px;
+                border-radius: 5px;
+                margin: 10px 0;
+                border-left: 4px solid #1abc9c;
+            }
+
+            .comparison {
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 0;
+            }
+
+            .comparison-box {
+                width: 48%;
+                padding: 15px;
+                border-radius: 5px;
+            }
+
+            .positive-box {
+                background-color: rgba(231, 76, 60, 0.1);
+                border: 2px solid var(--positive);
+            }
+
+            .negative-box {
+                background-color: rgba(52, 152, 219, 0.1);
+                border: 2px solid var(--negative);
+            }
+
+            .visual-guide {
+                text-align: center;
+                margin: 25px 0;
+                padding: 15px;
+                background-color: #f5f5f5;
+                border-radius: 10px;
+            }
+
+            .summary-card {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin: 30px 0;
+                border-top: 5px solid #3498db;
+            }
+
+            .hindi {
+                color: #e74c3c;
+                font-weight: bold;
+            }
+
+            .key-point {
+                background-color: #fff8e1;
+                padding: 10px;
+                border-left: 4px solid #ffc107;
+                margin: 10px 0;
+            }
+
+            .interactive {
+                background-color: #e3f2fd;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 20px 0;
+                border: 2px solid #bbdefb;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>⚡ Electric Charges & Fields - Visual Memory Guide</h1>
+
+        <div class="memory-hook">
+            <strong>🌟 Memory Hook:</strong> Think of charges like people at a party -
+            <span style="color:var(--positive)">+ve charges</span> are extroverts (push others away),
+            <span style="color:var(--negative)">-ve charges</span> are introverts (pull others close)!
+        </div>
+
+        <h2 class="charge-positive">🔴 1.1 Electric Charge</h2>
+
+        <div class="definition">
+            <strong>🧠 Definition:</strong><br>
+            <span class="hindi">Electric charge ek physical property hoti hai matter ki</span> that causes electrostatic
+            forces.
+        </div>
+
+        <div class="comparison">
+            <div class="comparison-box positive-box">
+                <strong style="color:var(--positive)">Positive Charge (+)</strong>
+                <ul>
+                    <li>Proton's charge</li>
+                    <li>Like <span style="color:var(--positive)">red hot</span> - pushes away</li>
+                    <li>Symbol: <strong>+</strong></li>
+                </ul>
+            </div>
+            <div class="comparison-box negative-box">
+                <strong style="color:var(--negative)">Negative Charge (-)</strong>
+                <ul>
+                    <li>Electron's charge</li>
+                    <li>Like <span style="color:var(--negative)">cool blue</span> - pulls in</li>
+                    <li>Symbol: <strong>-</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="key-point">
+            <strong>⚡ Charge Behavior Rules:</strong>
+            <ol>
+                <li><span class="hindi">Like charges repel</span> (++ or -- push apart)</li>
+                <li><span class="hindi">Unlike charges attract</span> (+- pull together)</li>
+                <li>Quantized: q = ±ne (e = 1.6×10⁻¹⁹C)</li>
+                <li><span class="hindi">Conserved</span> (can't be created/destroyed)</li>
+            </ol>
+        </div>
+
+        <div class="visual-guide">
+            <p><strong>👀 Visual Guide:</strong></p>
+            <p style="font-size:24px">
+                <span style="color:var(--positive)">⊕</span> ←→ <span style="color:var(--positive)">⊕</span> (repel)
+                &nbsp;&nbsp;
+                <span style="color:var(--positive)">⊕</span> ←← <span style="color:var(--negative)">⊖</span> (attract)
+            </p>
+        </div>
+
+        <h2 class="example">🔹 1.2 Conductors vs Insulators</h2>
+
+        <div class="comparison">
+            <div class="comparison-box" style="background-color:#e8f5e9">
+                <strong>Conductors</strong>
+                <p><span class="hindi">Charge freely moves</span></p>
+                <p>Examples:</p>
+                <ul>
+                    <li>Metals (Copper, Silver)</li>
+                    <li>Human body</li>
+                    <li>Water (impure)</li>
+                </ul>
+            </div>
+            <div class="comparison-box" style="background-color:#fff3e0">
+                <strong>Insulators</strong>
+                <p><span class="hindi">Charge stuck in place</span></p>
+                <p>Examples:</p>
+                <ul>
+                    <li>Plastic</li>
+                    <li>Rubber</li>
+                    <li>Glass</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mnemonic">
+            <strong>🗝️ Memory Trick:</strong> "Conductors <u>conduct</u> parties (charges move freely),
+            Insulators <u>insulate</u> parties (charges stay put)"
+        </div>
+
+        <h2 class="law">⚖️ 1.4 Coulomb's Law</h2>
+
+        <div class="formula-box">
+            F = k(q₁q₂)/r² &nbsp;&nbsp; where k=1/(4πε₀)=9×10⁹ Nm²/C²
+        </div>
+
+        <div class="interactive">
+            <strong>💡 Try This:</strong>
+            <ul>
+                <li>Double charge → Force becomes <u>4×</u></li>
+                <li>Double distance → Force becomes <u>¼×</u></li>
+            </ul>
+        </div>
+
+        <div class="visual-guide">
+            <p><strong>📏 Force Relationship:</strong></p>
+            <p>F ∝ q₁q₂ &nbsp;&nbsp; F ∝ 1/r²</p>
+            <p>└─ Inverse square law (like gravity!)</p>
+        </div>
+
+        <h2 class="charge-negative">🔵 1.6 Electric Field</h2>
+
+        <div class="definition">
+            <strong>🌐 Definition:</strong> Region where charge feels force<br>
+            <div class="formula-box">
+                E = F/q (Units: N/C or V/m)
+            </div>
+        </div>
+
+        <div class="key-point">
+            <strong>🧭 Direction Rules:</strong>
+            <ul>
+                <li>Positive charge: Field lines <span style="color:var(--positive)">OUTWARD</span> (like sun rays)</li>
+                <li>Negative charge: Field lines <span style="color:var(--negative)">INWARD</span> (like water drain)
+                </li>
+            </ul>
+        </div>
+
+        <div class="visual-guide">
+            <p><strong>🔍 Field Line Patterns:</strong></p>
+            <p>
+                <span style="color:var(--positive)">⊕ → → →</span> (positive charge)<br>
+                <span style="color:var(--negative)">← ← ← ⊖</span> (negative charge)<br>
+                + - → ← → ← (dipole)
+            </p>
+        </div>
+
+        <h2 class="law">🧲 1.9 Electric Dipole</h2>
+
+        <div class="formula-box">
+            p = q × 2a (Dipole moment)
+        </div>
+
+        <div class="comparison">
+            <div class="comparison-box">
+                <strong>Axial Line Field</strong>
+                <div class="formula-box" style="margin:10px 0">
+                    E = (1/4πε₀)(2p/r³)
+                </div>
+                <p>Stronger field along axis</p>
+            </div>
+            <div class="comparison-box">
+                <strong>Equatorial Line Field</strong>
+                <div class="formula-box" style="margin:10px 0">
+                    E = (1/4πε₀)(p/r³)
+                </div>
+                <p>Weaker field perpendicular</p>
+            </div>
+        </div>
+
+        <div class="mnemonic">
+            <strong>🎯 Memory Aid:</strong> "Axial field is <u>2×</u> equatorial field -
+            think of pushing a pencil (axial) vs flipping it (equatorial)"
+        </div>
+
+        <h2 class="law">📐 1.13 Gauss's Law</h2>
+
+        <div class="formula-box">
+            Φ = ∮E·dA = q<sub>in</sub>/ε₀
+        </div>
+
+        <div class="key-point">
+            <strong>🔑 Key Applications:</strong>
+            <ol>
+                <li>Infinite plane: E = σ/(2ε₀)</li>
+                <li>Infinite line: E = λ/(2πε₀r)</li>
+                <li>Conductor surface: E = σ/ε₀</li>
+            </ol>
+        </div>
+
+        <div class="summary-card">
+            <h3>🚀 Formula Super-Cheat-Sheet</h3>
+            <table style="width:100%; border-collapse: collapse;">
+                <tr style="background-color:#3498db; color:white">
+                    <th style="padding:10px; text-align:left">Concept</th>
+                    <th style="padding:10px; text-align:left">Formula</th>
+                </tr>
+                <tr style="border-bottom:1px solid #ddd">
+                    <td style="padding:10px">Coulomb's Law</td>
+                    <td style="padding:10px; font-family:monospace">F = k(q₁q₂)/r²</td>
+                </tr>
+                <tr style="border-bottom:1px solid #ddd">
+                    <td style="padding:10px">Electric Field</td>
+                    <td style="padding:10px; font-family:monospace">E = F/q = kq/r²</td>
+                </tr>
+                <tr style="border-bottom:1px solid #ddd">
+                    <td style="padding:10px">Dipole Moment</td>
+                    <td style="padding:10px; font-family:monospace">p = q×2a</td>
+                </tr>
+                <tr style="border-bottom:1px solid #ddd">
+                    <td style="padding:10px">Torque on Dipole</td>
+                    <td style="padding:10px; font-family:monospace">τ = pE sinθ</td>
+                </tr>
+                <tr style="border-bottom:1px solid #ddd">
+                    <td style="padding:10px">Electric Flux</td>
+                    <td style="padding:10px; font-family:monospace">Φ = EA cosθ</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px">Gauss's Law</td>
+                    <td style="padding:10px; font-family:monospace">Φ = q<sub>in</sub>/ε₀</td>
+                </tr>
+            </table>
+
+            <div class="mnemonic" style="margin-top:20px">
+                <strong>🌈 Color Code Legend:</strong>
+                <ul style="list-style:none; padding:0">
+                    <li><span style="color:var(--positive)">🔴 Positive Charge</span></li>
+                    <li><span style="color:var(--negative)">🔵 Negative Charge</span></li>
+                    <li><span style="color:var(--law)">📜 Laws & Principles</span></li>
+                    <li><span style="color:var(--definition)">📖 Definitions</span></li>
+                    <li><span style="color:var(--example)">🧪 Examples</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="memory-hook" style="background-color:#e8f5e9">
+            <strong>🎯 Final Memory Boost:</strong> Remember the "EPIC" system:
+            <ol>
+                <li><strong>E</strong>lectric field lines never cross</li>
+                <li><strong>P</strong>ositive to Negative direction</li>
+                <li><strong>I</strong>nverse square law applies</li>
+                <li><strong>C</strong>harge conservation is absolute</li>
+            </ol>
+        </div>
+    </body>
+
+</html>

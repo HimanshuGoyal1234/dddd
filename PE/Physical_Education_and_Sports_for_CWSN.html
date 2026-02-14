@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chapter 4: Physical Education and Sports for CWSN</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            :root {
+                --primary: #4fc3f7;
+                --secondary: #00796b;
+                --accent: #81c784;
+                --text: #e0e0e0;
+                --bg: #121212;
+                --card-bg: #1e1e1e;
+                --table-header: #00796b;
+                --disability-card: #5d4037;
+                --sports-card: #4527a0;
+            }
+
+            .button {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 50px;
+                background: linear-gradient(45deg, #ff0000, #0066ff);
+                color: white;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0066ff, #ff0000);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn:hover::before {
+                opacity: 1;
+            }
+
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                background-color: var(--bg);
+                color: var(--text);
+            }
+
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background-color: var(--card-bg);
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                color: var(--primary);
+                text-align: center;
+                border-bottom: 2px solid var(--secondary);
+                padding-bottom: 10px;
+            }
+
+            h2 {
+                color: var(--accent);
+                margin-top: 30px;
+                border-left: 4px solid var(--secondary);
+                padding-left: 12px;
+                background-color: rgba(0, 121, 107, 0.1);
+            }
+
+            h3 {
+                color: var(--primary);
+                margin-top: 20px;
+            }
+
+            .card {
+                background-color: #263238;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+                border-left: 3px solid var(--primary);
+            }
+
+            .disability-card {
+                background-color: var(--disability-card);
+                border-left: 3px solid #ffb74d;
+            }
+
+            .sports-card {
+                background-color: var(--sports-card);
+                border-left: 3px solid #7e57c2;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                background-color: #263238;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid #455a64;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+            }
+
+            th {
+                background-color: var(--table-header);
+                color: #ffffff;
+                font-weight: 600;
+            }
+
+            tr:nth-child(even) {
+                background-color: #37474f;
+            }
+
+            tr:hover {
+                background-color: #455a64;
+            }
+
+            ul,
+            ol {
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            strong {
+                color: var(--primary);
+            }
+
+            .comparison {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+            }
+
+            .comparison div {
+                flex: 1;
+                padding: 15px;
+                border-radius: 5px;
+                background-color: #263238;
+                border-top: 3px solid var(--primary);
+            }
+
+            .benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+                margin: 20px 0;
+            }
+
+            .benefit-item {
+                background-color: #1b5e20;
+                padding: 15px;
+                border-radius: 5px;
+                border-left: 3px solid var(--accent);
+            }
+
+            @media (max-width: 768px) {
+
+                .comparison,
+                .benefits-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .organization-logo {
+                text-align: center;
+                margin: 20px 0;
+                padding: 15px;
+                background-color: #37474f;
+                border-radius: 5px;
+            }
+
+            .organization-logo img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 5px;
+                max-height: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Chapter 4: Physical Education and Sports for CWSN<br>(Children with Special Needs - Divyang)</h1>
+
+            <h2>1. Concept of Disability and Disorder</h2>
+
+            <div class="card disability-card">
+                <h3>Types of Disabilities</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Physical Disabilities</h4>
+                        <ul>
+                            <li>Cerebral Palsy</li>
+                            <li>Spinal Cord Injuries</li>
+                            <li>Amputation</li>
+                            <li>Muscular Dystrophy</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Intellectual Disabilities</h4>
+                        <ul>
+                            <li>Down Syndrome</li>
+                            <li>Autism Spectrum</li>
+                            <li>Learning Disabilities</li>
+                            <li>ADHD</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Difference Between Disability and Disorder</h3>
+                <table>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Disability</th>
+                        <th>Disorder</th>
+                    </tr>
+                    <tr>
+                        <td>Definition</td>
+                        <td>Physical/mental condition limiting activities</td>
+                        <td>Disruption of normal functions</td>
+                    </tr>
+                    <tr>
+                        <td>Nature</td>
+                        <td>Often permanent</td>
+                        <td>May be temporary or permanent</td>
+                    </tr>
+                    <tr>
+                        <td>Examples</td>
+                        <td>Blindness, paralysis</td>
+                        <td>Anxiety disorder, bipolar disorder</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>2. Organizations Promoting Disability Sports</h2>
+
+            <div class="card sports-card">
+                <h3>International Organizations</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <strong>International Paralympic Committee (IPC)</strong>
+                        <p>Governing body for Paralympic Games with 4 impairment categories</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong>Special Olympics International</strong>
+                        <p>Year-round sports training for people with intellectual disabilities</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong>International Sports Federation for Persons with Intellectual Disability (INAS)</strong>
+                        <p>Organizes competitions for athletes with intellectual impairments</p>
+                    </div>
+                </div>
+
+                <div class="organization-logo">
+                    <div
+                        style="background-color: #455a64; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                        [Paralympic Logo]
+                    </div>
+                    <p>Paralympic Symbol - "Three Agitos" representing movement</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Indian Organizations</h3>
+                <table>
+                    <tr>
+                        <th>Organization</th>
+                        <th>Established</th>
+                        <th>Key Activities</th>
+                    </tr>
+                    <tr>
+                        <td>Paralympic Committee of India</td>
+                        <td>1992</td>
+                        <td>Selects athletes for Paralympics</td>
+                    </tr>
+                    <tr>
+                        <td>Special Olympics Bharat</td>
+                        <td>2001</td>
+                        <td>National program for intellectual disabilities</td>
+                    </tr>
+                    <tr>
+                        <td>Divyangjan Cricket Council of India</td>
+                        <td>2018</td>
+                        <td>Promotes wheelchair cricket</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>3. Advantages of Physical Activities for CWSN</h2>
+
+            <div class="card">
+                <h3>Physical Benefits</h3>
+                <ul>
+                    <li>Improves motor skills and coordination</li>
+                    <li>Enhances cardiovascular health</li>
+                    <li>Increases muscle strength and flexibility</li>
+                    <li>Helps manage weight</li>
+                </ul>
+            </div>
+
+            <div class="card disability-card">
+                <h3>Psychological Benefits</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Emotional Benefits</h4>
+                        <ul>
+                            <li>Boosts self-esteem</li>
+                            <li>Reduces depression</li>
+                            <li>Improves mood</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Social Benefits</h4>
+                        <ul>
+                            <li>Enhances social interaction</li>
+                            <li>Develops teamwork skills</li>
+                            <li>Reduces social isolation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>4. Adaptive Physical Education</h2>
+
+            <div class="card sports-card">
+                <h3>Principles of Adaptive PE</h3>
+                <ol>
+                    <li><strong>Individualization:</strong> Tailor activities to each student's abilities</li>
+                    <li><strong>Inclusion:</strong> Integrate with non-disabled peers when possible</li>
+                    <li><strong>Modification:</strong> Adapt rules, equipment and environment</li>
+                    <li><strong>Safety First:</strong> Ensure all activities are safe</li>
+                    <li><strong>Progression:</strong> Gradually increase difficulty</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h3>Adaptive Sports Equipment</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <strong>Wheelchair Basketball</strong>
+                        <p>Specially designed wheelchairs with anti-tip bars</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong>Goalball</strong>
+                        <p>Eyeshades and bells inside ball for visually impaired</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong>Boccia</strong>
+                        <p>Leather balls and ramps for severe physical disabilities</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>5. Successful Indian Divyang Athletes</h2>
+
+            <table>
+                <tr>
+                    <th>Athlete</th>
+                    <th>Sport</th>
+                    <th>Achievements</th>
+                    <th>Disability</th>
+                </tr>
+                <tr>
+                    <td>Devendra Jhajharia</td>
+                    <td>Javelin Throw</td>
+                    <td>2× Paralympic Gold (2004, 2016)</td>
+                    <td>Left arm amputee</td>
+                </tr>
+                <tr>
+                    <td>Deepa Malik</td>
+                    <td>Shot Put</td>
+                    <td>Paralympic Silver (2016)</td>
+                    <td>Spinal tumor (wheelchair user)</td>
+                </tr>
+                <tr>
+                    <td>Mariyappan Thangavelu</td>
+                    <td>High Jump</td>
+                    <td>Paralympic Gold (2016)</td>
+                    <td>Polio affected right leg</td>
+                </tr>
+            </table>
+
+            <div class="card">
+                <h3>Recent Developments in India</h3>
+                <ul>
+                    <li>Khelo India Para Games started in 2023</li>
+                    <li>Increased prize money parity with able-bodied athletes</li>
+                    <li>Sports Authority of India's Target Olympic Podium Scheme for para athletes</li>
+                    <li>Better accessibility in stadiums and training centers</li>
+                </ul>
+            </div>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="Back()">BACK</button>
+        </div>
+    </body>
+    <script>
+        function Back() {
+            window.history.back();
+        }
+    </script>
+
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Indigo</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: radial-gradient(circle at top right, rgb(36, 9, 119) 0%, rgb(36, 9, 119) 48%, rgb(72, 7, 149) 48%, rgb(72, 7, 149) 53%, rgb(109, 5, 178) 53%, rgb(109, 5, 178) 56%, rgb(145, 2, 208) 56%, rgb(145, 2, 208) 69%, rgb(181, 0, 237) 69%, rgb(181, 0, 237) 100%) fixed no-repeat center/cover;
+
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                min-height: 100vh;
+                color: white;
+            }
+
+            /* Typography */
+            h1,
+            h2,
+            h3 {
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 15px 0;
+            }
+
+            h3 {
+                color: #ff6b6b;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                line-height: 1.6;
+            }
+
+            /* Layout Components */
+            .heading {
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.18);
+                border-radius: 20px;
+                margin: 20px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .heading::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(5px);
+                z-index: -1;
+            }
+
+            .section-container {
+                background: rgba(0, 0, 0, 0.7);
+                border: 2px solid #ff4d4d;
+                margin: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            .section-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .section-container:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 15px rgba(255, 0, 0, 0.2);
+            }
+
+            .content-wrapper {
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Character Cards */
+            .character-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .character {
+                background: rgba(180, 180, 180, 0.1);
+                border-radius: 8px;
+                padding: 1.5rem;
+                width: 300px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .character::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .character:hover {
+                transform: translateY(-5px);
+                box-shadow: inset 0 0 20px red, 0 5px 15px rgba(0, 0, 0, 0.3);
+                background: rgba(180, 180, 180, 0.2);
+            }
+
+            /* Questions Section */
+            .character-lists {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .character-lists .character {
+                width: 100%;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .character-list {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .character {
+                    width: 90%;
+                    margin: 10px 0;
+                }
+
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            #the_end {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .button {
+                margin-top: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                position: relative;
+                top: 20px;
+                border-radius: 5px;
+                background: linear-gradient(45deg, red, blue);
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                margin-bottom: 40px;
+            }
+
+            .btn:hover {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, blue, red);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <header class="heading">
+            <h1>Flamingo (Prose) – "Indigo" by Louis Fischer</h1>
+        </header>
+
+        <main>
+            <!-- Summary Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>SHORT SUMMARY</h2>
+                    <p>"Indigo" by Louis Fischer narrates Mahatma Gandhi's efforts to help poor indigo farmers in
+                        Champaran, Bihar. These farmers were forced by British landlords to grow indigo on a portion of
+                        their land and sell it at unfair prices. Gandhi’s visit and leadership led to their freedom from
+                        this exploitative system, marking the first step towards India's independence movement.</p>
+                </div>
+            </section>
+
+            <!-- Characters Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Characters</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Mahatma Gandhi</h3>
+                            <p>The leader who fought against the exploitation of Champaran's indigo farmers.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Rajkumar Shukla</h3>
+                            <p>A poor but determined farmer who invited Gandhi to Champaran.</p>
+                        </div>
+                        <div class="character">
+                            <h3>British Landlords</h3>
+                            <p>The oppressive landlords who forced Indian farmers into unfair indigo contracts.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Theme Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Theme</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Exploitation of Farmers</h3>
+                            <p>The story highlights the economic injustice faced by Indian farmers under British rule.
+                            </p>
+                        </div>
+                        <div class="character">
+                            <h3>Gandhi’s Leadership</h3>
+                            <p>Gandhi’s non-violent methods and determination helped bring justice to the farmers.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Freedom and Self-Reliance</h3>
+                            <p>The story reflects India's struggle for independence and self-sufficiency.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Important Questions</h2>
+                    <div class="character-lists">
+                        <div class="character">
+                            <h3>Why did Rajkumar Shukla approach Gandhi?</h3>
+                            <p>He wanted Gandhi to visit Champaran and help the indigo farmers fight against British
+                                exploitation.</p>
+                        </div>
+                        <div class="character">
+                            <h3>What was the issue faced by Champaran farmers?</h3>
+                            <p>They were forced to grow indigo on 15% of their land and sell it at unfair prices to
+                                British landlords.</p>
+                        </div>
+                        <div class="character">
+                            <h3>How did Gandhi help the farmers?</h3>
+                            <p>He conducted an investigation, mobilized public support, and negotiated a settlement that
+                                benefitted the farmers.</p>
+                        </div>
+                        <div class="character">
+                            <h3>What was the significance of the Champaran movement?</h3>
+                            <p>It was Gandhi’s first major political victory in India and marked the beginning of his
+                                role in the independence movement.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2 id="short_summary">Key Quotes</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <p>"The real relief for them is to be free from fear." - Mahatma Gandhi</p>
+                        </div>
+                        <div class="character">
+                            <p>"What I did was a very ordinary thing. I declared that the British could not order me
+                                about in my own country." - Gandhi</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2 id="short_summary">Literary Devices</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Irony</h3>
+                            <p>The British, who claimed to bring justice, were exploiting poor farmers.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Symbolism</h3>
+                            <p>Indigo represents the suffering of Indian farmers under colonial rule.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="the_end">
+                <div class="button">THE END</div>
+                <button class="btn the_end" onclick="Back()">BACK</button>
+            </div>
+        </main>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

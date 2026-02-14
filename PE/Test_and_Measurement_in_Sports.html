@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <title>Test_and_Measurement_in_Sports</title>
+        <style>
+            :root {
+                --primary: #4fc3f7;
+                --secondary: #00796b;
+                --accent: #81c784;
+                --text: #e0e0e0;
+                --bg: #121212;
+                --card-bg: #1e1e1e;
+                --table-header: #00796b;
+                --fitness-card: #5d4037;
+                --test-card: #4527a0;
+            }
+
+            .button {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 50px;
+                background: linear-gradient(45deg, #ff0000, #0066ff);
+                color: white;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0066ff, #ff0000);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn:hover::before {
+                opacity: 1;
+            }
+
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                background-color: var(--bg);
+                color: var(--text);
+            }
+
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background-color: var(--card-bg);
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                color: var(--primary);
+                text-align: center;
+                border-bottom: 2px solid var(--secondary);
+                padding-bottom: 10px;
+            }
+
+            h2 {
+                color: var(--accent);
+                margin-top: 30px;
+                border-left: 4px solid var(--secondary);
+                padding-left: 12px;
+                background-color: rgba(0, 121, 107, 0.1);
+            }
+
+            h3 {
+                color: var(--primary);
+                margin-top: 20px;
+            }
+
+            .card {
+                background-color: #263238;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+                border-left: 3px solid var(--primary);
+            }
+
+            .fitness-card {
+                background-color: var(--fitness-card);
+                border-left: 3px solid #ffb74d;
+            }
+
+            .test-card {
+                background-color: var(--test-card);
+                border-left: 3px solid #7e57c2;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                background-color: #263238;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid #455a64;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+            }
+
+            th {
+                background-color: var(--table-header);
+                color: #ffffff;
+                font-weight: 600;
+            }
+
+            tr:nth-child(even) {
+                background-color: #37474f;
+            }
+
+            tr:hover {
+                background-color: #455a64;
+            }
+
+            ul,
+            ol {
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            strong {
+                color: var(--primary);
+            }
+
+            .comparison {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+            }
+
+            .comparison div {
+                flex: 1;
+                padding: 15px;
+                border-radius: 5px;
+                background-color: #263238;
+                border-top: 3px solid var(--primary);
+            }
+
+            .test-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+                margin: 20px 0;
+            }
+
+            .test-item {
+                background-color: #1b5e20;
+                padding: 15px;
+                border-radius: 5px;
+                border-left: 3px solid var(--accent);
+            }
+
+            @media (max-width: 768px) {
+
+                .comparison,
+                .test-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .procedure {
+                background-color: #37474f;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+            }
+
+            .procedure ol {
+                padding-left: 25px;
+            }
+
+            .procedure li {
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Chapter 6: Test and Measurement in Sports</h1>
+
+            <h2>1. Importance of Test and Measurement</h2>
+
+            <div class="card">
+                <h3>Why Testing is Essential in Sports</h3>
+                <div class="test-grid">
+                    <div class="test-item">
+                        <strong>Assessment</strong>
+                        <p>Evaluate current fitness levels</p>
+                    </div>
+                    <div class="test-item">
+                        <strong>Progress Tracking</strong>
+                        <p>Monitor improvements over time</p>
+                    </div>
+                    <div class="test-item">
+                        <strong>Talent Identification</strong>
+                        <p>Discover promising athletes</p>
+                    </div>
+                    <div class="test-item">
+                        <strong>Program Design</strong>
+                        <p>Create tailored training plans</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fitness-card">
+                <h3>Key Fitness Components Measured</h3>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>What It Measures</th>
+                        <th>Example Tests</th>
+                    </tr>
+                    <tr>
+                        <td>Strength</td>
+                        <td>Muscle force production</td>
+                        <td>1RM Bench Press, Handgrip Test</td>
+                    </tr>
+                    <tr>
+                        <td>Endurance</td>
+                        <td>Sustained effort capacity</td>
+                        <td>Cooper Run, Harvard Step Test</td>
+                    </tr>
+                    <tr>
+                        <td>Flexibility</td>
+                        <td>Joint range of motion</td>
+                        <td>Sit and Reach Test</td>
+                    </tr>
+                    <tr>
+                        <td>Speed</td>
+                        <td>Quick movement ability</td>
+                        <td>50m Dash</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>2. Common Sports Tests</h2>
+
+            <div class="card test-card">
+                <h3>AAHPER Youth Fitness Test</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Test Items</h4>
+                        <ul>
+                            <li>Pull-ups (Boys)/Flexed-arm hang (Girls)</li>
+                            <li>Sit-ups (60 sec)</li>
+                            <li>Shuttle Run</li>
+                            <li>Standing Long Jump</li>
+                            <li>50 Yard Dash</li>
+                            <li>600 Yard Run/Walk</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Purpose</h4>
+                        <p>Comprehensive assessment of:</p>
+                        <ul>
+                            <li>Muscular strength/endurance</li>
+                            <li>Cardiovascular endurance</li>
+                            <li>Speed and agility</li>
+                            <li>Explosive power</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Rikli and Jones Senior Fitness Test</h3>
+                <div class="procedure">
+                    <h4>Test Components:</h4>
+                    <ol>
+                        <li><strong>Chair Stand Test:</strong> Lower body strength</li>
+                        <li><strong>Arm Curl Test:</strong> Upper body strength</li>
+                        <li><strong>Chair Sit-and-Reach Test:</strong> Lower body flexibility</li>
+                        <li><strong>Back Scratch Test:</strong> Upper body flexibility</li>
+                        <li><strong>8-Foot Up-and-Go Test:</strong> Agility/dynamic balance</li>
+                        <li><strong>6-Minute Walk Test:</strong> Aerobic endurance</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h2>3. Measurement of Cardiovascular Fitness</h2>
+
+            <div class="card fitness-card">
+                <h3>Popular Cardiovascular Tests</h3>
+                <table>
+                    <tr>
+                        <th>Test Name</th>
+                        <th>Procedure</th>
+                        <th>Measurement</th>
+                    </tr>
+                    <tr>
+                        <td>Cooper 12-Min Run</td>
+                        <td>Run maximum distance in 12 minutes</td>
+                        <td>Distance covered (meters)</td>
+                    </tr>
+                    <tr>
+                        <td>Harvard Step Test</td>
+                        <td>Step up/down 16-inch bench for 5 min</td>
+                        <td>Recovery heart rate</td>
+                    </tr>
+                    <tr>
+                        <td>Rockport Walk Test</td>
+                        <td>1-mile brisk walk</td>
+                        <td>Heart rate post-walk</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Calculating VO₂ Max</h3>
+                <div class="procedure">
+                    <h4>From Cooper Test:</h4>
+                    <p>VO₂ max = (Distance in meters - 504.9) / 44.73</p>
+
+                    <h4>From Rockport Test:</h4>
+                    <p>VO₂ max = 132.853 - (0.0769 × weight) - (0.3877 × age) + (6.315 × gender) - (3.2649 × time) -
+                        (0.1565 × HR)</p>
+                    <p>(Gender: male=1, female=0; time in minutes; HR = heart rate)</p>
+                </div>
+            </div>
+
+            <h2>4. Anthropometric Measurements</h2>
+
+            <div class="card">
+                <h3>Key Body Measurements in Sports</h3>
+                <div class="test-grid">
+                    <div class="test-item">
+                        <strong>Height & Weight</strong>
+                        <p>Basic growth indicators</p>
+                    </div>
+                    <div class="test-item">
+                        <strong>BMI</strong>
+                        <p>Weight(kg)/Height(m)²</p>
+                    </div>
+                    <div class="test-item">
+                        <strong>Skinfold Thickness</strong>
+                        <p>Body fat percentage estimate</p>
+                    </div>
+                    <div class="test-item">
+                        <strong>Girth Measurements</strong>
+                        <p>Muscle development tracking</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card test-card">
+                <h3>Body Composition Assessment</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Skinfold Sites (3-site)</h4>
+                        <ul>
+                            <li>Men: Chest, Abdomen, Thigh</li>
+                            <li>Women: Triceps, Suprailiac, Thigh</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Measurement Tools</h4>
+                        <ul>
+                            <li>Skinfold Calipers</li>
+                            <li>Measuring Tape</li>
+                            <li>Bioelectrical Impedance</li>
+                            <li>DEXA Scan (most accurate)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>5. Motor Fitness Tests</h2>
+
+            <div class="card fitness-card">
+                <h3>Common Motor Fitness Tests</h3>
+                <table>
+                    <tr>
+                        <th>Test</th>
+                        <th>Component Measured</th>
+                        <th>Procedure</th>
+                    </tr>
+                    <tr>
+                        <td>50m Dash</td>
+                        <td>Speed</td>
+                        <td>Time to run 50 meters</td>
+                    </tr>
+                    <tr>
+                        <td>Standing Broad Jump</td>
+                        <td>Explosive Power</td>
+                        <td>Max distance jumped from stand</td>
+                    </tr>
+                    <tr>
+                        <td>Shuttle Run</td>
+                        <td>Agility</td>
+                        <td>Time to complete 10×5m sprints</td>
+                    </tr>
+                    <tr>
+                        <td>Sit and Reach</td>
+                        <td>Flexibility</td>
+                        <td>Distance reached beyond toes</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Flamingo Balance Test</h3>
+                <div class="procedure">
+                    <h4>Purpose:</h4>
+                    <p>Assesses static balance ability</p>
+
+                    <h4>Procedure:</h4>
+                    <ol>
+                        <li>Stand on one leg on balance board</li>
+                        <li>Hold free foot against standing knee</li>
+                        <li>Time how long balance is maintained (max 60 sec)</li>
+                        <li>Count number of falls in 60 seconds</li>
+                    </ol>
+
+                    <h4>Scoring:</h4>
+                    <p>Number of falls/attempts needed to complete 60 sec</p>
+                </div>
+            </div>
+
+            <h2>6. Recent Advances in Sports Testing</h2>
+
+            <div class="card test-card">
+                <h3>Modern Testing Technologies</h3>
+                <ul>
+                    <li><strong>Wearable Tech:</strong> GPS trackers, heart rate monitors</li>
+                    <li><strong>Force Plates:</strong> Measure ground reaction forces</li>
+                    <li><strong>Motion Capture:</strong> 3D movement analysis</li>
+                    <li><strong>Biomechanical Analysis:</strong> High-speed cameras</li>
+                    <li><strong>Virtual Reality:</strong> Cognitive testing</li>
+                </ul>
+            </div>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="Back()">BACK</button>
+        </div>
+    </body>
+    <script>
+        function Back() {
+            window.history.back();
+        }
+    </script>
+
+</html>

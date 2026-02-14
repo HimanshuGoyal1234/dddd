@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            object-fit: contain;
+        }
+
+        .slides img {
+            border-right: 2px solid #ddd;
+            height: 600px;
+            flex-shrink: 0; /* Ensure that images do not shrink */
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slides">
+            <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fthewowstyle.com%2Fwp-content%2Fuploads%2F2015%2F01%2Fnature-images-6.jpg&f=1&nofb=1&ipt=0ac38c423d8a0ec1b7b91b9e5a9fe64ccea2664b9abb257ee5c97f236c942490" alt="Photo 1">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F032%2F242%2F170%2Flarge_2x%2Fbeautiful-waterfall-flowers-water-nature-waterfall-hd-wallpaper-ai-generated-free-photo.jpg&f=1&nofb=1&ipt=b9815024d47ae41905aeec55325317883514c4f5ae23caf336d0b2f5e0b1979f" alt="Photo 2">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperset.com%2Fw%2Ffull%2F0%2Fc%2F6%2F163868.jpg&f=1&nofb=1&ipt=4e983a29bfbb1d57620eead18ca7783b9c8c3ddff1ec4c6ca7fe634d238c38c6" alt="Photo 3">
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        // script.js
+        let slideIndex = 0;
+
+        function showSlides(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+
+            if (index >= totalSlides) {
+                slideIndex = 0;
+            } else if (index < 0) {
+                slideIndex = totalSlides - 1;
+            }
+
+            slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            showSlides(slideIndex);
+        }
+
+        // Initialize the slider
+        showSlides(slideIndex);
+    </script>
+</body>
+
+</html>

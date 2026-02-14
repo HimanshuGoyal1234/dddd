@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: linear-gradient(45deg, blue, crimson, red);
+                min-height: 100vh;
+                overflow-x: hidden;
+                padding-bottom: 50px;
+                height: 100vh;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+            }
+
+            .container {
+                width: 70%;
+                height: 450px;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .container img {
+                width: 10%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+                border: 2px solid black;
+                transition: all ease-in-out 1s;
+            }
+
+            .container img:hover {
+                width: calc(100%);
+            }
+
+            .container::before {
+                content: "";
+                position: absolute;
+                height: 1px;
+                width: calc(img(--po));
+                background-color: black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2659541.jpg&f=1&nofb=1&ipt=12813e3184fed5a29fb6f993df2cea26faae061b79f8fb31ef44b4683739dd4a" alt="">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2659541.jpg&f=1&nofb=1&ipt=12813e3184fed5a29fb6f993df2cea26faae061b79f8fb31ef44b4683739dd4a" alt="">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2659541.jpg&f=1&nofb=1&ipt=12813e3184fed5a29fb6f993df2cea26faae061b79f8fb31ef44b4683739dd4a" alt="">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2659541.jpg&f=1&nofb=1&ipt=12813e3184fed5a29fb6f993df2cea26faae061b79f8fb31ef44b4683739dd4a" alt="">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2659541.jpg&f=1&nofb=1&ipt=12813e3184fed5a29fb6f993df2cea26faae061b79f8fb31ef44b4683739dd4a" alt="">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2659541.jpg&f=1&nofb=1&ipt=12813e3184fed5a29fb6f993df2cea26faae061b79f8fb31ef44b4683739dd4a" alt="">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2659541.jpg&f=1&nofb=1&ipt=12813e3184fed5a29fb6f993df2cea26faae061b79f8fb31ef44b4683739dd4a" alt="">
+        </div>
+    </body>
+
+</html>

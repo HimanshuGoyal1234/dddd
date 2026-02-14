@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Physiology_and_Sports</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: black;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #fff;
+            }
+
+            .button {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 50px;
+                background: linear-gradient(45deg, #ff0000, #0066ff);
+                color: white;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0066ff, #ff0000);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn:hover::before {
+                opacity: 1;
+            }
+
+
+            h1 {
+                color: #2c3e50;
+                text-align: center;
+                border-bottom: 2px solid #3498db;
+                padding-bottom: 10px;
+            }
+
+            h2 {
+                color: #2980b9;
+                margin-top: 30px;
+                border-left: 5px solid #3498db;
+                padding-left: 10px;
+            }
+
+            h3 {
+                color: #16a085;
+            }
+
+            .topic {
+                background-color: black;
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .definition {
+                font-style: italic;
+                background-color: black;
+                padding: 10px;
+                border-left: 3px solid #3498db;
+                margin: 10px 0;
+            }
+
+            .important {
+                font-weight: bold;
+                color: #e74c3c;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid #ddd;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+            }
+
+            th {
+                background-color: black;
+                color: white;
+            }
+
+            tr:nth-child(even) {
+                background-color: black;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 20px auto;
+                border: 1px solid #ddd;
+                padding: 5px;
+                background: black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Chapter 8: Physiology and Sports</h1>
+
+        <div class="topic">
+            <h2>1. Physiological Factors Determining Components of Physical Fitness</h2>
+            <p>Physical fitness is influenced by various physiological factors:</p>
+
+            <h3>1.1 Strength</h3>
+            <p>Factors affecting strength:</p>
+            <ul>
+                <li>Muscle size (cross-sectional area)</li>
+                <li>Muscle composition (fast-twitch vs slow-twitch fibers)</li>
+                <li>Neuromuscular coordination</li>
+                <li>Age and gender</li>
+                <li>Hormonal factors (testosterone, growth hormone)</li>
+            </ul>
+
+            <h3>1.2 Speed</h3>
+            <p>Physiological determinants of speed:</p>
+            <ul>
+                <li>Muscle fiber type (percentage of fast-twitch fibers)</li>
+                <li>Muscle elasticity</li>
+                <li>Energy systems (ATP-PC system efficiency)</li>
+                <li>Reaction time</li>
+                <li>Body composition</li>
+            </ul>
+
+            <h3>1.3 Endurance</h3>
+            <p>Factors affecting endurance:</p>
+            <ul>
+                <li>Cardiovascular efficiency (heart size, stroke volume)</li>
+                <li>Respiratory efficiency (lung capacity, VO2 max)</li>
+                <li>Muscle capillary density</li>
+                <li>Mitochondrial density in muscle cells</li>
+                <li>Glycogen storage capacity</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h2>2. Effects of Exercise on Muscular System</h2>
+
+            <h3>Short-term Effects</h3>
+            <ul>
+                <li>Increased muscle temperature</li>
+                <li>Increased muscle pliability</li>
+                <li>Muscle fatigue due to lactic acid accumulation</li>
+                <li>Micro-tears in muscle fibers (during intense exercise)</li>
+            </ul>
+
+            <h3>Long-term Effects</h3>
+            <ul>
+                <li>Hypertrophy (increase in muscle size)</li>
+                <li>Increased myoglobin content</li>
+                <li>Increased mitochondria number</li>
+                <li>Improved neuromuscular coordination</li>
+                <li>Increased glycogen storage capacity</li>
+                <li>Improved lactate tolerance</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h2>3. Effects of Exercise on Cardio-Respiratory System</h2>
+
+            <h3>Cardiovascular Effects</h3>
+            <ul>
+                <li><span class="important">Short-term:</span> Increased heart rate, stroke volume, cardiac output</li>
+                <li><span class="important">Long-term:</span> Cardiac hypertrophy (athlete's heart), lower resting heart
+                    rate, increased blood volume</li>
+            </ul>
+
+            <h3>Respiratory Effects</h3>
+            <ul>
+                <li><span class="important">Short-term:</span> Increased breathing rate, tidal volume</li>
+                <li><span class="important">Long-term:</span> Increased vital capacity, improved gas exchange, increased
+                    respiratory endurance</li>
+            </ul>
+
+            <div class="definition">
+                <p><strong>VO2 Max:</strong> Maximum amount of oxygen an individual can utilize during intense exercise.
+                    It's a key indicator of cardiovascular fitness.</p>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>4. Physiological Changes Due to Aging</h2>
+
+            <table>
+                <tr>
+                    <th>System</th>
+                    <th>Changes Due to Aging</th>
+                    <th>Exercise Benefits</th>
+                </tr>
+                <tr>
+                    <td>Muscular System</td>
+                    <td>Loss of muscle mass (sarcopenia), decreased strength, reduced flexibility</td>
+                    <td>Slows muscle loss, maintains strength, improves flexibility</td>
+                </tr>
+                <tr>
+                    <td>Cardiovascular System</td>
+                    <td>Decreased cardiac output, reduced elasticity of arteries, higher blood pressure</td>
+                    <td>Maintains cardiac function, improves circulation, lowers blood pressure</td>
+                </tr>
+                <tr>
+                    <td>Respiratory System</td>
+                    <td>Reduced lung capacity, weaker respiratory muscles</td>
+                    <td>Maintains lung function, improves breathing efficiency</td>
+                </tr>
+                <tr>
+                    <td>Skeletal System</td>
+                    <td>Bone density loss (osteoporosis), joint stiffness</td>
+                    <td>Slows bone loss, maintains joint mobility</td>
+                </tr>
+                <tr>
+                    <td>Nervous System</td>
+                    <td>Slower reaction time, reduced coordination</td>
+                    <td>Maintains neural connections, improves balance</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="topic">
+            <h2>5. Gender Differences in Physical Performance</h2>
+
+            <h3>Physiological Differences</h3>
+            <ul>
+                <li>Body composition (higher fat percentage in females)</li>
+                <li>Muscle mass (males typically have more muscle mass)</li>
+                <li>Bone structure (wider pelvis in females)</li>
+                <li>Cardiovascular capacity (higher VO2 max in males)</li>
+                <li>Hormonal differences (testosterone vs estrogen effects)</li>
+            </ul>
+
+            <h3>Performance Implications</h3>
+            <ul>
+                <li>Strength and power activities show significant gender differences</li>
+                <li>Endurance activities show smaller differences</li>
+                <li>Flexibility is generally greater in females</li>
+                <li>Recovery rates may differ due to hormonal variations</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h2>6. Ergogenic Aids in Sports</h2>
+
+            <h3>Types of Ergogenic Aids</h3>
+            <ul>
+                <li><strong>Mechanical:</strong> Special equipment, clothing</li>
+                <li><strong>Psychological:</strong> Hypnosis, meditation</li>
+                <li><strong>Physiological:</strong> Blood doping, oxygen supplementation</li>
+                <li><strong>Pharmacological:</strong> Drugs, steroids</li>
+                <li><strong>Nutritional:</strong> Supplements, sports drinks</li>
+            </ul>
+
+            <h3>Dangers of Performance Enhancing Drugs</h3>
+            <ul>
+                <li>Cardiovascular problems</li>
+                <li>Liver damage</li>
+                <li>Hormonal imbalances</li>
+                <li>Psychological dependence</li>
+                <li>Ethical and legal consequences</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h2>7. Training Adaptations in Different Sports</h2>
+
+            <h3>Endurance Sports (e.g., Marathon)</h3>
+            <ul>
+                <li>Increased mitochondrial density</li>
+                <li>Enhanced fat metabolism</li>
+                <li>Improved lactate threshold</li>
+                <li>Cardiac hypertrophy (especially left ventricle)</li>
+            </ul>
+
+            <h3>Power Sports (e.g., Weightlifting)</h3>
+            <ul>
+                <li>Muscle hypertrophy</li>
+                <li>Increased fast-twitch fiber development</li>
+                <li>Enhanced neuromuscular coordination</li>
+                <li>Improved ATP-PC system efficiency</li>
+            </ul>
+
+            <h3>Team Sports (e.g., Basketball, Football)</h3>
+            <ul>
+                <li>Mixed aerobic and anaerobic adaptations</li>
+                <li>Improved recovery between bursts of activity</li>
+                <li>Enhanced agility and coordination</li>
+                <li>Sport-specific skill development</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h2>Key Terms and Definitions</h2>
+
+            <div class="definition">
+                <p><strong>Hypertrophy:</strong> Increase in size of muscle fibers due to exercise training.</p>
+            </div>
+
+            <div class="definition">
+                <p><strong>Atrophy:</strong> Decrease in size of muscle fibers due to inactivity.</p>
+            </div>
+
+            <div class="definition">
+                <p><strong>Stroke Volume:</strong> Amount of blood pumped by the left ventricle in one contraction.</p>
+            </div>
+
+            <div class="definition">
+                <p><strong>Cardiac Output:</strong> Volume of blood pumped by the heart per minute (Stroke Volume ×
+                    Heart Rate).</p>
+            </div>
+
+            <div class="definition">
+                <p><strong>Sarcopenia:</strong> Age-related loss of muscle mass and strength.</p>
+            </div>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="Back()">BACK</button>
+        </div>
+    </body>
+    <script>
+        function Back() {
+            window.history.back();
+        }
+    </script>
+
+</html>

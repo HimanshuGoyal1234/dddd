@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <title>Class 12 PE - Chapter: Biomechanics_and_Sports</title>
+        <style>
+            :root {
+                --bg-dark: #121212;
+                --bg-darker: #1e1e1e;
+                --text-primary: #e0e0e0;
+                --text-secondary: #aaaaaa;
+                --accent-color: #2196F3;
+                --accent-secondary: #00BCD4;
+                --border-color: #333333;
+                --table-header: #1A237E;
+                --diagram-bg: #0D47A1;
+            }
+
+            .button {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 50px;
+                background: linear-gradient(45deg, #ff0000, #0066ff);
+                color: white;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0066ff, #ff0000);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn:hover::before {
+                opacity: 1;
+            }
+
+
+            body {
+                font-family: 'Roboto', Arial, sans-serif;
+                line-height: 1.7;
+                margin: 0;
+                padding: 20px;
+                color: var(--text-primary);
+                background-color: var(--bg-dark);
+            }
+
+            h1 {
+                color: var(--accent-color);
+                text-align: center;
+                border-bottom: 3px solid var(--accent-secondary);
+                padding-bottom: 15px;
+                margin-bottom: 35px;
+                font-weight: 300;
+                letter-spacing: 1px;
+            }
+
+            h2 {
+                color: var(--accent-secondary);
+                margin-top: 40px;
+                border-left: 6px solid var(--accent-color);
+                padding-left: 15px;
+                background: linear-gradient(90deg, rgba(26, 35, 126, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+                font-weight: 400;
+            }
+
+            h3 {
+                color: var(--accent-color);
+                margin-top: 25px;
+                border-bottom: 1px dashed var(--border-color);
+                padding-bottom: 5px;
+                font-weight: 400;
+            }
+
+            .topic {
+                background-color: var(--bg-darker);
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+                border: 1px solid var(--border-color);
+            }
+
+            .definition {
+                background-color: var(--diagram-bg);
+                padding: 15px;
+                border-left: 5px solid var(--accent-secondary);
+                margin: 20px 0;
+                border-radius: 0 8px 8px 0;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .definition::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40px;
+                height: 40px;
+                background: radial-gradient(circle at 70% 30%, rgba(0, 188, 212, 0.3) 0%, transparent 70%);
+            }
+
+            .important {
+                font-weight: 500;
+                color: var(--accent-secondary);
+                background-color: rgba(0, 188, 212, 0.1);
+                padding: 2px 5px;
+                border-radius: 3px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 25px 0;
+                border: 1px solid var(--border-color);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            th,
+            td {
+                padding: 14px;
+                text-align: left;
+                border: 1px solid var(--border-color);
+            }
+
+            th {
+                background-color: var(--table-header);
+                color: white;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+            }
+
+            tr:nth-child(even) {
+                background-color: rgba(255, 255, 255, 0.03);
+            }
+
+            tr:hover {
+                background-color: rgba(33, 150, 243, 0.08);
+            }
+
+            ul,
+            ol {
+                padding-left: 25px;
+            }
+
+            li {
+                margin-bottom: 10px;
+                position: relative;
+            }
+
+            li::before {
+                content: "•";
+                color: var(--accent-secondary);
+                font-weight: bold;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+            }
+
+            .diagram {
+                background-color: var(--diagram-bg);
+                padding: 20px;
+                border-radius: 8px;
+                margin: 25px auto;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+                border: 1px solid var(--accent-color);
+            }
+
+            .diagram::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+            }
+
+            .formula {
+                font-family: 'Courier New', monospace;
+                background-color: rgba(0, 0, 0, 0.3);
+                padding: 10px 15px;
+                border-radius: 5px;
+                border-left: 4px solid var(--accent-secondary);
+                margin: 15px 0;
+                overflow-x: auto;
+            }
+
+            @media (max-width: 768px) {
+                body {
+                    padding: 15px;
+                }
+
+                .topic {
+                    padding: 15px;
+                }
+
+                th,
+                td {
+                    padding: 10px;
+                    font-size: 14px;
+                }
+            }
+
+            .law-box {
+                background: linear-gradient(145deg, #0D47A1, #1A237E);
+                padding: 18px;
+                border-radius: 8px;
+                margin: 20px 0;
+                border: 1px solid var(--accent-color);
+            }
+
+            .law-title {
+                font-weight: 500;
+                color: var(--accent-secondary);
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+            }
+
+            .law-title::before {
+                content: "⚖";
+                margin-right: 10px;
+                font-size: 18px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Chapter: Biomechanics and Sports</h1>
+
+        <div class="topic">
+            <h2>1. Introduction to Biomechanics</h2>
+
+            <div class="definition">
+                <p><strong>Biomechanics:</strong> The study of the mechanical laws relating to the movement or structure
+                    of living organisms, especially athletes in sports contexts.</p>
+            </div>
+
+            <h3>1.1 Importance in Sports</h3>
+            <ul>
+                <li>Improves athletic performance through movement optimization</li>
+                <li>Helps prevent injuries by analyzing stress points</li>
+                <li>Enhances equipment design (shoes, rackets, etc.)</li>
+                <li>Develops better training techniques</li>
+                <li>Analyzes and improves sports techniques</li>
+            </ul>
+
+            <div class="diagram">
+                <h3>Areas of Biomechanics</h3>
+                <p>Kinematics ➔ Kinetics ➔ Sports Equipment Design ➔ Injury Prevention</p>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>2. Kinematics in Sports</h2>
+
+            <h3>2.1 Types of Motion</h3>
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Sports Example</th>
+                </tr>
+                <tr>
+                    <td>Linear</td>
+                    <td>Movement in straight line</td>
+                    <td>100m sprint, bobsled</td>
+                </tr>
+                <tr>
+                    <td>Angular</td>
+                    <td>Rotation about an axis</td>
+                    <td>Gymnastics pirouette, discus throw</td>
+                </tr>
+                <tr>
+                    <td>General</td>
+                    <td>Combination of linear and angular</td>
+                    <td>Long jump (run + takeoff), basketball layup</td>
+                </tr>
+            </table>
+
+            <h3>2.2 Kinematic Variables</h3>
+            <div class="formula">
+                <p>Displacement (Δx) = Final Position - Initial Position</p>
+                <p>Velocity (v) = Δx / Δt</p>
+                <p>Acceleration (a) = Δv / Δt</p>
+            </div>
+
+            <div class="diagram">
+                <h3>Projectile Motion Factors</h3>
+                <p>Angle of Release ➔ Speed of Release ➔ Height of Release ➔ Air Resistance</p>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>3. Kinetics in Sports</h2>
+
+            <div class="law-box">
+                <div class="law-title">Newton's Laws of Motion</div>
+                <ol>
+                    <li><span class="important">Law of Inertia:</span> A body remains at rest or in uniform motion
+                        unless acted upon by a force (e.g., sprinter in starting blocks)</li>
+                    <li><span class="important">Law of Acceleration:</span> F = ma (e.g., golf club applying force to
+                        ball)</li>
+                    <li><span class="important">Law of Reaction:</span> For every action, equal and opposite reaction
+                        (e.g., swimmer pushing against water)</li>
+                </ol>
+            </div>
+
+            <h3>3.1 Types of Forces in Sports</h3>
+            <ul>
+                <li><span class="important">Muscular Force:</span> Generated by muscle contraction</li>
+                <li><span class="important">Gravitational Force:</span> Acts downward on all objects</li>
+                <li><span class="important">Frictional Force:</span> Opposes motion between surfaces</li>
+                <li><span class="important">Air Resistance:</span> Opposes motion through air</li>
+                <li><span class="important">Ground Reaction Force:</span> Surface pushing back on athlete</li>
+            </ul>
+
+            <h3>3.2 Momentum and Impulse</h3>
+            <div class="formula">
+                <p>Momentum (p) = mass × velocity</p>
+                <p>Impulse (J) = force × time = change in momentum</p>
+            </div>
+            <p>Applications: Catching a cricket ball (increasing time to reduce force), golf swing (maximizing time of
+                force application)</p>
+        </div>
+
+        <div class="topic">
+            <h2>4. Levers in Human Body</h2>
+
+            <div class="definition">
+                <p><strong>Lever:</strong> A rigid bar that rotates about a fulcrum when force is applied, used to
+                    overcome resistance.</p>
+            </div>
+
+            <h3>4.1 Classes of Levers</h3>
+            <table>
+                <tr>
+                    <th>Class</th>
+                    <th>Components Order</th>
+                    <th>Example in Body</th>
+                    <th>Mechanical Advantage</th>
+                </tr>
+                <tr>
+                    <td>First</td>
+                    <td>Fulcrum between effort and resistance</td>
+                    <td>Head nodding (atlanto-occipital joint)</td>
+                    <td>Can be >1 or <1< /td>
+                </tr>
+                <tr>
+                    <td>Second</td>
+                    <td>Resistance between fulcrum and effort</td>
+                    <td>Standing on toes (calf raise)</td>
+                    <td>Always >1</td>
+                </tr>
+                <tr>
+                    <td>Third</td>
+                    <td>Effort between fulcrum and resistance</td>
+                    <td>Biceps curl</td>
+                    <td>Always <1< /td>
+                </tr>
+            </table>
+
+            <div class="diagram">
+                <h3>Lever System Components</h3>
+                <p>Fulcrum (Joint) ➔ Effort (Muscle Force) ➔ Resistance (Weight/External Force)</p>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>5. Equilibrium and Stability</h2>
+
+            <h3>5.1 Types of Equilibrium</h3>
+            <ul>
+                <li><span class="important">Static:</span> Body at rest (e.g., handstand)</li>
+                <li><span class="important">Dynamic:</span> Body moving with constant velocity (e.g., cycling at steady
+                    speed)</li>
+            </ul>
+
+            <h3>5.2 Factors Affecting Stability</h3>
+            <div class="law-box">
+                <ol>
+                    <li><span class="important">Base of Support:</span> Larger base increases stability (e.g.,
+                        wrestler's stance)</li>
+                    <li><span class="important">Center of Gravity:</span> Lower COG increases stability (e.g., squat
+                        position)</li>
+                    <li><span class="important">Mass:</span> Greater mass increases stability (e.g., sumo wrestlers)
+                    </li>
+                    <li><span class="important">Line of Gravity:</span> Should be within base of support for stability
+                    </li>
+                </ol>
+            </div>
+
+            <div class="diagram">
+                <h3>Stability Continuum</h3>
+                <p>High Stability (e.g., Sumo stance) ↔ Low Stability (e.g., Gymnast on beam)</p>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>6. Biomechanical Analysis of Sports Skills</h2>
+
+            <h3>6.1 Throwing Mechanics</h3>
+            <ol>
+                <li>Wind-up/Preparation phase</li>
+                <li>Cocking/Stride phase</li>
+                <li>Acceleration phase</li>
+                <li>Deceleration/Follow-through</li>
+            </ol>
+
+            <h3>6.2 Running Mechanics</h3>
+            <table>
+                <tr>
+                    <th>Phase</th>
+                    <th>Key Biomechanical Factors</th>
+                </tr>
+                <tr>
+                    <td>Stance</td>
+                    <td>Ground reaction forces, joint angles</td>
+                </tr>
+                <tr>
+                    <td>Swing</td>
+                    <td>Leg recovery mechanics, stride length</td>
+                </tr>
+                <tr>
+                    <td>Flight</td>
+                    <td>Center of gravity trajectory</td>
+                </tr>
+            </table>
+
+            <h3>6.3 Jumping Mechanics</h3>
+            <div class="law-box">
+                <p><span class="important">Takeoff:</span> Optimal angle ~45° for maximum distance</p>
+                <p><span class="important">Flight:</span> Parabolic trajectory determined by takeoff velocity</p>
+                <p><span class="important">Landing:</span> Shock absorption through joint flexion</p>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>7. Technology in Biomechanics</h2>
+
+            <h3>7.1 Analysis Tools</h3>
+            <ul>
+                <li><span class="important">Motion Capture Systems:</span> High-speed cameras with markers</li>
+                <li><span class="important">Force Platforms:</span> Measure ground reaction forces</li>
+                <li><span class="important">EMG:</span> Electromyography for muscle activity</li>
+                <li><span class="important">Pressure Mapping:</span> Foot pressure distribution</li>
+                <li><span class="important">Wind Tunnels:</span> Aerodynamic testing</li>
+            </ul>
+
+            <h3>7.2 Applications</h3>
+            <table>
+                <tr>
+                    <th>Sport</th>
+                    <th>Biomechanical Application</th>
+                </tr>
+                <tr>
+                    <td>Swimming</td>
+                    <td>Stroke analysis, body position optimization</td>
+                </tr>
+                <tr>
+                    <td>Golf</td>
+                    <td>Swing plane analysis, club design</td>
+                </tr>
+                <tr>
+                    <td>Cycling</td>
+                    <td>Pedaling efficiency, aerodynamics</td>
+                </tr>
+                <tr>
+                    <td>Track & Field</td>
+                    <td>Takeoff angles, stride analysis</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="topic">
+            <h2>Key Terms and Formulas</h2>
+
+            <div class="definition">
+                <p><strong>Center of Gravity:</strong> The point where the entire weight of the body may be considered
+                    to act.</p>
+            </div>
+
+            <div class="formula">
+                <p>Work (W) = Force × Displacement × cosθ</p>
+                <p>Power (P) = Work / Time</p>
+                <p>Torque (τ) = Force × Lever Arm</p>
+            </div>
+
+            <div class="definition">
+                <p><strong>Angular Momentum:</strong> L = Iω (Moment of Inertia × Angular Velocity) - conserved in
+                    mid-air movements.</p>
+            </div>
+
+            <div class="definition">
+                <p><strong>Drag Force:</strong> F<sub>D</sub> = ½ρv<sup>2</sup>C<sub>D</sub>A - affects projectiles and
+                    athletes moving through air/water.</p>
+            </div>
+            <div class="button">
+                <button class="btn" onclick="Back()">BACK</button>
+            </div>
+        </div>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

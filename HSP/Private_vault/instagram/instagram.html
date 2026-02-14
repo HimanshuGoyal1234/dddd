@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Profile Cards</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            height: 100vh;
+            overflow: hidden;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .r {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1200px;
+            padding: 20px;
+        }
+        
+        .container {
+            align-items: center;
+            display: flex;
+            border: none;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            min-width: 280px;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00dbde, #fc00ff);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .container:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .container img {
+            margin: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, #00dbde, #fc00ff);
+            transition: all 0.3s ease;
+        }
+        
+        .container:hover img {
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+        
+        .username {
+            padding: 15px 20px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Neon glow effect */
+        .container:nth-child(1) {
+            border-left: 3px solid #00dbde;
+        }
+        
+        .container:nth-child(2) {
+            border-left: 3px solid #fc00ff;
+        }
+        
+        .container:nth-child(3) {
+            border-left: 3px solid #00ff87;
+        }
+        
+        .container:nth-child(4) {
+            border-left: 3px solid #ff0080;
+        }
+        
+        .container:nth-child(5) {
+            border-left: 3px solid #ff8c00;
+        }
+        
+        .container:nth-child(6) {
+            border-left: 3px solid #00ffea;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="r">
+        <div class="container">
+            <img src="image.png" height="50" width="50" alt="">
+            <div class="username">@shadow_pul</div>
+        </div>
+        <div class="container">
+            <img src="eternal_blue.png" height="50" width="50" alt="">
+            <div class="username">@great_of_god</div>
+        </div>
+        <div class="container">
+            <img src="himanshu3dmodel.png" height="50" width="50" alt="">
+            <div class="username">@himanshu3dmodel</div>
+        </div>
+        <div class="container">
+            <img src="dyito7rey.png" height="50" width="50" alt="">
+            <div class="username">@dyito7rey</div>
+        </div>
+        <div class="container">
+            <img src="dyito7rey.png" height="50" width="50" alt="">
+            <div class="username">@her_1232__</div>
+        </div><div class="container">
+            <img src="dyito7rey.png" height="50" width="50" alt="">
+            <div class="username">@tiger.991135</div>
+        </div>
+        <div class="container">
+            <img src="heartfail5891.png" height="50" width="50" alt="">
+            <div class="username">@heartfail5891</div>
+        </div>
+        <div class="container">
+            <img src="shadow_realme_store.png" height="50" width="50" alt="">
+            <div class="username">@shadow_realme_store</div>
+        </div>
+    </div>
+</body>
+
+</html>

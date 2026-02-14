@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        /* Improved CSS with better organization and additional features */
+        :root {
+            --slider-width: 450px;
+            --slider-height: 600px;
+            --button-bg: rgba(0, 0, 0, 0.5);
+            --button-hover: rgba(0, 0, 0, 0.8);
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .slider-container {
+            width: 100%;
+            max-width: var(--slider-width);
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: var(--slider-height);
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            height: 100%;
+            transition: transform var(--transition-speed) ease-in-out;
+            will-change: transform; /* Optimize for performance */
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--button-bg);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+            border-radius: 4px;
+            user-select: none;
+        }
+
+        .nav-button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .prev {
+            left: 15px;
+        }
+
+        .next {
+            right: 15px;
+        }
+
+        .dots-container {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        .dot:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Accessibility improvements */
+        .nav-button:focus,
+        .dot:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.8);
+            outline-offset: 2px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 500px) {
+            :root {
+                --slider-height: 400px;
+            }
+            
+            .nav-button {
+                padding: 12px 15px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="../photos/0.jpg" alt="Beautiful landscape with mountains">
+                </div>
+                <div class="slide">
+                    <img src="../photos/1.jpg" alt="City skyline at sunset">
+                </div>
+                <div class="slide">
+                    <img src="../photos/2.jpg" alt="Ocean view with palm trees">
+                </div>
+            </div>
+            
+            <button class="nav-button prev" aria-label="Previous image">&#10094;</button>
+            <button class="nav-button next" aria-label="Next image">&#10095;</button>
+            
+            <div class="dots-container">
+                <!-- Dots will be added by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM elements
+            const slider = document.querySelector('.slider');
+            const slidesContainer = document.querySelector('.slides');
+            const slides = document.querySelectorAll('.slide');
+            const prevButton = document.querySelector('.prev');
+            const nextButton = document.querySelector('.next');
+            const dotsContainer = document.querySelector('.dots-container');
+            
+            // Configuration
+            const slideCount = slides.length;
+            let currentIndex = 0;
+            let isAnimating = false;
+            let autoSlideInterval;
+            const autoSlideDelay = 5000; // 5 seconds
+            
+            // Initialize dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            
+            // Event listeners
+            prevButton.addEventListener('click', () => navigate(-1));
+            nextButton.addEventListener('click', () => navigate(1));
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') navigate(-1);
+                if (e.key === 'ArrowRight') navigate(1);
+            });
+            
+            // Touch events for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+            
+            // Auto-slide
+            startAutoSlide();
+            
+            // Pause auto-slide on hover/focus
+            slider.addEventListener('mouseenter', pauseAutoSlide);
+            slider.addEventListener('mouseleave', startAutoSlide);
+            slider.addEventListener('focusin', pauseAutoSlide);
+            slider.addEventListener('focusout', startAutoSlide);
+            
+            // Functions
+            function navigate(direction) {
+                if (isAnimating) return;
+                
+                const newIndex = (currentIndex + direction + slideCount) % slideCount;
+                goToSlide(newIndex);
+            }
+            
+            function goToSlide(index) {
+                if (isAnimating || index === currentIndex) return;
+                
+                isAnimating = true;
+                currentIndex = index;
+                
+                slidesContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
+                
+                // Update active dot
+                document.querySelectorAll('.dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+                
+                // Reset animation flag after transition
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 400); // Should match CSS transition duration
+                
+                // Reset auto-slide timer
+                resetAutoSlide();
+            }
+            
+            function handleSwipe() {
+                const threshold = 50; // Minimum swipe distance
+                const difference = touchStartX - touchEndX;
+                
+                if (Math.abs(difference) < threshold) return;
+                
+                if (difference > 0) {
+                    navigate(1); // Swipe left - next
+                } else {
+                    navigate(-1); // Swipe right - previous
+                }
+            }
+            
+            function startAutoSlide() {
+                if (autoSlideInterval) clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(() => navigate(1), autoSlideDelay);
+            }
+            
+            function pauseAutoSlide() {
+                if (autoSlideInterval) clearInterval(autoSlideInterval);
+            }
+            
+            function resetAutoSlide() {
+                pauseAutoSlide();
+                startAutoSlide();
+            }
+            
+            // Initialize slider position
+            goToSlide(0);
+        });
+    </script>
+</body>
+
+</html>

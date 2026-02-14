@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <title>PE</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                min-height: 100vh;
+                background-image: linear-gradient(0deg, rgb(59, 59, 59), rgb(197, 197, 197)), linear-gradient(45deg, rgb(159, 116, 214) 0%, rgb(159, 116, 214) 25%, rgb(130, 95, 173) 25%, rgb(130, 95, 173) 45%, rgb(101, 74, 132) 45%, rgb(101, 74, 132) 50%, rgb(72, 54, 90) 50%, rgb(72, 54, 90) 52%, rgb(43, 33, 49) 52%, rgb(43, 33, 49) 61%, rgb(14, 12, 8) 61%, rgb(14, 12, 8) 100%), linear-gradient(135deg, rgb(159, 116, 214) 0%, rgb(159, 116, 214) 25%, rgb(130, 95, 173) 25%, rgb(130, 95, 173) 45%, rgb(101, 74, 132) 45%, rgb(101, 74, 132) 50%, rgb(72, 54, 90) 50%, rgb(72, 54, 90) 52%, rgb(43, 33, 49) 52%, rgb(43, 33, 49)61%, rgb(14, 12, 8) 61%, rgb(14, 12, 8) 100%);
+                background-blend-mode: overlay, overlay, normal;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                overflow-x: hidden;
+            }
+
+            .uper {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .container {
+                width: 90%;
+                max-width: 600px;
+                padding: 30px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 15px;
+                backdrop-filter: blur(12px);
+                background-color: rgba(0, 0, 0, 0.2);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+                transition: all 0.5s ease;
+                overflow: hidden;
+            }
+
+            .container:hover {
+                animation: borderGlow 3s infinite ease-in-out;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+                transform: translateY(-5px);
+            }
+
+            @keyframes borderGlow {
+                0% {
+                    border-color: rgba(255, 0, 0, 0.7);
+                    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+                }
+
+                25% {
+                    border-color: rgba(0, 166, 255, 0.7);
+                    box-shadow: 0 0 20px rgba(0, 166, 255, 0.5);
+                }
+
+                50% {
+                    border-color: rgba(0, 255, 166, 0.7);
+                    box-shadow: 0 0 20px rgba(0, 255, 166, 0.5);
+                }
+
+                75% {
+                    border-color: rgba(255, 255, 0, 0.7);
+                    box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+                }
+
+                100% {
+                    border-color: rgba(255, 0, 0, 0.7);
+                    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+                }
+            }
+
+            .container div ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .list_item {
+                padding: 15px 20px;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.3);
+                border-radius: 8px;
+                backdrop-filter: blur(5px);
+            }
+
+            .list_item:hover {
+                transform: scale(1.05);
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .list_item a {
+                color: white;
+                text-decoration: none;
+                font-size: 1.1rem;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                display: block;
+                transition: all 0.3s ease;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            }
+
+            .list_item a:hover {
+                color: #00ffa6;
+                text-shadow: 0 0 10px rgba(0, 255, 166, 0.7);
+            }
+
+            #item_0 {
+                font-size: 1.5rem;
+                color: #00ffa6;
+                text-shadow: 0 0 10px rgba(0, 255, 166, 0.7);
+                margin-bottom: 10px;
+            }
+
+            #item_0:hover {
+                transform: none;
+            }
+
+            #item_0 a:hover {
+                color: #00ffa6;
+            }
+
+            .button {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                position: relative;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 50px;
+                background: linear-gradient(45deg, #ff0000, #0066ff);
+                color: white;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0066ff, #ff0000);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn:hover::before {
+                opacity: 1;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    width: 95%;
+                    padding: 20px;
+                }
+
+                .list_item {
+                    padding: 12px 15px;
+                }
+
+                .btn {
+                    padding: 10px 25px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                body {
+                    justify-content: flex-start;
+                    padding-top: 30px;
+                }
+
+                .container {
+                    border-radius: 10px;
+                }
+
+                .list_item a {
+                    font-size: 1rem;
+                }
+
+                #item_0 {
+                    font-size: 1.3rem;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="uper">
+            <div class="container">
+                <div>
+                    <ul>
+                        <li class="list_item item_2"> <a href="Management_of_Sporting_Events_Class_12.html">Management
+                                of Sporting Events</a></li>
+                        <li class="list_item item_3"> <a href="Children_and_Women_in_Sports.html">Children and Women in
+                                Sports</a></li>
+                        <li class="list_item item_4"> <a
+                                href="Yoga_as_Preventive_Measure_for_Lifestyle_Diseases.html">Yoga as Preventive Measure
+                                for Lifestyle Diseases</a></li>
+                        <li class="list_item item_5"> <a href="Physical_Education_and_Sports_for_CWSN.html">Physical
+                                Education for CWSN (Children with Special Needs)</a></li>
+                        <li class="list_item item_6"> <a href="Sports_and_nutrition.html">Sports and Nutrition</a></li>
+                        <li class="list_item item_7"> <a href="Test_and_Measurement_in_Sports.html">Test and Measurement
+                                in Sports</a></li>
+                        <li class="list_item item_8"> <a href="Physiology_and_Injuries_in_Sports.html">Physiology and
+                                Injuries in Sports</a></li>
+                        <li class="list_item item_9"> <a href="Biomechanics_and_Sports.html">Biomechanics and Sports</a>
+                        </li>
+                        <li class="list_item item_10"><a href="Psychology_and_Sports.html">Psychology and Sports</a>
+                        </li>
+                        <li class="list_item item_11"><a href="Training_in_Sports.html">Training in Sports</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="button">
+            <button class="btn" onclick="Back()">BACK</button>
+        </div>
+        <script>
+            document.querySelectorAll('.container').forEach(container => {
+                const initialTransform = container.style.transform;
+                const initialBoxShadow = container.style.boxShadow;
+                container.addEventListener('mousemove', (e) => {
+                    const rect = container.getBoundingClientRect();
+
+                    // Calculate mouse position relative to container center
+                    const relX = e.clientX - rect.left - rect.width / 2;
+                    const relY = e.clientY - rect.top - rect.height / 2;
+
+                    // Calculate rotation angles (more sensitive for faster tilt)
+                    const tiltX = (relY / rect.height) * 20;  // Increased multiplier for faster tilt
+                    const tiltY = -(relX / rect.width) * 20;   // Negative for natural movement
+
+                    // Apply transform with hardware acceleration
+                    container.style.transform = `rotateX(${ tiltX }deg) rotateY(${ tiltY }deg) scale(1.02)`;
+                    container.style.transition = 'transform 0.1s linear'; // Faster transition
+                    container.style.boxShadow = `0 25px 50px rgba(0, 0, 0, 0.3)`;
+                });
+
+                container.addEventListener('mouseleave', () => {
+                    // Reset to initial state with smooth transition
+                    container.style.transform = initialTransform;
+                    container.style.boxShadow = initialBoxShadow;
+                    container.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                });
+            });
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

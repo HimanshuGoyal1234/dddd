@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Class 11 Thermodynamics - Mobile Guide</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            /* Mobile-First Design */
+            :root {
+                --primary: #4361ee;
+                --secondary: #3f37c9;
+                --accent: #4895ef;
+                --dark: #1b263b;
+                --light: #f8f9fa;
+                --success: #4cc9f0;
+                --danger: #f72585;
+                --warning: #f8961e;
+                --text: #2b2d42;
+                --text-light: #8d99ae;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            body {
+                font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+                line-height: 1.6;
+                color: var(--text);
+                background-color: var(--light);
+                overflow-x: hidden;
+            }
+
+            /* Header with Hamburger Menu */
+            header {
+                background: linear-gradient(135deg, var(--dark), var(--secondary));
+                color: white;
+                padding: 1rem;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 100%;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: white;
+                text-decoration: none;
+            }
+
+            .logo img {
+                height: 30px;
+                width: 30px;
+            }
+
+            .menu-btn {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            /* Mobile Navigation */
+            .mobile-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                z-index: 1001;
+                transition: left 0.3s ease;
+                overflow-y: auto;
+            }
+
+            .mobile-nav.active {
+                left: 0;
+            }
+
+            .nav-header {
+                padding: 1rem;
+                background: var(--dark);
+                color: white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .close-btn {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .mobile-nav ul {
+                list-style: none;
+                padding: 1rem;
+            }
+
+            .mobile-nav li {
+                margin-bottom: 1rem;
+            }
+
+            .mobile-nav a {
+                color: var(--text);
+                text-decoration: none;
+                font-weight: 500;
+                display: block;
+                padding: 0.5rem;
+                border-radius: 4px;
+                transition: all 0.2s;
+            }
+
+            .mobile-nav a:hover {
+                background: rgba(0, 0, 0, 0.05);
+                color: var(--primary);
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+            }
+
+            .overlay.active {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            /* Main Content */
+            .container {
+                padding: 1rem;
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                color: var(--dark);
+                margin-bottom: 1.5rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 2px solid var(--accent);
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                color: var(--primary);
+                margin: 1.5rem 0 1rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+                color: var(--secondary);
+                margin-bottom: 0.8rem;
+            }
+
+            p {
+                margin-bottom: 1rem;
+                font-size: 1rem;
+            }
+
+            /* Cards with Touch Enhancements */
+            .card {
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                padding: 1.2rem;
+                margin-bottom: 1.5rem;
+                transition: transform 0.2s, box-shadow 0.2s;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .card:active {
+                transform: scale(0.98);
+                box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            .card-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            /* Tables with Horizontal Scroll */
+            .scrollable-table {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 1rem 0;
+                border-radius: 8px;
+                background: white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                min-width: 500px;
+            }
+
+            th,
+            td {
+                padding: 0.8rem;
+                text-align: left;
+                border-bottom: 1px solid #eee;
+            }
+
+            th {
+                background-color: var(--primary);
+                color: white;
+                font-weight: 500;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f8f9fa;
+            }
+
+            /* Formulas with Copy Functionality */
+            .formula-container {
+                position: relative;
+                margin: 1rem 0;
+            }
+
+            .formula {
+                background: #f8f9fa;
+                border-left: 4px solid var(--accent);
+                padding: 1rem;
+                font-family: 'Courier New', monospace;
+                font-size: 1rem;
+                border-radius: 0 4px 4px 0;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .copy-btn {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                background: var(--accent);
+                color: white;
+                border: none;
+                border-radius: 4px;
+                padding: 0.3rem 0.6rem;
+                font-size: 0.8rem;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.2s;
+            }
+
+            .formula-container:hover .copy-btn {
+                opacity: 1;
+            }
+
+            /* Interactive Elements */
+            .toggle-btn {
+                background: var(--accent);
+                color: white;
+                border: none;
+                border-radius: 6px;
+                padding: 0.6rem 1rem;
+                margin: 0.5rem 0;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+
+            .toggle-btn i {
+                transition: transform 0.2s;
+            }
+
+            .toggle-btn.active i {
+                transform: rotate(90deg);
+            }
+
+            .toggle-btn:hover {
+                background: var(--secondary);
+            }
+
+            .toggle-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease, padding 0.3s ease;
+                background: #f8f9fa;
+                border-radius: 0 0 6px 6px;
+            }
+
+            .toggle-content.active {
+                max-height: 1000px;
+                padding: 1rem;
+                margin-top: -0.5rem;
+            }
+
+            /* Forms for Calculators */
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-weight: 500;
+                color: var(--dark);
+            }
+
+            input {
+                width: 100%;
+                padding: 0.8rem;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                font-size: 1rem;
+                transition: border 0.2s;
+            }
+
+            input:focus {
+                outline: none;
+                border-color: var(--accent);
+            }
+
+            .btn {
+                background: var(--primary);
+                color: white;
+                border: none;
+                border-radius: 6px;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                font-weight: 500;
+                cursor: pointer;
+                display: inline-block;
+                transition: background 0.2s, transform 0.1s;
+                margin: 0.5rem 0;
+            }
+
+            .btn:active {
+                transform: scale(0.98);
+            }
+
+            .btn:hover {
+                background: var(--secondary);
+            }
+
+            .btn-block {
+                display: block;
+                width: 100%;
+            }
+
+            /* Results Display */
+            .result {
+                background: #e9f7fe;
+                border-left: 4px solid var(--success);
+                padding: 1rem;
+                border-radius: 0 4px 4px 0;
+                margin: 1rem 0;
+            }
+
+            /* Footer */
+            footer {
+                background: var(--dark);
+                color: white;
+                text-align: center;
+                padding: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .footer-links {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .footer-links a {
+                color: white;
+                font-size: 1.2rem;
+            }
+
+            /* Animations */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .animate {
+                animation: fadeIn 0.5s ease forwards;
+            }
+
+            /* Responsive Adjustments */
+            @media (min-width: 768px) {
+                .container {
+                    max-width: 700px;
+                    margin: 0 auto;
+                    padding: 1.5rem;
+                }
+
+                h1 {
+                    font-size: 2rem;
+                }
+
+                .card {
+                    padding: 1.5rem;
+                }
+            }
+
+            @media (min-width: 992px) {
+                .container {
+                    max-width: 900px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Mobile Navigation -->
+        <div class="overlay" id="overlay"></div>
+        <div class="mobile-nav" id="mobileNav">
+            <div class="nav-header">
+                <h3>Menu</h3>
+                <button class="close-btn" id="closeNav"><i class="fas fa-times"></i></button>
+            </div>
+            <ul>
+                <li><a href="#basic-concepts"><i class="fas fa-atom"></i> Basic Concepts</a></li>
+                <li><a href="#parameters"><i class="fas fa-table"></i> Key Parameters</a></li>
+                <li><a href="#laws"><i class="fas fa-balance-scale"></i> Laws</a></li>
+                <li><a href="#processes"><i class="fas fa-project-diagram"></i> Processes</a></li>
+                <li><a href="#calculators"><i class="fas fa-calculator"></i> Calculators</a></li>
+                <li><a href="#isothermal"><i class="fas fa-chart-line"></i> Isothermal Expansion</a></li>
+                <li><a href="#work"><i class="fas fa-bolt"></i> Work Calculations</a></li>
+                <li><a href="#enthalpy"><i class="fas fa-fire"></i> Enthalpy</a></li>
+            </ul>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <div class="header-container">
+                </a>
+                <button class="menu-btn" id="openNav"><i class="fas fa-bars"></i></button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="container">
+            <h1 class="animate">Class 11 Thermodynamics</h1>
+
+            <section class="intro animate">
+                <p>Thermodynamics is the branch of physics that deals with heat, work, and temperature, and their
+                    relation to energy, radiation, and physical properties of matter. This mobile-friendly guide covers
+                    all essential concepts for Class 11.</p>
+            </section>
+
+            <!-- Basic Concepts Section -->
+            <section id="basic-concepts" class="animate">
+                <h2><i class="fas fa-atom"></i> Basic Concepts</h2>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Thermodynamic System</h3>
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <p>A thermodynamic system is defined as a quantity of matter or a region in space chosen for study.
+                        The mass or region outside the system is called the surroundings.</p>
+
+                    <button class="toggle-btn" onclick="toggleSection('system-types')">
+                        <span>Types of Systems</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div id="system-types" class="toggle-content">
+                        <ul>
+                            <li><strong><i class="fas fa-exchange-alt"></i> Open System:</strong> Can exchange both
+                                energy and matter with surroundings</li>
+                            <li><strong><i class="fas fa-lock-open"></i> Closed System:</strong> Can exchange only
+                                energy with surroundings</li>
+                            <li><strong><i class="fas fa-lock"></i> Isolated System:</strong> Cannot exchange either
+                                energy or matter with surroundings</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Thermodynamic Equilibrium</h3>
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <p>A system is in thermodynamic equilibrium when it is in mechanical, thermal, and chemical
+                        equilibrium simultaneously.</p>
+                </div>
+            </section>
+
+            <!-- Key Parameters Section -->
+            <section id="parameters" class="animate">
+                <h2><i class="fas fa-table"></i> Key Thermodynamic Parameters</h2>
+
+                <div class="scrollable-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Symbol</th>
+                                <th>Definition</th>
+                                <th>SI Unit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Internal Energy</td>
+                                <td>U</td>
+                                <td>The total energy contained within a system</td>
+                                <td>Joule (J)</td>
+                            </tr>
+                            <tr>
+                                <td>Enthalpy</td>
+                                <td>H</td>
+                                <td>Heat content at constant pressure (H = U + PV)</td>
+                                <td>Joule (J)</td>
+                            </tr>
+                            <tr>
+                                <td>Entropy</td>
+                                <td>S</td>
+                                <td>Measure of disorder or randomness</td>
+                                <td>J/K</td>
+                            </tr>
+                            <tr>
+                                <td>Gibbs Free Energy</td>
+                                <td>G</td>
+                                <td>Energy available to do useful work (G = H - TS)</td>
+                                <td>Joule (J)</td>
+                            </tr>
+                            <tr>
+                                <td>Helmholtz Free Energy</td>
+                                <td>A</td>
+                                <td>Maximum work at constant temperature (A = U - TS)</td>
+                                <td>Joule (J)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Laws of Thermodynamics Section -->
+            <section id="laws" class="animate">
+                <h2><i class="fas fa-balance-scale"></i> Laws of Thermodynamics</h2>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Zeroth Law</h3>
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <p>If two systems are each in thermal equilibrium with a third system, they are in thermal
+                        equilibrium with each other.</p>
+                    <div class="formula-container">
+                        <div class="formula">If A ≡ B and B ≡ C, then A ≡ C</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>First Law</h3>
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <p>The law of conservation of energy applied to thermodynamic systems.</p>
+                    <div class="formula-container">
+                        <div class="formula">ΔU = Q - W</div>
+                    </div>
+                    <p>Where ΔU is change in internal energy, Q is heat added to system, and W is work done by system.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Second Law</h3>
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <p>Heat cannot spontaneously flow from a colder location to a hotter location.</p>
+                    <div class="formula-container">
+                        <div class="formula">ΔS<sub>universe</sub> ≥ 0</div>
+                    </div>
+                    <p>Where ΔS is the change in entropy of the universe.</p>
+                </div>
+            </section>
+
+            <!-- Thermodynamic Processes Section -->
+            <section id="processes" class="animate">
+                <h2><i class="fas fa-project-diagram"></i> Thermodynamic Processes</h2>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Isothermal Process</h3>
+                        <i class="fas fa-temperature-low"></i>
+                    </div>
+                    <p>A process that occurs at constant temperature.</p>
+                    <div class="formula-container">
+                        <div class="formula">ΔT = 0 ⇒ ΔU = 0</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Adiabatic Process</h3>
+                        <i class="fas fa-fan"></i>
+                    </div>
+                    <p>A process that occurs without transfer of heat or matter between a system and its surroundings.
+                    </p>
+                    <div class="formula-container">
+                        <div class="formula">Q = 0</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Isothermal Reversible Expansion Section -->
+            <section id="isothermal" class="animate">
+                <h2><i class="fas fa-chart-line"></i> Isothermal Reversible Expansion</h2>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Ideal Gas Expansion</h3>
+                        <i class="fas fa-expand"></i>
+                    </div>
+                    <p>For an ideal gas undergoing isothermal reversible expansion:</p>
+                    <div class="formula-container">
+                        <div class="formula">PV = nRT = constant (Boyle's Law)</div>
+                    </div>
+                    <p>The work done during isothermal reversible expansion:</p>
+                    <div class="formula-container">
+                        <div class="formula">W = -nRT ln(V₂/V₁)</div>
+                    </div>
+
+                    <button class="toggle-btn" onclick="toggleSection('isothermal-graph')">
+                        <span>Show PV Diagram</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div id="isothermal-graph" class="toggle-content">
+                        <p>The PV diagram for isothermal process shows a hyperbolic curve:</p>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Isothermal_process.svg/1200px-Isothermal_process.svg.png"
+                            alt="Isothermal Process PV Diagram"
+                            style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Work Calculations Section -->
+            <section id="work" class="animate">
+                <h2><i class="fas fa-bolt"></i> Work Calculations</h2>
+
+                <div class="card">
+                    <h3>Types of Work</h3>
+
+                    <button class="toggle-btn" onclick="toggleSection('reversible-work')">
+                        <span>Reversible Work</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div id="reversible-work" class="toggle-content">
+                        <div class="formula-container">
+                            <div class="formula">W<sub>rev</sub> = -∫P<sub>ext</sub>dV = -∫(nRT/V)dV (for isothermal)
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="toggle-btn" onclick="toggleSection('irreversible-work')">
+                        <span>Irreversible Work</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div id="irreversible-work" class="toggle-content">
+                        <p>When expansion occurs against constant external pressure:</p>
+                        <div class="formula-container">
+                            <div class="formula">W<sub>irrev</sub> = -P<sub>ext</sub>ΔV</div>
+                        </div>
+                    </div>
+
+                    <button class="toggle-btn" onclick="toggleSection('free-expansion')">
+                        <span>Free Expansion</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div id="free-expansion" class="toggle-content">
+                        <p>Expansion into vacuum (P<sub>ext</sub> = 0):</p>
+                        <div class="formula-container">
+                            <div class="formula">W = 0</div>
+                        </div>
+                        <p>For ideal gas: ΔU = 0 ⇒ Q = 0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Enthalpy Section -->
+            <section id="enthalpy" class="animate">
+                <h2><i class="fas fa-fire"></i> Enthalpy</h2>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Enthalpy Concepts</h3>
+                        <i class="fas fa-fire-alt"></i>
+                    </div>
+                    <p>Enthalpy (H) is a state function defined as:</p>
+                    <div class="formula-container">
+                        <div class="formula">H = U + PV</div>
+                    </div>
+
+                    <p>For a process at constant pressure:</p>
+                    <div class="formula-container">
+                        <div class="formula">ΔH = ΔU + PΔV = Q<sub>p</sub></div>
+                    </div>
+
+                    <p>For ideal gases, enthalpy depends only on temperature:</p>
+                    <div class="formula-container">
+                        <div class="formula">ΔH = nC<sub>p</sub>ΔT</div>
+                    </div>
+                </div>
+
+                <!-- Enthalpy Calculator -->
+                <div class="card" id="calculators">
+                    <h3>Enthalpy Calculator</h3>
+
+                    <div class="form-group">
+                        <label for="n-moles">Number of moles (n):</label>
+                        <input type="number" id="n-moles" placeholder="Enter moles">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cp">Molar heat capacity at const. pressure (C<sub>p</sub>) in J/mol·K:</label>
+                        <input type="number" id="cp" placeholder="Enter Cp">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="temp-change">Temperature change (ΔT) in K:</label>
+                        <input type="number" id="temp-change" placeholder="Enter ΔT">
+                    </div>
+
+                    <button class="btn btn-block" onclick="calculateEnthalpy()">Calculate ΔH</button>
+
+                    <div id="enthalpy-result" class="result" style="display: none;"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="animate">
+            <p>Class 11 Thermodynamics Guide</p>
+            <p>© 2023 Physics Hub - Educational Resource</p>
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile Navigation
+            const openNav = document.getElementById('openNav');
+            const closeNav = document.getElementById('closeNav');
+            const mobileNav = document.getElementById('mobileNav');
+            const overlay = document.getElementById('overlay');
+
+            openNav.addEventListener('click', () => {
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeNav.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            overlay.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    mobileNav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Toggle sections
+            function toggleSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                const btn = event.currentTarget;
+
+                section.classList.toggle('active');
+                btn.classList.toggle('active');
+
+                // Change icon
+                const icon = btn.querySelector('i');
+                if (section.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-right');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-right');
+                }
+            }
+
+            // Enthalpy Calculator
+            function calculateEnthalpy() {
+                const n = parseFloat(document.getElementById('n-moles').value);
+                const cp = parseFloat(document.getElementById('cp').value);
+                const dT = parseFloat(document.getElementById('temp-change').value);
+
+                if (isNaN(n) || isNaN(cp) || isNaN(dT)) {
+                    alert("Please enter valid numbers for all fields");
+                    return;
+                }
+
+                const deltaH = n * cp * dT;
+                const result = document.getElementById('enthalpy-result');
+
+                result.innerHTML = `
+                <h4><i class="fas fa-calculator"></i> Enthalpy Change Result:</h4>
+                <p>ΔH = nC<sub>p</sub>ΔT = ${ n } mol × ${ cp } J/mol·K × ${ dT } K</p>
+                <p><strong>ΔH = ${ deltaH.toFixed(2) } J</strong></p>
+            `;
+                result.style.display = 'block';
+
+                // Scroll to result
+                result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            // First Law Calculator (if added)
+            function calculateInternalEnergy() {
+                const heat = parseFloat(document.getElementById('heat').value);
+                const work = parseFloat(document.getElementById('work').value);
+
+                if (isNaN(heat) || isNaN(work)) {
+                    alert("Please enter valid numbers for both heat and work");
+                    return;
+                }
+
+                const deltaU = heat - work;
+                const result = document.getElementById('internal-energy-result');
+
+                result.innerHTML = `
+                <h4><i class="fas fa-battery-three-quarters"></i> Internal Energy Change:</h4>
+                <p>ΔU = Q - W = ${ heat } J - ${ work } J</p>
+                <p><strong>ΔU = ${ deltaU.toFixed(2) } J</strong></p>
+                <p>${ getInterpretation(deltaU) }</p>
+            `;
+                result.style.display = 'block';
+            }
+
+            function getInterpretation(deltaU) {
+                if (deltaU > 0) {
+                    return "<i class='fas fa-arrow-up'></i> The internal energy of the system has increased.";
+                } else if (deltaU < 0) {
+                    return "<i class='fas fa-arrow-down'></i> The internal energy of the system has decreased.";
+                } else {
+                    return "<i class='fas fa-equals'></i> No change in the internal energy of the system.";
+                }
+            }
+
+            // Animation on scroll
+            const animateElements = document.querySelectorAll('.animate');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+        </script>
+    </body>
+
+</html>

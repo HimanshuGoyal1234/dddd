@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Class 12 Maths - Relations and Functions</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            :root {
+                --primary: #3498db;
+                --secondary: #e74c3c;
+                --accent: #2ecc71;
+                --dark: #2c3e50;
+                --light: #ecf0f1;
+                --gradient: linear-gradient(135deg, #3498db, #9b59b6);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+            body {
+                min-height: 100vh;
+                color: var(--light);
+                background:
+                    linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(30, 30, 40, 0.95)),
+                    url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover fixed;
+                padding-bottom: 50px;
+                line-height: 1.7;
+            }
+
+            .heading {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 40px 20px;
+                overflow: hidden;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                text-align: center;
+                background: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(5px);
+                margin-bottom: 30px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .heading::before {
+                content: "";
+                position: absolute;
+                height: 300vh;
+                width: 300px;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+                animation: rotate 30s infinite linear;
+                z-index: -1;
+                top: 50%;
+                left: 50%;
+            }
+
+            @keyframes rotate {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+
+            #class {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 10px;
+                background: linear-gradient(to right, var(--primary), var(--accent));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            #chapter {
+                font-size: 1.8rem;
+                opacity: 0.9;
+                font-weight: 500;
+                color: var(--light);
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            .card {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 15px;
+                padding: 30px;
+                margin: 20px 0;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            }
+
+            .section-title {
+                text-align: center;
+                margin: 40px 0 30px;
+                font-size: 2.2rem;
+                font-weight: 600;
+                background: linear-gradient(to right, var(--primary), var(--accent));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                position: relative;
+                display: inline-block;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .section-title::after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(to right, var(--primary), var(--accent));
+                border-radius: 3px;
+            }
+
+            h2,
+            h3 {
+                margin-bottom: 20px;
+                color: var(--light);
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: var(--primary);
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: var(--accent);
+                margin-top: 25px;
+            }
+
+            p {
+                margin-bottom: 15px;
+                font-size: 1.1rem;
+            }
+
+            ul,
+            ol {
+                margin-left: 25px;
+                margin-bottom: 20px;
+            }
+
+            li {
+                margin-bottom: 10px;
+            }
+
+            .tables-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 25px;
+                margin: 30px 0;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(5px);
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            table:hover {
+                transform: translateY(-5px);
+            }
+
+            th,
+            td {
+                padding: 15px;
+                text-align: center;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            th {
+                background: rgba(52, 152, 219, 0.3);
+                font-weight: 600;
+                font-size: 1.1rem;
+                color: var(--light);
+            }
+
+            td {
+                font-size: 1rem;
+            }
+
+            tr:nth-child(even) {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            tr:hover {
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            .definition-box {
+                background: rgba(41, 128, 185, 0.15);
+                border-left: 5px solid var(--primary);
+                padding: 20px;
+                border-radius: 5px;
+                margin: 25px 0;
+            }
+
+            .example-box {
+                background: rgba(46, 204, 113, 0.15);
+                border-left: 5px solid var(--accent);
+                padding: 20px;
+                border-radius: 5px;
+                margin: 25px 0;
+            }
+
+            .theorem-box {
+                background: rgba(155, 89, 182, 0.15);
+                border-left: 5px solid #9b59b6;
+                padding: 20px;
+                border-radius: 5px;
+                margin: 25px 0;
+            }
+
+            .note-box {
+                background: rgba(241, 196, 15, 0.15);
+                border-left: 5px solid #f1c40f;
+                padding: 20px;
+                border-radius: 5px;
+                margin: 25px 0;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 12px 30px;
+                background: var(--gradient);
+                color: white;
+                border: none;
+                border-radius: 50px;
+                font-size: 1.1rem;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+                margin: 30px 0;
+                text-decoration: none;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(52, 152, 219, 0.6);
+            }
+
+            .btn:active {
+                transform: translateY(1px);
+            }
+
+            .btn::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                transition: 0.5s;
+            }
+
+            .btn:hover::before {
+                left: 100%;
+            }
+
+            .math-formula {
+                font-family: 'Times New Roman', Times, serif;
+                font-style: italic;
+                background: rgba(0, 0, 0, 0.2);
+                padding: 5px 10px;
+                border-radius: 5px;
+                display: inline-block;
+                margin: 5px 0;
+            }
+
+            .highlight {
+                color: var(--accent);
+                font-weight: 500;
+            }
+
+            .key-points {
+                background: rgba(255, 255, 255, 0.1);
+                padding: 20px;
+                border-radius: 10px;
+                margin: 25px 0;
+                border-left: 5px solid var(--secondary);
+            }
+
+            .key-points h4 {
+                color: var(--secondary);
+                margin-bottom: 15px;
+                font-size: 1.3rem;
+            }
+
+            .question {
+                background: rgba(255, 255, 255, 0.05);
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 15px;
+                border-left: 4px solid var(--primary);
+                transition: all 0.3s ease;
+            }
+
+            .question:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: translateX(5px);
+            }
+
+            .conclusion {
+                text-align: center;
+                margin: 50px 0 30px;
+                padding: 30px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 15px;
+                border-top: 3px solid var(--accent);
+            }
+
+            .conclusion h3 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+                color: var(--light);
+            }
+
+            .conclusion p {
+                max-width: 800px;
+                margin: 0 auto;
+                font-size: 1.2rem;
+            }
+
+            .button-container {
+                text-align: center;
+                margin: 40px 0;
+            }
+
+
+
+            @media (max-width: 1200px) {
+                .floating-nav {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 768px) {
+                #class {
+                    font-size: 2rem;
+                }
+
+                #chapter {
+                    font-size: 1.4rem;
+                }
+
+                .section-title {
+                    font-size: 1.8rem;
+                }
+
+                .card {
+                    padding: 20px;
+                }
+
+                .tables-container {
+                    grid-template-columns: 1fr;
+                }
+
+                th,
+                td {
+                    padding: 10px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                #class {
+                    font-size: 1.8rem;
+                }
+
+                #chapter {
+                    font-size: 1.2rem;
+                }
+
+                .section-title {
+                    font-size: 1.5rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+
+                h3 {
+                    font-size: 1.3rem;
+                }
+
+                p,
+                li {
+                    font-size: 1rem;
+                }
+            }
+
+            /* Animation for important elements */
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.03);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            .important {
+                animation: pulse 2s infinite;
+                color: var(--accent);
+                font-weight: 600;
+            }
+
+            /* Tooltip styles */
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                border-bottom: 1px dotted var(--light);
+                cursor: help;
+            }
+
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 200px;
+                background-color: var(--dark);
+                color: var(--light);
+                text-align: center;
+                border-radius: 6px;
+                padding: 10px;
+                position: absolute;
+                z-index: 1;
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 0;
+                transition: opacity 0.3s;
+                font-size: 0.9rem;
+            }
+
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            /* Progress bar */
+            .progress-container {
+                width: 100%;
+                height: 5px;
+                background: rgba(255, 255, 255, 0.1);
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+            }
+
+            .progress-bar {
+                height: 5px;
+                background: var(--gradient);
+                width: 0%;
+                transition: width 0.1s ease;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+
+        <div class="heading">
+            <div id="class">Class 12 Mathematics</div>
+            <div id="chapter">Chapter 1: Relations and Functions</div>
+        </div>
+
+        <div class="container">
+            <div class="card" id="introduction">
+                <h2>Introduction to Relations and Functions</h2>
+                <p>This chapter introduces fundamental concepts of relations and functions which form the building
+                    blocks for higher mathematics. You'll learn about different types of relations, functions, their
+                    composition, and invertible functions. Understanding these concepts is crucial for calculus and
+                    other advanced mathematical topics.</p>
+
+                <div class="definition-box">
+                    <h3>Relation</h3>
+                    <p>A <span class="highlight">relation</span> R from a set A to a set B is a subset of the Cartesian
+                        product A × B. The subset is derived by describing a relationship between the first element and
+                        the second element of the ordered pairs in A × B.</p>
+                    <p class="math-formula">R ⊆ A × B</p>
+                </div>
+
+                <div class="definition-box">
+                    <h3>Function</h3>
+                    <p>A <span class="highlight">function</span> f from a set A to a set B is a special type of relation
+                        where every element of set A has one and only one image in set B.</p>
+                    <p class="math-formula">f: A → B</p>
+                    <p>Functions are also called mappings or transformations.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="symbols">Mathematical Symbols</h2>
+
+            <div class="card">
+                <h3>Set Theory Symbols</h3>
+                <div class="tables-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{ }</td>
+                                <td>Set</td>
+                                <td>A collection of elements</td>
+                            </tr>
+                            <tr>
+                                <td>∈</td>
+                                <td>Belongs to</td>
+                                <td>Element of a set</td>
+                            </tr>
+                            <tr>
+                                <td>∉</td>
+                                <td>Not belongs to</td>
+                                <td>Not an element of a set</td>
+                            </tr>
+                            <tr>
+                                <td>∪</td>
+                                <td>Union</td>
+                                <td>Elements in either set</td>
+                            </tr>
+                            <tr>
+                                <td>∩</td>
+                                <td>Intersection</td>
+                                <td>Elements common to both sets</td>
+                            </tr>
+                            <tr>
+                                <td>⊆</td>
+                                <td>Subset</td>
+                                <td>Set is a subset of another</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>⊂</td>
+                                <td>Proper subset</td>
+                                <td>Subset but not equal</td>
+                            </tr>
+                            <tr>
+                                <td>⊄</td>
+                                <td>Not a proper subset</td>
+                                <td>Not a proper subset</td>
+                            </tr>
+                            <tr>
+                                <td>⊇</td>
+                                <td>Superset</td>
+                                <td>Set contains another set</td>
+                            </tr>
+                            <tr>
+                                <td>⊃</td>
+                                <td>Proper superset</td>
+                                <td>Superset but not equal</td>
+                            </tr>
+                            <tr>
+                                <td>Ø or {}</td>
+                                <td>Empty set</td>
+                                <td>Set with no elements</td>
+                            </tr>
+                            <tr>
+                                <td>P(A)</td>
+                                <td>Power set</td>
+                                <td>Set of all subsets of A</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Relation Symbols</h3>
+                <div class="tables-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>R</td>
+                                <td>Relation</td>
+                                <td>A subset of A×B</td>
+                            </tr>
+                            <tr>
+                                <td>aRb</td>
+                                <td>Related</td>
+                                <td>a is related to b</td>
+                            </tr>
+                            <tr>
+                                <td>R⁻¹</td>
+                                <td>Inverse relation</td>
+                                <td>Relation from B to A</td>
+                            </tr>
+                            <tr>
+                                <td>S∘R</td>
+                                <td>Composition</td>
+                                <td>Composite relation</td>
+                            </tr>
+                            <tr>
+                                <td>Δ</td>
+                                <td>Diagonal relation</td>
+                                <td>{(a,a) | a ∈ A}</td>
+                            </tr>
+                            <tr>
+                                <td>R = S</td>
+                                <td>Equal relations</td>
+                                <td>Relations are equal</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>R ⊆ S</td>
+                                <td>Subrelation</td>
+                                <td>R is a subrelation of S</td>
+                            </tr>
+                            <tr>
+                                <td>dom(R)</td>
+                                <td>Domain</td>
+                                <td>Domain of relation R</td>
+                            </tr>
+                            <tr>
+                                <td>range(R)</td>
+                                <td>Range</td>
+                                <td>Range of relation R</td>
+                            </tr>
+                            <tr>
+                                <td>R|ₐ</td>
+                                <td>Restriction</td>
+                                <td>Restriction of R to A</td>
+                            </tr>
+                            <tr>
+                                <td>[a]</td>
+                                <td>Equivalence class</td>
+                                <td>Equivalence class of a</td>
+                            </tr>
+                            <tr>
+                                <td>A/R</td>
+                                <td>Quotient set</td>
+                                <td>Set of equivalence classes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Function Symbols</h3>
+                <div class="tables-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>f: A→B</td>
+                                <td>Function</td>
+                                <td>Function from A to B</td>
+                            </tr>
+                            <tr>
+                                <td>f(x)</td>
+                                <td>Function value</td>
+                                <td>Value of f at x</td>
+                            </tr>
+                            <tr>
+                                <td>f⁻¹</td>
+                                <td>Inverse function</td>
+                                <td>Inverse of bijective f</td>
+                            </tr>
+                            <tr>
+                                <td>g∘f</td>
+                                <td>Composition</td>
+                                <td>Composite function</td>
+                            </tr>
+                            <tr>
+                                <td>idₐ</td>
+                                <td>Identity function</td>
+                                <td>Identity function on A</td>
+                            </tr>
+                            <tr>
+                                <td>f|ₐ</td>
+                                <td>Restriction</td>
+                                <td>Restriction of f to A</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Name</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>f(A)</td>
+                                <td>Image</td>
+                                <td>Image of set A under f</td>
+                            </tr>
+                            <tr>
+                                <td>f⁻¹(B)</td>
+                                <td>Preimage</td>
+                                <td>Preimage of set B under f</td>
+                            </tr>
+                            <tr>
+                                <td>dom(f)</td>
+                                <td>Domain</td>
+                                <td>Domain of function f</td>
+                            </tr>
+                            <tr>
+                                <td>codom(f)</td>
+                                <td>Codomain</td>
+                                <td>Codomain of function f</td>
+                            </tr>
+                            <tr>
+                                <td>ran(f)</td>
+                                <td>Range</td>
+                                <td>Range of function f</td>
+                            </tr>
+                            <tr>
+                                <td>1ₐ</td>
+                                <td>Indicator function</td>
+                                <td>Characteristic function</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="functions">Types of Functions</h2>
+
+            <div class="card">
+                <div class="function-type">
+                    <h3>1. One-One Function (Injective Function)</h3>
+                    <p>A function f: X → Y is called <span class="highlight">one-one</span> (or injective) if distinct
+                        elements of X have distinct images in Y.</p>
+                    <p class="math-formula">f(x₁) = f(x₂) ⇒ x₁ = x₂ for all x₁, x₂ ∈ X</p>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> f: R → R defined by f(x) = 3x + 5 is one-one because if f(x₁) =
+                            f(x₂), then 3x₁ + 5 = 3x₂ + 5 ⇒ x₁ = x₂.</p>
+                    </div>
+                    <div class="note-box">
+                        <p><strong>Horizontal Line Test:</strong> A function is one-one if no horizontal line intersects
+                            its graph more than once.</p>
+                    </div>
+                </div>
+
+                <div class="function-type">
+                    <h3>2. Onto Function (Surjective Function)</h3>
+                    <p>A function f: X → Y is called <span class="highlight">onto</span> (or surjective) if every
+                        element of Y is the image of some element of X under f.</p>
+                    <p class="math-formula">For every y ∈ Y, there exists an x ∈ X such that f(x) = y</p>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> f: R → R defined by f(x) = x³ is onto because for any real number
+                            y, there exists a real number x = y<sup>1/3</sup> such that f(x) = y.</p>
+                    </div>
+                </div>
+
+                <div class="function-type">
+                    <h3>3. Bijective Function</h3>
+                    <p>A function f: X → Y is called <span class="highlight">bijective</span> if it is both one-one and
+                        onto.</p>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> f: R → R defined by f(x) = 2x + 3 is bijective because it is both
+                            injective and surjective.</p>
+                    </div>
+                    <div class="key-points">
+                        <h4>Key Points:</h4>
+                        <ul>
+                            <li>A bijective function has an inverse function</li>
+                            <li>The composition of two bijective functions is bijective</li>
+                            <li>For finite sets X and Y, |X| = |Y| if a bijection exists</li>
+                            <li>Bijective functions are also called one-to-one correspondences</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="function-type">
+                    <h3>4. Identity Function</h3>
+                    <p>The <span class="highlight">identity function</span> on a set A is the function idₐ: A → A
+                        defined by idₐ(x) = x for all x ∈ A.</p>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> idₐ: R → R defined by idₐ(x) = x is the identity function on R.</p>
+                    </div>
+                    <div class="theorem-box">
+                        <p><strong>Property:</strong> For any function f: A → B, we have f ∘ idₐ = f and idʙ ∘ f = f.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="function-type">
+                    <h3>5. Constant Function</h3>
+                    <p>A function f: X → Y is called <span class="highlight">constant</span> if there exists an element
+                        c ∈ Y such that f(x) = c for all x ∈ X.</p>
+                    <div class="example-box">
+                        <p><strong>Example:</strong> f: R → R defined by f(x) = 5 for all x ∈ R is a constant function.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="composition">Composition of Functions</h2>
+
+            <div class="card">
+                <p>Let f: A → B and g: B → C be two functions. Then the <span class="highlight">composition</span> of g
+                    and f, denoted by g∘f, is the function from A to C defined by (g∘f)(x) = g(f(x)) for all x ∈ A.</p>
+
+                <div class="example-box">
+                    <p><strong>Example:</strong> Let f: R → R be defined by f(x) = x² and g: R → R be defined by g(x) =
+                        cos x. Then (g∘f)(x) = g(f(x)) = cos(x²).</p>
+                </div>
+
+                <div class="key-points">
+                    <h4>Properties of Composition:</h4>
+                    <ul>
+                        <li><strong>Associative:</strong> h∘(g∘f) = (h∘g)∘f</li>
+                        <li>Composition of two one-one functions is one-one</li>
+                        <li>Composition of two onto functions is onto</li>
+                        <li>f∘idₐ = f = idʙ∘f (Identity property)</li>
+                        <li>Composition is generally not commutative (f∘g ≠ g∘f in most cases)</li>
+                    </ul>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>Theorem:</h4>
+                    <p>If f: A → B and g: B → C are both bijective functions, then g∘f: A → C is also bijective.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="invertible">Invertible Functions</h2>
+
+            <div class="card">
+                <p>A function f: X → Y is <span class="highlight">invertible</span> if there exists a function g: Y → X
+                    such that g∘f = idₓ and f∘g = idʏ. The function g is called the inverse of f and is denoted by f⁻¹.
+                </p>
+
+                <div class="example-box">
+                    <p><strong>Example:</strong> The function f: R → R defined by f(x) = 2x + 3 is invertible with
+                        inverse f⁻¹(y) = (y - 3)/2.</p>
+                </div>
+
+                <div class="key-points">
+                    <h4>Key Results:</h4>
+                    <ul>
+                        <li>A function is invertible if and only if it is bijective</li>
+                        <li>If f and g are invertible, then (g∘f)⁻¹ = f⁻¹∘g⁻¹</li>
+                        <li>The inverse of a function is unique</li>
+                        <li>Graph of f⁻¹ is the reflection of graph of f about the line y = x</li>
+                    </ul>
+                </div>
+
+                <div class="note-box">
+                    <p><strong>Note:</strong> Only bijective functions have inverses. For a function f: A → B:</p>
+                    <ul>
+                        <li>If f is injective but not surjective, we can define an inverse from f(A) to A</li>
+                        <li>If f is surjective but not injective, we can define a right inverse (but not a unique one)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="binary">Binary Operations</h2>
+
+            <div class="card">
+                <p>A <span class="highlight">binary operation</span> ∗ on a set A is a function ∗: A × A → A. We denote
+                    ∗(a, b) by a ∗ b.</p>
+
+                <div class="example-box">
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li>Addition (+) is a binary operation on R</li>
+                        <li>Multiplication (×) is a binary operation on R</li>
+                        <li>Union (∪) is a binary operation on the power set of a set</li>
+                        <li>Matrix multiplication is a binary operation on the set of n×n matrices</li>
+                    </ul>
+                </div>
+
+                <div class="key-points">
+                    <h4>Properties of Binary Operations:</h4>
+                    <ul>
+                        <li><strong>Commutative:</strong> a ∗ b = b ∗ a for all a, b ∈ A</li>
+                        <li><strong>Associative:</strong> (a ∗ b) ∗ c = a ∗ (b ∗ c) for all a, b, c ∈ A</li>
+                        <li><strong>Identity element:</strong> An element e ∈ A such that a ∗ e = e ∗ a = a for all a ∈
+                            A</li>
+                        <li><strong>Inverse:</strong> For each a ∈ A, there exists b ∈ A such that a ∗ b = b ∗ a = e
+                        </li>
+                        <li><strong>Distributive:</strong> a ∗ (b • c) = (a ∗ b) • (a ∗ c) for another operation •</li>
+                    </ul>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>Theorem:</h4>
+                    <p>The identity element of a binary operation, if it exists, is unique. Similarly, the inverse of an
+                        element, if it exists, is unique.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="practice">Practice Problems</h2>
+
+            <div class="card">
+                <h3>20 Practice Questions</h3>
+
+                <div class="question">
+                    <p>1. Show that the function f: R → R defined by f(x) = 4x + 3 is invertible and find its inverse.
+                    </p>
+                </div>
+
+                <div class="question">
+                    <p>2. Let A = {1, 2, 3}, B = {4, 5, 6, 7} and f = {(1,4), (2,5), (3,6)} be a function from A to B.
+                        Show that f is one-one but not onto.</p>
+                </div>
+
+                <div class="question">
+                    <p>3. Consider the binary operation ∧ on the set {1, 2, 3, 4, 5} defined by a ∧ b = min{a, b}. Write
+                        the operation table for this operation.</p>
+                </div>
+
+                <div class="question">
+                    <p>4. Let f: N → N be defined by f(n) = n + 1 if n is odd and f(n) = n - 1 if n is even. Show that f
+                        is bijective.</p>
+                </div>
+
+                <div class="question">
+                    <p>5. Let f: R → R be defined as f(x) = x⁴. Is f one-one? Is f onto? Justify your answer.</p>
+                </div>
+
+                <div class="question">
+                    <p>6. Let A = R - {3} and B = R - {1}. Consider the function f: A → B defined by f(x) = (x-2)/(x-3).
+                        Show that f is bijective.</p>
+                </div>
+
+                <div class="question">
+                    <p>7. Let f: N → R be defined as f(x) = 2x. Show that f is one-one but not onto.</p>
+                </div>
+
+                <div class="question">
+                    <p>8. Let f: R → R be defined by f(x) = x² + 4. Find f⁻¹(5) if it exists.</p>
+                </div>
+
+                <div class="question">
+                    <p>9. Show that the relation R in the set A = {1, 2, 3, 4, 5} given by R = {(a,b) : |a-b| is even}
+                        is an equivalence relation.</p>
+                </div>
+
+                <div class="question">
+                    <p>10. Let f: R → R be defined by f(x) = 3x - 7. Show that f is invertible and find f⁻¹.</p>
+                </div>
+
+                <div class="question">
+                    <p>11. Check whether the relation R in R defined by R = {(a,b) : a ≤ b³} is reflexive, symmetric or
+                        transitive.</p>
+                </div>
+
+                <div class="question">
+                    <p>12. Show that the function f: R → R given by f(x) = x³ + x is a bijection.</p>
+                </div>
+
+                <div class="question">
+                    <p>13. Let f: W → W be defined by f(n) = n - 1 if n is odd and f(n) = n + 1 if n is even. Show that
+                        f is bijective.</p>
+                </div>
+
+                <div class="question">
+                    <p>14. Consider f: R⁺ → [4, ∞) given by f(x) = x² + 4. Show that f is invertible and find f⁻¹.</p>
+                </div>
+
+                <div class="question">
+                    <p>15. Let * be a binary operation on Q defined by a*b = ab/4. Find the identity element and
+                        invertible elements.</p>
+                </div>
+
+                <div class="question">
+                    <p>16. Let A = N × N and * be the binary operation on A defined by (a,b)*(c,d) = (a+c, b+d). Show
+                        that * is commutative and associative.</p>
+                </div>
+
+                <div class="question">
+                    <p>17. Let f: R → R be defined by f(x) = (3 - x³)^(1/3). Prove that (fof)(x) = x.</p>
+                </div>
+
+                <div class="question">
+                    <p>18. Let * be a binary operation on the set Q of rational numbers defined by a*b = a + ab. Is *
+                        commutative? Is * associative?</p>
+                </div>
+
+                <div class="question">
+                    <p>19. Show that the relation R in the set Z of integers given by R = {(a,b) : 2 divides a - b} is
+                        an equivalence relation.</p>
+                </div>
+
+                <div class="question">
+                    <p>20. Let A = {1, 2, 3,...,9} and R be the relation in A × A defined by (a,b)R(c,d) if a + d = b +
+                        c. Show that R is an equivalence relation.</p>
+                </div>
+            </div>
+
+            <div class="card conclusion">
+                <h3>Conclusion</h3>
+                <p>Relations and functions form the foundation of many advanced mathematical concepts. Understanding
+                    different types of functions, their compositions, and invertibility is crucial for higher
+                    mathematics. The concepts learned in this chapter will be extensively used in calculus, linear
+                    algebra, and other branches of mathematics.</p>
+                <p>Remember that practice is key to mastering these concepts. Work through the problems, draw diagrams
+                    to visualize functions and relations, and always verify whether a function is injective, surjective,
+                    or bijective before attempting to find its inverse.</p>
+            </div>
+
+            <div class="button-container">
+                <button class="btn" onclick="window.history.back()">Back to Previous Page</button>
+            </div>
+        </div>
+
+        <script>
+            // Progress bar
+            window.onscroll = function () {
+                var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                var scrolled = (winScroll / height) * 100;
+                document.getElementById("progressBar").style.width = scrolled + "%";
+            };
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Tooltip functionality
+            document.querySelectorAll('.tooltip').forEach(item => {
+                item.addEventListener('mouseenter', function () {
+                    const tooltipText = this.querySelector('.tooltiptext');
+                    tooltipText.style.opacity = '1';
+                    tooltipText.style.visibility = 'visible';
+                });
+                item.addEventListener('mouseleave', function () {
+                    const tooltipText = this.querySelector('.tooltiptext');
+                    tooltipText.style.opacity = '0';
+                    tooltipText.style.visibility = 'hidden';
+                });
+            });
+
+            // Highlight current section in navigation
+            window.addEventListener('scroll', function () {
+                const sections = document.querySelectorAll('.card');
+                const navItems = document.querySelectorAll('.nav-item');
+
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (pageYOffset >= sectionTop - 300) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${ current }`) {
+                        item.classList.add('active');
+                        item.style.background = 'var(--primary)';
+                    } else {
+                        item.style.background = 'transparent';
+                    }
+                });
+            });
+        </script>
+    </body>
+
+</html>

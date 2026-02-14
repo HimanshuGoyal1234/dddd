@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Rattrap</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: radial-gradient(circle at top right, rgb(36, 9, 119) 0%, rgb(36, 9, 119) 48%, rgb(72, 7, 149) 48%, rgb(72, 7, 149) 53%, rgb(109, 5, 178) 53%, rgb(109, 5, 178) 56%, rgb(145, 2, 208) 56%, rgb(145, 2, 208) 69%, rgb(181, 0, 237) 69%, rgb(181, 0, 237) 100%) fixed no-repeat center/cover;
+
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                min-height: 100vh;
+                color: white;
+            }
+
+            /* Typography */
+            h1,
+            h2,
+            h3 {
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 15px 0;
+            }
+
+            h3 {
+                color: #ff6b6b;
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                line-height: 1.6;
+            }
+
+            /* Layout Components */
+            .heading {
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.18);
+                border-radius: 20px;
+                margin: 20px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .heading::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(5px);
+                z-index: -1;
+            }
+
+            .section-container {
+                background: rgba(0, 0, 0, 0.7);
+                border: 2px solid #ff4d4d;
+                margin: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            .section-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .section-container:hover {
+                transform: scale(1.01);
+                box-shadow: 0 8px 15px rgba(255, 0, 0, 0.2);
+            }
+
+            .content-wrapper {
+                padding: 20px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Character Cards */
+            .character-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .character {
+                background: rgba(180, 180, 180, 0.1);
+                border-radius: 8px;
+                padding: 1.5rem;
+                width: 300px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .character::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                backdrop-filter: blur(2px);
+                z-index: -1;
+            }
+
+            .character:hover {
+                transform: translateY(-5px);
+                box-shadow: inset 0 0 20px red, 0 5px 15px rgba(0, 0, 0, 0.3);
+                background: rgba(180, 180, 180, 0.2);
+            }
+
+            /* Questions Section */
+            .character-lists {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .character-lists .character {
+                width: 100%;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .character-list {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .character {
+                    width: 90%;
+                    margin: 10px 0;
+                }
+
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            #the_end {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .button {
+                margin-top: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                position: relative;
+                top: 20px;
+                border-radius: 5px;
+                background: linear-gradient(45deg, red, blue);
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                margin-bottom: 40px;
+            }
+
+            .btn:hover {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, blue, red);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <header class="heading">
+            <h1>Flamingo (Prose) – "The Rattrap" by Selma Lagerlöf</h1>
+        </header>
+
+        <main>
+            <!-- Summary Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>SHORT SUMMARY</h2>
+                    <p>"The Rattrap" is a story that explores human kindness and redemption. It follows a poor vagabond
+                        who survives by selling rattraps and stealing. He views the world as a giant rattrap that lures
+                        people with materialistic temptations. One day, he is taken in by a kind ironmaster and his
+                        daughter, Edla. Their generosity transforms him, making him a better person. The story conveys
+                        the power of love and compassion in changing a person’s life.</p>
+                </div>
+            </section>
+
+            <!-- Characters Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Characters</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>The Rattrap Seller</h3>
+                            <p>A poor vagabond who steals to survive but later reforms due to kindness shown by Edla.
+                            </p>
+                        </div>
+                        <div class="character">
+                            <h3>Edla Willmansson</h3>
+                            <p>The ironmaster's daughter who treats the rattrap seller with compassion and helps him
+                                reform.</p>
+                        </div>
+                        <div class="character">
+                            <h3>The Ironmaster</h3>
+                            <p>Owner of the ironworks who mistakes the peddler for an old friend and invites him home.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Theme Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Theme</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Compassion and Redemption</h3>
+                            <p>Edla’s kindness helps the peddler transform and leave his dishonest ways.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Materialism as a Trap</h3>
+                            <p>The world is compared to a rattrap that lures people with wealth and possessions.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Human Dignity</h3>
+                            <p>The story emphasizes treating all individuals with respect and kindness.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions Section -->
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2>Important Questions</h2>
+                    <div class="character-lists">
+                        <div class="character">
+                            <h3>Why does the peddler compare the world to a rattrap?</h3>
+                            <p>He believes that materialistic temptations trap people just like a rattrap catches rats.
+                            </p>
+                        </div>
+                        <div class="character">
+                            <h3>How does Edla Willmansson change the peddler’s life?</h3>
+                            <p>Her kindness and trust make him realize his mistakes and choose an honest path.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Why does the peddler leave a gift for Edla?</h3>
+                            <p>He leaves a rattrap and a letter as a token of gratitude for her kindness.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2 id="short_summary">Key Quotes</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <p>"The world had never been kind to him, so it gave him unwanted joy to think ill of it."
+                            </p>
+                        </div>
+                        <div class="character">
+                            <p>"A day may come when you want to get away from the rattrap."</p>
+                        </div>
+                        <div class="character">
+                            <p>"She was not one to chase away a human being in trouble."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-container">
+                <div class="content-wrapper">
+                    <h2 id="short_summary">Literary Devices</h2>
+                    <div class="character-list">
+                        <div class="character">
+                            <h3>Symbolism</h3>
+                            <p>The rattrap symbolizes the traps of materialism and greed in life.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Irony</h3>
+                            <p>The peddler, who deceives others, ultimately gets mistaken for a nobleman.</p>
+                        </div>
+                        <div class="character">
+                            <h3>Metaphor</h3>
+                            <p>The world is compared to a rattrap, luring people into its traps.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="the_end">
+                <div class="button">THE END</div>
+                <button class="btn the_end" onclick="Back()">BACK</button>
+            </div>
+        </main>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

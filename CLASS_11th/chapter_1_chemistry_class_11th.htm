@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Some Basic Concept Of Chemistry</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            :root {
+                --primary-bg: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
+                --card-bg: rgba(0, 0, 0, 0.8);
+                --text-color: #ffffff;
+                --accent-color: #add8e6;
+                --shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                --border-radius: 10px;
+                --transition: all 0.3s ease;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: var(--primary-bg) no-repeat fixed;
+                background-size: 400% 400%;
+                color: var(--text-color);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                padding: 20px;
+                min-height: 100vh;
+                animation: gradient 15s ease infinite;
+            }
+
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+
+                50% {
+                    background-position: 100% 50%;
+                }
+
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            h1 {
+                text-align: center;
+                margin: 30px 0 20px;
+                color: var(--accent-color);
+                font-size: 2rem;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .card {
+                background: var(--card-bg);
+                border-radius: var(--border-radius);
+                box-shadow: var(--shadow);
+                padding: 15px;
+                margin: 15px auto;
+                transition: var(--transition);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            }
+
+            .card-title {
+                color: var(--accent-color);
+                font-weight: bold;
+                margin-right: 10px;
+                display: inline-block;
+            }
+
+            .card-content {
+                display: inline;
+            }
+
+            .list {
+                max-width: 800px;
+                margin: 20px auto;
+                list-style-type: none;
+            }
+
+            .list-item {
+                background: var(--card-bg);
+                border-radius: var(--border-radius);
+                box-shadow: var(--shadow);
+                padding: 15px;
+                margin: 10px 0;
+                transition: var(--transition);
+            }
+
+            .list-item:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            @media (max-width: 600px) {
+                body {
+                    padding: 10px;
+                }
+
+                h1 {
+                    font-size: 1.5rem;
+                }
+
+                .card {
+                    padding: 10px;
+                }
+            }
+
+            .sub {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 12px 24px;
+                margin: 10px 5px;
+                border: none;
+                border-radius: 30px;
+                background: rgb(0, 106, 255);
+                color: white;
+                font-size: 1rem;
+                font-weight: 600;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+                overflow: hidden;
+                margin: 0 100px;
+            }
+
+            .button:hover {
+                color: red;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+
+            .button a {
+                text-decoration: none;
+                transition: all 0.3s ease;
+                color: white;
+            }
+
+            .button a:hover {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Importance of Chemistry</h1>
+            <div class="card">
+                <p>Chemistry is the central science</p>
+            </div>
+            <div class="card">
+                <p>Links physical sciences with life sciences and applied sciences.</p>
+            </div>
+
+            <h1>Nature of Matter</h1>
+            <div class="card">
+                <span class="card-title">Matter:</span>
+                <span class="card-content">Anything that has mass and occupies space.</span>
+            </div>
+            <div class="card">
+                <span class="card-title">States:</span>
+                <span class="card-content">Solid, Liquid, Gas</span>
+            </div>
+
+            <h1>Classification of Nature of Matter</h1>
+            <div class="card">
+                <span class="card-title">Pure substance:</span>
+                <span class="card-content">Elements (e.g. O₂, Na)</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Pure substances:</span>
+                <span class="card-content">Compounds (e.g. H₂O, NaCl)</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Mixtures:</span>
+                <span class="card-content">Homogeneous (e.g. salt in water)</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Mixtures:</span>
+                <span class="card-content">Heterogeneous (e.g. sand in water)</span>
+            </div>
+
+            <h1>Properties of Matter</h1>
+            <div class="card">
+                <span class="card-title">Physical properties:</span>
+                <span class="card-content">Measured without changing composition (e.g. boiling point, density)</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Chemical properties:</span>
+                <span class="card-content">Involve change in composition (e.g. rusting, burning)</span>
+            </div>
+
+            <h1>Units of Measurement</h1>
+            <div class="card">
+                <p>Base SI units</p>
+            </div>
+            <div class="card">
+                <span class="card-title">Length:</span>
+                <span class="card-content">metre (m)</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Mass:</span>
+                <span class="card-content">kilogram (kg)</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Time:</span>
+                <span class="card-content">second (s)</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Temperature:</span>
+                <span class="card-content">kelvin (K)</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Amount of substance:</span>
+                <span class="card-content">mole (mol)</span>
+            </div>
+            <div class="card">
+                <p>Derived units</p>
+            </div>
+            <div class="card">
+                <span class="card-title">Volume:</span>
+                <span class="card-content">m³</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Density:</span>
+                <span class="card-content">kg/m³</span>
+            </div>
+
+            <h1>Uncertainty in Measurement</h1>
+            <div class="card">
+                <span class="card-title">Precision:</span>
+                <span class="card-content">How close values are to each other.</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Accuracy:</span>
+                <span class="card-content">How close value is to true value.</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Significant figures:</span>
+                <span class="card-content">Digits known with certainty plus one uncertain digit.</span>
+            </div>
+
+            <h1>Laws of Chemical Combination</h1>
+            <div class="card">
+                <span class="card-title">Law of Conservation of Mass:</span>
+                <span class="card-content">Mass can neither be created nor destroyed.</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Law of Definite Proportions:</span>
+                <span class="card-content">A compound always contains elements in a fixed ratio.</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Law of Multiple Proportions:</span>
+                <span class="card-content">When two elements form more than one compound, masses combine in ratios of
+                    small whole numbers.</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Gay Lussac's Law:</span>
+                <span class="card-content">Gases combine in volumes which bear simple whole number ratio.</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Avogadro's Law:</span>
+                <span class="card-content">Equal volumes of gases at same T and P contain equal number of
+                    molecules.</span>
+            </div>
+
+            <h1>Dalton's Atomic Theory</h1>
+            <ul class="list">
+                <li class="list-item">All matter is made up of atoms.</li>
+                <li class="list-item">Atoms of an element are identical.</li>
+                <li class="list-item">Atoms combine in simple ratios to form compounds.</li>
+            </ul>
+
+            <h1>Mole Concept & Molar Mass</h1>
+            <div class="card">
+                <p>1 Mole = 6.022 × 10²³ particles (Avogadro Number)</p>
+            </div>
+            <div class="card">
+                <span class="card-title">Molar mass:</span>
+                <span class="card-content">Mass of 1 mole of a substance in grams.</span>
+            </div>
+
+            <h1>Formulas</h1>
+            <div class="card">
+                <span class="card-title">Molar mass =</span>
+                <span class="card-content">Mass of 1 mole of a substance in grams.</span>
+            </div>
+            <div class="card">
+                <span class="card-title">No. of moles =</span>
+                <span class="card-content">No. of particles / Avogadro number</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Mass =</span>
+                <span class="card-content">moles × molar mass</span>
+            </div>
+
+            <h1>Percentage Composition</h1>
+            <div class="card">
+                <p>Tells % by mass of each element in a compound.</p>
+            </div>
+            <div class="card">
+                <span class="card-title">Percentage of element =</span>
+                <span class="card-content">(Mass of element in 1 mol of compound / Molar Mass of compound) × 100</span>
+            </div>
+
+            <h1>Empirical and Molecular Formula</h1>
+            <div class="card">
+                <span class="card-title">Empirical formula:</span>
+                <span class="card-content">Simplest whole number ratio of atoms.</span>
+            </div>
+
+            <h1>Steps to find Empirical Formula</h1>
+            <ul class="list">
+                <li class="list-item">% → grams</li>
+                <li class="list-item">Convert grams → moles (divide by atomic mass)</li>
+                <li class="list-item">Divide all moles by smallest number</li>
+                <li class="list-item">Get Whole Numbers = Subscripts</li>
+            </ul>
+
+            <div class="card">
+                <span class="card-title">Molecular formula =</span>
+                <span class="card-content">(Empirical Formula) × n</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Where:</span>
+                <span class="card-content">n = Molecular mass / Empirical formula mass</span>
+            </div>
+
+            <h1>Stoichiometry & Limiting Reagent</h1>
+            <div class="card">
+                <span class="card-title">Stoichiometry:</span>
+                <span class="card-content">Deals with calculation of reactants/products using balanced chemical
+                    equations.</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Limiting reagent:</span>
+                <span class="card-content">Reactant that gets consumed first and limits the amount of product.</span>
+            </div>
+
+            <h1>Concentration Terms</h1>
+            <div class="card">
+                <span class="card-title">Molarity (M):</span>
+                <span class="card-content">moles of solute / volume of solution (L)</span>
+            </div>
+            <div class="card">
+                <span class="card-title">Molality (m):</span>
+                <span class="card-content">moles of solute / mass of solvent (kg)</span>
+            </div>
+        </div>
+        <div class="sub">
+            <button class="button" id="configurations"><a
+                    href="chapter_1_Question_Answer_chemistry_class_11th.html">Important Questions</a></button>
+        </div>
+    </body>
+
+</html>

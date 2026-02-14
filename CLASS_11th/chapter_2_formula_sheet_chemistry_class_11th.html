@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quantum Numbers Formula Sheet</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            :root {
+                --primary-bg: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+                --card-bg: rgb(0 0 0 / 75%);
+                --text-color: #ffffff;
+                --accent-color: #3a7bd5;
+                --highlight-color: #ff6b6b;
+                --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+                --border-radius: 12px;
+                --transition: all 0.3s ease;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+                background-size: 100% 100%;
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.7;
+                min-height: 100vh;
+                animation: gradient 15s ease infinite;
+                padding: 40px 20px;
+            }
+
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+
+                50% {
+                    background-position: 100% 50%;
+                }
+
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            .container {
+                margin: 0 auto;
+            }
+
+            header {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                color: white;
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            .subtitle {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 1.2rem;
+            }
+
+            .formula-sheet {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 25px;
+                margin-top: 30px;
+            }
+
+            .formula-card {
+                background: var(--card-bg);
+                border-radius: var(--border-radius);
+                box-shadow: var(--shadow);
+                padding: 25px;
+                transition: var(--transition);
+                color: var(--text-color);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .formula-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+
+            .formula-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 5px;
+                height: 100%;
+                background: var(--accent-color);
+            }
+
+            .formula-title {
+                color: var(--accent-color);
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+            }
+
+            .formula-title i {
+                margin-right: 10px;
+                font-size: 1.1rem;
+            }
+
+            .formula-content {
+                margin-bottom: 15px;
+            }
+
+            .formula {
+                background: rgba(58, 123, 213, 0.1);
+                padding: 15px;
+                border-radius: 8px;
+                font-family: 'Courier New', monospace;
+                font-size: 1.1rem;
+                margin: 10px 0;
+                border-left: 3px solid var(--accent-color);
+            }
+
+            .highlight {
+                background: rgba(255, 107, 107, 0.15);
+                padding: 2px 5px;
+                border-radius: 3px;
+                font-weight: bold;
+                color: var(--highlight-color);
+            }
+
+            .example {
+                background: rgba(255, 255, 255, 0.7);
+                padding: 12px;
+                border-radius: 6px;
+                margin-top: 15px;
+                font-size: 0.95rem;
+            }
+
+            .example-title {
+                font-weight: bold;
+                color: var(--accent-color);
+                margin-bottom: 5px;
+                display: flex;
+                align-items: center;
+            }
+
+            .example-title i {
+                margin-right: 8px;
+                font-size: 0.9rem;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 15px 0;
+            }
+
+            th,
+            td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            th {
+                background: rgba(58, 123, 213, 0.2);
+                color: var(--accent-color);
+            }
+
+            tr:hover {
+                background: rgba(0, 0, 0, 0.03);
+            }
+
+            @media (max-width: 768px) {
+                .formula-sheet {
+                    grid-template-columns: 1fr;
+                }
+
+                h1 {
+                    font-size: 2rem;
+                }
+
+                .subtitle {
+                    font-size: 1rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                body {
+                    padding: 30px 15px;
+                }
+
+                .formula-card {
+                    padding: 20px;
+                }
+
+                .formula-title {
+                    font-size: 1.2rem;
+                }
+
+                .formula {
+                    font-size: 1rem;
+                    padding: 12px;
+                }
+            }
+
+            .fa-atom {
+                color: #0080ff;
+            }
+
+            .sub {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 12px 24px;
+                margin: 10px 5px;
+                border: none;
+                border-radius: 30px;
+                background: rgb(0, 106, 255);
+                color: white;
+                font-size: 1rem;
+                font-weight: 600;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+                overflow: hidden;
+                margin: 0 100px;
+            }
+
+            .button:hover {
+                color: red;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+
+            .button a {
+                text-decoration: none;
+                transition: all 0.3s ease;
+                color: white;
+            }
+
+            .button a:hover {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <header>
+                <h1><i class="fas fa-atom"></i> Quantum Numbers Formula Sheet</h1>
+                <p class="subtitle">All essential formulas and concepts at one place</p>
+            </header>
+
+            <div class="formula-sheet">
+                <!-- Quantum Numbers Basics -->
+                <div class="formula-card">
+                    <div class="formula-title"><i class="fas fa-question-circle"></i> Quantum Numbers Basics</div>
+                    <div class="formula-content">
+                        <p>Four quantum numbers describe each electron in an atom:</p>
+                        <table>
+                            <tr>
+                                <th>Number</th>
+                                <th>Symbol</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>Principal</td>
+                                <td>n</td>
+                                <td>Energy level/shell (1, 2, 3...)</td>
+                            </tr>
+                            <tr>
+                                <td>Azimuthal</td>
+                                <td>l</td>
+                                <td>Subshell shape (0 to n-1)</td>
+                            </tr>
+                            <tr>
+                                <td>Magnetic</td>
+                                <td>m</td>
+                                <td>Orbital orientation (-l to +l)</td>
+                            </tr>
+                            <tr>
+                                <td>Spin</td>
+                                <td>s</td>
+                                <td>Electron spin (±½)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Azimuthal Quantum Number -->
+                <div class="formula-card">
+                    <div class="formula-title"><i class="fas fa-shapes"></i> Azimuthal Quantum Number</div>
+                    <div class="formula-content">
+                        <div class="formula">l = 0 to (n - 1)</div>
+                        <p>Determines the shape of the orbital:</p>
+                        <table>
+                            <tr>
+                                <th>l Value</th>
+                                <th>Subshell</th>
+                                <th>Shape</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>s</td>
+                                <td>Spherical</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>p</td>
+                                <td>Dumbbell</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>d</td>
+                                <td>Cloverleaf</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>f</td>
+                                <td>Complex</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Magnetic Quantum Number -->
+                <div class="formula-card">
+                    <div class="formula-title"><i class="fas fa-compass"></i> Magnetic Quantum Number</div>
+                    <div class="formula-content">
+                        <div class="formula">m = -l to +l (integer values)</div>
+                        <p>Number of orbitals per subshell = 2l + 1</p>
+                        <div class="example">
+                            <div class="example-title"><i class="fas fa-lightbulb"></i> Example</div>
+                            <p>For p orbitals (l=1):</p>
+                            <p>m = -1, 0, +1 → 3 orbitals</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maximum Electrons per Shell -->
+                <div class="formula-card">
+                    <div class="formula-title"><i class="fas fa-layer-group"></i> Electrons per Shell</div>
+                    <div class="formula-content">
+                        <div class="formula">Max electrons = 2n²</div>
+                        <p>Where n is the principal quantum number</p>
+                        <div class="example">
+                            <div class="example-title"><i class="fas fa-lightbulb"></i> Examples</div>
+                            <p>n=1 (K shell): 2(1)² = 2 e⁻</p>
+                            <p>n=2 (L shell): 2(2)² = 8 e⁻</p>
+                            <p>n=3 (M shell): 2(3)² = 18 e⁻</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orbitals per Subshell -->
+                <div class="formula-card">
+                    <div class="formula-title"><i class="fas fa-boxes"></i> Orbitals per Subshell</div>
+                    <div class="formula-content">
+                        <div class="formula">Number of orbitals = 2l + 1</div>
+                        <table>
+                            <tr>
+                                <th>Subshell</th>
+                                <th>l Value</th>
+                                <th>Orbitals</th>
+                            </tr>
+                            <tr>
+                                <td>s</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>p</td>
+                                <td>1</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>d</td>
+                                <td>2</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>f</td>
+                                <td>3</td>
+                                <td>7</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Electrons per Subshell -->
+                <div class="formula-card">
+                    <div class="formula-title"><i class="fas fa-microscope"></i> Electrons per Subshell</div>
+                    <div class="formula-content">
+                        <div class="formula">Max electrons = 2(2l + 1)</div>
+                        <p>Each orbital holds 2 electrons</p>
+                        <table>
+                            <tr>
+                                <th>Subshell</th>
+                                <th>Max Electrons</th>
+                            </tr>
+                            <tr>
+                                <td>s</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>p</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>d</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>f</td>
+                                <td>14</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Spin Quantum Number -->
+                <div class="formula-card">
+                    <div class="formula-title"><i class="fas fa-spinner"></i> Spin Quantum Number</div>
+                    <div class="formula-content">
+                        <div class="formula">s = +½ or -½</div>
+                        <p>Pauli Exclusion Principle:</p>
+                        <p>No two electrons in an atom can have identical quantum numbers.</p>
+                        <div class="example">
+                            <div class="example-title"><i class="fas fa-lightbulb"></i> Implication</div>
+                            <p>Each orbital can hold maximum 2 electrons with opposite spins.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Energy Level Order -->
+                <div class="formula-card">
+                    <div class="formula-title"><i class="fas fa-bolt"></i> Subshell Energy Order</div>
+                    <div class="formula-content">
+                        <div class="formula">(n + l) Rule</div>
+                        <p>Lower (n + l) values fill first. If equal, lower n fills first.</p>
+                        <p>Order: 1s < 2s < 2p < 3s < 3p < 4s < 3d < 4p < 5s < 4d < 5p < 6s < 4f < 5d < 6p < 7s</p>
+                                <div class="example">
+                                    <div class="example-title"><i class="fas fa-lightbulb"></i> Example</div>
+                                    <p>4s (4+0=4) fills before 3d (3+2=5)</p>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sub">
+            <button class="button" id="configurations"><a onclick="Back()">BACK</a></button>
+        </div>
+        <script>
+            function Back() {
+                window.history.back();
+            }
+        </script>
+    </body>
+
+</html>

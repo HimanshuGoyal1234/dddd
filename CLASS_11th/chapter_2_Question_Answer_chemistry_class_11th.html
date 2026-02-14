@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Atomic Strucutre Questions | Chemistry Learning</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            :root {
+                --primary-color: #3a7bd5;
+                --secondary-color: #00d2ff;
+                --accent-color: #ff6b6b;
+                --text-color: #333;
+                --light-gray: #f5f5f5;
+                --border-color: #e0e0e0;
+                --background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            }
+
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                background-image: linear-gradient(67.5deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75)58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(90deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75)58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(135deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75)58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(0deg, rgb(6, 6, 6) 0%, rgb(6, 6, 6) 6%, rgb(29, 29, 29) 6%, rgb(29, 29, 29) 57%, rgb(52, 52, 52) 57%, rgb(52, 52, 52) 58%, rgb(75, 75, 75)58%, rgb(75, 75, 75) 79%, rgb(97, 97, 97) 79%, rgb(97, 97, 97) 93%, rgb(120, 120, 120) 93%, rgb(120, 120, 120) 95%, rgb(143, 143, 143) 95%, rgb(143, 143, 143) 100%), linear-gradient(90deg, rgb(8, 8, 8), rgb(221, 221, 221));
+                background-blend-mode: overlay, overlay, overlay, overlay, normal;
+                color: var(--text-color);
+            }
+
+            .container {
+                max-width: 800px;
+                background: transparent;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            h1 {
+                text-align: center;
+                color: var(--primary-color);
+                margin-bottom: 30px;
+                font-size: 2.2rem;
+            }
+
+            .quiz-card {
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                margin-bottom: 25px;
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .quiz-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            }
+
+            .question {
+                padding: 18px 25px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+                color: white;
+                font-weight: 600;
+                transition: background 0.3s ease;
+            }
+
+            .question:hover {
+                background: linear-gradient(to right, #2a6bc8, #00c2f8);
+            }
+
+            tbody {
+                color: black;
+            }
+
+            .q-number {
+                font-weight: bold;
+                margin-right: 15px;
+                background: white;
+                color: var(--primary-color);
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .q-text {
+                flex-grow: 1;
+            }
+
+            .answer {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease, padding 0.3s ease;
+                background: var(--background);
+            }
+
+            .answer.open {
+                padding: 25px;
+                max-height: 2000px;
+                color: white;
+                background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            }
+
+            .answer-content {
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .answer.open .answer-content {
+                opacity: 1;
+            }
+
+            .step {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px dashed var(--border-color);
+                animation: fadeIn 0.5s ease-out;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .step:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+
+            .step-title {
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #000;
+                display: flex;
+                align-items: center;
+                font-size: 1.1rem;
+            }
+
+            .step-title i {
+                margin-right: 10px;
+                color: var(--accent-color);
+            }
+
+            .highlight {
+                background-color: rgba(255, 107, 107, 0.1);
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-weight: bold;
+                color: var(--accent-color);
+                border-left: 3px solid var(--accent-color);
+            }
+
+            .final-answer {
+                background: rgba(58, 123, 213, 0.1);
+                padding: 15px;
+                border-radius: 8px;
+                margin-top: 20px;
+                border-left: 4px solid var(--primary-color);
+            }
+
+            .icon {
+                transition: transform 0.3s ease;
+                font-size: 1.1rem;
+            }
+
+            .rotate {
+                transform: rotate(180deg);
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding: 15px;
+                }
+
+                .question {
+                    padding: 15px 20px;
+                }
+
+                .answer.open {
+                    padding: 20px;
+                }
+
+                th,
+                td {
+                    padding: 10px 12px;
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                h1 {
+                    font-size: 1.8rem;
+                }
+
+                .question {
+                    padding: 12px 15px;
+                    font-size: 0.95rem;
+                }
+
+                .q-number {
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 10px;
+                }
+
+                .step-title {
+                    font-size: 1rem;
+                }
+            }
+
+            .sub {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 12px 24px;
+                margin: 10px 5px;
+                border: none;
+                border-radius: 30px;
+                background: rgb(0, 106, 255);
+                color: white;
+                font-size: 1rem;
+                font-weight: 600;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+                overflow: hidden;
+                margin: 0 100px;
+            }
+
+            .button:hover {
+                color: red;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+
+            .button a {
+                text-decoration: none;
+                transition: all 0.3s ease;
+                color: white;
+            }
+
+            .button a:hover {
+                color: red;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                font-family: Arial, sans-serif;
+            }
+
+            th,
+            td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            th {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1><i class="fas fa-atom"></i>Atomic Strucutre Questions</h1>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">1</div>
+                    <div class="q-text">How many orbitals are there in the 3rd energy level (n = 3)?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-info-circle"></i> Step 1: Understanding the Shell
+                            </div>
+                            <p>n = principal quantum number → indicates the energy level/shell (1st, 2nd, 3rd...)</p>
+                            <p>For n = 3, this means we're looking at the 3rd shell (M-shell).</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-calculator"></i> Step 2: Possible Subshells</div>
+                            <p>The azimuthal quantum number (l) can have values from 0 to (n-1).</p>
+                            <p>For n = 3 → l = 0, 1, 2</p>
+                            <p>These correspond to s, p, and d subshells respectively.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-list-ol"></i> Step 3: Orbitals in Each Subshell
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>Subshell</th>
+                                    <th>l Value</th>
+                                    <th>Number of Orbitals</th>
+                                    <th>m Values</th>
+                                </tr>
+                                <tr>
+                                    <td>s (l = 0)</td>
+                                    <td>0</td>
+                                    <td>1 orbital</td>
+                                    <td>m = 0</td>
+                                </tr>
+                                <tr>
+                                    <td>p (l = 1)</td>
+                                    <td>1</td>
+                                    <td>3 orbitals</td>
+                                    <td>m = -1, 0, +1</td>
+                                </tr>
+                                <tr>
+                                    <td>d (l = 2)</td>
+                                    <td>2</td>
+                                    <td>5 orbitals</td>
+                                    <td>m = -2, -1, 0, +1, +2</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-check-circle"></i> Step 4: Total Orbitals
+                                Calculation</div>
+                            <p>Sum of all orbitals in the 3rd energy level:</p>
+                            <p>1 (from 3s) + 3 (from 3p) + 5 (from 3d) = <span class="highlight">9 orbitals</span></p>
+                        </div>
+
+                        <div class="final-answer">
+                            <p><strong>Final Answer:</strong> There are <span class="highlight">9 orbitals</span> in the
+                                3rd energy level.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">2</div>
+                    <div class="q-text">Write the four quantum numbers for the last electron of sodium (Na)</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-atom"></i> Step 1: Electronic Configuration</div>
+                            <p>Sodium (Na) has atomic number 11 → 11 electrons</p>
+                            <p>Configuration: 1s² 2s² 2p⁶ 3s¹</p>
+                            <p>The last electron is in the 3s orbital.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-question-circle"></i> Step 2: Quantum Numbers
+                                Needed</div>
+                            <p>We need to determine four quantum numbers for the 3s¹ electron:</p>
+                            <ul>
+                                <li>Principal quantum number (n)</li>
+                                <li>Azimuthal quantum number (l)</li>
+                                <li>Magnetic quantum number (m)</li>
+                                <li>Spin quantum number (s)</li>
+                            </ul>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-table"></i> Step 3: Determining Each Quantum Number
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>Quantum Number</th>
+                                    <th>Symbol</th>
+                                    <th>Value</th>
+                                    <th>Explanation</th>
+                                </tr>
+                                <tr>
+                                    <td>Principal</td>
+                                    <td>n</td>
+                                    <td>3</td>
+                                    <td>Electron is in 3rd shell (3s orbital)</td>
+                                </tr>
+                                <tr>
+                                    <td>Azimuthal</td>
+                                    <td>l</td>
+                                    <td>0</td>
+                                    <td>'s' orbital → l = 0</td>
+                                </tr>
+                                <tr>
+                                    <td>Magnetic</td>
+                                    <td>m</td>
+                                    <td>0</td>
+                                    <td>For l = 0, m can only be 0</td>
+                                </tr>
+                                <tr>
+                                    <td>Spin</td>
+                                    <td>s</td>
+                                    <td>+½</td>
+                                    <td>First electron in orbital has +½ spin</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="final-answer">
+                            <p><strong>Final Answer:</strong> The four quantum numbers are <span class="highlight">n=3,
+                                    l=0, m=0, s=+½</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">3</div>
+                    <div class="q-text">Which quantum number determines the shape of an orbital?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-shapes"></i> Understanding Orbital Shapes</div>
+                            <p>The shape of an orbital is determined by the <span class="highlight">azimuthal quantum
+                                    number (l)</span>.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-list-ol"></i> l Values and Corresponding Shapes
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>l Value</th>
+                                    <th>Subshell</th>
+                                    <th>Orbital Shape</th>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>s</td>
+                                    <td>Spherical</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>p</td>
+                                    <td>Dumbbell</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>d</td>
+                                    <td>Cloverleaf</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>f</td>
+                                    <td>Complex</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="final-answer">
+                            <p><strong>Final Answer:</strong> The <span class="highlight">azimuthal quantum number
+                                    (l)</span> determines orbital shape.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">4</div>
+                    <div class="q-text">What are the possible values of magnetic quantum number (m) for l = 1?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-compass"></i> Understanding Magnetic Quantum Number
+                            </div>
+                            <p>The magnetic quantum number (m) describes the orientation of an orbital in space.</p>
+                            <p>For a given azimuthal quantum number (l), m can have values from <span
+                                    class="highlight">-l to +l</span>.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-calculator"></i> Calculation for l = 1</div>
+                            <p>When l = 1 (p subshell):</p>
+                            <p>m = -1, 0, +1</p>
+                        </div>
+
+                        <div class="final-answer">
+                            <p><strong>Final Answer:</strong> Possible m values are <span class="highlight">-1, 0,
+                                    +1</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">5</div>
+                    <div class="q-text">Why can't the spin quantum number have a value of -½ for the first electron in
+                        an orbital?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-spinner"></i> Understanding Spin Quantum Number
+                            </div>
+                            <p>The spin quantum number (s) describes the intrinsic angular momentum of an electron.</p>
+                            <p>It can have only two possible values: <span class="highlight">+½ or -½</span>.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-exclamation-circle"></i> Pauli Exclusion Principle
+                            </div>
+                            <p>The first electron in an orbital can have either spin, but by <span
+                                    class="highlight">convention</span>, we assign it +½.</p>
+                            <p>The second electron in the same orbital must have -½ to satisfy the Pauli Exclusion
+                                Principle.</p>
+                        </div>
+
+                        <div class="final-answer">
+                            <p><strong>Final Answer:</strong> It's a <span class="highlight">convention</span> to assign
+                                +½ first, but both spins are physically possible.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">6</div>
+                    <div class="q-text">What is the maximum number of electrons that can have n = 3 and l = 1 in an
+                        atom?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-filter"></i> Understanding the Criteria</div>
+                            <p>n = 3 → Third energy level</p>
+                            <p>l = 1 → p subshell</p>
+                            <p>We're looking at the <span class="highlight">3p subshell</span>.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-layer-group"></i> Orbitals in p Subshell</div>
+                            <p>For l = 1 (p subshell):</p>
+                            <ul>
+                                <li>Number of orbitals = 3 (m = -1, 0, +1)</li>
+                                <li>Each orbital can hold 2 electrons</li>
+                            </ul>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-calculator"></i> Calculation</div>
+                            <p>Maximum electrons = Number of orbitals × 2</p>
+                            <p>3 orbitals × 2 electrons/orbital = <span class="highlight">6 electrons</span></p>
+                        </div>
+
+                        <div class="final-answer">
+                            <p><strong>Final Answer:</strong> Maximum electrons is <span class="highlight">6</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">7</div>
+                    <div class="q-text">Which quantum numbers define a specific orbital in an atom?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-fingerprint"></i> Unique Identification of Orbitals
+                            </div>
+                            <p>An orbital is uniquely defined by three quantum numbers:</p>
+                            <ol>
+                                <li>Principal quantum number (n)</li>
+                                <li>Azimuthal quantum number (l)</li>
+                                <li>Magnetic quantum number (m)</li>
+                            </ol>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-info-circle"></i> Why Not Spin?</div>
+                            <p>The spin quantum number (s) describes the electron, not the orbital itself.</p>
+                            <p>Two electrons can occupy the same orbital (same n, l, m) but must have opposite spins.
+                            </p>
+                        </div>
+
+                        <div class="final-answer">
+                            <p><strong>Final Answer:</strong> Orbitals are defined by <span class="highlight">n, l, and
+                                    m</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">8</div>
+                    <div class="q-text">What are the possible sublevels when n = 4?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-sitemap"></i> Understanding Sublevels</div>
+                            <p>Sublevels are determined by the azimuthal quantum number (l).</p>
+                            <p>For a given n, l can range from <span class="highlight">0 to n-1</span>.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-calculator"></i> Calculation for n = 4</div>
+                            <p>Possible l values when n = 4:</p>
+                            <p>l = 0, 1, 2, 3</p>
+                            <p>These correspond to:</p>
+                            <ul>
+                                <li>l = 0 → s subshell</li>
+                                <li>l = 1 → p subshell</li>
+                                <li>l = 2 → d subshell</li>
+                                <li>l = 3 → f subshell</li>
+                            </ul>
+                        </div>
+
+                        <div class="final-answer">
+                            <p><strong>Final Answer:</strong> Possible sublevels are <span class="highlight">4s, 4p, 4d,
+                                    and 4f</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">9</div>
+                    <div class="q-text">How many electrons can occupy all the orbitals where n = 2 and l = 0?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-filter"></i> Understanding the Criteria</div>
+                            <p>n = 2 → Second energy level</p>
+                            <p>l = 0 → s subshell</p>
+                            <p>We're looking at the <span class="highlight">2s subshell</span>.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-boxes"></i> Orbitals in s Subshell</div>
+                            <p>For any s subshell (l = 0):</p>
+                            <ul>
+                                <li>Only 1 orbital exists (m = 0 only)</li>
+                                <li>Each orbital can hold 2 electrons</li>
+                            </ul>
+                        </div>
+
+                        <div class="final-answer">
+                            <p><strong>Final Answer:</strong> The 2s subshell can hold <span class="highlight">2
+                                    electrons</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">10</div>
+                    <div class="q-text">What are the four quantum numbers for the outermost electron in a fluorine atom?
+                    </div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-atom"></i> Electronic Configuration</div>
+                            <p>Fluorine (F) has atomic number 9 → 9 electrons</p>
+                            <p>Configuration: 1s² 2s² 2p⁵</p>
+                            <p>The outermost electron is in the 2p subshell (fifth electron in 2p).</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title"><i class="fas fa-question-circle"></i> Determining Quantum Numbers
+                            </div>
+                            <p>For the fifth 2p electron:</p>
+                            <table>
+                                <tr>
+                                    <th>Quantum Number</th>
+                                    <th>Value</th>
+                                    <th>Explanation</th>
+                                </tr>
+                                <tr>
+                                    <td>n</td>
+                                    <td>2</td>
+                                    <td>Second energy level (2p)</td>
+                                </tr>
+                                <tr>
+                                    <td>l</td>
+                                    <td>1</td>
+                                    <td>p subshell → l = 1</td>
+                                </tr>
+                                <tr>
+                                    <td>m</td>
+                                    <td>+1</td>
+                                    <td>Fifth electron in m=+1 orbital</td>
+                                </tr>
+                                <tr>
+                                    <td>s</td>
+                                    <td>-½</td>
+                                    <td>Second electron in orbital has -½ spin</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="final-answer">
+                            <p><strong>Final Answer:</strong> The quantum numbers are <span class="highlight">n=2, l=1,
+                                    m=+1, s=-½</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">11</div>
+                    <div class="q-text">Who Discovered The Neutron?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <li> James Chadwick (in 1932)</li>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">12</div>
+                    <div class="q-text">Write the value of Planck’s constant?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>h = 6.626 x 10¯³⁴ </li>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">13</div>
+                    <div class="q-text">Define atomic number and mass number?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>Atomic Number (Z):</li>
+                        <li>Number of protons in the nucleus of an atom.</li>
+                        <li>It also equals the number of electrons in a neutral atom.</li>
+                        <li>Example: Hydrogen has 1 proton → Atomic number = 1</li>
+                        <li> Mass Number (A):</li>
+                        <li>Sum of protons + neutrons in the nucleus.</li>
+                        <li>Example:</li>
+                        <li>Carbon has 6 protons & 6 neutrons → Mass number = 12</li>
+                        <li>Formula:</li>
+                        <li>Mass Number (A) = Number of Protons + Number of Neutrons</li>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">14</div>
+                    <div class="q-text">What is the charge and mass of an electron?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>Charge: −1.6 × 10¯¹⁹ Coulombs</li>
+                        <li>Mass: 9.1 × 10¯³¹kg</li>
+                        <li>Note:</li>
+                        <li>Electron ka charge negative hota hai, aur mass bahut chhota hota hai compared to proton or
+                            neutron.</li>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">15</div>
+                    <div class="q-text">Write any two drawbacks of Rutherford's model?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>Two Drawbacks of Rutherford’s Model:</li>
+                        <li>Couldn’t explain stability of atom:</li>
+                        <li>According to classical physics, an electron revolving around nucleus should emit energy and
+                            spiral into nucleus, but atoms are stable in reality.</li>
+                        <li>Couldn’t explain line spectra of atoms:</li>
+                        <li>Rutherford’s model failed to explain why atoms emit discrete spectral lines (like hydrogen
+                            spectrum).</li>
+                        <li>📌 In short: Uska model was good for structure, but lacked explanation of energy levels and
+                            spectral behavior.</li>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">16</div>
+                    <div class="q-text">Differentiate between orbit and orbital.</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>Orbit</li>
+                        <ul>
+                            <li>Fixed circular path in which electrons revolve (Bohr's model)</li>
+                            <li>2D concept</li>
+                            <li>No conept of shape</li>
+                            <li>Number of electrons in an orbit = 2n²</li>
+                        </ul>
+                        <li>Orbital</li>
+                        <ul>
+                            <li>Region in space where probability of finding electron is maximum (Quantum model)</li>
+                            <li>3D concept</li>
+                            <li>Has definite shapes (spherical, dumbbell etc.)</li>
+                            <li>Each orbital holds max 2 electrons</li>
+                            <li>📌 Orbit = older concept (Bohr), Orbital = modern quantum concept</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">17</div>
+                    <div class="q-text">What is the significance of quantum numbers?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>Quantum numbers are 4 numbers that describe the position and energy of an electron in an
+                            atom:</li>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Quantum Number</th>
+                                    <th>Symbol</th>
+                                    <th>What it tells</th>
+                                    <th>Values</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Principal</td>
+                                    <td>( n )</td>
+                                    <td>Shell/energy level</td>
+                                    <td>1, 2, 3,4</td>
+                                    <td>K, L, M,N</td>
+                                </tr>
+                                <tr>
+                                    <td>Azimuthal</td>
+                                    <td>( l )</td>
+                                    <td>Subshell (s, p, d, f)</td>
+                                    <td>0 to ( n - 1 )</td>
+                                    <td>( s = 0, p = 1 )</td>
+                                </tr>
+                                <tr>
+                                    <td>Magnetic</td>
+                                    <td>( m_l )</td>
+                                    <td>Orientation of orbital</td>
+                                    <td>(-l) to ( +l )</td>
+                                    <td>( p: -1, 0, +1 )</td>
+                                </tr>
+                                <tr>
+                                    <td>Spin</td>
+                                    <td>( m_s )</td>
+                                    <td>Spin of electron</td>
+                                    <td>( +frac{1}{2}, -frac{1}{2} )</td>
+                                    <td>( uparrow ) or ( downarrow )</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <li>📌 Significance:</li>
+                        <ul>
+                            <li>Quantum numbers help us:</li>
+                            <li>Locate the electron</li>
+                            <li>Determine energy level, shape & orientation</li>
+                            <li>Predict chemical properties</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">18</div>
+                    <div class="q-text">Explain the significance of principal quantum number?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>Significance of Principal Quantum Number (n):</li>
+                        <li>Indicates the main energy level or shell of an electron.</li>
+                        <ul>
+                            <li>(Example: n = 1 → K shell, n = 2 → L shell)</li>
+                        </ul>
+                        <li>Determines the size and energy of the orbital.</li>
+                        <ul>
+                            <li>→ Higher the value of 𝑛 n, larger and more energetic the shell.</li>
+                        </ul>
+                        <li>Maximum electrons in a shell = 2n²</li>
+                        <ul>
+                            <li>(Example: n = 2 → max 8 electrons)</li>
+                        </ul>
+                        <li>🧠 Easy Tip to Remember:</li>
+                        <li>Principal quantum number = position of shell + energy level</li>
+
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">19</div>
+                    <div class="q-text"> State Bohr’s postulates for the hydrogen atom and derive the expression for
+                        energy of an electron in the nth orbit.</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>Bohr’s Postulates (for Hydrogen Atom)</li>
+                        <li>Electrons revolve in stable orbits (called stationary states) around the nucleus without
+                            radiating energy.</li>
+                        <li>Angular momentum of an electron is quantized:</li>
+                        <li>mvr = nh\2π</li>
+                        <li>​where n=1,2,3... (principal quantum number)</li>
+                        <li>Energy is emitted or absorbed only when an electron jumps from one orbit to another:</li>
+                        <li>ΔE = E2 − E1 = hν</li>
+                        <li>Derivation of Energy of Electron in nth Orbit:</li>
+                        <li>Let’s derive step-by-step:</li>
+                        <li>Step 1: Centripetal Force = Electrostatic Force</li>
+                        <img src="class_11th_atomic_structure.png" alt="">
+                        <img src="class_11th_atomic_structure_1.png" alt="">
+                        <li>Step 2: From Bohr’s quantization condition</li>
+                        <img src="class_11th_atomic_structure_2.png" alt="">
+                        <li>Step 3: Substitute eq (2) into (1) and simplify</li>
+                        <img src="class_11th_atomic_structure_3.png" alt="">
+                        <li>✅ Final Formula:</li>
+                        <img src="class_11th_atomic_structure_4.png" alt="">
+                        <li>Where:</li>
+                        <li>En = Energy of electron in nth orbit</li>
+                        <li>n = Orbit number</li>
+                        <li>− sign shows energy is bound (attracted to nucleus)</li>
+                        <li>This formula is valid only for hydrogen-like atoms (H, He⁺, Li²⁺, etc.)</li>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">20</div>
+                    <div class="q-text">Explain the Photoelectric Effect. State Einstein’s Photoelectric Equation and
+                        its significance.</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>✅ What is Photoelectric Effect?</li>
+                        <li>When light of suitable frequency falls on a metal surface, electrons are ejected from the
+                            surface.</li>
+                        <li>These ejected electrons are called photoelectrons.</li>
+                        <li>👀 Simple Words:</li>
+                        <li>Light maaro → Electron nikalta hai = Photoelectric Effect</li>
+                        <li>✅ Key Observations (from experiment):</li>
+                        <li>Electrons are emitted only if light has minimum threshold frequency 𝜈₀</li>
+                        <li>If 𝜈 < 𝜈0 → No electrons emitted, no matter how intense the light is.</li>
+                        <li>Einstein’s Photoelectric Equation:</li>
+                        <img src="class_11th_atomic_structure_5.png" alt="">
+                        <li>Where:</li>
+                        <li>hν = energy of incoming photon</li>
+                        <li>𝜙 = work function (minimum energy to remove electron)</li>
+                        <li>1/2mv² = kinetic energy of emitted electron</li>
+                        <li>Significance:</li>
+                        <li>Proved that light behaves like particles (photons)</li>
+                        <li>Supported the idea of quantization of energy.</li>
+                        <li>Could not be explained by classical physics — led to development of quantum mechanics.</li>
+                        <li>Extra Tip: Metals like Cesium, Potassium show this effect easily because they have low work
+                            functions.</li>
+
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-card">
+                <div class="question" onclick="toggleAnswer(this)">
+                    <div class="q-number">21</div>
+                    <div class="q-text">Define Quantum Numbers (Theory Style)?</div>
+                    <i class="fas fa-chevron-down icon"></i>
+                </div>
+                <div class="answer">
+                    <div class="answer-content">
+                        <li>Quantum numbers are a set of four numbers that describe the complete information about the
+                            position and energy of an electron in an atom.</li>
+                        <li>These numbers are:</li>
+                        <li>Principal quantum number (n): It indicates the main energy level or shell of the electron.
+                        </li>
+                        <li>Azimuthal quantum number (l): It tells the shape of the orbital and the subshell (s, p, d,
+                            f).</li>
+                        <li>Magnetic quantum number (m): It indicates the orientation of orbitals in space.</li>
+                        <li>Spin quantum number (s): It shows the direction of spin of an electron, either clockwise
+                            (+½) or anticlockwise (–½).</li>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="sub">
+            <button class="button" id="configurations"><a
+                    href="chapter_2_formula_sheet_chemistry_class_11th.html">Formula Sheet</a></button>
+            <script>
+
+                function toggleAnswer(element) {
+                    const answer = element.nextElementSibling;
+                    const icon = element.querySelector('.icon');
+
+                    // Toggle the open class
+                    answer.classList.toggle('open');
+                    icon.classList.toggle('rotate');
+
+                    // Close other open answers when opening a new one
+                    if (answer.classList.contains('open')) {
+                        document.querySelectorAll('.answer.open').forEach(openAnswer => {
+                            if (openAnswer !== answer) {
+                                openAnswer.classList.remove('open');
+                                openAnswer.previousElementSibling.querySelector('.icon').classList.remove('rotate');
+                            }
+                        });
+                    }
+                }
+
+                // Add animation to cards when they come into view
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = 1;
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.quiz-card').forEach(card => {
+                    card.style.opacity = 0;
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    observer.observe(card);
+                });
+            </script>
+    </body>
+
+</html>

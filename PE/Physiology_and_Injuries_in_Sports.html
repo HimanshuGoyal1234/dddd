@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chapter 7: Physiology_and_Injuries_in_Sports</title>
+        <link rel="icon" type="image/png" href="../logo.png">
+        <style>
+            :root {
+                --primary: #4fc3f7;
+                --secondary: #00796b;
+                --accent: #81c784;
+                --text: #e0e0e0;
+                --bg: #121212;
+                --card-bg: #1e1e1e;
+                --table-header: #00796b;
+                --physio-card: #5d4037;
+                --injury-card: #4527a0;
+            }
+
+            .button {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                border: none;
+                border-radius: 50px;
+                background: linear-gradient(45deg, #ff0000, #0066ff);
+                color: white;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, #0066ff, #ff0000);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn:hover::before {
+                opacity: 1;
+            }
+
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                background-color: var(--bg);
+                color: var(--text);
+            }
+
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background-color: var(--card-bg);
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            }
+
+            h1 {
+                color: var(--primary);
+                text-align: center;
+                border-bottom: 2px solid var(--secondary);
+                padding-bottom: 10px;
+            }
+
+            h2 {
+                color: var(--accent);
+                margin-top: 30px;
+                border-left: 4px solid var(--secondary);
+                padding-left: 12px;
+                background-color: rgba(0, 121, 107, 0.1);
+            }
+
+            h3 {
+                color: var(--primary);
+                margin-top: 20px;
+            }
+
+            .card {
+                background-color: #263238;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+                border-left: 3px solid var(--primary);
+            }
+
+            .physio-card {
+                background-color: var(--physio-card);
+                border-left: 3px solid #ffb74d;
+            }
+
+            .injury-card {
+                background-color: var(--injury-card);
+                border-left: 3px solid #7e57c2;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                background-color: #263238;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid #455a64;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+            }
+
+            th {
+                background-color: var(--table-header);
+                color: #ffffff;
+                font-weight: 600;
+            }
+
+            tr:nth-child(even) {
+                background-color: #37474f;
+            }
+
+            tr:hover {
+                background-color: #455a64;
+            }
+
+            ul,
+            ol {
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+
+            strong {
+                color: var(--primary);
+            }
+
+            .comparison {
+                display: flex;
+                gap: 20px;
+                margin: 20px 0;
+            }
+
+            .comparison div {
+                flex: 1;
+                padding: 15px;
+                border-radius: 5px;
+                background-color: #263238;
+                border-top: 3px solid var(--primary);
+            }
+
+            .system-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+                margin: 20px 0;
+            }
+
+            .system-item {
+                background-color: #1b5e20;
+                padding: 15px;
+                border-radius: 5px;
+                border-left: 3px solid var(--accent);
+            }
+
+            @media (max-width: 768px) {
+
+                .comparison,
+                .system-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .procedure {
+                background-color: #37474f;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 15px 0;
+            }
+
+            .procedure ol {
+                padding-left: 25px;
+            }
+
+            .procedure li {
+                margin-bottom: 10px;
+            }
+
+            .injury-image {
+                text-align: center;
+                margin: 20px 0;
+                padding: 15px;
+                background-color: #37474f;
+                border-radius: 5px;
+            }
+
+            .injury-image img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Chapter 7: Physiology and Injuries in Sports</h1>
+
+            <h2>1. Physiological Factors in Sports Performance</h2>
+
+            <div class="card physio-card">
+                <h3>Body Systems and Sports Performance</h3>
+                <div class="system-grid">
+                    <div class="system-item">
+                        <strong>Muscular System</strong>
+                        <p>Fiber type distribution, strength, power, endurance</p>
+                    </div>
+                    <div class="system-item">
+                        <strong>Cardiovascular System</strong>
+                        <p>Heart size, stroke volume, cardiac output</p>
+                    </div>
+                    <div class="system-item">
+                        <strong>Respiratory System</strong>
+                        <p>Lung capacity, VO₂ max, breathing efficiency</p>
+                    </div>
+                    <div class="system-item">
+                        <strong>Nervous System</strong>
+                        <p>Reaction time, coordination, motor unit recruitment</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Effects of Exercise on Body Systems</h3>
+                <table>
+                    <tr>
+                        <th>System</th>
+                        <th>Short-term Effects</th>
+                        <th>Long-term Adaptations</th>
+                    </tr>
+                    <tr>
+                        <td>Cardiovascular</td>
+                        <td>Increased HR, BP, cardiac output</td>
+                        <td>Lower resting HR, increased stroke volume</td>
+                    </tr>
+                    <tr>
+                        <td>Respiratory</td>
+                        <td>Increased breathing rate, tidal volume</td>
+                        <td>Improved lung capacity, VO₂ max</td>
+                    </tr>
+                    <tr>
+                        <td>Muscular</td>
+                        <td>Increased temperature, blood flow</td>
+                        <td>Hypertrophy, increased mitochondria</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>2. Common Sports Injuries</h2>
+
+            <div class="card injury-card">
+                <h3>Types of Sports Injuries</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Acute Injuries</h4>
+                        <ul>
+                            <li>Fractures</li>
+                            <li>Dislocations</li>
+                            <li>Sprains (ligaments)</li>
+                            <li>Strains (muscles/tendons)</li>
+                            <li>Contusions (bruises)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Chronic/Overuse Injuries</h4>
+                        <ul>
+                            <li>Tendinitis</li>
+                            <li>Stress fractures</li>
+                            <li>Bursitis</li>
+                            <li>Shin splints</li>
+                            <li>Tennis elbow</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="injury-image">
+                    <div
+                        style="background-color: #455a64; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                        [Common Sports Injuries Diagram]
+                    </div>
+                    <p>Understanding injury mechanisms helps prevention</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Common Injury Sites in Sports</h3>
+                <table>
+                    <tr>
+                        <th>Body Part</th>
+                        <th>Common Injuries</th>
+                        <th>Sports at Risk</th>
+                    </tr>
+                    <tr>
+                        <td>Knee</td>
+                        <td>ACL tear, Meniscus tear, Patellar tendinitis</td>
+                        <td>Football, Basketball, Volleyball</td>
+                    </tr>
+                    <tr>
+                        <td>Ankle</td>
+                        <td>Sprains, Fractures, Achilles tendinitis</td>
+                        <td>Running, Basketball, Tennis</td>
+                    </tr>
+                    <tr>
+                        <td>Shoulder</td>
+                        <td>Rotator cuff tear, Dislocation, Impingement</td>
+                        <td>Swimming, Baseball, Weightlifting</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>3. Injury Prevention and Management</h2>
+
+            <div class="card physio-card">
+                <h3>Prevention Strategies</h3>
+                <div class="system-grid">
+                    <div class="system-item">
+                        <strong>Proper Warm-up</strong>
+                        <p>Dynamic stretching, sport-specific movements</p>
+                    </div>
+                    <div class="system-item">
+                        <strong>Equipment</strong>
+                        <p>Appropriate footwear, protective gear</p>
+                    </div>
+                    <div class="system-item">
+                        <strong>Technique</strong>
+                        <p>Proper form and biomechanics</p>
+                    </div>
+                    <div class="system-item">
+                        <strong>Recovery</strong>
+                        <p>Adequate rest, sleep, nutrition</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card injury-card">
+                <h3>PRICE Principle for Acute Injuries</h3>
+                <div class="procedure">
+                    <ol>
+                        <li><strong>Protection:</strong> Prevent further injury</li>
+                        <li><strong>Rest:</strong> Avoid aggravating movements</li>
+                        <li><strong>Ice:</strong> Apply for 15-20 mins every 2-3 hours</li>
+                        <li><strong>Compression:</strong> Use elastic bandage</li>
+                        <li><strong>Elevation:</strong> Raise above heart level</li>
+                    </ol>
+                    <p>Apply immediately after injury for 24-48 hours</p>
+                </div>
+            </div>
+
+            <h2>4. Sports First Aid</h2>
+
+            <div class="card">
+                <h3>Essential First Aid for Common Injuries</h3>
+                <table>
+                    <tr>
+                        <th>Injury</th>
+                        <th>First Aid</th>
+                        <th>Do Not</th>
+                    </tr>
+                    <tr>
+                        <td>Sprain/Strain</td>
+                        <td>PRICE, pain relief</td>
+                        <td>Apply heat initially, massage</td>
+                    </tr>
+                    <tr>
+                        <td>Fracture</td>
+                        <td>Immobilize, ice, seek medical help</td>
+                        <td>Attempt to realign bones</td>
+                    </tr>
+                    <tr>
+                        <td>Concussion</td>
+                        <td>Remove from play, monitor symptoms</td>
+                        <td>Return to play same day</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card physio-card">
+                <h3>First Aid Kit Essentials</h3>
+                <ul>
+                    <li>Sterile gauze pads and bandages</li>
+                    <li>Adhesive tape and elastic bandages</li>
+                    <li>Antiseptic wipes and ointment</li>
+                    <li>Ice packs and disposable gloves</li>
+                    <li>Scissors and tweezers</li>
+                    <li>Pain relievers (NSAIDs)</li>
+                </ul>
+            </div>
+
+            <h2>5. Rehabilitation Process</h2>
+
+            <div class="card">
+                <h3>Phases of Sports Injury Rehabilitation</h3>
+                <div class="procedure">
+                    <ol>
+                        <li><strong>Acute Phase (1-3 days):</strong> Control swelling/pain (PRICE)</li>
+                        <li><strong>Subacute Phase (3 days-3 weeks):</strong> Restore range of motion</li>
+                        <li><strong>Remodeling Phase (3-6 weeks):</strong> Strength and flexibility</li>
+                        <li><strong>Functional Phase (6+ weeks):</strong> Sport-specific drills</li>
+                        <li><strong>Return to Play:</strong> Gradual reintroduction to sport</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card injury-card">
+                <h3>Common Rehabilitation Exercises</h3>
+                <div class="comparison">
+                    <div>
+                        <h4>Knee Injuries</h4>
+                        <ul>
+                            <li>Straight leg raises</li>
+                            <li>Mini squats</li>
+                            <li>Step-ups</li>
+                            <li>Balance exercises</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Shoulder Injuries</h4>
+                        <ul>
+                            <li>Pendulum exercises</li>
+                            <li>Wall push-ups</li>
+                            <li>Resistance band work</li>
+                            <li>Rotator cuff strengthening</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>6. Doping in Sports</h2>
+
+            <div class="card">
+                <h3>Common Performance Enhancing Drugs</h3>
+                <table>
+                    <tr>
+                        <th>Substance</th>
+                        <th>Effects</th>
+                        <th>Risks</th>
+                    </tr>
+                    <tr>
+                        <td>Anabolic Steroids</td>
+                        <td>Muscle growth, strength</td>
+                        <td>Liver damage, hormonal imbalance</td>
+                    </tr>
+                    <tr>
+                        <td>EPO</td>
+                        <td>Increased red blood cells</td>
+                        <td>Blood clots, heart attack</td>
+                    </tr>
+                    <tr>
+                        <td>Stimulants</td>
+                        <td>Increased alertness</td>
+                        <td>Heart problems, addiction</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card physio-card">
+                <h3>Anti-Doping Agencies</h3>
+                <ul>
+                    <li><strong>WADA:</strong> World Anti-Doping Agency</li>
+                    <li><strong>NADA:</strong> National Anti-Doping Agency (India)</li>
+                    <li><strong>Prohibited List:</strong> Updated annually</li>
+                    <li><strong>Doping Control:</strong> Urine/blood tests</li>
+                </ul>
+            </div>
+        </div>
+        <div class="button">
+            <button class="btn" onclick="Back()">BACK</button>
+        </div>
+    </body>
+    <script>
+        function Back() {
+            window.history.back();
+        }
+    </script>
+
+</html>

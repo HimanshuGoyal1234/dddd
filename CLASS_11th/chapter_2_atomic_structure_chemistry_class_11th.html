@@ -1,0 +1,238 @@
+<DOCTYPE html>
+    <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Atomic Structure Formulas</title>
+            <link rel="icon" type="image/png" href="../logo.png">
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    margin: 20px;
+                    background-color: #000000;
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                }
+
+                h1 {
+                    color: #2c3e50;
+                    text-align: center;
+                    border-bottom: 2px solid #3498db;
+                    padding-bottom: 10px;
+                }
+
+                h2 {
+                    color: #2980b9;
+                    margin-top: 30px;
+                    border-left: 5px solid #3498db;
+                    padding-left: 10px;
+                }
+
+                .formula-container {
+                    background-color: transparent;
+                    border-radius: 8px;
+                    padding: 15px;
+                    margin: 15px 0;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                }
+
+                .formula {
+                    font-family: "Courier New", monospace;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #e74c3c;
+                    margin: 10px 0;
+                }
+
+                .description {
+                    color: #34495e;
+                    margin-bottom: 10px;
+                }
+
+                .variables {
+                    font-style: italic;
+                    color: #7f8c8d;
+                }
+            </style>
+        </head>
+
+        <body>
+            <h1>Atomic Structure Formulas</h1>
+
+            <h2>Basic Atomic Properties</h2>
+
+            <div class="formula-container">
+                <div class="description">Atomic Number (Z):</div>
+                <div class="formula">Z = number of protons = number of electrons (in neutral atom)</div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Mass Number (A):</div>
+                <div class="formula">A = number of protons (Z) + number of neutrons (N)</div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Nuclear Charge:</div>
+                <div class="formula">Nuclear charge = +Ze</div>
+                <div class="variables">where e = elementary charge (1.602 × 10⁻¹⁹ C)</div>
+            </div>
+
+            <h2>Bohr's Model Formulas</h2>
+
+            <div class="formula-container">
+                <div class="description">Radius of nth orbit:</div>
+                <div class="formula">rₙ = (n²h²ε₀)/(πmZe²) ≈ 0.529 × n²/Z Å</div>
+                <div class="variables">
+                    n = principal quantum number<br>
+                    h = Planck's constant (6.626 × 10⁻³⁴ Js)<br>
+                    ε₀ = permittivity of free space<br>
+                    m = mass of electron (9.109 × 10⁻³¹ kg)<br>
+                    Z = atomic number<br>
+                    1 Å (angstrom) = 10⁻¹⁰ m
+                </div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Velocity of electron in nth orbit:</div>
+                <div class="formula">vₙ = (Ze²)/(2ε₀nh) ≈ 2.18 × 10⁶ Z/n m/s</div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Energy of electron in nth orbit:</div>
+                <div class="formula">Eₙ = - (mZ²e⁴)/(8ε₀²n²h²) ≈ -13.6 Z²/n² eV</div>
+                <div class="variables">1 eV = 1.602 × 10⁻¹⁹ J</div>
+            </div>
+
+            <h2>Quantum Mechanical Model</h2>
+
+            <div class="formula-container">
+                <div class="description">De Broglie Wavelength:</div>
+                <div class="formula">λ = h/p = h/(mv)</div>
+                <div class="variables">
+                    p = momentum<br>
+                    m = mass of particle<br>
+                    v = velocity of particle
+                </div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Heisenberg Uncertainty Principle:</div>
+                <div class="formula">Δx × Δp ≥ h/(4π)</div>
+                <div class="variables">
+                    Δx = uncertainty in position<br>
+                    Δp = uncertainty in momentum
+                </div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Schrödinger Wave Equation:</div>
+                <div class="formula">Ĥψ = Eψ</div>
+                <div class="variables">
+                    Ĥ = Hamiltonian operator<br>
+                    ψ = wave function<br>
+                    E = energy of the system
+                </div>
+            </div>
+
+            <h2>Electron Configuration Rules</h2>
+
+            <div class="formula-container">
+                <div class="description">Maximum number of electrons in a shell:</div>
+                <div class="formula">2n²</div>
+                <div class="variables">n = principal quantum number</div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Number of orbitals in a subshell:</div>
+                <div class="formula">2l + 1</div>
+                <div class="variables">l = azimuthal quantum number</div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Maximum number of electrons in a subshell:</div>
+                <div class="formula">2(2l + 1)</div>
+            </div>
+
+            <h2>Photoelectric Effect</h2>
+
+            <div class="formula-container">
+                <div class="description">Einstein's Photoelectric Equation:</div>
+                <div class="formula">hν = hν₀ + ½mv²</div>
+                <div class="variables">
+                    ν = frequency of incident light<br>
+                    ν₀ = threshold frequency<br>
+                    m = mass of electron<br>
+                    v = velocity of ejected electron
+                </div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Work Function:</div>
+                <div class="formula">Φ = hν₀</div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Kinetic Energy of Ejected Electron:</div>
+                <div class="formula">KE = hν - Φ</div>
+            </div>
+
+            <h2>X-ray Spectra</h2>
+
+            <div class="formula-container">
+                <div class="description">Moseley's Law:</div>
+                <div class="formula">√ν = a(Z - b)</div>
+                <div class="variables">
+                    ν = frequency of X-ray<br>
+                    a, b = constants<br>
+                    Z = atomic number
+                </div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Bragg's Law:</div>
+                <div class="formula">nλ = 2d sinθ</div>
+                <div class="variables">
+                    n = order of reflection<br>
+                    λ = wavelength<br>
+                    d = interplanar distance<br>
+                    θ = glancing angle
+                </div>
+            </div>
+
+            <h2>Radioactive Decay</h2>
+
+            <div class="formula-container">
+                <div class="description">Decay Law:</div>
+                <div class="formula">N = N₀e^(-λt)</div>
+                <div class="variables">
+                    N = remaining quantity<br>
+                    N₀ = initial quantity<br>
+                    λ = decay constant<br>
+                    t = time
+                </div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Half-Life:</div>
+                <div class="formula">t₁/₂ = ln(2)/λ ≈ 0.693/λ</div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Average Life:</div>
+                <div class="formula">τ = 1/λ</div>
+            </div>
+
+            <div class="formula-container">
+                <div class="description">Activity (Radioactivity):</div>
+                <div class="formula">A = -dN/dt = λN</div>
+            </div>
+
+            <footer style="margin-top: 40px; text-align: center; color: #7f8c8d; font-size: 0.9em;">
+                <p>Atomic Structure Formulas - For educational purposes</p>
+            </footer>
+        </body>
+
+    </html>
