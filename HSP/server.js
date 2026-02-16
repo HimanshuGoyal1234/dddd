@@ -5,10 +5,8 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
-// HSP folder se static files (like HSP_interface.html) serve karo
 app.use(express.static("HSP"));
 
-// Session middleware with 5 minute timeout
 app.use(
   session({
     secret: "hsp_simple_secret",
