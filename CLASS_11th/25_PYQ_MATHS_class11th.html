@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ premium · 25 non‑negotiables</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #0c0f14;
+            background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                              radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+        }
+
+        .premium-container {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* header premium */
+        .header {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #b6b0ff 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            filter: drop-shadow(0 4px 12px #141c2b);
+        }
+
+        .header h1 span {
+            background: #1f283c;
+            color: #ccddf8;
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding: 0.3rem 1.8rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin-top: 12px;
+            border: 1px solid #30415e;
+            backdrop-filter: blur(4px);
+            background: rgba(20, 30, 45, 0.7);
+            -webkit-text-fill-color: #e3ecff;
+        }
+
+        .micro-chip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.7rem 1rem;
+            margin: 2.2rem 0 2.8rem;
+        }
+
+        .filter-chip {
+            background: rgba(18, 26, 38, 0.8);
+            border: 1px solid #314a6b;
+            color: #b5cbee;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            transition: 0.2s ease;
+            box-shadow: 0 6px 12px -8px #04080e;
+            text-transform: uppercase;
+            border-color: #2f405b;
+        }
+
+        .filter-chip:hover {
+            background: #1e314a;
+            color: #ffffff;
+            border-color: #6c8fc9;
+            box-shadow: 0 8px 18px -6px #1e3f70;
+            transform: translateY(-2px);
+        }
+
+        .filter-chip.active {
+            background: linear-gradient(145deg, #1e3f64, #123456);
+            border-color: #9bbfff;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 10px 22px -8px #1d446e, 0 0 0 1px #6c9df0 inset;
+        }
+
+        /* dark premium grid */
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .question-card {
+            background: rgba(15, 22, 32, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(70, 110, 160, 0.25);
+            border-radius: 38px;
+            padding: 1.8rem 1.3rem 1.3rem 1.3rem;
+            box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-card:hover {
+            border-color: #3f6290;
+            background: rgba(22, 32, 46, 0.95);
+            box-shadow: 0 30px 50px -18px #0a1422, 0 0 0 1px #4f7cbb inset;
+            transform: scale(1.01) translateY(-3px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .q-num {
+            background: #142436;
+            color: #bdd3ff;
+            font-weight: 700;
+            font-size: 1.3rem;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30% 70% 30% 70% / 60% 40% 60% 40%;
+            border: 1px solid #375d8c;
+            box-shadow: 0 4px 14px #020b16;
+        }
+
+        .topic-tag {
+            background: #162433;
+            color: #adccff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            border: 1px solid #2d507a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 160px;
+        }
+
+        .question-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #e0edff;
+            font-weight: 400;
+            margin: 0.2rem 0 1.4rem 0;
+            flex-grow: 1;
+            background: rgba(0, 10, 22, 0.5);
+            padding: 1rem 1rem 1rem 1.3rem;
+            border-radius: 26px;
+            border-left: 3px solid #3773bb;
+            box-shadow: inset 0 2px 8px #03080e;
+        }
+
+        .math-preview {
+            background: #0e1b2b;
+            padding: 0.2rem 0.5rem;
+            border-radius: 18px;
+            font-family: 'JetBrains Mono', 'Times New Roman', serif;
+            font-weight: 600;
+            color: #d0e5ff;
+            border: 1px solid #3e5f86;
+            display: inline-block;
+            margin: 0 2px;
+        }
+
+        .footer-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.6rem;
+            border-top: 1px solid #253a52;
+            padding-top: 0.8rem;
+        }
+
+        .source-badge {
+            background: #0f1b28;
+            color: #9eb9dc;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid #324f73;
+        }
+
+        .btn-copy {
+            background: transparent;
+            border: 1px solid #3b5982;
+            border-radius: 40px;
+            padding: 0.3rem 1.1rem;
+            color: #bdd3f5;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.15s;
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-copy:hover {
+            background: #213a58;
+            border-color: #7fa3db;
+            color: white;
+            box-shadow: 0 4px 12px #0d1b2b;
+        }
+
+        .no-result {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(15, 24, 36, 0.7);
+            border-radius: 80px;
+            font-size: 1.4rem;
+            color: #98b7e5;
+            border: 1px dashed #3f6290;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3.8rem;
+            color: #7f9bc0;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e3148;
+            padding-top: 2rem;
+        }
+
+        .footer-note strong {
+            color: #c9ddff;
+            font-weight: 600;
+        }
+
+        /* custom dark scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d1622;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a4568;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="premium-container">
+    <div class="header">
+        <h1>⚡ 25 • MUST SOLVE</h1>
+        <span style="color:white">CLASS 11 MATHEMATICS · PREMIUM DARK EDITION</span>
+    </div>
+
+    <!-- topic filters (all english) -->
+    <div class="micro-chip" id="filterContainer">
+        <button class="filter-chip active" data-topic="all">📌 ALL (25)</button>
+        <button class="filter-chip" data-topic="Probability">🎲 PROBABILITY</button>
+        <button class="filter-chip" data-topic="Straight Lines">📏 STRAIGHT LINES</button>
+        <button class="filter-chip" data-topic="Linear Inequalities">⚖️ INEQUALITIES</button>
+        <button class="filter-chip" data-topic="Complex Numbers">🔢 COMPLEX NO.</button>
+        <button class="filter-chip" data-topic="Sets">🔗 SETS</button>
+        <button class="filter-chip" data-topic="Relations & Functions">📊 RELATIONS & FUNCTIONS</button>
+        <button class="filter-chip" data-topic="Trigonometric Functions">📐 TRIGONOMETRY</button>
+        <button class="filter-chip" data-topic="Permutations & Combinations">🧩 P & C</button>
+        <button class="filter-chip" data-topic="Binomial Theorem">📈 BINOMIAL</button>
+        <button class="filter-chip" data-topic="Sequences & Series">🔢 SEQUENCES</button>
+        <button class="filter-chip" data-topic="Conic Sections">🪐 CONIC SECTIONS</button>
+        <button class="filter-chip" data-topic="3D Geometry">📦 3D GEOMETRY</button>
+        <button class="filter-chip" data-topic="Limits & Derivatives">🚀 LIMITS</button>
+        <button class="filter-chip" data-topic="Statistics">📉 STATISTICS</button>
+    </div>
+
+    <!-- grid injected -->
+    <div id="questionGrid" class="question-grid"></div>
+
+</div>
+
+<script>
+    (function() {
+        // ----- question bank (english only, all maths wrapped in .math-preview) -----
+        const questionsData = [
+            { id: 1, topic: "Probability", text: "Two cards are dropped from a pack of 52 playing cards. Find the probability that the missing cards are of <span class=\"math-preview\">different colors</span>." },
+            { id: 2, topic: "Straight Lines", text: "Find the <span class=\"math-preview\">distance</span> of the intersection point of lines <span class=\"math-preview\">2x - 3y + 5 = 0</span> and <span class=\"math-preview\">3x + 4y = 0</span> from the line <span class=\"math-preview\">5x - 2y = 0</span>." },
+            { id: 3, topic: "Linear Inequalities", text: "Solve the inequality: <span class=\"math-preview\">-3x + 17 < -13</span>." },
+            { id: 4, topic: "Complex Numbers", text: "Solve for <span class=\"math-preview\">x</span> : <span class=\"math-preview\">((1+i)/(1-i))^x = 1</span>." },
+            { id: 5, topic: "Sets", text: "If set A has 3 elements and set B has 4 elements, find the <span class=\"math-preview\">number of subsets</span> of <span class=\"math-preview\">A × B</span>." },
+            { id: 6, topic: "Sets", text: "Let A, B, C be sets. Given <span class=\"math-preview\">A ∪ B = A ∪ C</span> and <span class=\"math-preview\">A ∩ B = A ∩ C</span>, <span class=\"math-preview\">prove that B = C</span>." },
+            { id: 7, topic: "Relations & Functions", text: "Find the <span class=\"math-preview\">domain and range</span> of <span class=\"math-preview\">f(x) = √(36 - x²)</span>." },
+            { id: 8, topic: "Trigonometric Functions", text: "If <span class=\"math-preview\">tan x = -5/12</span> and <span class=\"math-preview\">x</span> lies in quadrant II, find the other five trigonometric ratios." },
+            { id: 9, topic: "Trigonometric Functions", text: "If <span class=\"math-preview\">tan θ = (sin α - cos α)/(sin α + cos α)</span>, prove that <span class=\"math-preview\">sin α + cos α = √2 cos θ</span>." },
+            { id: 10, topic: "Complex Numbers", text: "If <span class=\"math-preview\">|(z - 5i)/(z + 5i)| = 1</span>, show that <span class=\"math-preview\">z</span> is real." },
+            { id: 11, topic: "Linear Inequalities", text: "Longest side of a triangle is 3 times the shortest. Third side is 2 cm shorter than longest. Perimeter <span class=\"math-preview\">≥ 61 cm</span>. Find minimum length of shortest side." },
+            { id: 12, topic: "Permutations & Combinations", text: "Ways to arrange <span class=\"math-preview\">7 positive</span> and <span class=\"math-preview\">5 negative</span> signs in a row so that no two negatives are together." },
+            { id: 13, topic: "Permutations & Combinations", text: "Letters of the word <span class=\"math-preview\">'RACHIT'</span> arranged as in a dictionary. Find its rank." },
+            { id: 14, topic: "Binomial Theorem", text: "Prove that <span class=\"math-preview\">2^(4n+4) - 15n - 16</span> is divisible by <span class=\"math-preview\">225</span> for all natural n." },
+            { id: 15, topic: "Sequences & Series", text: "Two positive numbers differ by 12 and <span class=\"math-preview\">AM exceeds GM by 2</span>. Find numbers." },
+            { id: 16, topic: "Sequences & Series", text: "Sum to n terms: <span class=\"math-preview\">8, 88, 888, ...</span>" },
+            { id: 17, topic: "Straight Lines", text: "Find the <span class=\"math-preview\">mirror image</span> of point <span class=\"math-preview\">(3,8)</span> about the line <span class=\"math-preview\">x + 3y = 7</span>." },
+            { id: 18, topic: "Straight Lines", text: "Line through <span class=\"math-preview\">(-2,6)</span> and <span class=\"math-preview\">(4,8)</span> is perpendicular to line through <span class=\"math-preview\">(8,12)</span> and <span class=\"math-preview\">(x,24)</span>. Find x." },
+            { id: 19, topic: "Conic Sections", text: "Equation of circle with centre <span class=\"math-preview\">(3,-4)</span> touching line <span class=\"math-preview\">5x+12y-19=0</span>." },
+            { id: 20, topic: "Conic Sections", text: "A semi‑elliptical arch is 8m wide, 2m high at centre. Height at a point 1.5m from one end." },
+            { id: 21, topic: "3D Geometry", text: "Point P is <span class=\"math-preview\">5/6</span> of the way from <span class=\"math-preview\">A(-2,0,6)</span> to <span class=\"math-preview\">B(0,-6,-12)</span>. Find P." },
+            { id: 22, topic: "Limits & Derivatives", text: "Evaluate <span class=\"math-preview\">lim_{x→π/6} (√3 sin x - cos x)/(x - π/6)</span>." },
+            { id: 23, topic: "Limits & Derivatives", text: "Find derivative of <span class=\"math-preview\">sin 2x</span> using first principle." },
+            { id: 24, topic: "Probability", text: "Four candidates A,B,C,D. A twice as likely as B; B and C equally likely; C twice as likely as D. Find <span class=\"math-preview\">P(C selected)</span> and P(A not selected)." },
+            { id: 25, topic: "Statistics", text: "Calculate mean, variance and standard deviation for a given frequency distribution (homework)." }
+        ];
+
+        const grid = document.getElementById('questionGrid');
+        const filterContainer = document.getElementById('filterContainer');
+        let activeTopic = 'all';
+
+        function renderCards(topic) {
+            const filtered = topic === 'all' ? questionsData : questionsData.filter(q => q.topic === topic);
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="no-result">✦ no questions for this filter ✦</div>`;
+                return;
+            }
+
+            let html = '';
+            filtered.forEach(q => {
+                html += `
+                    <div class="question-card" data-topic="${q.topic}">
+                        <div class="card-header">
+                            <span class="q-num">${q.id}</span>
+                            <span class="topic-tag">${q.topic.toUpperCase()}</span>
+                        </div>
+                        <div class="question-text">
+                            ${q.text}
+                        </div>
+                        <div class="footer-meta">
+                            <button class="btn-copy" onclick="copyQuestion(\`Q${q.id}: ${q.text.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()}\`)">copy</button>
+                        </div>
+                    </div>
+                `;
+            });
+            grid.innerHTML = html;
+        }
+
+        window.copyQuestion = function(plain) {
+            navigator.clipboard?.writeText(plain).then(() => {
+                alert('📋 question copied (plain text)');
+            }).catch(() => alert('⚠️ copy not supported'));
+        };
+
+        // filter logic
+        const chips = document.querySelectorAll('.filter-chip');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const topic = chip.getAttribute('data-topic');
+                activeTopic = topic;
+
+                chips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+
+                renderCards(activeTopic);
+            });
+        });
+
+        // initial render
+        renderCards('all');
+    })();
+</script>
+
+<!-- extra style for math preview (dark) -->
+<style>
+    .math-preview {
+        background: #0c1b2d;
+        border: 1px solid #36577e;
+        color: #cae2ff;
+        padding: 0.15rem 0.5rem;
+        border-radius: 18px;
+        font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        font-weight: 500;
+        display: inline-block;
+        margin: 2px 1px;
+        box-shadow: inset 0 1px 4px #000814;
+    }
+    .btn-copy:active {
+        background: #2b4a78;
+        color: white;
+    }
+    .filter-chip.active {
+        background: linear-gradient(145deg, #1e3f64, #123456);
+        border-color: #9bbfff;
+    }
+</style>
+</body>
+</html>
