@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Physical Education & Sports for CWSN — Unit 4 Simple Ocean Mind Map</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #0c0f14;
+    background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                      radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+}
+
+.main-box {
+    max-width: 1400px;
+    width: 100%;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.25);
+    border-radius: 70px 70px 40px 40px;
+    padding: 35px 25px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #ffb870 70%, #b6b0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 12px #141c2b);
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    background: #1f283c;
+    color: #ccddf8;
+    display: inline-block;
+    padding: 0.5rem 2.2rem;
+    border-radius: 60px;
+    margin: 0 auto 30px;
+    border: 1px solid #30415e;
+    backdrop-filter: blur(4px);
+    background: rgba(20, 30, 45, 0.8);
+    -webkit-text-fill-color: #e3ecff;
+    box-shadow: 0 10px 20px -8px #03080e;
+    font-weight: 500;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    flex: 1 1 280px;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    border-color: #3f6290;
+    background: rgba(24, 36, 50, 0.95);
+    box-shadow: 0 35px 50px -18px #0a192b, 0 0 0 1px #4f7cbb inset;
+    transform: scale(1.01) translateY(-5px);
+}
+
+.card-title {
+    background: linear-gradient(145deg, #1d446e, #0f2b48);
+    color: #ffd58c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.5rem 1.8rem;
+    border-radius: 60px;
+    display: inline-block;
+    margin-top: -45px;
+    margin-bottom: 1rem;
+    border: 1px solid #5b8dc9;
+    box-shadow: 0 6px 0 #082136;
+    letter-spacing: 0.5px;
+}
+
+.point {
+    background: rgba(0, 15, 30, 0.5);
+    margin: 15px 0;
+    padding: 1rem 1.3rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #c0d6fc;
+    border-left: 6px solid #3773bb;
+    box-shadow: inset 0 2px 8px #03080e;
+    line-height: 1.6;
+}
+
+.point strong {
+    color: #ffd966;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.example {
+    background: rgba(18, 30, 45, 0.5);
+    padding: 0.9rem 2rem;
+    border-radius: 60px;
+    font-size: 1rem;
+    color: #ffd58c;
+    border: 1px solid #3a6190;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 12px -6px #020b14;
+    margin-top: 10px;
+}
+
+.example i {
+    color: #9fc5ff;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.wide-card {
+    flex: 2 1 400px;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+}
+
+.badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 60px;
+    padding: 0.6rem 1.3rem;
+    color: #bdd3f5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px;
+    backdrop-filter: blur(4px);
+    transition: all 0.15s;
+}
+
+.badge:hover {
+    background: #213a58;
+    border-color: #7fa3db;
+    color: white;
+    box-shadow: 0 6px 15px #0d1b2b;
+    transform: scale(1.02);
+}
+
+.footer {
+    background: #0f1f30;
+    border: 2px solid #3e6a9b;
+    border-radius: 100px;
+    padding: 2.5rem 2rem;
+    margin-top: 4rem;
+    text-align: center;
+    color: #c4dcff;
+    font-size: 1.2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 35px -12px #030c14;
+}
+
+.footer strong {
+    color: #ffdb9c;
+    font-size: 1.4rem;
+}
+
+hr {
+    border: 1px solid #253a52;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.green-badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 40px;
+    padding: 0.4rem 1.3rem;
+    color: #adccff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid #2d507a;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d1622;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a4568;
+    border-radius: 20px;
+}
+
+/* responsive */
+@media (max-width: 700px) {
+    h1 { font-size: 2.5rem; }
+    .sub-heading { font-size: 1.3rem; padding: 0.5rem 1.5rem; }
+    .card-title { font-size: 1.1rem; }
+}
+    </style>
+</head>
+<body>
+<div class="main-box">
+    <h1>🤝 PHYSICAL EDUCATION & SPORTS FOR CWSN</h1>
+    <div class="sub-head">🌊 Unit 4 · Hinglish · Simple Ocean</div>
+
+    <!-- ROW 1: Introduction + Terminology -->
+    <div class="grid-row">
+        <!-- Introduction -->
+        <div class="card">
+            <div class="card-title">📌 Introduction</div>
+            <div class="point"><strong>CWSN =</strong> Children with Special Needs (Divyang log)</div>
+            <div class="point"><strong>1980 ke baad:</strong> "Disabled/Handicapped" ki jagah "Differently Abled" use</div>
+            <div class="example"><i>Purane words discriminatory lagte the</i></div>
+        </div>
+
+        <!-- Disability vs Disorder -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">⚠️ Disability vs Disorder</div>
+            <div class="point"><strong>Disability:</strong> Aksar permanent (jaise physical disability)</div>
+            <div class="point"><strong>Disorder:</strong> Brain related, temporary ho sakti hai (theek ho sakti)</div>
+        </div>
+
+        <!-- Adaptive Physical Education -->
+        <div class="card">
+            <div class="card-title" style="background:#117f33;">🔄 Adaptive PE</div>
+            <div class="point"><strong>Kya hai?</strong> Sports/activities specially disabled ke liye design</div>
+            <div class="point"><strong>Features:</strong> Rules, regulations, equipments normal sports se alag</div>
+            <div class="example"><i>Har disability ke hisaab se adjust</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 2: Major Sporting Events (3 Tournaments) -->
+    <div class="grid-row">
+        <!-- Special Olympics -->
+        <div class="card">
+            <div class="card-title" style="background:#c96e1f;">🏅 Special Olympics</div>
+            <div class="point"><strong>Founder:</strong> Eunice Kennedy Shriver (1968)</div>
+            <div class="point"><strong>For:</strong> Intellectual disabilities wale log</div>
+            <div class="point"><strong>Motto:</strong> "Let me win but if I can't win let me be the brave in this attempt"</div>
+        </div>
+
+        <!-- Paralympics -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">🏅 Paralympics</div>
+            <div class="point"><strong>Founder:</strong> Sir Ludwig Guttmann</div>
+            <div class="point"><strong>Sabse bada</strong> multi-sport event disabled ke liye</div>
+            <div class="point"><strong>6 main categories:</strong> Visual impairment, amputee, etc.</div>
+            <div class="point"><strong>Motto:</strong> "Spirit in Motion"</div>
+        </div>
+
+        <!-- Deaflympics -->
+        <div class="card">
+            <div class="card-title" style="background:#9b59b6;">🏅 Deaflympics</div>
+            <div class="point"><strong>For:</strong> Sunne mein problem (min 55 dB hearing loss)</div>
+            <div class="point"><strong>Special signals:</strong> Seeti (whistle) ki jagah lights, taali ki jagah hath hila kar (waving)</div>
+        </div>
+    </div>
+
+    <!-- ROW 3: Classification vs Divisioning -->
+    <div class="grid-row">
+        <!-- Classification (Paralympics) -->
+        <div class="card">
+            <div class="card-title" style="background:#d97706;">📊 Classification</div>
+            <div class="point"><strong>Use:</strong> Paralympics mein</div>
+            <div class="point"><strong>Kya hai?</strong> Players ko disability type ke hisaab se group karna</div>
+            <div class="point"><strong>Includes:</strong> Medical + functional assessment</div>
+            <div class="example"><i>Fair Play ensure karna</i></div>
+        </div>
+
+        <!-- Divisioning (Special Olympics) -->
+        <div class="card">
+            <div class="card-title" style="background:#117f33;">📊 Divisioning</div>
+            <div class="point"><strong>Use:</strong> Special Olympics mein</div>
+            <div class="point"><strong>Kya hai?</strong> Players ko skill level, age, gender ke basis par group</div>
+            <div class="example"><i>Fair Play ensure karna</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 4: Inclusion in Sports -->
+    <div class="grid-row">
+        <div class="wide-card">
+            <div class="card-title" style="background:#0284c7;">🤝 Inclusion in Sports</div>
+            <div class="point"><strong>Kya hai?</strong> Disabled bachon ko normal bacho ke saath ek hi classroom/ground mein padhaya + khilaya jaye</div>
+            <div class="point"><strong>Fayda:</strong></div>
+            <div class="point">• Disabled bacho ka confidence ⬆️</div>
+            <div class="point">• Normal bache unke prati respectful bante hain</div>
+            <div class="point">• Bhedbhav (discrimination) khatam</div>
+        </div>
+    </div>
+
+    <!-- ROW 5: Strategies + Advantages -->
+    <div class="grid-row">
+        <!-- Strategies -->
+        <div class="card">
+            <div class="card-title" style="background:#c96e1f;">📋 Strategies (Kaise karein)</div>
+            <div class="point">• Physical activity se pehle medical checkup zaroori</div>
+            <div class="point">• Modified rules, special equipments, expert trainers</div>
+            <div class="point">• Environment aisa ho jahan family + society support kare</div>
+        </div>
+
+        <!-- Advantages -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#117f33;">✅ Advantages (Fayde)</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#0b5e2e;">Physical</span>
+                <span class="badge" style="background:#0b5e2e;">Mental</span>
+                <span class="badge" style="background:#0b5e2e;">Social</span>
+            </div>
+            <div class="point"><strong>Physical:</strong> Fitness level ⬆️, bimarion se bachaav</div>
+            <div class="point"><strong>Mental:</strong> Stress + depression ⬇️</div>
+            <div class="point"><strong>Social:</strong> Logo se milna, self-esteem ⬆️, akelapan nahi</div>
+        </div>
+    </div>
+
+    <!-- ROW 6: Quick Summary Card + Message -->
+    <div class="grid-row">
+        <!-- Quick Summary -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">📝 Quick Recap</div>
+            <div class="point">• CWSN = Divyang log</div>
+            <div class="point">• Disability (permanent) vs Disorder (temporary)</div>
+            <div class="point">• Adaptive PE = special rules + equipment</div>
+            <div class="point">• 3 events: Special Olympics, Paralympics, Deaflympics</div>
+            <div class="point">• Classification (Paralympics) vs Divisioning (Special Olympics)</div>
+            <div class="point">• Inclusion = saath mein khilana</div>
+            <div class="point">• Strategies + Physical/Mental/Social fayde</div>
+        </div>
+
+        <!-- Inspiring Message -->
+        <div class="card">
+            <div class="card-title" style="background:#9b59b6;">💙 Important Message</div>
+            <div class="point"><strong>Sahi opportunity mile toh</strong> Divyang log bhi duniya mein apna aur desh ka naam roshan kar sakte hain</div>
+            <div class="example"><i>Ye chapter yahi sikhata hai</i></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- extra examples row -->
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 15px 0;">
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🏅 Special Olympics = intellectual</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">♿ Paralympics = 6 categories</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🧏 Deaflympics = lights + waving</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🤝 Inclusion = saath mein</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">✅ Medical checkup pehle</span>
+    </div>
+
+    <!-- footer summary -->
+    <div class="footer">
+        🌊 CWSN · Disability vs Disorder · Adaptive PE · Special Olympics · Paralympics · Deaflympics · Classification vs Divisioning · Inclusion · Strategies · Advantages 🌊
+    </div>
+
+    <div style="text-align:center; margin-top:25px; color:#022b3a; font-size:1.6rem; font-weight:600;">
+        ✅ Unit 4 complete · Hinglish · Easy points with examples
+    </div>
+</div>
+</body>
+</html>

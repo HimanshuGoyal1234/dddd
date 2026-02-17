@@ -1,278 +1,485 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Physical Education - Complete Study Material (Class 12) ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="../logo.png">
-        <title>PE</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+        body {
+            background: #0c0f14;
+            background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                              radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+        }
 
-            body {
-                min-height: 100vh;
-                background-image: linear-gradient(0deg, rgb(59, 59, 59), rgb(197, 197, 197)), linear-gradient(45deg, rgb(159, 116, 214) 0%, rgb(159, 116, 214) 25%, rgb(130, 95, 173) 25%, rgb(130, 95, 173) 45%, rgb(101, 74, 132) 45%, rgb(101, 74, 132) 50%, rgb(72, 54, 90) 50%, rgb(72, 54, 90) 52%, rgb(43, 33, 49) 52%, rgb(43, 33, 49) 61%, rgb(14, 12, 8) 61%, rgb(14, 12, 8) 100%), linear-gradient(135deg, rgb(159, 116, 214) 0%, rgb(159, 116, 214) 25%, rgb(130, 95, 173) 25%, rgb(130, 95, 173) 45%, rgb(101, 74, 132) 45%, rgb(101, 74, 132) 50%, rgb(72, 54, 90) 50%, rgb(72, 54, 90) 52%, rgb(43, 33, 49) 52%, rgb(43, 33, 49)61%, rgb(14, 12, 8) 61%, rgb(14, 12, 8) 100%);
-                background-blend-mode: overlay, overlay, normal;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                overflow-x: hidden;
-            }
+        .premium-container {
+            max-width: 1400px;
+            width: 100%;
+        }
 
-            .uper {
-                display: flex;
-                justify-content: center;
-                width: 100%;
-                padding: 20px;
-            }
+        /* header premium */
+        .header {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
 
-            .container {
-                width: 90%;
-                max-width: 600px;
-                padding: 30px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 15px;
-                backdrop-filter: blur(12px);
-                background-color: rgba(0, 0, 0, 0.2);
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-                transition: all 0.5s ease;
-                overflow: hidden;
-            }
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #ffb870 70%, #b6b0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            filter: drop-shadow(0 4px 12px #141c2b);
+            margin-bottom: 15px;
+        }
 
-            .container:hover {
-                animation: borderGlow 3s infinite ease-in-out;
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-                transform: translateY(-5px);
-            }
+        .header h1 span {
+            background: #1f283c;
+            color: #ccddf8;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 0.5rem 2.2rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin-top: 15px;
+            border: 1px solid #30415e;
+            backdrop-filter: blur(4px);
+            background: rgba(20, 30, 45, 0.8);
+            -webkit-text-fill-color: #e3ecff;
+            box-shadow: 0 10px 20px -8px #03080e;
+        }
 
-            @keyframes borderGlow {
-                0% {
-                    border-color: rgba(255, 0, 0, 0.7);
-                    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-                }
+        .wave-decoration {
+            background: linear-gradient(90deg, #2a5f7a, #4f9bc2, #2a5f7a);
+            height: 6px;
+            width: 100%;
+            border-radius: 6px;
+            margin: 25px 0 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .wave-decoration::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine { 
+            0% {transform:translateX(-100%)} 
+            40% {transform:translateX(100%)} 
+            100% {transform:translateX(100%)} 
+        }
 
-                25% {
-                    border-color: rgba(0, 166, 255, 0.7);
-                    box-shadow: 0 0 20px rgba(0, 166, 255, 0.5);
-                }
+        /* stats section - premium dark */
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px 0;
+        }
 
-                50% {
-                    border-color: rgba(0, 255, 166, 0.7);
-                    box-shadow: 0 0 20px rgba(0, 255, 166, 0.5);
-                }
+        .stat-card {
+            background: rgba(15, 22, 32, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(70, 110, 160, 0.5);
+            border-radius: 70px;
+            padding: 20px 40px;
+            box-shadow: 0 20px 30px -12px #010913, 0 0 0 1px rgba(100, 160, 240, 0.2) inset;
+            text-align: center;
+            min-width: 170px;
+            transition: all 0.2s;
+        }
 
-                75% {
-                    border-color: rgba(255, 255, 0, 0.7);
-                    box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
-                }
+        .stat-card:hover {
+            border-color: #4f7cbb;
+            background: rgba(22, 34, 48, 0.95);
+            transform: translateY(-4px);
+            box-shadow: 0 28px 35px -14px #091e30;
+        }
 
-                100% {
-                    border-color: rgba(255, 0, 0, 0.7);
-                    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-                }
-            }
+        .stat-number {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #ffd966;
+            line-height: 1;
+            text-shadow: 0 2px 10px #2f5f9e;
+        }
 
-            .container div ul {
-                list-style: none;
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-            }
+        .stat-label {
+            font-size: 1.3rem;
+            color: #bdd3ff;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-            .list_item {
-                padding: 15px 20px;
-                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                text-align: center;
-                background-color: rgba(0, 0, 0, 0.3);
-                border-radius: 8px;
-                backdrop-filter: blur(5px);
-            }
+        /* section title */
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #1e3f64, #123456);
+            color: white;
+            display: inline-block;
+            padding: 1rem 3.5rem;
+            border-radius: 80px;
+            margin: 40px 0 30px;
+            border: 2px solid #9bbfff;
+            box-shadow: 0 15px 20px -8px #020914, 0 0 0 2px #2f5480 inset;
+            text-shadow: 0 2px 5px #010a13;
+        }
 
-            .list_item:hover {
-                transform: scale(1.05);
-                background-color: rgba(0, 0, 0, 0.5);
-            }
+        /* chapter grid */
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 2rem;
+            margin: 30px 0;
+        }
 
-            .list_item a {
-                color: white;
-                text-decoration: none;
-                font-size: 1.1rem;
-                font-weight: 600;
-                letter-spacing: 0.5px;
-                display: block;
-                transition: all 0.3s ease;
-                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-            }
+        .chapter-card {
+            background: rgba(15, 22, 32, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(70, 110, 160, 0.3);
+            border-radius: 48px;
+            padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+            box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+            transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
 
-            .list_item a:hover {
-                color: #00ffa6;
-                text-shadow: 0 0 10px rgba(0, 255, 166, 0.7);
-            }
+        .chapter-card:hover {
+            border-color: #3f6290;
+            background: rgba(24, 36, 50, 0.95);
+            box-shadow: 0 35px 50px -18px #0a192b, 0 0 0 1px #4f7cbb inset;
+            transform: scale(1.01) translateY(-5px);
+        }
 
-            #item_0 {
-                font-size: 1.5rem;
-                color: #00ffa6;
-                text-shadow: 0 0 10px rgba(0, 255, 166, 0.7);
-                margin-bottom: 10px;
-            }
+        .chapter-number {
+            background: linear-gradient(145deg, #1d446e, #0f2b48);
+            color: #ffd58c;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 0.5rem 1.8rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid #5b8dc9;
+            box-shadow: 0 6px 0 #082136;
+            letter-spacing: 0.5px;
+        }
 
-            #item_0:hover {
-                transform: none;
-            }
+        .chapter-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #e7efff;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            text-shadow: 0 2px 5px #010914;
+        }
 
-            #item_0 a:hover {
-                color: #00ffa6;
-            }
+        .chapter-desc {
+            font-size: 1rem;
+            color: #c0d6fc;
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.3rem;
+            background: rgba(0, 15, 30, 0.5);
+            border-radius: 30px;
+            border-left: 6px solid #3773bb;
+            box-shadow: inset 0 2px 8px #03080e;
+            line-height: 1.6;
+        }
 
-            .button {
-                margin-top: 40px;
-                margin-bottom: 20px;
-                position: relative;
-            }
+        .file-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 1rem 0 0.5rem;
+            border-top: 1px solid #253a52;
+            padding-top: 1.2rem;
+        }
 
-            .btn {
-                padding: 12px 30px;
-                font-size: 1.1rem;
-                border: none;
-                border-radius: 50px;
-                background: linear-gradient(45deg, #ff0000, #0066ff);
-                color: white;
-                cursor: pointer;
-                transition: all 0.4s ease;
-                position: relative;
-                overflow: hidden;
-                z-index: 1;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            }
+        .file-link {
+            background: #0f1b28;
+            border: 1px solid #3b5982;
+            border-radius: 60px;
+            padding: 0.6rem 1.3rem;
+            color: #bdd3f5;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.15s;
+            backdrop-filter: blur(4px);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-            .btn::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(45deg, #0066ff, #ff0000);
-                z-index: -1;
-                opacity: 0;
-                transition: opacity 0.4s ease;
-            }
+        .file-link:hover {
+            background: #213a58;
+            border-color: #7fa3db;
+            color: white;
+            box-shadow: 0 6px 15px #0d1b2b;
+            transform: scale(1.02);
+        }
 
-            .btn:hover {
-                transform: translateY(-3px) scale(1.05);
-                box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
-            }
+        .unit-badge {
+            background: #162433;
+            color: #adccff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.4rem 1.3rem;
+            border-radius: 40px;
+            border: 1px solid #2d507a;
+            white-space: nowrap;
+        }
 
-            .btn:hover::before {
-                opacity: 1;
-            }
+        /* tip badges */
+        .tip-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 40px 0;
+        }
 
-            @media (max-width: 768px) {
-                .container {
-                    width: 95%;
-                    padding: 20px;
-                }
+        .tip-badge {
+            background: rgba(18, 30, 45, 0.8);
+            border: 1px solid #3a6190;
+            border-radius: 60px;
+            padding: 0.9rem 2rem;
+            color: #ffd58c;
+            font-size: 1.1rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 6px 12px -6px #020b14;
+        }
 
-                .list_item {
-                    padding: 12px 15px;
-                }
+        .tip-badge strong {
+            color: white;
+            font-weight: 600;
+        }
 
-                .btn {
-                    padding: 10px 25px;
-                }
-            }
+        /* footer */
+        .footer {
+            background: #0f1f30;
+            border: 2px solid #3e6a9b;
+            border-radius: 100px;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            color: #c4dcff;
+            font-size: 1.2rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 20px 35px -12px #030c14;
+        }
 
-            @media (max-width: 480px) {
-                body {
-                    justify-content: flex-start;
-                    padding-top: 30px;
-                }
+        .footer strong {
+            color: #ffdb9c;
+            font-size: 1.4rem;
+        }
 
-                .container {
-                    border-radius: 10px;
-                }
+        .footer span {
+            color: #b0d2ff;
+        }
 
-                .list_item a {
-                    font-size: 1rem;
-                }
+        /* scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d1622;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a4568;
+            border-radius: 20px;
+        }
 
-                #item_0 {
-                    font-size: 1.3rem;
-                }
-            }
-        </style>
-    </head>
+        /* responsive */
+        @media (max-width: 700px) {
+            .header h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; padding: 0.8rem 1.8rem; }
+            .stat-card { padding: 15px 25px; }
+            .stat-number { font-size: 2.5rem; }
+        }
+    </style>
+</head>
 
-    <body>
-        <div class="uper">
-            <div class="container">
-                <div>
-                    <ul>
-                        <li class="list_item item_2"> <a href="Management_of_Sporting_Events_Class_12.html">Management
-                                of Sporting Events</a></li>
-                        <li class="list_item item_3"> <a href="Children_and_Women_in_Sports.html">Children and Women in
-                                Sports</a></li>
-                        <li class="list_item item_4"> <a
-                                href="Yoga_as_Preventive_Measure_for_Lifestyle_Diseases.html">Yoga as Preventive Measure
-                                for Lifestyle Diseases</a></li>
-                        <li class="list_item item_5"> <a href="Physical_Education_and_Sports_for_CWSN.html">Physical
-                                Education for CWSN (Children with Special Needs)</a></li>
-                        <li class="list_item item_6"> <a href="Sports_and_nutrition.html">Sports and Nutrition</a></li>
-                        <li class="list_item item_7"> <a href="Test_and_Measurement_in_Sports.html">Test and Measurement
-                                in Sports</a></li>
-                        <li class="list_item item_8"> <a href="Physiology_and_Injuries_in_Sports.html">Physiology and
-                                Injuries in Sports</a></li>
-                        <li class="list_item item_9"> <a href="Biomechanics_and_Sports.html">Biomechanics and Sports</a>
-                        </li>
-                        <li class="list_item item_10"><a href="Psychology_and_Sports.html">Psychology and Sports</a>
-                        </li>
-                        <li class="list_item item_11"><a href="Training_in_Sports.html">Training in Sports</a></li>
-                    </ul>
+<body>
+    <div class="premium-container">
+        <!-- header -->
+        <div class="header">
+            <h1>⚡ PHYSICAL EDUCATION ⚡</h1>
+            <span>Class 12 · Complete Study Material · Premium Dark</span>
+            <div class="wave-decoration"></div>
+        </div>
+
+        <!-- stats section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Units</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">⚡</div>
+                <div class="stat-label">Mind Maps</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">📚</div>
+                <div class="stat-label">Summaries</div>
+            </div>
+        </div>
+
+        <!-- all units title -->
+        <div style="text-align: center;">
+            <span class="section-title">📚 ALL UNITS · COMPLETE STUDY MATERIAL</span>
+        </div>
+
+        <!-- chapter grid -->
+        <div class="chapter-grid">
+            <!-- Unit 1 -->
+            <div class="chapter-card">
+                <span class="chapter-number">Unit 1</span>
+                <div class="chapter-title">🏆 Management of Sporting Events</div>
+                <div class="chapter-desc">Planning, Organizing, Committees, Tournaments (Knockout/League), Intra/Extra-mural, Specific Programs</div>
+                <div class="file-links">
+                    <a href="summery_of_Management_of_Sporting_Events.html" class="file-link">📄 Summary</a>
+                    <a href="mind_map_of_Management_of_Sporting_Events.html" class="file-link">🗺️ Mind Map</a>
+                    <a href="Management_of_Sporting_Events_Class_12.html" class="file-link">📘 Complete</a>
                 </div>
             </div>
-
+            <!-- Unit 2 -->
+            <div class="chapter-card">
+                <span class="chapter-number">Unit 2</span>
+                <div class="chapter-title">👶 Children & Women in Sports</div>
+                <div class="chapter-desc">Stages of Life, WHO Guidelines, Postural Deformities, Women Participation, Female Athlete Triad</div>
+                <div class="file-links">
+                    <a href="summery_of_Children_and_Women_in_Sports.html" class="file-link">📄 Summary</a>
+                    <a href="mind_map_of_Children_and_Women_in_Sports.html" class="file-link">🗺️ Mind Map</a>
+                    <a href="Children_and_Women_in_Sports.html" class="file-link">📘 Complete</a>
+                </div>
+            </div>
+            <!-- Unit 3 -->
+            <div class="chapter-card">
+                <span class="chapter-number">Unit 3</span>
+                <div class="chapter-title">🧘 Yoga as a Preventive Measure</div>
+                <div class="chapter-desc">Yoga/Asana Benefits, Obesity, Diabetes, Asthma, Hypertension, Back Pain, Contraindications</div>
+                <div class="file-links">
+                    <a href="summery_of_Yoga_as_a_Preventive_Measure.html" class="file-link">📄 Summary</a>
+                    <a href="mind_map_of_Yoga_as_a_Preventive_Measure.html" class="file-link">🗺️ Mind Map</a>
+                    <a href="Yoga_as_Preventive_Measure_for_Lifestyle_Diseases.html" class="file-link">📘 Complete</a>
+                </div>
+            </div>
+            <!-- Unit 4 -->
+            <div class="chapter-card">
+                <span class="chapter-number">Unit 4</span>
+                <div class="chapter-title">🤝 PE & Sports for CWSN</div>
+                <div class="chapter-desc">Disability vs Disorder, Adaptive PE, Special Olympics, Paralympics, Deaflympics, Inclusion</div>
+                <div class="file-links">
+                    <a href="summery_of_Physical_Education_and_Sports.html" class="file-link">📄 Summary</a>
+                    <a href="mind_map_of_Physical_Education_and_Sport.html" class="file-link">🗺️ Mind Map</a>
+                    <a href="Physical_Education_and_Sports_for_CWSN.html" class="file-link">📘 Complete</a>
+                </div>
+            </div>
+            <!-- Unit 5 -->
+            <div class="chapter-card">
+                <span class="chapter-number">Unit 5</span>
+                <div class="chapter-title">🥗 Sports & Nutrition</div>
+                <div class="chapter-desc">Balanced Diet, Macro/Micro Nutrients, BMI, Nutritive/Non-Nutritive, Dieting Pitfalls, Sports Nutrition</div>
+                <div class="file-links">
+                    <a href="summery_of_Sports_and_nutrition.html" class="file-link">📄 Summary</a>
+                    <a href="mind_map_of_Sports_and_nutrition.html" class="file-link">🗺️ Mind Map</a>
+                    <a href="Sports_and_nutrition.html" class="file-link">📘 Complete</a>
+                </div>
+            </div>
+            <!-- Unit 6 -->
+            <div class="chapter-card">
+                <span class="chapter-number">Unit 6</span>
+                <div class="chapter-title">📊 Test & Measurement</div>
+                <div class="chapter-desc">BMI, 5-8 yrs Tests, 9-18 yrs Tests, Harvard Step, BMR, Rikli & Jones, Johnson Metheny</div>
+                <div class="file-links">
+                    <a href="Summery_of_Test_and_Measurement_in_Sports.html" class="file-link">📄 Summary</a>
+                    <a href="Mind_Map_of_Test_and_Measurement_in_Sports.html" class="file-link">🗺️ Mind Map</a>
+                    <a href="Test_and_Measurement_in_Sports.html" class="file-link">📘 Complete</a>
+                </div>
+            </div>
+            <!-- Unit 7 -->
+            <div class="chapter-card">
+                <span class="chapter-number">Unit 7</span>
+                <div class="chapter-title">🫀 Physiology & Injuries</div>
+                <div class="chapter-desc">Fitness Factors, Exercise Effects, Ageing, Soft Tissue Injuries, Fractures, Dislocation, PRICE</div>
+                <div class="file-links">
+                    <a href="summery_of_physiology_and_injuries_in_sports.html" class="file-link">📄 Summary</a>
+                    <a href="Mind_Map_of_physiology_and_injuries_in_sports.html" class="file-link">🗺️ Mind Map</a>
+                    <a href="Physiology_and_Injuries_in_Sports.html" class="file-link">📘 Complete</a>
+                </div>
+            </div>
+            <!-- Unit 8 -->
+            <div class="chapter-card">
+                <span class="chapter-number">Unit 8</span>
+                <div class="chapter-title">⚡ Biomechanics & Sports</div>
+                <div class="chapter-desc">Newton's Laws, Levers, Equilibrium, COG, Friction, Projectile (45°), Sports Applications</div>
+                <div class="file-links">
+                    <a href="summery_of_biomechanics_and_sports.html" class="file-link">📄 Summary</a>
+                    <a href="mind_map_of_biomechanics_and_sports.html" class="file-link">🗺️ Mind Map</a>
+                    <a href="Biomechanics_and_Sports.html" class="file-link">📘 Complete</a>
+                </div>
+            </div>
+            <!-- Unit 9 -->
+            <div class="chapter-card">
+                <span class="chapter-number">Unit 9</span>
+                <div class="chapter-title">🧠 Psychology & Sports</div>
+                <div class="chapter-desc">Personality Dimensions, Jung/OCEAN, Motivation, Exercise Adherence, Aggression, Attributes</div>
+                <div class="file-links">
+                    <a href="Summery_of_Psychology_and_Sports.html" class="file-link">📄 Summary</a>
+                    <a href="mind_map_of_Psychology_and_Sports.html" class="file-link">🗺️ Mind Map</a>
+                    <a href="Psychology_and_Sports.html" class="file-link">📘 Complete</a>
+                </div>
+            </div>
+            <!-- Unit 10 -->
+            <div class="chapter-card">
+                <span class="chapter-number">Unit 10</span>
+                <div class="chapter-title">🏋️ Training in Sports</div>
+                <div class="chapter-desc">Training Cycles, Strength, Endurance, Speed, Flexibility, Coordinative Abilities, Circuit Training</div>
+                <div class="file-links">
+                    <a href="summery_of_Training_in_Sports.html" class="file-link">📄 Summary</a>
+                    <a href="mind_map_of_traning_in_sports.html" class="file-link">🗺️ Mind Map</a>
+                    <a href="Training_in_Sports.html" class="file-link">📘 Complete</a>
+                </div>
+            </div>
         </div>
-        <div class="button">
-            <button class="btn" onclick="Back()">BACK</button>
+
+        <!-- tips -->
+        <div class="tip-container">
+            <span class="tip-badge"><strong>📄 Summary</strong> – Hinglish Overview</span>
+            <span class="tip-badge"><strong>🗺️ Mind Map</strong> – Visual Premium Theme</span>
+            <span class="tip-badge"><strong>📘 Complete</strong> – Detailed Chapter</span>
         </div>
-        <script>
-            document.querySelectorAll('.container').forEach(container => {
-                const initialTransform = container.style.transform;
-                const initialBoxShadow = container.style.boxShadow;
-                container.addEventListener('mousemove', (e) => {
-                    const rect = container.getBoundingClientRect();
 
-                    // Calculate mouse position relative to container center
-                    const relX = e.clientX - rect.left - rect.width / 2;
-                    const relY = e.clientY - rect.top - rect.height / 2;
-
-                    // Calculate rotation angles (more sensitive for faster tilt)
-                    const tiltX = (relY / rect.height) * 20;  // Increased multiplier for faster tilt
-                    const tiltY = -(relX / rect.width) * 20;   // Negative for natural movement
-
-                    // Apply transform with hardware acceleration
-                    container.style.transform = `rotateX(${ tiltX }deg) rotateY(${ tiltY }deg) scale(1.02)`;
-                    container.style.transition = 'transform 0.1s linear'; // Faster transition
-                    container.style.boxShadow = `0 25px 50px rgba(0, 0, 0, 0.3)`;
-                });
-
-                container.addEventListener('mouseleave', () => {
-                    // Reset to initial state with smooth transition
-                    container.style.transform = initialTransform;
-                    container.style.boxShadow = initialBoxShadow;
-                    container.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-                });
-            });
-            function Back() {
-                window.history.back();
-            }
-        </script>
-    </body>
-
+        <!-- footer -->
+        <div class="footer">
+            <strong>⚡ Physical Education Class 12 · Complete Study Package</strong><br>
+            <span>📚 10 Units · Hinglish Explanations · Premium Dark Style</span><br>
+            ✨ Click any file to open – all chapters covered ✨
+        </div>
+    </div>
+</body>
 </html>

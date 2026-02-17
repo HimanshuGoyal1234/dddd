@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>🌊 Test & Measurements in Sports — Unit 6 Simple Ocean Mind Map</title>
+        <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #0c0f14;
+    background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                      radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+}
+
+.main-box {
+    max-width: 1400px;
+    width: 100%;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.25);
+    border-radius: 70px 70px 40px 40px;
+    padding: 35px 25px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #ffb870 70%, #b6b0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 12px #141c2b);
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    background: #1f283c;
+    color: #ccddf8;
+    display: inline-block;
+    padding: 0.5rem 2.2rem;
+    border-radius: 60px;
+    margin: 0 auto 30px;
+    border: 1px solid #30415e;
+    backdrop-filter: blur(4px);
+    background: rgba(20, 30, 45, 0.8);
+    -webkit-text-fill-color: #e3ecff;
+    box-shadow: 0 10px 20px -8px #03080e;
+    font-weight: 500;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    flex: 1 1 280px;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    border-color: #3f6290;
+    background: rgba(24, 36, 50, 0.95);
+    box-shadow: 0 35px 50px -18px #0a192b, 0 0 0 1px #4f7cbb inset;
+    transform: scale(1.01) translateY(-5px);
+}
+
+.card-title {
+    background: linear-gradient(145deg, #1d446e, #0f2b48);
+    color: #ffd58c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.5rem 1.8rem;
+    border-radius: 60px;
+    display: inline-block;
+    margin-top: -45px;
+    margin-bottom: 1rem;
+    border: 1px solid #5b8dc9;
+    box-shadow: 0 6px 0 #082136;
+    letter-spacing: 0.5px;
+}
+
+.point {
+    background: rgba(0, 15, 30, 0.5);
+    margin: 15px 0;
+    padding: 1rem 1.3rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #c0d6fc;
+    border-left: 6px solid #3773bb;
+    box-shadow: inset 0 2px 8px #03080e;
+    line-height: 1.6;
+}
+
+.point strong {
+    color: #ffd966;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.example {
+    background: rgba(18, 30, 45, 0.5);
+    padding: 0.9rem 2rem;
+    border-radius: 60px;
+    font-size: 1rem;
+    color: #ffd58c;
+    border: 1px solid #3a6190;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 12px -6px #020b14;
+    margin-top: 10px;
+}
+
+.example i {
+    color: #9fc5ff;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.wide-card {
+    flex: 2 1 400px;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+}
+
+.badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 60px;
+    padding: 0.6rem 1.3rem;
+    color: #bdd3f5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px;
+    backdrop-filter: blur(4px);
+    transition: all 0.15s;
+}
+
+.badge:hover {
+    background: #213a58;
+    border-color: #7fa3db;
+    color: white;
+    box-shadow: 0 6px 15px #0d1b2b;
+    transform: scale(1.02);
+}
+
+.footer {
+    background: #0f1f30;
+    border: 2px solid #3e6a9b;
+    border-radius: 100px;
+    padding: 2.5rem 2rem;
+    margin-top: 4rem;
+    text-align: center;
+    color: #c4dcff;
+    font-size: 1.2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 35px -12px #030c14;
+}
+
+.footer strong {
+    color: #ffdb9c;
+    font-size: 1.4rem;
+}
+
+hr {
+    border: 1px solid #253a52;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.green-badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 40px;
+    padding: 0.4rem 1.3rem;
+    color: #adccff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid #2d507a;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d1622;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a4568;
+    border-radius: 20px;
+}
+
+/* responsive */
+@media (max-width: 700px) {
+    h1 { font-size: 2.5rem; }
+    .sub-heading { font-size: 1.3rem; padding: 0.5rem 1.5rem; }
+    .card-title { font-size: 1.1rem; }
+}
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>📊 TEST & MEASUREMENTS IN SPORTS</h1>
+            <div class="sub-head">🌊 Unit 6 · Hinglish · Simple Ocean</div>
+
+            <!-- ROW 1: Introduction + BMI + 5-8 age group -->
+            <div class="grid">
+                <!-- Introduction card -->
+                <div class="card">
+                    <div class="card-title">📌 Introduction</div>
+                    <div class="point"><strong>Kyun zaroori?</strong> Physical fitness aur performance check karne ke
+                        liye</div>
+                    <div class="point"><strong>Do age groups:</strong> 5-8 saal (Class 1-3) aur 9-18 saal (Class 4-12)
+                    </div>
+                    <div class="example"><i>Strength, endurance, agility measure karte hain</i></div>
+                </div>
+
+                <!-- BMI card -->
+                <div class="card">
+                    <div class="card-title">⚖️ BMI</div>
+                    <div class="point"><strong>Full form:</strong> Body Mass Index</div>
+                    <div class="point"><strong>Formula:</strong> <span class="formula">Weight (kg) / [Height
+                            (m)]²</span></div>
+                    <div class="point"><strong>Use:</strong> Underweight, normal, obese check</div>
+                    <div class="example"><i>Body composition measure</i></div>
+                </div>
+
+                <!-- Age 5-8 tests -->
+                <div class="card">
+                    <div class="card-title">🧒 Age 5-8 saal</div>
+                    <div class="point"><strong>BMI:</strong> Body composition check</div>
+                    <div class="point"><strong>Plate Tapping:</strong> Speed + limbs coordination</div>
+                    <div class="point"><strong>Flamingo Balance:</strong> Ek pair par balance, legs strength</div>
+                    <div class="example"><i>Fundamental movement skills check</i></div>
+                </div>
+            </div>
+
+            <!-- ROW 2: Age 9-18 tests (4 tests) -->
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">🏃 Age 9-18 (Part 1)</div>
+                    <div class="point"><strong>50m Standing Start:</strong> Acceleration + speed measure</div>
+                    <div class="point"><strong>600m Run/Walk:</strong> Cardiovascular endurance</div>
+                    <div class="example"><i>Class 4th to 12th ke liye</i></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">🧘 Age 9-18 (Part 2)</div>
+                    <div class="point"><strong>Sit & Reach:</strong> Flexibility (hip, back, hamstrings)</div>
+                    <div class="point"><strong>Partial Curl-up:</strong> Abdominal strength + endurance (crunches)</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">💪 Age 9-18 (Part 3)</div>
+                    <div class="point"><strong>Push-ups (Boys):</strong> Regular push-ups</div>
+                    <div class="point"><strong>Modified Push-ups (Girls):</strong> Ghutne teek kar ke</div>
+                    <div class="point"><strong>Donon:</strong> Upper body strength</div>
+                </div>
+            </div>
+
+            <!-- ROW 3: Cardiovascular + Harvard Step Test + BMR -->
+            <div class="grid">
+                <!-- Cardiovascular + Harvard -->
+                <div class="wide-card">
+                    <div class="card-title" style="background:#c96e1f;">❤️ Cardiovascular Fitness</div>
+                    <div class="point"><strong>Matlab:</strong> Heart + lungs ki oxygen supply efficiency</div>
+                    <div class="point"><strong>Harvard Step Test:</strong> 5 minute bench par up-down, recovery heart
+                        rate se Fitness Index</div>
+                    <div class="point"><strong>VO2 Max:</strong> Oxygen supply volume, exercise se improve</div>
+                    <div class="example"><i>Regular exercise se VO2 Max ⬆️</i></div>
+                </div>
+
+                <!-- BMR card -->
+                <div class="card">
+                    <div class="card-title">🔥 BMR</div>
+                    <div class="point"><strong>Full form:</strong> Basal Metabolic Rate</div>
+                    <div class="point"><strong>Kya hai?</strong> Minimum calories body ko zinda rehne ke liye (saans,
+                        blood circulation)</div>
+                    <div class="point"><strong>Body mass ⬆️ → BMR ⬆️</strong></div>
+                    <div class="point"><strong>Formula:</strong> Harris-Benedict (men/women alag)</div>
+                </div>
+            </div>
+
+            <!-- ROW 4: Rikli & Jones (Senior Citizens) -->
+            <div class="grid">
+                <div class="wide-card">
+                    <div class="card-title" style="background:#117f33;">👴 Rikli & Jones Test (Senior Citizens)</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0;">
+                        <span class="badge">Chair Stand</span>
+                        <span class="badge">Arm Curl</span>
+                        <span class="badge">Chair Sit & Reach</span>
+                        <span class="badge">Back Scratch</span>
+                        <span class="badge">8 Foot Up & Go</span>
+                        <span class="badge">6 Min Walk</span>
+                    </div>
+                    <div class="point"><strong>Chair Stand:</strong> Lower body strength</div>
+                    <div class="point"><strong>Arm Curl:</strong> Upper body strength + endurance</div>
+                    <div class="point"><strong>Chair Sit & Reach:</strong> Lower body flexibility</div>
+                    <div class="point"><strong>Back Scratch:</strong> Shoulder + upper body flexibility</div>
+                    <div class="point"><strong>8 Foot Up & Go:</strong> Speed, agility, balance</div>
+                    <div class="point"><strong>6 Min Walk:</strong> Functional endurance</div>
+                    <div class="example"><i>Senior citizens ke liye simple tests</i></div>
+                </div>
+            </div>
+
+            <!-- ROW 5: Johnson Metheny Test (Motor Educability) -->
+            <div class="grid">
+                <div class="wide-card">
+                    <div class="card-title" style="background:#9b59b6;">🤸 Johnson Metheny Test</div>
+                    <div class="point"><strong>Kya check karta hai?</strong> Physical abilities (strength, agility,
+                        speed) + neuro-muscular functions</div>
+                    <div class="point"><strong>4 Motor Stunts:</strong></div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 5px 0 15px;">
+                        <span class="badge" style="background:#8e44ad;">Front Roll</span>
+                        <span class="badge" style="background:#8e44ad;">Back Roll</span>
+                        <span class="badge" style="background:#8e44ad;">Jumping Half Turn</span>
+                        <span class="badge" style="background:#8e44ad;">Jumping Full Turn</span>
+                    </div>
+                    <div class="point"><strong>Scoring:</strong> Har sahi performance par points, balance kharab →
+                        points deduct</div>
+                    <div class="example"><i>Exam ke liye important — formulas aur procedures yaad rakho</i></div>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- extra examples row -->
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 15px 0;">
+                <span
+                    style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">📏
+                    BMI = kg/m²</span>
+                <span
+                    style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🦩
+                    Flamingo: balance test</span>
+                <span
+                    style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🪑
+                    Chair stand: senior fitness</span>
+                <span
+                    style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🔄
+                    Harvard Step: recovery HR</span>
+                <span
+                    style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🤸
+                    Front roll: Johnson Metheny</span>
+            </div>
+
+            <!-- footer summary -->
+            <div class="footer">
+                🌊 BMI · Plate Tapping · Flamingo · 50m · 600m · Sit & Reach · Curl-up · Push-ups · Harvard · BMR ·
+                Rikli & Jones · Johnson Metheny 🌊
+            </div>
+
+            <div style="text-align:center; margin-top:25px; color:#022b3a; font-size:1.6rem; font-weight:600;">
+                ✅ Unit 6 complete · Hinglish · Easy points with formulas & examples
+            </div>
+        </div>
+    </body>
+
+</html>

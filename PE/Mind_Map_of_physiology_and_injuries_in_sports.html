@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Physiology & Injuries in Sport — Unit 7 Simple Ocean Mind Map</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #0c0f14;
+    background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                      radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+}
+
+.main-box {
+    max-width: 1400px;
+    width: 100%;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.25);
+    border-radius: 70px 70px 40px 40px;
+    padding: 35px 25px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #ffb870 70%, #b6b0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 12px #141c2b);
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    background: #1f283c;
+    color: #ccddf8;
+    display: inline-block;
+    padding: 0.5rem 2.2rem;
+    border-radius: 60px;
+    margin: 0 auto 30px;
+    border: 1px solid #30415e;
+    backdrop-filter: blur(4px);
+    background: rgba(20, 30, 45, 0.8);
+    -webkit-text-fill-color: #e3ecff;
+    box-shadow: 0 10px 20px -8px #03080e;
+    font-weight: 500;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    flex: 1 1 280px;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    border-color: #3f6290;
+    background: rgba(24, 36, 50, 0.95);
+    box-shadow: 0 35px 50px -18px #0a192b, 0 0 0 1px #4f7cbb inset;
+    transform: scale(1.01) translateY(-5px);
+}
+
+.card-title {
+    background: linear-gradient(145deg, #1d446e, #0f2b48);
+    color: #ffd58c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.5rem 1.8rem;
+    border-radius: 60px;
+    display: inline-block;
+    margin-top: -45px;
+    margin-bottom: 1rem;
+    border: 1px solid #5b8dc9;
+    box-shadow: 0 6px 0 #082136;
+    letter-spacing: 0.5px;
+}
+
+.point {
+    background: rgba(0, 15, 30, 0.5);
+    margin: 15px 0;
+    padding: 1rem 1.3rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #c0d6fc;
+    border-left: 6px solid #3773bb;
+    box-shadow: inset 0 2px 8px #03080e;
+    line-height: 1.6;
+}
+
+.point strong {
+    color: #ffd966;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.example {
+    background: rgba(18, 30, 45, 0.5);
+    padding: 0.9rem 2rem;
+    border-radius: 60px;
+    font-size: 1rem;
+    color: #ffd58c;
+    border: 1px solid #3a6190;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 12px -6px #020b14;
+    margin-top: 10px;
+}
+
+.example i {
+    color: #9fc5ff;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.wide-card {
+    flex: 2 1 400px;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+}
+
+.badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 60px;
+    padding: 0.6rem 1.3rem;
+    color: #bdd3f5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px;
+    backdrop-filter: blur(4px);
+    transition: all 0.15s;
+}
+
+.badge:hover {
+    background: #213a58;
+    border-color: #7fa3db;
+    color: white;
+    box-shadow: 0 6px 15px #0d1b2b;
+    transform: scale(1.02);
+}
+
+.footer {
+    background: #0f1f30;
+    border: 2px solid #3e6a9b;
+    border-radius: 100px;
+    padding: 2.5rem 2rem;
+    margin-top: 4rem;
+    text-align: center;
+    color: #c4dcff;
+    font-size: 1.2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 35px -12px #030c14;
+}
+
+.footer strong {
+    color: #ffdb9c;
+    font-size: 1.4rem;
+}
+
+hr {
+    border: 1px solid #253a52;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.green-badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 40px;
+    padding: 0.4rem 1.3rem;
+    color: #adccff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid #2d507a;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d1622;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a4568;
+    border-radius: 20px;
+}
+
+/* responsive */
+@media (max-width: 700px) {
+    h1 { font-size: 2.5rem; }
+    .sub-heading { font-size: 1.3rem; padding: 0.5rem 1.5rem; }
+    .card-title { font-size: 1.1rem; }
+}
+
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>🫀 PHYSIOLOGY & INJURIES IN SPORT</h1>
+    <div class="sub-line">🌊 Unit 7 · Hinglish · Simple Ocean</div>
+
+    <!-- ROW 1: Physiology + Sports Physiology + Fitness Factors -->
+    <div class="flex-grid">
+        <!-- Physiology card -->
+        <div class="card">
+            <div class="card-title">🧬 Physiology</div>
+            <div class="point"><strong>Kya hai?</strong> Human body ka function aur movement</div>
+            <div class="point"><strong>Sports Physiology:</strong> Sports ke baad body ki functioning kaise change</div>
+            <div class="example"><i>Performance analyze + improve</i></div>
+        </div>
+
+        <!-- Strength Factors -->
+        <div class="card">
+            <div class="card-title">💪 Strength Factors</div>
+            <div class="point"><strong>Depend karta hai:</strong></div>
+            <div class="point">• Muscle size</div>
+            <div class="point">• Body weight</div>
+            <div class="point">• Muscle composition (fast/slow twitch)</div>
+            <div class="point">• Nervous impulse intensity</div>
+        </div>
+
+        <!-- Speed Factors -->
+        <div class="card">
+            <div class="card-title">⚡ Speed Factors</div>
+            <div class="point"><strong>Depend karta hai:</strong></div>
+            <div class="point">• Nervous impulse</div>
+            <div class="point">• Fast Twitch Fibers</div>
+            <div class="point">• Explosive strength</div>
+            <div class="point">• Flexibility</div>
+        </div>
+    </div>
+
+    <!-- ROW 2: Endurance + Flexibility + Exercise Effects -->
+    <div class="flex-grid">
+        <!-- Endurance Factors -->
+        <div class="card">
+            <div class="card-title">🏃 Endurance Factors</div>
+            <div class="point"><strong>Depend karta hai:</strong></div>
+            <div class="point">• VO2 Max (aerobic capacity)</div>
+            <div class="point">• Lactic acid tolerance</div>
+            <div class="point">• Movement economy</div>
+            <div class="point">• Slow Twitch Fibers</div>
+        </div>
+
+        <!-- Flexibility Factors -->
+        <div class="card">
+            <div class="card-title">🧘 Flexibility Factors</div>
+            <div class="point"><strong>Depend karta hai:</strong></div>
+            <div class="point">• Muscle strength</div>
+            <div class="point">• Age, gender (females mein zyada)</div>
+            <div class="point">• Muscles ki stretchability</div>
+            <div class="point">• Purani injuries</div>
+        </div>
+
+        <!-- Exercise Effects (Cardio) -->
+        <div class="card">
+            <div class="card-title">❤️ Exercise Effects</div>
+            <div class="point"><strong>Cardio-Respiratory:</strong></div>
+            <div class="point">• Heart size ⬆️ healthy</div>
+            <div class="point">• Resting heart rate ⬇️</div>
+            <div class="point">• Blood circulation ⬆️</div>
+            <div class="point">• VO2 Max ⬆️ (lungs capacity)</div>
+        </div>
+    </div>
+
+    <!-- ROW 3: Exercise Effects (Muscular) + Ageing -->
+    <div class="flex-grid">
+        <!-- Exercise Muscular -->
+        <div class="card">
+            <div class="card-title">💪 Exercise Effects (Muscular)</div>
+            <div class="point">• Muscles shape/size ⬆️ (hypertrophy)</div>
+            <div class="point">• Body fat ⬇️</div>
+            <div class="point">• Nayi capillaries banti hain</div>
+            <div class="point">• Body posture better</div>
+        </div>
+
+        <!-- Ageing Changes -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#9b59b6;">👴 Ageing (Budhape) ke Changes</div>
+            <div class="point">• Muscle strength ⬇️, neural strength ⬇️</div>
+            <div class="point">• Endocrine changes (hormonal imbalance)</div>
+            <div class="point">• Saans lene (pulmonary) slow, heart functioning slow</div>
+            <div class="point">• Bones density ⬇️ → bones kamzor</div>
+            <div class="example"><i>Umar badhti hai toh yeh changes aate hain</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 4: Soft Tissue Injuries -->
+    <div class="flex-grid">
+        <div class="wide-card">
+            <div class="card-title" style="background:#c96e1f;">🩸 Soft Tissue Injuries</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#b6450a;">Contusion</span>
+                <span class="badge" style="background:#b6450a;">Strain</span>
+                <span class="badge" style="background:#b6450a;">Sprain</span>
+                <span class="badge" style="background:#b6450a;">Abrasion</span>
+                <span class="badge" style="background:#b6450a;">Laceration</span>
+                <span class="badge" style="background:#b6450a;">Incision</span>
+            </div>
+            <div class="point"><strong>Contusion:</strong> Kisi cheez se takrane par halki chot/kharoch</div>
+            <div class="point"><strong>Strain:</strong> Muscle fiber ka twist/khich jana</div>
+            <div class="point"><strong>Sprain:</strong> Ligament ka tootna/over-stretch (PRICE se ilaaj)</div>
+            <div class="point"><strong>Abrasion:</strong> Skin ka ragad khana/chhil jana</div>
+            <div class="point"><strong>Laceration/Incision:</strong> Gehre cuts, stitches ki zaroorat</div>
+            <div class="example"><i>PRICE = Protection, Rest, Ice, Compression, Elevation</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 5: Bone Injuries (Fractures) -->
+    <div class="flex-grid">
+        <div class="wide-card">
+            <div class="card-title" style="background:#117f33;">🦴 Bone Injuries (Fractures)</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#0b5e2e;">Simple</span>
+                <span class="badge" style="background:#0b5e2e;">Compound</span>
+                <span class="badge" style="background:#0b5e2e;">Transverse</span>
+                <span class="badge" style="background:#0b5e2e;">Oblique</span>
+                <span class="badge" style="background:#0b5e2e;">Greenstick</span>
+                <span class="badge" style="background:#0b5e2e;">Comminuted</span>
+                <span class="badge" style="background:#0b5e2e;">Impacted</span>
+            </div>
+            <div class="point"><strong>Simple:</strong> Haddi andar tooti, bahar nahi dikhti</div>
+            <div class="point"><strong>Compound:</strong> Haddi toot kar skin se bahar</div>
+            <div class="point"><strong>Transverse/Oblique:</strong> 90° ya 45° angle par tootna</div>
+            <div class="point"><strong>Greenstick:</strong> Haddi poori nahi tooti, crack (bachon mein)</div>
+            <div class="point"><strong>Comminuted:</strong> Haddi ke kai chhote tukde</div>
+            <div class="point"><strong>Impacted:</strong> Tooti haddi ka ek dusre upar chadhna</div>
+        </div>
+    </div>
+
+    <!-- ROW 6: Joint Injuries -->
+    <div class="flex-grid">
+        <div class="card">
+            <div class="card-title" style="background:#d97706;">🦵 Joint Injuries</div>
+            <div class="point"><strong>Dislocation:</strong> Haddi apne joint se sarak jana</div>
+            <div class="point"><strong>Common places:</strong> Shoulder, jaw, hip, wrist</div>
+            <div class="example"><i>Example: shoulder dislocation</i></div>
+        </div>
+
+        <!-- Extra summary card for quick recall -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">📝 Quick Summary</div>
+            <div class="point">• Physiology = body function</div>
+            <div class="point">• Fitness factors: Strength, Speed, Endurance, Flexibility</div>
+            <div class="point">• Exercise: Heart ❤️, Muscles 💪 better</div>
+            <div class="point">• Ageing: strength ⬇️, bones ⬇️</div>
+            <div class="point">• Injuries: Soft tissue, Bone, Joint</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- extra examples row -->
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 15px 0;">
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">💪 Strain vs Sprain</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🦴 Greenstick = bachon mein</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🫀 VO2 Max = aerobic capacity</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🧊 PRICE = sprain ka ilaaj</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🦵 Dislocation = joint se haddi sarakna</span>
+    </div>
+
+    <!-- footer summary -->
+    <div class="footer">
+        🌊 Physiology · Fitness Factors · Exercise Effects · Ageing · Soft Tissue · Fractures · Dislocation · PRICE 🌊
+    </div>
+
+    <div style="text-align:center; margin-top:25px; color:#022b3a; font-size:1.6rem; font-weight:600;">
+        ✅ Unit 7 complete · Hinglish · Easy points with examples
+    </div>
+</div>
+</body>
+</html>

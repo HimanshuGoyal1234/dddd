@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Psychology & Sports — Unit 9 Simple Ocean Mind Map</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #0c0f14;
+    background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                      radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+}
+
+.main-box {
+    max-width: 1400px;
+    width: 100%;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.25);
+    border-radius: 70px 70px 40px 40px;
+    padding: 35px 25px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #ffb870 70%, #b6b0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 12px #141c2b);
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    background: #1f283c;
+    color: #ccddf8;
+    display: inline-block;
+    padding: 0.5rem 2.2rem;
+    border-radius: 60px;
+    margin: 0 auto 30px;
+    border: 1px solid #30415e;
+    backdrop-filter: blur(4px);
+    background: rgba(20, 30, 45, 0.8);
+    -webkit-text-fill-color: #e3ecff;
+    box-shadow: 0 10px 20px -8px #03080e;
+    font-weight: 500;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    flex: 1 1 280px;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    border-color: #3f6290;
+    background: rgba(24, 36, 50, 0.95);
+    box-shadow: 0 35px 50px -18px #0a192b, 0 0 0 1px #4f7cbb inset;
+    transform: scale(1.01) translateY(-5px);
+}
+
+.card-title {
+    background: linear-gradient(145deg, #1d446e, #0f2b48);
+    color: #ffd58c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.5rem 1.8rem;
+    border-radius: 60px;
+    display: inline-block;
+    margin-top: -45px;
+    margin-bottom: 1rem;
+    border: 1px solid #5b8dc9;
+    box-shadow: 0 6px 0 #082136;
+    letter-spacing: 0.5px;
+}
+
+.point {
+    background: rgba(0, 15, 30, 0.5);
+    margin: 15px 0;
+    padding: 1rem 1.3rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #c0d6fc;
+    border-left: 6px solid #3773bb;
+    box-shadow: inset 0 2px 8px #03080e;
+    line-height: 1.6;
+}
+
+.point strong {
+    color: #ffd966;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.example {
+    background: rgba(18, 30, 45, 0.5);
+    padding: 0.9rem 2rem;
+    border-radius: 60px;
+    font-size: 1rem;
+    color: #ffd58c;
+    border: 1px solid #3a6190;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 12px -6px #020b14;
+    margin-top: 10px;
+}
+
+.example i {
+    color: #9fc5ff;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.wide-card {
+    flex: 2 1 400px;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+}
+
+.badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 60px;
+    padding: 0.6rem 1.3rem;
+    color: #bdd3f5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px;
+    backdrop-filter: blur(4px);
+    transition: all 0.15s;
+}
+
+.badge:hover {
+    background: #213a58;
+    border-color: #7fa3db;
+    color: white;
+    box-shadow: 0 6px 15px #0d1b2b;
+    transform: scale(1.02);
+}
+
+.footer {
+    background: #0f1f30;
+    border: 2px solid #3e6a9b;
+    border-radius: 100px;
+    padding: 2.5rem 2rem;
+    margin-top: 4rem;
+    text-align: center;
+    color: #c4dcff;
+    font-size: 1.2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 35px -12px #030c14;
+}
+
+.footer strong {
+    color: #ffdb9c;
+    font-size: 1.4rem;
+}
+
+hr {
+    border: 1px solid #253a52;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.green-badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 40px;
+    padding: 0.4rem 1.3rem;
+    color: #adccff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid #2d507a;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d1622;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a4568;
+    border-radius: 20px;
+}
+
+/* responsive */
+@media (max-width: 700px) {
+    h1 { font-size: 2.5rem; }
+    .sub-heading { font-size: 1.3rem; padding: 0.5rem 1.5rem; }
+    .card-title { font-size: 1.1rem; }
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🧠 PSYCHOLOGY & SPORTS</h1>
+    <div class="sub-head">🌊 Unit 9 · Hinglish · Simple Ocean</div>
+
+    <!-- ROW 1: Personality Definition + 4 Dimensions -->
+    <div class="grid-row">
+        <!-- Personality Definition -->
+        <div class="card">
+            <div class="card-title">👤 Personality (व्यक्तित्व)</div>
+            <div class="point"><strong>Kya hai?</strong> Physical, mental, social, intellectual abilities ka combination jo use dusron se alag banata hai</div>
+            <div class="example"><i>Sirf achha dikhna nahi, overall personality</i></div>
+        </div>
+
+        <!-- 4 Dimensions -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#9b59b6;">📊 4 Dimensions of Personality</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#8e44ad;">Physical</span>
+                <span class="badge" style="background:#8e44ad;">Mental</span>
+                <span class="badge" style="background:#8e44ad;">Social</span>
+                <span class="badge" style="background:#8e44ad;">Emotional</span>
+            </div>
+            <div class="point"><strong>Physical:</strong> First impression, body structure, appearance</div>
+            <div class="point"><strong>Mental:</strong> True identification, intellectual power (APJ Abdul Kalam, Einstein)</div>
+            <div class="point"><strong>Social:</strong> Manners, behavior, kindness, attitude</div>
+            <div class="point"><strong>Emotional:</strong> Emotions par control, stability (MS Dhoni)</div>
+        </div>
+    </div>
+
+    <!-- ROW 2: Types of Personality - Jung's Classification -->
+    <div class="grid-row">
+        <!-- Jung's Classification -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">🧑‍🤝‍🧑 Jung's Classification</div>
+            <div class="point"><strong>Introverts:</strong> Akele rehna pasand, zyada social nahi</div>
+            <div class="point"><strong>Extroverts:</strong> Bahut social, zyada dost</div>
+            <div class="point"><strong>Ambiverts:</strong> Intro + Extro ka mix, situation ke hisaab se behave</div>
+        </div>
+
+        <!-- Big Five Theory (OCEAN) -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#0284c7;">🌊 Big Five Theory (OCEAN)</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge">Openness</span>
+                <span class="badge">Conscientiousness</span>
+                <span class="badge">Extraversion</span>
+                <span class="badge">Agreeableness</span>
+                <span class="badge">Neuroticism</span>
+            </div>
+            <div class="point"><strong>Openness:</strong> Nayi cheezein sikhne, experience karne wale</div>
+            <div class="point"><strong>Conscientiousness:</strong> Goal-oriented, disciplined</div>
+            <div class="point"><strong>Extraversion:</strong> Zyada bolne wale, social</div>
+            <div class="point"><strong>Agreeableness:</strong> Trust karne wale, cooperative</div>
+            <div class="point"><strong>Neuroticism:</strong> Emotional stability kam, negative thoughts zyada</div>
+        </div>
+    </div>
+
+    <!-- ROW 3: Motivation -->
+    <div class="grid-row">
+        <div class="wide-card">
+            <div class="card-title" style="background:#c96e1f;">🎯 Motivation</div>
+            <div class="point"><strong>Kya hai?</strong> Goal achieve karne ki need/desire</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#b6450a;">Intrinsic</span>
+                <span class="badge" style="background:#b6450a;">Extrinsic</span>
+            </div>
+            <div class="point"><strong>Intrinsic:</strong> Andar se aati hai (self-motivation)</div>
+            <div class="point"><strong>Extrinsic:</strong> Bahari rewards (paisa, trophy) ya dusron ke kehne par</div>
+            <div class="point"><strong>Techniques:</strong> Goal setting, spectators ka shor, cash prizes, motivational music</div>
+        </div>
+    </div>
+
+    <!-- ROW 4: Exercise Adherence + Aggression -->
+    <div class="grid-row">
+        <!-- Exercise Adherence -->
+        <div class="card">
+            <div class="card-title" style="background:#117f33;">🏃 Exercise Adherence</div>
+            <div class="point"><strong>Kya hai?</strong> Exercise program ko lambe samay tak follow karne ki ability</div>
+            <div class="point"><strong>Benefits:</strong> Stress kam, confidence ⬆️, neech achhi, body healthy</div>
+            <div class="point"><strong>Strategies:</strong> Achha coach, family support, proper plan, positive environment</div>
+        </div>
+
+        <!-- Aggression -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#d97706;">⚔️ Aggression in Sports</div>
+            <div class="point"><strong>Kya hai?</strong> Behavior jismein kisi ko physically/psychologically harm karne ka risk</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#b6450a;">Hostile</span>
+                <span class="badge" style="background:#b6450a;">Instrumental</span>
+                <span class="badge" style="background:#b6450a;">Assertive</span>
+            </div>
+            <div class="point"><strong>Hostile:</strong> Main maksad = kisi ko chot/injury dena</div>
+            <div class="point"><strong>Instrumental:</strong> Goal-oriented, jeetna priority, nuksan direct irada nahi</div>
+            <div class="point"><strong>Assertive:</strong> Rules ke andar rehkar aggressive game (cricket mein sledging)</div>
+        </div>
+    </div>
+
+    <!-- ROW 5: Psychological Attributes -->
+    <div class="grid-row">
+        <div class="wide-card">
+            <div class="card-title" style="background:#9b59b6;">🧘 Psychological Attributes</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#8e44ad;">Self-esteem</span>
+                <span class="badge" style="background:#8e44ad;">Mental Imagery</span>
+                <span class="badge" style="background:#8e44ad;">Self-talk</span>
+                <span class="badge" style="background:#8e44ad;">Goal Setting</span>
+            </div>
+            <div class="point"><strong>Self-esteem:</strong> Apni worth aur kabilayat par bharosa</div>
+            <div class="point"><strong>Mental Imagery:</strong> Dimag mein game ki strategy visualize karna</div>
+            <div class="point"><strong>Self-talk:</strong> Apne aap se baat karke negative → positive, focus</div>
+            <div class="point"><strong>Goal Setting:</strong> Specific target set, har din practice</div>
+            <div class="example"><i>Athletes ko behtar banane ke liye 4 factors</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 6: Quick Summary Card -->
+    <div class="grid-row">
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">📝 Quick Recap</div>
+            <div class="point">• Personality = Physical + Mental + Social + Emotional</div>
+            <div class="point">• Jung: Intro, Extro, Ambivert</div>
+            <div class="point">• OCEAN: Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism</div>
+            <div class="point">• Motivation: Intrinsic (andar) vs Extrinsic (bahar)</div>
+            <div class="point">• Aggression: Hostile, Instrumental, Assertive</div>
+            <div class="point">• 4 Attributes: Self-esteem, Imagery, Self-talk, Goal Setting</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- extra examples row -->
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 15px 0;">
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🧠 MS Dhoni = emotional stability</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🌊 OCEAN theory</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🏆 Intrinsic vs Extrinsic</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">⚔️ Sledging = assertive</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🎯 Goal setting = specific target</span>
+    </div>
+
+    <!-- footer summary -->
+    <div class="footer">
+        🌊 Personality Dimensions · Jung · OCEAN · Intrinsic/Extrinsic · Exercise Adherence · Aggression Types · Psychological Attributes 🌊
+    </div>
+
+    <div style="text-align:center; margin-top:25px; color:#022b3a; font-size:1.6rem; font-weight:600;">
+        ✅ Unit 9 complete · Hinglish · Easy points with examples
+    </div>
+</div>
+</body>
+</html>

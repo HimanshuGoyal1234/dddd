@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Children & Women in Sports — Unit 2 Simple Ocean Mind Map</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #0c0f14;
+    background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                      radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+}
+
+.main-box {
+    max-width: 1400px;
+    width: 100%;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.25);
+    border-radius: 70px 70px 40px 40px;
+    padding: 35px 25px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #ffb870 70%, #b6b0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 12px #141c2b);
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    background: #1f283c;
+    color: #ccddf8;
+    display: inline-block;
+    padding: 0.5rem 2.2rem;
+    border-radius: 60px;
+    margin: 0 auto 30px;
+    border: 1px solid #30415e;
+    backdrop-filter: blur(4px);
+    background: rgba(20, 30, 45, 0.8);
+    -webkit-text-fill-color: #e3ecff;
+    box-shadow: 0 10px 20px -8px #03080e;
+    font-weight: 500;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    flex: 1 1 280px;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    border-color: #3f6290;
+    background: rgba(24, 36, 50, 0.95);
+    box-shadow: 0 35px 50px -18px #0a192b, 0 0 0 1px #4f7cbb inset;
+    transform: scale(1.01) translateY(-5px);
+}
+
+.card-title {
+    background: linear-gradient(145deg, #1d446e, #0f2b48);
+    color: #ffd58c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.5rem 1.8rem;
+    border-radius: 60px;
+    display: inline-block;
+    margin-top: -45px;
+    margin-bottom: 1rem;
+    border: 1px solid #5b8dc9;
+    box-shadow: 0 6px 0 #082136;
+    letter-spacing: 0.5px;
+}
+
+.point {
+    background: rgba(0, 15, 30, 0.5);
+    margin: 15px 0;
+    padding: 1rem 1.3rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #c0d6fc;
+    border-left: 6px solid #3773bb;
+    box-shadow: inset 0 2px 8px #03080e;
+    line-height: 1.6;
+}
+
+.point strong {
+    color: #ffd966;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.example {
+    background: rgba(18, 30, 45, 0.5);
+    padding: 0.9rem 2rem;
+    border-radius: 60px;
+    font-size: 1rem;
+    color: #ffd58c;
+    border: 1px solid #3a6190;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 12px -6px #020b14;
+    margin-top: 10px;
+}
+
+.example i {
+    color: #9fc5ff;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.wide-card {
+    flex: 2 1 400px;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+}
+
+.badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 60px;
+    padding: 0.6rem 1.3rem;
+    color: #bdd3f5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px;
+    backdrop-filter: blur(4px);
+    transition: all 0.15s;
+}
+
+.badge:hover {
+    background: #213a58;
+    border-color: #7fa3db;
+    color: white;
+    box-shadow: 0 6px 15px #0d1b2b;
+    transform: scale(1.02);
+}
+
+.footer {
+    background: #0f1f30;
+    border: 2px solid #3e6a9b;
+    border-radius: 100px;
+    padding: 2.5rem 2rem;
+    margin-top: 4rem;
+    text-align: center;
+    color: #c4dcff;
+    font-size: 1.2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 35px -12px #030c14;
+}
+
+.footer strong {
+    color: #ffdb9c;
+    font-size: 1.4rem;
+}
+
+hr {
+    border: 1px solid #253a52;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.green-badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 40px;
+    padding: 0.4rem 1.3rem;
+    color: #adccff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid #2d507a;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d1622;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a4568;
+    border-radius: 20px;
+}
+
+/* responsive */
+@media (max-width: 700px) {
+    h1 { font-size: 2.5rem; }
+    .sub-heading { font-size: 1.3rem; padding: 0.5rem 1.5rem; }
+    .card-title { font-size: 1.1rem; }
+}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>👶 CHILDREN & WOMEN IN SPORTS</h1>
+    <div class="sub-head">🌊 Unit 2 · Hinglish · Simple Ocean</div>
+
+    <!-- ROW 1: Introduction + Stages of Life -->
+    <div class="grid-row">
+        <!-- Introduction -->
+        <div class="card">
+            <div class="card-title">📌 Introduction</div>
+            <div class="point"><strong>Is chapter mein:</strong> Bachon aur auraton ka sports mein participation, unke physical benefits</div>
+        </div>
+
+        <!-- Stages of Life -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#0284c7;">👶 Stages of Life</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge">Infant (0-1)</span>
+                <span class="badge">Toddler (2-4)</span>
+                <span class="badge">Child (5-12)</span>
+                <span class="badge">Teenage (13-19)</span>
+                <span class="badge">Adult (20-64)</span>
+                <span class="badge">Senior (65+)</span>
+            </div>
+            <div class="point"><strong>Infant:</strong> Birth to 1 year</div>
+            <div class="point"><strong>Toddler:</strong> 2-4 saal</div>
+            <div class="point"><strong>Child:</strong> 5-12 saal</div>
+            <div class="point"><strong>Teenage:</strong> 13-19 saal</div>
+            <div class="point"><strong>Adult:</strong> 20-64 saal (Middle Adult bhi)</div>
+            <div class="point"><strong>Senior Citizen:</strong> 65+ saal</div>
+        </div>
+    </div>
+
+    <!-- ROW 2: WHO Exercise Guidelines (4 age groups) -->
+    <div class="grid-row">
+        <!-- <5 years -->
+        <div class="card">
+            <div class="card-title" style="background:#c96e1f;">🧸 Under 5 years</div>
+            <div class="point"><strong>Floor-based games:</strong> 30 mins</div>
+            <div class="point"><strong>1-4 saal:</strong> 180 minutes physical activities</div>
+            <div class="point"><strong>Neend:</strong> 10-17 ghante</div>
+            <div class="point"><strong>Screen time:</strong> Avoid karna (TV/Phone)</div>
+        </div>
+
+        <!-- 5-17 years -->
+        <div class="card">
+            <div class="card-title" style="background:#117f33;">🏃 5-17 years</div>
+            <div class="point"><strong>Daily:</strong> 1 ghanta moderate to vigorous exercise</div>
+            <div class="point"><strong>Examples:</strong> Running, jumping, muscle strengthening</div>
+        </div>
+
+        <!-- 18-64 years -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">💪 18-64 years</div>
+            <div class="point"><strong>Moderate:</strong> 150-300 min/week</div>
+            <div class="point"><strong>Vigorous:</strong> 75-150 min/week</div>
+            <div class="point"><strong>Focus:</strong> Muscle training + flexibility</div>
+        </div>
+
+        <!-- 65+ years -->
+        <div class="card">
+            <div class="card-title" style="background:#9b59b6;">👴 65+ years</div>
+            <div class="point"><strong>Balance exercises:</strong> Girne ka khatra kam</div>
+            <div class="point"><strong>Halki muscle training</strong></div>
+        </div>
+    </div>
+
+    <!-- ROW 3: Common Postural Deformities (Part 1) -->
+    <div class="grid-row">
+        <!-- Kyphosis + Lordosis + Scoliosis -->
+        <div class="card">
+            <div class="card-title" style="background:#d97706;">🦴 Kyphosis</div>
+            <div class="point"><strong>Hunchback:</strong> Upper back aage jhuk jana</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="background:#d97706;">🦴 Lordosis</div>
+            <div class="point"><strong>Lower back andar dhansna:</strong> Pet bahar nikal aata hai</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="background:#d97706;">🦴 Scoliosis</div>
+            <div class="point"><strong>Spine ka 'S' ya 'C' shape:</strong> Side ki taraf mudna</div>
+        </div>
+    </div>
+
+    <!-- ROW 4: Common Postural Deformities (Part 2) -->
+    <div class="grid-row">
+        <!-- Knock Knees + Bow Legs -->
+        <div class="card">
+            <div class="card-title" style="background:#c96e1f;">🦵 Knock Knees</div>
+            <div class="point"><strong>Khade hone par:</strong> Ghutne aapas mein takrate hain</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="background:#c96e1f;">🦵 Bow Legs</div>
+            <div class="point"><strong>Ghutne door:</strong> Knock Knees ka ulta</div>
+        </div>
+
+        <!-- Round Shoulders + Flat Foot -->
+        <div class="card">
+            <div class="card-title" style="background:#c96e1f;">⬇️ Round Shoulders</div>
+            <div class="point"><strong>Kandhe aage jhuk jana</strong></div>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="background:#c96e1f;">👣 Flat Foot</div>
+            <div class="point"><strong>Pair ka arch khatam:</strong> Pair bilkul flat</div>
+        </div>
+    </div>
+
+    <!-- ROW 5: Women Participation in Sports -->
+    <div class="grid-row">
+        <div class="wide-card">
+            <div class="card-title" style="background:#9b59b6;">👩 Women Participation in Sports</div>
+            <div class="point"><strong>Indian Stars:</strong></div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#8e44ad;">P.T. Usha (1984)</span>
+                <span class="badge" style="background:#8e44ad;">Karnam Malleswari (2000 Bronze)</span>
+                <span class="badge" style="background:#8e44ad;">Mary Kom</span>
+                <span class="badge" style="background:#8e44ad;">Saina Nehwal</span>
+                <span class="badge" style="background:#8e44ad;">P.V. Sindhu</span>
+            </div>
+            <div class="point"><strong>Barriers (Rukawatein):</strong></div>
+            <div class="point">• Gender inequality</div>
+            <div class="point">• Lack of motivation</div>
+            <div class="point">• Male-dominated culture</div>
+            <div class="point">• Family support ki kami</div>
+            <div class="example"><i>Pehle participation kam tha, ab badh raha hai</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 6: Special Considerations + Female Athlete Triad -->
+    <div class="grid-row">
+        <!-- Special Considerations -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">🌸 Special Considerations</div>
+            <div class="point"><strong>Menarche:</strong> Pehli baar periods aana (9-16 saal)</div>
+            <div class="point"><strong>Menstrual Dysfunction:</strong> Irregular periods ya zyada dard (cramps)</div>
+        </div>
+
+        <!-- Female Athlete Triad -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#d97706;">⚠️ Female Athlete Triad</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#b6450a;">Osteoporosis</span>
+                <span class="badge" style="background:#b6450a;">Amenorrhea</span>
+                <span class="badge" style="background:#b6450a;">Eating Disorders</span>
+            </div>
+            <div class="point"><strong>Osteoporosis:</strong> Haddi ki density kam → haddiya kamzor</div>
+            <div class="point"><strong>Amenorrhea:</strong> Intense exercise + kam khana → periods ruk jana</div>
+            <div class="point"><strong>Eating Disorders:</strong></div>
+            <div class="point">• <strong>Anorexia Nervosa:</strong> Mote hone ke darr se khana band</div>
+            <div class="point">• <strong>Bulimia Nervosa:</strong> Zyada khana phir vomiting (ulti) karna</div>
+        </div>
+    </div>
+
+    <!-- ROW 7: Quick Summary Card -->
+    <div class="grid-row">
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">📝 Quick Recap</div>
+            <div class="point">• 6 Stages of Life (Infant to Senior)</div>
+            <div class="point">• WHO Guidelines: Under 5, 5-17, 18-64, 65+</div>
+            <div class="point">• Postural Deformities: Kyphosis, Lordosis, Scoliosis, Knock Knees, Bow Legs, Round Shoulders, Flat Foot</div>
+            <div class="point">• Women Stars: P.T. Usha, Karnam Malleswari, Mary Kom, Saina, Sindhu</div>
+            <div class="point">• Barriers: Gender inequality, lack of support</div>
+            <div class="point">• Female Athlete Triad: Osteoporosis + Amenorrhea + Eating Disorders</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- extra examples row -->
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 15px 0;">
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">👶 Infant = 0-1 year</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🏃 5-17 = 1 ghanta daily</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🦴 Kyphosis = Hunchback</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🥇 P.T. Usha = 1984</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">⚠️ Female Athlete Triad</span>
+    </div>
+
+    <!-- footer summary -->
+    <div class="footer">
+        🌊 Stages of Life · WHO Guidelines · Postural Deformities · Women Participation · Female Athlete Triad 🌊
+    </div>
+
+    <div style="text-align:center; margin-top:25px; color:#022b3a; font-size:1.6rem; font-weight:600;">
+        ✅ Unit 2 complete · Hinglish · Easy points with examples
+    </div>
+</div>
+</body>
+</html>

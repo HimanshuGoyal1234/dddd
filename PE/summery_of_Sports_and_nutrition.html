@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>✨ Sports & Nutrition · Unit 5 · Premium Summary</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            }
+
+            body {
+                background: #0c0f14;
+                background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                    radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 1.2rem;
+            }
+
+            .premium-container {
+                max-width: 1400px;
+                width: 100%;
+            }
+
+            /* header premium */
+            .header {
+                margin-bottom: 2.5rem;
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 2.8rem;
+                font-weight: 700;
+                background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #b6b0ff 80%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                letter-spacing: -0.5px;
+                filter: drop-shadow(0 4px 12px #141c2b);
+            }
+
+            .header h1 span {
+                background: #1f283c;
+                color: #ccddf8;
+                font-size: 1.3rem;
+                font-weight: 500;
+                padding: 0.3rem 1.8rem;
+                border-radius: 60px;
+                display: inline-block;
+                margin-top: 12px;
+                border: 1px solid #30415e;
+                backdrop-filter: blur(4px);
+                background: rgba(20, 30, 45, 0.7);
+                -webkit-text-fill-color: #e3ecff;
+            }
+
+            .micro-chip {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.7rem 1rem;
+                margin: 2.2rem 0 2.8rem;
+            }
+
+            .filter-chip {
+                background: rgba(18, 26, 38, 0.8);
+                border: 1px solid #314a6b;
+                color: #b5cbee;
+                padding: 0.6rem 1.5rem;
+                border-radius: 40px;
+                font-weight: 500;
+                font-size: 0.85rem;
+                letter-spacing: 0.3px;
+                cursor: default;
+                backdrop-filter: blur(4px);
+                transition: 0.2s ease;
+                box-shadow: 0 6px 12px -8px #04080e;
+                text-transform: uppercase;
+                border-color: #2f405b;
+            }
+
+            .filter-chip:hover {
+                background: #1e314a;
+                color: #ffffff;
+                border-color: #6c8fc9;
+                box-shadow: 0 8px 18px -6px #1e3f70;
+                transform: translateY(-2px);
+            }
+
+            .filter-chip.active {
+                background: linear-gradient(145deg, #1e3f64, #123456);
+                border-color: #9bbfff;
+                color: white;
+                font-weight: 600;
+                box-shadow: 0 10px 22px -8px #1d446e, 0 0 0 1px #6c9df0 inset;
+            }
+
+            /* dark premium grid */
+            .summary-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+                gap: 1.8rem;
+            }
+
+            .summary-card {
+                background: rgba(15, 22, 32, 0.85);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(70, 110, 160, 0.25);
+                border-radius: 38px;
+                padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+                box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+                transition: all 0.2s;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .summary-card:hover {
+                border-color: #3f6290;
+                background: rgba(22, 32, 46, 0.95);
+                box-shadow: 0 30px 50px -18px #0a1422, 0 0 0 1px #4f7cbb inset;
+                transform: scale(1.01) translateY(-3px);
+            }
+
+            .card-header {
+                display: flex;
+                align-items: center;
+                gap: 0.9rem;
+                margin-bottom: 1.4rem;
+            }
+
+            .q-num {
+                background: #142436;
+                color: #bdd3ff;
+                font-weight: 700;
+                font-size: 1.5rem;
+                width: 52px;
+                height: 52px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 30% 70% 30% 70% / 60% 40% 60% 40%;
+                border: 1px solid #375d8c;
+                box-shadow: 0 4px 14px #020b16;
+            }
+
+            .topic-tag {
+                background: #162433;
+                color: #adccff;
+                font-size: 0.85rem;
+                font-weight: 600;
+                padding: 0.5rem 1.5rem;
+                border-radius: 40px;
+                text-transform: uppercase;
+                letter-spacing: 0.4px;
+                border: 1px solid #2d507a;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .summary-content {
+                font-size: 1.05rem;
+                line-height: 1.75;
+                color: #e0edff;
+                font-weight: 400;
+                margin: 0.2rem 0 1rem 0;
+                flex-grow: 1;
+                background: rgba(0, 10, 22, 0.5);
+                padding: 1.4rem 1.5rem;
+                border-radius: 26px;
+                border-left: 4px solid #3773bb;
+                box-shadow: inset 0 2px 8px #03080e;
+            }
+
+            .summary-content strong {
+                color: #ffd966;
+                font-weight: 600;
+            }
+
+            .summary-content em {
+                color: #9fc5ff;
+                font-style: italic;
+            }
+
+            .summary-content ul {
+                margin: 0.7rem 0 0.2rem 1.5rem;
+            }
+
+            .summary-content li {
+                margin: 0.4rem 0;
+                color: #d3e2fd;
+            }
+
+            .formula-badge {
+                background: #0e1b2b;
+                padding: 0.25rem 1rem;
+                border-radius: 40px;
+                font-family: 'JetBrains Mono', monospace;
+                font-weight: 600;
+                color: #ffb870;
+                border: 1px solid #3e5f86;
+                display: inline-block;
+                margin: 0.5rem 0.2rem 0 0;
+                font-size: 1.1rem;
+            }
+
+            .footer-meta {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 0.8rem;
+                border-top: 1px solid #253a52;
+                padding-top: 0.8rem;
+            }
+
+            .source-badge {
+                background: #0f1b28;
+                color: #9eb9dc;
+                padding: 0.3rem 1.2rem;
+                border-radius: 30px;
+                font-size: 0.8rem;
+                font-weight: 500;
+                border: 1px solid #324f73;
+            }
+
+            .btn-copy {
+                background: transparent;
+                border: 1px solid #3b5982;
+                border-radius: 40px;
+                padding: 0.3rem 1.3rem;
+                color: #bdd3f5;
+                font-size: 0.75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: 0.15s;
+                backdrop-filter: blur(4px);
+            }
+
+            .btn-copy:hover {
+                background: #213a58;
+                border-color: #7fa3db;
+                color: white;
+                box-shadow: 0 4px 12px #0d1b2b;
+            }
+
+            .footer-note {
+                text-align: center;
+                margin-top: 3.8rem;
+                color: #7f9bc0;
+                font-size: 0.95rem;
+                border-top: 1px solid #1e3148;
+                padding-top: 2rem;
+            }
+
+            .footer-note strong {
+                color: #c9ddff;
+                font-weight: 600;
+            }
+
+            /* custom dark scroll */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #0d1622;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #2a4568;
+                border-radius: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="premium-container">
+            <!-- header premium with hinglish title -->
+            <div class="header">
+                <h1>⚡ Sports & Nutrition · Unit 5</h1><!-- filter chips (visual only, non functional but premium) -->
+                <div class="micro-chip">
+                    <span class="filter-chip active">सभी टॉपिक</span>
+                    <span class="filter-chip">balanced diet</span>
+                    <span class="filter-chip">macro nutrients</span>
+                    <span class="filter-chip">micro nutrients</span>
+                    <span class="filter-chip">BMI</span>
+                    <span class="filter-chip">diet pitfalls</span>
+                    <span class="filter-chip">sports nutrition</span>
+                </div>
+
+                <!-- summary grid — 7 cards for 7 main sections -->
+                <div class="summary-grid">
+                    <!-- 1. Introduction: Food aur Nutrition Kya Hai? -->
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="q-num">01</span>
+                            <span class="topic-tag">food & nutrition</span>
+                        </div>
+                        <div class="summary-content">
+                            <strong>🍎 Introduction: Food aur Nutrition Kya Hai?</strong><br>
+                            <strong>Food</strong> hamari basic need hai jo growth, development aur energy ke liye
+                            zaroori
+                            hai. <strong>Nutrition</strong> ek aisi process hai jismein hum khana consume karte hain
+                            takki
+                            body use absorb karke nourish ho sake aur healthy rahe.
+                        </div>
+                        <div class="footer-meta">
+                            <span class="source-badge">basic need · nourishment</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. Balance Diet (संतुलित आहार) -->
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="q-num">02</span>
+                            <span class="topic-tag">balanced diet</span>
+                        </div>
+                        <div class="summary-content">
+                            <strong>⚖️ Balance Diet (संतुलित आहार)</strong><br>
+                            Balance diet ka matlab hai aisa khana jismein saare food groups (<strong>Protein,
+                                Carbohydrates,
+                                Fat, Vitamins, Minerals aur Water</strong>) ek correct proportion mein hon. Yeh aapki
+                            body
+                            ko build karne, energy dene aur bimarion se bachane mein help karti hai.
+                        </div>
+                        <div class="footer-meta">
+                            <span class="source-badge">all nutrients in proportion</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. Macro Nutrients -->
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="q-num">03</span>
+                            <span class="topic-tag">macro nutrients</span>
+                        </div>
+                        <div class="summary-content">
+                            <strong>💪 Macro Nutrients (large amount mein zaroori)</strong><br>
+                            • <strong>Carbohydrates:</strong> Energy source (1g = 4 cal). Simple (meethe, quick digest)
+                            &
+                            Complex (starchy).<br>
+                            • <strong>Proteins:</strong> "Building Blocks" – muscles build & repair. 1g per kg body
+                            weight.<br>
+                            • <strong>Fats:</strong> Stored energy (1g = 9 cal), organ protection. Unsaturated (good)
+                            cholesterol ↓, Saturated (bad) cholesterol ↑.<br>
+                            • <strong>Water:</strong> Nutrient transport, digestion, temperature regulation.
+                        </div>
+                        <div class="footer-meta">
+                            <span class="source-badge">carbs · proteins · fats · water</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. Micro Nutrients -->
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="q-num">04</span>
+                            <span class="topic-tag">micro nutrients</span>
+                        </div>
+                        <div class="summary-content">
+                            <strong>🧪 Micro Nutrients (small amount mein)</strong><br>
+                            • <strong>Minerals:</strong> Calcium & Phosphorus (bones), Iron (hemoglobin), Iodine
+                            (thyroid).<br>
+                            • <strong>Vitamins:</strong> Water Soluble (B, C) aur Fat Soluble (A, D, E, K). Deficiency
+                            se
+                            diseases: Night Blindness (Vit A), Rickets (Vit D).
+                        </div>
+                        <div class="footer-meta">
+                            <span class="source-badge">minerals · vitamins · deficiency</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Nutritive aur Non-Nutritive Components & BMI -->
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="q-num">05</span>
+                            <span class="topic-tag">components · BMI</span>
+                        </div>
+                        <div class="summary-content">
+                            <strong>📊 Nutritive / Non-Nutritive & BMI</strong><br>
+                            • <strong>Nutritive Components:</strong> Jo calories/energy dete hain (Carbs, Protein,
+                            Fats).<br>
+                            • <strong>Non-Nutritive Components:</strong> No calories but essential – Fiber/Roughage
+                            (digestion), Water, Color/Flavor compounds.<br>
+                            • <strong>BMI (Body Mass Index):</strong> <span class="formula-badge">Weight (kg) / [Height
+                                (m)]²</span><br>
+                            &nbsp;&nbsp;18.5–24.9 = Healthy Weight, 30+ = Obesity.
+                        </div>
+                        <div class="footer-meta">
+                            <span class="source-badge">BMI formula · healthy range</span>
+                        </div>
+                    </div>
+
+                    <!-- 6. Pitfalls of Dieting aur Food Intolerance -->
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="q-num">06</span>
+                            <span class="topic-tag">diet pitfalls · intolerance</span>
+                        </div>
+                        <div class="summary-content">
+                            <strong>⚠️ Pitfalls of Dieting aur Food Intolerance</strong><br>
+                            • <strong>Pitfalls of Dieting:</strong> Weight loss ke chakkar mein meals skip / starve
+                            karna
+                            dangerous – metabolic rate ↓, bimar ho sakte ho.<br>
+                            • <strong>Food Intolerance:</strong> Body kisi food ko digest nahi kar pati – vomiting, gas,
+                            acidity.<br>
+                            • <strong>Food Myths:</strong> Jaise "carb khane se mote hote hain", "khana khate waqt pani
+                            nahi
+                            peena" – yeh galat-fehmiyan (myths) hain.
+                        </div>
+                        <div class="footer-meta">
+                            <span class="source-badge">starvation danger · myths</span>
+                        </div>
+                    </div>
+
+                    <!-- 7. Importance of Diet in Sports (Pre/During/Post) -->
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="q-num">07</span>
+                            <span class="topic-tag">sports nutrition</span>
+                        </div>
+                        <div class="summary-content">
+                            <strong>🏅 Importance of Diet in Sports</strong><br>
+                            • <strong>Pre-Competition:</strong> High carbohydrate diet for energy.<br>
+                            • <strong>During Competition:</strong> Hydrated rehne pani, instant energy ke liye
+                            banana.<br>
+                            • <strong>Post-Competition:</strong> Muscles ki recovery & repair ke liye Protein + Carbs
+                            mix.
+                        </div>
+                        <div class="footer-meta">
+                            <span class="source-badge">pre · during · post</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- footer note -->
+                <div class="footer-note">
+                    <strong>✅ पूरा chapter summary — Sports & Nutrition (Unit 5)</strong> <br>
+                    Hinglish mein, saare important topics covered · balanced diet, macro/micro, BMI, diet pitfalls,
+                    sports
+                    nutrition · sources ke according · premium Kuldeep Sir style
+                </div>
+            </div>
+
+            <script>
+                // simple copy function for buttons
+
+            </script>
+    </body>
+
+</html>

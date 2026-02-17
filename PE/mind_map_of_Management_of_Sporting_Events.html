@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Management of Sporting Events — Unit 1 Simple Ocean Mind Map</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #0c0f14;
+    background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                      radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+}
+
+.main-box {
+    max-width: 1400px;
+    width: 100%;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.25);
+    border-radius: 70px 70px 40px 40px;
+    padding: 35px 25px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #ffb870 70%, #b6b0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 12px #141c2b);
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    background: #1f283c;
+    color: #ccddf8;
+    display: inline-block;
+    padding: 0.5rem 2.2rem;
+    border-radius: 60px;
+    margin: 0 auto 30px;
+    border: 1px solid #30415e;
+    backdrop-filter: blur(4px);
+    background: rgba(20, 30, 45, 0.8);
+    -webkit-text-fill-color: #e3ecff;
+    box-shadow: 0 10px 20px -8px #03080e;
+    font-weight: 500;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    flex: 1 1 280px;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    border-color: #3f6290;
+    background: rgba(24, 36, 50, 0.95);
+    box-shadow: 0 35px 50px -18px #0a192b, 0 0 0 1px #4f7cbb inset;
+    transform: scale(1.01) translateY(-5px);
+}
+
+.card-title {
+    background: linear-gradient(145deg, #1d446e, #0f2b48);
+    color: #ffd58c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.5rem 1.8rem;
+    border-radius: 60px;
+    display: inline-block;
+    margin-top: -45px;
+    margin-bottom: 1rem;
+    border: 1px solid #5b8dc9;
+    box-shadow: 0 6px 0 #082136;
+    letter-spacing: 0.5px;
+}
+
+.point {
+    background: rgba(0, 15, 30, 0.5);
+    margin: 15px 0;
+    padding: 1rem 1.3rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #c0d6fc;
+    border-left: 6px solid #3773bb;
+    box-shadow: inset 0 2px 8px #03080e;
+    line-height: 1.6;
+}
+
+.point strong {
+    color: #ffd966;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.example {
+    background: rgba(18, 30, 45, 0.5);
+    padding: 0.9rem 2rem;
+    border-radius: 60px;
+    font-size: 1rem;
+    color: #ffd58c;
+    border: 1px solid #3a6190;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 12px -6px #020b14;
+    margin-top: 10px;
+}
+
+.example i {
+    color: #9fc5ff;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.wide-card {
+    flex: 2 1 400px;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+}
+
+.badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 60px;
+    padding: 0.6rem 1.3rem;
+    color: #bdd3f5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px;
+    backdrop-filter: blur(4px);
+    transition: all 0.15s;
+}
+
+.badge:hover {
+    background: #213a58;
+    border-color: #7fa3db;
+    color: white;
+    box-shadow: 0 6px 15px #0d1b2b;
+    transform: scale(1.02);
+}
+
+.footer {
+    background: #0f1f30;
+    border: 2px solid #3e6a9b;
+    border-radius: 100px;
+    padding: 2.5rem 2rem;
+    margin-top: 4rem;
+    text-align: center;
+    color: #c4dcff;
+    font-size: 1.2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 35px -12px #030c14;
+}
+
+.footer strong {
+    color: #ffdb9c;
+    font-size: 1.4rem;
+}
+
+hr {
+    border: 1px solid #253a52;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.green-badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 40px;
+    padding: 0.4rem 1.3rem;
+    color: #adccff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid #2d507a;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d1622;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a4568;
+    border-radius: 20px;
+}
+
+/* responsive */
+@media (max-width: 700px) {
+    h1 { font-size: 2.5rem; }
+    .sub-heading { font-size: 1.3rem; padding: 0.5rem 1.5rem; }
+    .card-title { font-size: 1.1rem; }
+}
+    </style>
+</head>
+<body>
+<div class="main-box">
+    <h1>🏆 MANAGEMENT OF SPORTING EVENTS</h1>
+    <div class="sub-heading">🌊 Unit 1 · Hinglish · Simple Ocean</div>
+
+    <!-- ROW 1: Introduction + Functions of Management -->
+    <div class="grid-row">
+        <!-- Physical Education + Management -->
+        <div class="card">
+            <div class="card-title">📚 Physical Education</div>
+            <div class="point"><strong>Kya hai?</strong> Body ka overall development (physical, mental, social, emotional) → active lifestyle</div>
+            <div class="point"><strong>Sports Event:</strong> Contest jahan teams compete karti hain, winner banti hai</div>
+            <div class="point"><strong>Sports Management:</strong> Marketing + proper planning se event successful banana</div>
+        </div>
+
+        <!-- Functions of Management (PODSC) -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#0284c7;">⚙️ Functions of Management</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge">Planning</span>
+                <span class="badge">Organizing</span>
+                <span class="badge">Staffing</span>
+                <span class="badge">Directing</span>
+                <span class="badge">Controlling</span>
+            </div>
+            <div class="point"><strong>Planning:</strong> Kya, kab, kaise karna hai — goals achieve</div>
+            <div class="point"><strong>Organizing:</strong> Resources aur activities arrange karna</div>
+            <div class="point"><strong>Staffing:</strong> Committee banana, expertise ke hisaab se kaam dena</div>
+            <div class="point"><strong>Directing:</strong> Director sabko guide + monitor karta hai</div>
+            <div class="point"><strong>Controlling:</strong> Check karna sab plan ke mutabiq, corrective measures</div>
+        </div>
+    </div>
+
+    <!-- ROW 2: Committees -->
+    <div class="grid-row">
+        <div class="wide-card">
+            <div class="card-title" style="background:#c96e1f;">👥 Committees & Responsibilities</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#b6450a;">Publicity</span>
+                <span class="badge" style="background:#b6450a;">Transportation</span>
+                <span class="badge" style="background:#b6450a;">Ground & Equipment</span>
+                <span class="badge" style="background:#b6450a;">First Aid</span>
+                <span class="badge" style="background:#b6450a;">Finance</span>
+                <span class="badge" style="background:#b6450a;">Announcement</span>
+                <span class="badge" style="background:#b6450a;">Decoration</span>
+                <span class="badge" style="background:#b6450a;">Refreshment</span>
+                <span class="badge" style="background:#b6450a;">Boarding/Lodging</span>
+            </div>
+            <div class="point"><strong>Publicity:</strong> Tournament ke baare mein batana (ads, TV, paper)</div>
+            <div class="point"><strong>Transportation:</strong> Players ko hotel se ground aur wapas</div>
+            <div class="point"><strong>Ground & Equipment:</strong> Ground maintain, saaman arrange (bat, ball)</div>
+            <div class="point"><strong>First Aid:</strong> Chot lagne par turant treatment</div>
+            <div class="point"><strong>Finance:</strong> Budget aur kharchon ka hisaab</div>
+            <div class="point"><strong>Other:</strong> Announcement, Decoration, Refreshment, Boarding/Lodging</div>
+        </div>
+    </div>
+
+    <!-- ROW 3: Event ki Teen Stages -->
+    <div class="grid-row">
+        <!-- Pre Tournament -->
+        <div class="card">
+            <div class="card-title" style="background:#117f33;">📅 Pre-Tournament</div>
+            <div class="point">• Budget banana</div>
+            <div class="point">• Schedule taiyar karna</div>
+            <div class="point">• Committees banana</div>
+            <div class="point">• Trophies/certificates arrange</div>
+            <div class="example"><i>Shuru hone se pehle</i></div>
+        </div>
+
+        <!-- During Tournament -->
+        <div class="card">
+            <div class="card-title" style="background:#d97706;">⏱️ During-Tournament</div>
+            <div class="point">• Coordination banaye rakhna</div>
+            <div class="point">• Announcements karna</div>
+            <div class="point">• Medical facilities dena</div>
+            <div class="point">• Records maintain karna</div>
+            <div class="example"><i>Event ke dauran</i></div>
+        </div>
+
+        <!-- Post Tournament -->
+        <div class="card">
+            <div class="card-title" style="background:#9b59b6;">🏁 Post-Tournament</div>
+            <div class="point">• Winners ko prizes dena</div>
+            <div class="point">• Media coverage dena</div>
+            <div class="point">• Records store karna</div>
+            <div class="point">• Final expenses ki report</div>
+            <div class="example"><i>Khatam hone ke baad</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 4: Types of Tournament -->
+    <div class="grid-row">
+        <div class="wide-card">
+            <div class="card-title" style="background:#0284c7;">🏆 Types of Tournament</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#024e73;">Knockout</span>
+                <span class="badge" style="background:#024e73;">League (Round Robin)</span>
+                <span class="badge" style="background:#024e73;">Combination</span>
+            </div>
+            <div class="point"><strong>Knockout:</strong> Elimination/Sudden Death — jo team harti hai, turant bahar</div>
+            <div class="point"><strong>League (Round Robin):</strong> Har team ko dusri se khelne ka mauka, points table se winner</div>
+            <div class="point"><strong>Combination:</strong> Knockout + League ka mix (jaise IPL mein League-cum-Knockout)</div>
+        </div>
+    </div>
+
+    <!-- ROW 5: Intra-mural & Extra-mural + Specific Programs -->
+    <div class="grid-row">
+        <!-- Intra & Extra mural -->
+        <div class="card">
+            <div class="card-title" style="background:#117f33;">🏫 Intra-mural</div>
+            <div class="point"><strong>Andar:</strong> School ki deewaron ke andar (Sports Day, Inter-house matches)</div>
+            <div class="point"><strong>Maqsad:</strong> Bacho mein skill + leadership develop</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="background:#c96e1f;">🌍 Extra-mural</div>
+            <div class="point"><strong>Bahar:</strong> School ke bahar (Inter-school competition)</div>
+            <div class="point"><strong>Fayda:</strong> Naye experiences, sports standard ⬆️</div>
+        </div>
+
+        <!-- Specific Programs -->
+        <div class="card">
+            <div class="card-title" style="background:#9b59b6;">🎯 Specific Programs</div>
+            <div class="point"><strong>Sports Day:</strong> Bachon ke mental + physical development</div>
+            <div class="point"><strong>Health Run:</strong> Logon ko fitness ke prati aware</div>
+            <div class="point"><strong>Run for Fun:</strong> Bina competition, sirf maze + health</div>
+            <div class="point"><strong>Run for Specific Cause:</strong> Charity/bimari ke liye paise</div>
+            <div class="point"><strong>Run for Unity:</strong> Bhai-chara + ekta badhana</div>
+            <div class="example"><i>Jeetne ke liye nahi, awareness ke liye</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 6: Weightage + Next Part -->
+    <div class="grid-row">
+        <div class="card">
+            <div class="card-title" style="background:#d97706;">📊 Exam Weightage</div>
+            <div class="point"><strong>5 marks</strong> — board exams mein important</div>
+            <div class="point"><strong>Fixtures (drawings)</strong> alag topic, next part mein hoga</div>
+            <div class="example"><i>Ye chapter complete, fixtures next</i></div>
+        </div>
+
+        <!-- Quick summary card -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">📝 Quick Recap</div>
+            <div class="point">• Management = Planning to Controlling</div>
+            <div class="point">• Committees = 9+ types</div>
+            <div class="point">• 3 Stages: Pre, During, Post</div>
+            <div class="point">• Tournaments: Knockout, League, Combo</div>
+            <div class="point">• Intra (andar) vs Extra (bahar)</div>
+            <div class="point">• Specific Runs: Fun/Cause/Unity</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- extra examples row -->
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 15px 0;">
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">📋 Planning = kya, kab, kaise</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🚑 First Aid committee</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🏆 Knockout = elimination</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🏫 Inter-house = Intra-mural</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🏃 Run for Unity = ekta</span>
+    </div>
+
+    <!-- footer summary -->
+    <div class="footer">
+        🌊 Planning · Organizing · Staffing · Directing · Controlling · Committees · 3 Stages · Knockout · League · Intra/Extra · Specific Runs 🌊
+    </div>
+
+    <div style="text-align:center; margin-top:25px; color:#022b3a; font-size:1.6rem; font-weight:600;">
+        ✅ Unit 1 complete · Hinglish · Easy points with examples
+    </div>
+</div>
+</body>
+</html> 

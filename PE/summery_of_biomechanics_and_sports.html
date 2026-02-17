@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Biomechanics & Sports · Unit 8 · Premium Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #0c0f14;
+            background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                              radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+        }
+
+        .premium-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* header premium */
+        .header {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #b6b0ff 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            filter: drop-shadow(0 4px 12px #141c2b);
+        }
+
+        .header h1 span {
+            background: #1f283c;
+            color: #ccddf8;
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding: 0.3rem 1.8rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin-top: 12px;
+            border: 1px solid #30415e;
+            backdrop-filter: blur(4px);
+            background: rgba(20, 30, 45, 0.7);
+            -webkit-text-fill-color: #e3ecff;
+        }
+
+        
+
+        .filter-chip {
+            background: rgba(18, 26, 38, 0.8);
+            border: 1px solid #314a6b;
+            color: #b5cbee;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            cursor: default;
+            backdrop-filter: blur(4px);
+            transition: 0.2s ease;
+            box-shadow: 0 6px 12px -8px #04080e;
+            text-transform: uppercase;
+            border-color: #2f405b;
+        }
+
+        .filter-chip:hover {
+            background: #1e314a;
+            color: #ffffff;
+            border-color: #6c8fc9;
+            box-shadow: 0 8px 18px -6px #1e3f70;
+            transform: translateY(-2px);
+        }
+
+        .filter-chip.active {
+            background: linear-gradient(145deg, #1e3f64, #123456);
+            border-color: #9bbfff;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 10px 22px -8px #1d446e, 0 0 0 1px #6c9df0 inset;
+        }
+
+        /* dark premium grid — now for summary sections */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .summary-card {
+            background: rgba(15, 22, 32, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(70, 110, 160, 0.25);
+            border-radius: 38px;
+            padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+            box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .summary-card:hover {
+            border-color: #3f6290;
+            background: rgba(22, 32, 46, 0.95);
+            box-shadow: 0 30px 50px -18px #0a1422, 0 0 0 1px #4f7cbb inset;
+            transform: scale(1.01) translateY(-3px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .q-num {
+            background: #142436;
+            color: #bdd3ff;
+            font-weight: 700;
+            font-size: 1.5rem;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30% 70% 30% 70% / 60% 40% 60% 40%;
+            border: 1px solid #375d8c;
+            box-shadow: 0 4px 14px #020b16;
+        }
+
+        .topic-tag {
+            background: #162433;
+            color: #adccff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            border: 1px solid #2d507a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .summary-content {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #e0edff;
+            font-weight: 400;
+            margin: 0.2rem 0 1rem 0;
+            flex-grow: 1;
+            background: rgba(0, 10, 22, 0.5);
+            padding: 1.4rem 1.5rem;
+            border-radius: 26px;
+            border-left: 4px solid #3773bb;
+            box-shadow: inset 0 2px 8px #03080e;
+        }
+
+        .summary-content strong {
+            color: #ffd966;
+            font-weight: 600;
+        }
+
+        .summary-content em {
+            color: #9fc5ff;
+            font-style: italic;
+        }
+
+        .summary-content ul {
+            margin: 0.7rem 0 0.2rem 1.5rem;
+        }
+
+        .summary-content li {
+            margin: 0.4rem 0;
+            color: #d3e2fd;
+        }
+
+        .formula-badge {
+            background: #0e1b2b;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            color: #ffb870;
+            border: 1px solid #3e5f86;
+            display: inline-block;
+            margin: 0.5rem 0.2rem 0 0;
+            font-size: 1.1rem;
+        }
+
+        .footer-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.8rem;
+            border-top: 1px solid #253a52;
+            padding-top: 0.8rem;
+        }
+
+        .source-badge {
+            background: #0f1b28;
+            color: #9eb9dc;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #324f73;
+        }
+
+        .btn-copy {
+            background: transparent;
+            border: 1px solid #3b5982;
+            border-radius: 40px;
+            padding: 0.3rem 1.3rem;
+            color: #bdd3f5;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.15s;
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-copy:hover {
+            background: #213a58;
+            border-color: #7fa3db;
+            color: white;
+            box-shadow: 0 4px 12px #0d1b2b;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3.8rem;
+            color: #7f9bc0;
+            font-size: 0.95rem;
+            border-top: 1px solid #1e3148;
+            padding-top: 2rem;
+        }
+
+        .footer-note strong {
+            color: #c9ddff;
+            font-weight: 600;
+        }
+
+        /* custom dark scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d1622;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a4568;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="premium-container">
+        <!-- header premium with hinglish title -->
+        <div class="header">
+            <h1>⚡ Biomechanics & Sports · Unit 8</h1>
+        </div>
+
+    
+
+        <!-- summary grid — exactly 6 cards (each main section) -->
+        <div class="summary-grid">
+            <!-- 1. Biomechanics kya hai -->
+            <div class="summary-card">
+                <div class="card-header">
+                    <span class="q-num">01</span>
+                    <span class="topic-tag">biomechanics</span>
+                </div>
+                <div class="summary-content">
+                    <strong>🔬 Biomechanics Kya Hai?</strong><br>
+                    Biomechanics ek aisi science hai jo <strong>living body ke movement</strong> ko study karti hai. Ismein dekha jata hai ki hamari muscles, bones, aur ligaments ek saath kaise kaam karte hain takki koi specific movement ho sake. Sports mein iska use <em>performance improve karne, injuries se bachne aur opponent ki weaknesses samajhne</em> ke liye hota hai.
+                </div>
+                <div class="footer-meta">
+                    <span class="source-badge">sources according</span>
+                </div>
+            </div>
+
+            <!-- 2. Newton’s Laws of Motion -->
+            <div class="summary-card">
+                <div class="card-header">
+                    <span class="q-num">02</span>
+                    <span class="topic-tag">newton's laws</span>
+                </div>
+                <div class="summary-content">
+                    <strong>⚙️ Newton’s Laws of Motion (sports application)</strong><br>
+                    • <strong>First Law (Law of Inertia):</strong> object rest ya motion me tab tak jab tak external force na lage. (jaise ball tab tak nahi hilegi jab tak kick na maare)<br>
+                    • <strong>Second Law (Law of Acceleration):</strong> <span class="formula-badge">F = ma</span> acceleration ∝ force, mass ∝ 1/acceleration. Eg. catch pakadte waqt hath peeche khichna — force kam, chot bachna.<br>
+                    • <strong>Third Law (Law of Reaction):</strong> every action has equal & opposite reaction. Swimming, walking, shooting.
+                </div>
+                <div class="footer-meta">
+                    <span class="source-badge">newton · sports</span>
+                </div>
+            </div>
+
+            <!-- 3. Levers aur unke types -->
+            <div class="summary-card">
+                <div class="card-header">
+                    <span class="q-num">03</span>
+                    <span class="topic-tag">levers</span>
+                </div>
+                <div class="summary-content">
+                    <strong>🦴 Levers aur Unke Types</strong><br>
+                    Body me: bones = rigid bar, joints = fulcrum, muscles = force/effort.<br>
+                    • <strong>First Class Lever:</strong> Fulcrum beech me (load & force ke beech). Eg. triceps extension, ball phekte waqt elbow joint.<br>
+                    • <strong>Second Class Lever:</strong> Load beech me. Eg. toes (panjo) par khade hona.<br>
+                    • <strong>Third Class Lever:</strong> Force (effort) beech me. Eg. bicep curls.
+                </div>
+                <div class="footer-meta">
+                    <span class="source-badge">3 lever types</span>
+                </div>
+            </div>
+
+            <!-- 4. Equilibrium aur Center of Gravity -->
+            <div class="summary-card">
+                <div class="card-header">
+                    <span class="q-num">04</span>
+                    <span class="topic-tag">equilibrium & cog</span>
+                </div>
+                <div class="summary-content">
+                    <strong>🎯 Equilibrium aur Center of Gravity (COG)</strong><br>
+                    • <strong>Equilibrium:</strong> jaha saare forces balanced, body stable.<br>
+                    &nbsp;&nbsp;- <em>Static Equilibrium:</em> rest position stable (chair par baithna).<br>
+                    &nbsp;&nbsp;- <em>Dynamic Equilibrium:</em> motion me hote hue bhi stable (running, gymnastics).<br>
+                    • <strong>Center of Gravity:</strong> imaginary point jaha poora weight balance. Body position ke saath badalta hai — jaise hath upar, COG upar shift.
+                </div>
+                <div class="footer-meta">
+                    <span class="source-badge">balance · cog</span>
+                </div>
+            </div>
+
+            <!-- 5. Friction in Sports -->
+            <div class="summary-card">
+                <div class="card-header">
+                    <span class="q-num">05</span>
+                    <span class="topic-tag">friction</span>
+                </div>
+                <div class="summary-content">
+                    <strong>🧗 Friction in Sports</strong><br>
+                    Friction = force jo movement ke opposite direction me lagta hai. Types:<br>
+                    • <strong>Static Friction:</strong> object rest par ho, move na kar raha ho.<br>
+                    • <strong>Sliding Friction:</strong> ek object dusre par slide karta hai.<br>
+                    • <strong>Rolling Friction:</strong> object roll karta hai (jaise ball).<br>
+                    • <strong>Fluid Friction:</strong> pani / hawa me resistance (swimming).
+                </div>
+                <div class="footer-meta">
+                    <span class="source-badge">Friction Types</span>
+                </div>
+            </div>
+
+            <!-- 6. Projectile in Sports -->
+            <div class="summary-card">
+                <div class="card-header">
+                    <span class="q-num">06</span>
+                    <span class="topic-tag">projectile</span>
+                </div>
+                <div class="summary-content">
+                    <strong>🚀 Projectile in Sports</strong><br>
+                    Jab kisi object (ball, javelin) ko hawa me pheka jaye – <strong>projectile</strong>.<br>
+                    • Always <strong>Parabolic path</strong> follow karta hai.<br>
+                    • ager sabse zada distance tak fakna hai toh <strong>45‑degree angle</strong> sabse best mana jata hai<br>
+                    • Projectile की distance depend: velocity, angle, projection height.
+                </div>
+                <div class="footer-meta">
+                    <span class="source-badge">Angle · 45°</span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+    </script>
+</body>
+</html>

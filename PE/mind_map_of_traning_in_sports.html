@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Training in Sports — Unit 10 Simple Ocean Mind Map</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #0c0f14;
+    background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                      radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+}
+
+.main-box {
+    max-width: 1400px;
+    width: 100%;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.25);
+    border-radius: 70px 70px 40px 40px;
+    padding: 35px 25px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #ffb870 70%, #b6b0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 12px #141c2b);
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    background: #1f283c;
+    color: #ccddf8;
+    display: inline-block;
+    padding: 0.5rem 2.2rem;
+    border-radius: 60px;
+    margin: 0 auto 30px;
+    border: 1px solid #30415e;
+    backdrop-filter: blur(4px);
+    background: rgba(20, 30, 45, 0.8);
+    -webkit-text-fill-color: #e3ecff;
+    box-shadow: 0 10px 20px -8px #03080e;
+    font-weight: 500;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    flex: 1 1 280px;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    border-color: #3f6290;
+    background: rgba(24, 36, 50, 0.95);
+    box-shadow: 0 35px 50px -18px #0a192b, 0 0 0 1px #4f7cbb inset;
+    transform: scale(1.01) translateY(-5px);
+}
+
+.card-title {
+    background: linear-gradient(145deg, #1d446e, #0f2b48);
+    color: #ffd58c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.5rem 1.8rem;
+    border-radius: 60px;
+    display: inline-block;
+    margin-top: -45px;
+    margin-bottom: 1rem;
+    border: 1px solid #5b8dc9;
+    box-shadow: 0 6px 0 #082136;
+    letter-spacing: 0.5px;
+}
+
+.point {
+    background: rgba(0, 15, 30, 0.5);
+    margin: 15px 0;
+    padding: 1rem 1.3rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #c0d6fc;
+    border-left: 6px solid #3773bb;
+    box-shadow: inset 0 2px 8px #03080e;
+    line-height: 1.6;
+}
+
+.point strong {
+    color: #ffd966;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.example {
+    background: rgba(18, 30, 45, 0.5);
+    padding: 0.9rem 2rem;
+    border-radius: 60px;
+    font-size: 1rem;
+    color: #ffd58c;
+    border: 1px solid #3a6190;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 12px -6px #020b14;
+    margin-top: 10px;
+}
+
+.example i {
+    color: #9fc5ff;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.wide-card {
+    flex: 2 1 400px;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+}
+
+.badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 60px;
+    padding: 0.6rem 1.3rem;
+    color: #bdd3f5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px;
+    backdrop-filter: blur(4px);
+    transition: all 0.15s;
+}
+
+.badge:hover {
+    background: #213a58;
+    border-color: #7fa3db;
+    color: white;
+    box-shadow: 0 6px 15px #0d1b2b;
+    transform: scale(1.02);
+}
+
+.footer {
+    background: #0f1f30;
+    border: 2px solid #3e6a9b;
+    border-radius: 100px;
+    padding: 2.5rem 2rem;
+    margin-top: 4rem;
+    text-align: center;
+    color: #c4dcff;
+    font-size: 1.2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 35px -12px #030c14;
+}
+
+.footer strong {
+    color: #ffdb9c;
+    font-size: 1.4rem;
+}
+
+hr {
+    border: 1px solid #253a52;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.green-badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 40px;
+    padding: 0.4rem 1.3rem;
+    color: #adccff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid #2d507a;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d1622;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a4568;
+    border-radius: 20px;
+}
+
+/* responsive */
+@media (max-width: 700px) {
+    h1 { font-size: 2.5rem; }
+    .sub-heading { font-size: 1.3rem; padding: 0.5rem 1.5rem; }
+    .card-title { font-size: 1.1rem; }
+}
+    </style>
+</head>
+<body>
+<div class="map-box">
+    <h1>🏋️ TRAINING IN SPORTS</h1>
+    <div class="tagline">🌊 Unit 10 · Hinglish · Simple Ocean</div>
+
+    <!-- ROW 1: Sports Training + Talent ID + Training Cycles -->
+    <div class="row">
+        <!-- Sports Training & Talent ID -->
+        <div class="card">
+            <div class="card-title">🎯 Training & Talent</div>
+            <div class="point"><strong>Sports Training:</strong> Scientific preparation, performance improve karna</div>
+            <div class="point"><strong>Talent Identification:</strong> Future potential wale players ko recognize karna, bina bias ke</div>
+            <div class="example"><i>Selection committee dwara, current performance dekhte hain</i></div>
+        </div>
+
+        <!-- Training Cycles (Periodization) -->
+        <div class="card">
+            <div class="card-title">📅 Training Cycles</div>
+            <div class="point"><strong>Macro Cycle:</strong> Pure saal bhar (year-long)</div>
+            <div class="point"><strong>Meso Cycle:</strong> Weeks to months, specific skills (speed/strength)</div>
+            <div class="point"><strong>Micro Cycle:</strong> Kuch din se weeks tak, chhota cycle</div>
+            <div class="example"><i>Jaise: 1 week ka practice schedule</i></div>
+        </div>
+
+        <!-- Strength (Taqat) -->
+        <div class="card">
+            <div class="card-title">💪 Strength</div>
+            <div class="point"><strong>Static (Isometric):</strong> Movement dikhayi nahi deta (plank, wall push)</div>
+            <div class="point"><strong>Dynamic (Isotonic/Isokinetic):</strong> Movement visible (weights uthana, cycling)</div>
+            <div class="point"><strong>Types:</strong> Maximum, Explosive (jump), Strength Endurance</div>
+        </div>
+    </div>
+
+    <!-- ROW 2: Endurance + Speed + Flexibility -->
+    <div class="row">
+        <!-- Endurance card -->
+        <div class="card">
+            <div class="card-title">🏃 Endurance</div>
+            <div class="point"><strong>Continuous Training:</strong> Bina ruke lambi daud (slow, fast, variable)</div>
+            <div class="point"><strong>Interval Training:</strong> Workout ke beech rest (recovery period)</div>
+            <div class="point"><strong>Fartlek Training:</strong> Nature mein, badalte surface, speed change</div>
+            <div class="example"><i>Thakan ke bawajood lambe waqt tak kaam</i></div>
+        </div>
+
+        <!-- Speed card -->
+        <div class="card">
+            <div class="card-title">⚡ Speed</div>
+            <div class="point"><strong>Kya hai?</strong> Fastest possible rate par body movement</div>
+            <div class="point"><strong>Types:</strong> Reaction time, acceleration, locomotor ability (max speed maintain)</div>
+            <div class="point"><strong>Improve kaise:</strong> Acceleration runs, pace runs</div>
+            <div class="example"><i>Jaise: 100m sprinter ki speed</i></div>
+        </div>
+
+        <!-- Flexibility card -->
+        <div class="card">
+            <div class="card-title">🧘 Flexibility</div>
+            <div class="point"><strong>Active:</strong> Bina external help ke (khud stretching)</div>
+            <div class="point"><strong>Passive:</strong> Partner ya equipment ki help se</div>
+            <div class="point"><strong>PNF:</strong> Advanced athletes ke liye, partner ke saath stretching</div>
+            <div class="example"><i>Joints ki maximum range of movement</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 3: Coordinative Abilities + Circuit Training (wide) -->
+    <div class="row">
+        <!-- Coordinative Abilities -->
+        <div class="card">
+            <div class="card-title">🤸 Coordinative Abilities</div>
+            <div class="point"><strong>Balance Ability:</strong> Body ko stable position mein rakhna</div>
+            <div class="point"><strong>Reaction Ability:</strong> Stimulus par turant respond (example: whistle par daudna)</div>
+            <div class="point"><strong>Coupling Ability:</strong> Body ke parts ko ek saath move (Dhoni ka helicopter shot)</div>
+            <div class="example"><i>Perfection aur efficiency ke saath movement</i></div>
+        </div>
+
+        <!-- Circuit Training wide -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#d97706;">🔄 Circuit Training</div>
+            <div style="font-size:1.5rem; margin:10px 0;"><span class="mini-badge">1950 Adamson & Morgan</span></div>
+            <div class="point"><strong>Kya hai?</strong> Alag-alag exercises ka set, bina gap ya kam interval mein</div>
+            <div class="point"><strong>Target:</strong> Body ke saare parts ko ek cycle mein</div>
+            <div class="point"><strong>Fayda:</strong> Kam time mein strength ⬆️ + endurance ⬆️</div>
+            <div class="example"><i>Jaise: 8 exercises, 30 sec each, 15 sec rest</i></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- extra examples row (simple) -->
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 15px 0;">
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🏋️ Static strength: plank</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🏊 Fartlek: jungle run</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">⚡ Reaction time: sprint start</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🔄 Circuit: 8 exercises</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🧘 PNF: partner stretching</span>
+    </div>
+
+    <!-- footer summary -->
+    <div class="footer">
+        🌊 Strength · Endurance · Speed · Flexibility · Coordinative · Circuit Training · Cycles (Macro, Meso, Micro) 🌊
+    </div>
+
+    <div style="text-align:center; margin-top:25px; color:#023b4d; font-size:1.6rem; font-weight:600;">
+        ✅ Unit 10 complete · Hinglish · Easy points with examples
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Sports & Nutrition — Unit 5 Simple Ocean Mind Map</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #0c0f14;
+    background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                      radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+}
+
+.main-box {
+    max-width: 1400px;
+    width: 100%;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.25);
+    border-radius: 70px 70px 40px 40px;
+    padding: 35px 25px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #ffb870 70%, #b6b0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 4px 12px #141c2b);
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 1.8rem;
+    background: #1f283c;
+    color: #ccddf8;
+    display: inline-block;
+    padding: 0.5rem 2.2rem;
+    border-radius: 60px;
+    margin: 0 auto 30px;
+    border: 1px solid #30415e;
+    backdrop-filter: blur(4px);
+    background: rgba(20, 30, 45, 0.8);
+    -webkit-text-fill-color: #e3ecff;
+    box-shadow: 0 10px 20px -8px #03080e;
+    font-weight: 500;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    flex: 1 1 280px;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    border-color: #3f6290;
+    background: rgba(24, 36, 50, 0.95);
+    box-shadow: 0 35px 50px -18px #0a192b, 0 0 0 1px #4f7cbb inset;
+    transform: scale(1.01) translateY(-5px);
+}
+
+.card-title {
+    background: linear-gradient(145deg, #1d446e, #0f2b48);
+    color: #ffd58c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0.5rem 1.8rem;
+    border-radius: 60px;
+    display: inline-block;
+    margin-top: -45px;
+    margin-bottom: 1rem;
+    border: 1px solid #5b8dc9;
+    box-shadow: 0 6px 0 #082136;
+    letter-spacing: 0.5px;
+}
+
+.point {
+    background: rgba(0, 15, 30, 0.5);
+    margin: 15px 0;
+    padding: 1rem 1.3rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #c0d6fc;
+    border-left: 6px solid #3773bb;
+    box-shadow: inset 0 2px 8px #03080e;
+    line-height: 1.6;
+}
+
+.point strong {
+    color: #ffd966;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.example {
+    background: rgba(18, 30, 45, 0.5);
+    padding: 0.9rem 2rem;
+    border-radius: 60px;
+    font-size: 1rem;
+    color: #ffd58c;
+    border: 1px solid #3a6190;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 12px -6px #020b14;
+    margin-top: 10px;
+}
+
+.example i {
+    color: #9fc5ff;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.wide-card {
+    flex: 2 1 400px;
+    background: rgba(15, 22, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(70, 110, 160, 0.3);
+    border-radius: 48px;
+    padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 25px 40px -16px #03080e, 0 0 0 1px rgba(80, 130, 200, 0.2) inset;
+}
+
+.badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 60px;
+    padding: 0.6rem 1.3rem;
+    color: #bdd3f5;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px;
+    backdrop-filter: blur(4px);
+    transition: all 0.15s;
+}
+
+.badge:hover {
+    background: #213a58;
+    border-color: #7fa3db;
+    color: white;
+    box-shadow: 0 6px 15px #0d1b2b;
+    transform: scale(1.02);
+}
+
+.footer {
+    background: #0f1f30;
+    border: 2px solid #3e6a9b;
+    border-radius: 100px;
+    padding: 2.5rem 2rem;
+    margin-top: 4rem;
+    text-align: center;
+    color: #c4dcff;
+    font-size: 1.2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 35px -12px #030c14;
+}
+
+.footer strong {
+    color: #ffdb9c;
+    font-size: 1.4rem;
+}
+
+hr {
+    border: 1px solid #253a52;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.green-badge {
+    background: #0f1b28;
+    border: 1px solid #3b5982;
+    border-radius: 40px;
+    padding: 0.4rem 1.3rem;
+    color: #adccff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid #2d507a;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d1622;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a4568;
+    border-radius: 20px;
+}
+
+/* responsive */
+@media (max-width: 700px) {
+    h1 { font-size: 2.5rem; }
+    .sub-heading { font-size: 1.3rem; padding: 0.5rem 1.5rem; }
+    .card-title { font-size: 1.1rem; }
+}
+    </style>
+</head>
+<body>
+<div class="main-wrap">
+    <h1>🥗 SPORTS & NUTRITION</h1>
+    <div class="sub-title">🌊 Unit 5 · Hinglish · Simple Ocean</div>
+
+    <!-- ROW 1: Introduction + Balanced Diet -->
+    <div class="grid-row">
+        <!-- Introduction -->
+        <div class="card">
+            <div class="card-title">🍎 Introduction</div>
+            <div class="point"><strong>Food:</strong> Basic need, growth + development + energy</div>
+            <div class="point"><strong>Nutrition:</strong> Khana consume → body absorb → healthy</div>
+        </div>
+
+        <!-- Balanced Diet -->
+        <div class="card">
+            <div class="card-title" style="background:#117f33;">⚖️ Balanced Diet</div>
+            <div class="point"><strong>Kya hai?</strong> Saare food groups correct proportion mein</div>
+            <div class="point"><strong>Includes:</strong> Protein, Carbs, Fat, Vitamins, Minerals, Water</div>
+            <div class="point"><strong>Benefits:</strong> Body build, energy, bimariyon se bachao</div>
+        </div>
+
+        <!-- BMI Card -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">📊 BMI</div>
+            <div class="point"><strong>Formula:</strong> <span class="formula">Weight (kg) / [Height (m)]²</span></div>
+            <div class="point"><strong>Healthy Range:</strong> 18.5 - 24.9</div>
+            <div class="point"><strong>Obesity:</strong> 30 se upar</div>
+            <div class="example"><i>Healthy weight check</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 2: Macro Nutrients (Carbs, Proteins, Fats, Water) -->
+    <div class="grid-row">
+        <!-- Carbohydrates -->
+        <div class="card">
+            <div class="card-title" style="background:#c96e1f;">🍚 Carbohydrates</div>
+            <div class="point"><strong>Energy source:</strong> 1g = 4 calories</div>
+            <div class="point"><strong>Simple:</strong> Meethe, jaldi digest</div>
+            <div class="point"><strong>Complex:</strong> Starchy food</div>
+        </div>
+
+        <!-- Proteins -->
+        <div class="card">
+            <div class="card-title" style="background:#d97706;">🥩 Proteins</div>
+            <div class="point"><strong>Building Blocks:</strong> Muscles build + repair</div>
+            <div class="point"><strong>Requirement:</strong> 1g per kg body weight</div>
+            <div class="example"><i>Muscles ke liye essential</i></div>
+        </div>
+
+        <!-- Fats -->
+        <div class="card">
+            <div class="card-title" style="background:#9b59b6;">🧈 Fats</div>
+            <div class="point"><strong>Stored energy:</strong> 1g = 9 calories</div>
+            <div class="point"><strong>Unsaturated (Good):</strong> Cholesterol kam</div>
+            <div class="point"><strong>Saturated (Bad):</strong> Cholesterol badhaye</div>
+            <div class="point"><strong>Function:</strong> Organs protect</div>
+        </div>
+
+        <!-- Water -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">💧 Water</div>
+            <div class="point">• Nutrients transport</div>
+            <div class="point">• Digestion</div>
+            <div class="point">• Body temperature regulate</div>
+        </div>
+    </div>
+
+    <!-- ROW 3: Micro Nutrients (Minerals + Vitamins) -->
+    <div class="grid-row">
+        <!-- Minerals -->
+        <div class="card">
+            <div class="card-title" style="background:#117f33;">🧂 Minerals</div>
+            <div class="point"><strong>Calcium/Phosphorus:</strong> Haddiyon ke liye</div>
+            <div class="point"><strong>Iron:</strong> Hemoglobin ke liye</div>
+            <div class="point"><strong>Iodine:</strong> Thyroid ke liye</div>
+            <div class="example"><i>Small amount mein zaroori</i></div>
+        </div>
+
+        <!-- Vitamins -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#9b59b6;">💊 Vitamins</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#8e44ad;">Water Soluble</span>
+                <span class="badge" style="background:#8e44ad;">Fat Soluble</span>
+            </div>
+            <div class="point"><strong>Water Soluble:</strong> Vitamin B, C</div>
+            <div class="point"><strong>Fat Soluble:</strong> Vitamin A, D, E, K</div>
+            <div class="point"><strong>Deficiency:</strong> Night Blindness (Vit A), Rickets (Vit D)</div>
+        </div>
+    </div>
+
+    <!-- ROW 4: Nutritive vs Non-Nutritive Components -->
+    <div class="grid-row">
+        <!-- Nutritive Components -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">📈 Nutritive</div>
+            <div class="point"><strong>Jo calories/energy dete hain:</strong></div>
+            <div class="point">• Carbohydrates</div>
+            <div class="point">• Proteins</div>
+            <div class="point">• Fats</div>
+        </div>
+
+        <!-- Non-Nutritive Components -->
+        <div class="wide-card">
+            <div class="card-title" style="background:#c96e1f;">🌾 Non-Nutritive</div>
+            <div class="point"><strong>Calories nahi dete, par zaroori:</strong></div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#b6450a;">Fiber/Roughage</span>
+                <span class="badge" style="background:#b6450a;">Water</span>
+                <span class="badge" style="background:#b6450a;">Color Compounds</span>
+                <span class="badge" style="background:#b6450a;">Flavor Compounds</span>
+            </div>
+            <div class="point"><strong>Fiber:</strong> Digestion ke liye</div>
+            <div class="point"><strong>Water:</strong> Already covered</div>
+            <div class="point"><strong>Color/Flavor:</strong> Food appeal ke liye</div>
+        </div>
+    </div>
+
+    <!-- ROW 5: Pitfalls of Dieting + Food Intolerance + Myths -->
+    <div class="grid-row">
+        <!-- Pitfalls of Dieting -->
+        <div class="card">
+            <div class="card-title" style="background:#d97706;">⚠️ Pitfalls of Dieting</div>
+            <div class="point"><strong>Galat tarike:</strong> Meals skip karna, starve (bhookha rehna)</div>
+            <div class="point"><strong>Effect:</strong> Metabolic rate ⬇️, bimar ho sakte</div>
+            <div class="example"><i>Weight kam karne ke chakkar mein dangerous</i></div>
+        </div>
+
+        <!-- Food Intolerance -->
+        <div class="card">
+            <div class="card-title" style="background:#9b59b6;">🤢 Food Intolerance</div>
+            <div class="point"><strong>Kya hai?</strong> Body kisi food ko sahi digest nahi kar pati</div>
+            <div class="point"><strong>Symptoms:</strong> Vomiting, gas, acidity</div>
+        </div>
+
+        <!-- Food Myths -->
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">❌ Food Myths</div>
+            <div class="point">• "Carb khane se mote hote hain" → galat</div>
+            <div class="point">• "Khana khate waqt pani nahi peena" → galat</div>
+            <div class="example"><i>Sirf galat-fehmiyan (myths)</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 6: Importance of Diet in Sports -->
+    <div class="grid-row">
+        <div class="wide-card">
+            <div class="card-title" style="background:#117f33;">🏆 Importance of Diet in Sports</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                <span class="badge" style="background:#0b5e2e;">Pre-Competition</span>
+                <span class="badge" style="background:#0b5e2e;">During Competition</span>
+                <span class="badge" style="background:#0b5e2e;">Post-Competition</span>
+            </div>
+            <div class="point"><strong>Pre:</strong> Energy ke liye high carbohydrate diet</div>
+            <div class="point"><strong>During:</strong> Hydrated rehna (pani), banana (instant energy)</div>
+            <div class="point"><strong>Post:</strong> Muscles recovery + repair → Protein + Carbs mix</div>
+            <div class="example"><i>Sahi nutrition = better performance + health</i></div>
+        </div>
+    </div>
+
+    <!-- ROW 7: Quick Summary Card -->
+    <div class="grid-row">
+        <div class="card">
+            <div class="card-title" style="background:#0284c7;">📝 Quick Recap</div>
+            <div class="point">• Balanced Diet = saare nutrients correct proportion</div>
+            <div class="point">• Macro = Carbs, Proteins, Fats, Water</div>
+            <div class="point">• Micro = Minerals, Vitamins</div>
+            <div class="point">• BMI = 18.5-24.9 healthy</div>
+            <div class="point">• Dieting pitfalls = skip meals dangerous</div>
+            <div class="point">• Sports nutrition = Pre/During/Post</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- extra examples row -->
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 15px 0;">
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🍚 Carbs = 4 cal/g</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🥩 Proteins = muscle repair</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🧈 Good fat vs Bad fat</span>
+        <span style="background:#6ab0d6; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🥕 Vit A = Night Blindness</span>
+        <span style="background:#f4a261; border-radius:60px; padding:12px 25px; font-size:1.4rem; border:4px solid white;">🏃 Pre-game = high carbs</span>
+    </div>
+
+    <!-- footer summary -->
+    <div class="footer">
+        🌊 Balanced Diet · Macro/Micro Nutrients · BMI · Nutritive/Non-Nutritive · Dieting Pitfalls · Food Intolerance · Sports Nutrition 🌊
+    </div>
+
+    <div style="text-align:center; margin-top:25px; color:#022b3a; font-size:1.6rem; font-weight:600;">
+        ✅ Unit 5 complete · Hinglish · Easy points with examples
+    </div>
+</div>
+</body>
+</html>

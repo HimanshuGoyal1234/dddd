@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>✨ Training in Sports · Unit 10 · Premium Summary</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            }
+
+            body {
+                background: #0c0f14;
+                background-image: radial-gradient(circle at 25% 10%, rgba(60, 120, 200, 0.12) 0%, transparent 35%),
+                    radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.08) 0%, transparent 40%);
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 1.2rem;
+            }
+
+            .premium-container {
+                max-width: 1400px;
+                width: 100%;
+            }
+
+            /* header premium */
+            .header {
+                margin-bottom: 2.5rem;
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 2.8rem;
+                font-weight: 700;
+                background: linear-gradient(125deg, #f0f3fa 0%, #b7d1f0 45%, #b6b0ff 80%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                letter-spacing: -0.5px;
+                filter: drop-shadow(0 4px 12px #141c2b);
+            }
+
+            .header h1 span {
+                background: #1f283c;
+                color: #ccddf8;
+                font-size: 1.3rem;
+                font-weight: 500;
+                padding: 0.3rem 1.8rem;
+                border-radius: 60px;
+                display: inline-block;
+                margin-top: 12px;
+                border: 1px solid #30415e;
+                backdrop-filter: blur(4px);
+                background: rgba(20, 30, 45, 0.7);
+                -webkit-text-fill-color: #e3ecff;
+            }
+
+            .micro-chip {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.7rem 1rem;
+                margin: 2.2rem 0 2.8rem;
+            }
+
+            .filter-chip {
+                background: rgba(18, 26, 38, 0.8);
+                border: 1px solid #314a6b;
+                color: #b5cbee;
+                padding: 0.6rem 1.5rem;
+                border-radius: 40px;
+                font-weight: 500;
+                font-size: 0.85rem;
+                letter-spacing: 0.3px;
+                cursor: default;
+                backdrop-filter: blur(4px);
+                transition: 0.2s ease;
+                box-shadow: 0 6px 12px -8px #04080e;
+                text-transform: uppercase;
+                border-color: #2f405b;
+            }
+
+            .filter-chip:hover {
+                background: #1e314a;
+                color: #ffffff;
+                border-color: #6c8fc9;
+                box-shadow: 0 8px 18px -6px #1e3f70;
+                transform: translateY(-2px);
+            }
+
+            .filter-chip.active {
+                background: linear-gradient(145deg, #1e3f64, #123456);
+                border-color: #9bbfff;
+                color: white;
+                font-weight: 600;
+                box-shadow: 0 10px 22px -8px #1d446e, 0 0 0 1px #6c9df0 inset;
+            }
+
+            /* dark premium grid */
+            .summary-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+                gap: 1.8rem;
+            }
+
+            .summary-card {
+                background: rgba(15, 22, 32, 0.85);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(70, 110, 160, 0.25);
+                border-radius: 38px;
+                padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+                box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(90, 140, 210, 0.15) inset;
+                transition: all 0.2s;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .summary-card:hover {
+                border-color: #3f6290;
+                background: rgba(22, 32, 46, 0.95);
+                box-shadow: 0 30px 50px -18px #0a1422, 0 0 0 1px #4f7cbb inset;
+                transform: scale(1.01) translateY(-3px);
+            }
+
+            .card-header {
+                display: flex;
+                align-items: center;
+                gap: 0.9rem;
+                margin-bottom: 1.4rem;
+            }
+
+            .q-num {
+                background: #142436;
+                color: #bdd3ff;
+                font-weight: 700;
+                font-size: 1.5rem;
+                width: 52px;
+                height: 52px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 30% 70% 30% 70% / 60% 40% 60% 40%;
+                border: 1px solid #375d8c;
+                box-shadow: 0 4px 14px #020b16;
+            }
+
+            .topic-tag {
+                background: #162433;
+                color: #adccff;
+                font-size: 0.85rem;
+                font-weight: 600;
+                padding: 0.5rem 1.5rem;
+                border-radius: 40px;
+                text-transform: uppercase;
+                letter-spacing: 0.4px;
+                border: 1px solid #2d507a;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .summary-content {
+                font-size: 1.05rem;
+                line-height: 1.75;
+                color: #e0edff;
+                font-weight: 400;
+                margin: 0.2rem 0 1rem 0;
+                flex-grow: 1;
+                background: rgba(0, 10, 22, 0.5);
+                padding: 1.4rem 1.5rem;
+                border-radius: 26px;
+                border-left: 4px solid #3773bb;
+                box-shadow: inset 0 2px 8px #03080e;
+            }
+
+            .summary-content strong {
+                color: #ffd966;
+                font-weight: 600;
+            }
+
+            .summary-content em {
+                color: #9fc5ff;
+                font-style: italic;
+            }
+
+            .summary-content ul {
+                margin: 0.7rem 0 0.2rem 1.5rem;
+            }
+
+            .summary-content li {
+                margin: 0.4rem 0;
+                color: #d3e2fd;
+            }
+
+            .formula-badge {
+                background: #0e1b2b;
+                padding: 0.25rem 1rem;
+                border-radius: 40px;
+                font-family: 'JetBrains Mono', monospace;
+                font-weight: 600;
+                color: #ffb870;
+                border: 1px solid #3e5f86;
+                display: inline-block;
+                margin: 0.5rem 0.2rem 0 0;
+                font-size: 1.1rem;
+            }
+
+            .footer-meta {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 0.8rem;
+                border-top: 1px solid #253a52;
+                padding-top: 0.8rem;
+            }
+
+            .source-badge {
+                background: #0f1b28;
+                color: #9eb9dc;
+                padding: 0.3rem 1.2rem;
+                border-radius: 30px;
+                font-size: 0.8rem;
+                font-weight: 500;
+                border: 1px solid #324f73;
+            }
+
+            .btn-copy {
+                background: transparent;
+                border: 1px solid #3b5982;
+                border-radius: 40px;
+                padding: 0.3rem 1.3rem;
+                color: #bdd3f5;
+                font-size: 0.75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: 0.15s;
+                backdrop-filter: blur(4px);
+            }
+
+            .btn-copy:hover {
+                background: #213a58;
+                border-color: #7fa3db;
+                color: white;
+                box-shadow: 0 4px 12px #0d1b2b;
+            }
+
+            .footer-note {
+                text-align: center;
+                margin-top: 3.8rem;
+                color: #7f9bc0;
+                font-size: 0.95rem;
+                border-top: 1px solid #1e3148;
+                padding-top: 2rem;
+            }
+
+            .footer-note strong {
+                color: #c9ddff;
+                font-weight: 600;
+            }
+
+            /* custom dark scroll */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #0d1622;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #2a4568;
+                border-radius: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="premium-container">
+            <!-- header premium with hinglish title -->
+            <div class="header">
+                <h1>⚡ Training in Sports · Unit 10</h1>
+            </div>
+
+            <!-- filter chips (visual only, non functional but premium) -->
+            <div class="micro-chip">
+                <span class="filter-chip active">सभी टॉपिक</span>
+                <span class="filter-chip">talent id</span>
+                <span class="filter-chip">periodization</span>
+                <span class="filter-chip">strength</span>
+                <span class="filter-chip">endurance</span>
+                <span class="filter-chip">speed</span>
+                <span class="filter-chip">flexibility</span>
+                <span class="filter-chip">coordinative</span>
+                <span class="filter-chip">circuit</span>
+            </div>
+
+            <!-- summary grid — 8 cards for 8 main sections -->
+            <div class="summary-grid">
+                <!-- 1. Sports Training aur Talent Identification -->
+                <div class="summary-card">
+                    <div class="card-header">
+                        <span class="q-num">01</span>
+                        <span class="topic-tag">sports training · talent</span>
+                    </div>
+                    <div class="summary-content">
+                        <strong>🎯 Sports Training aur Talent Identification</strong><br>
+                        • <strong>Sports Training:</strong> Yeh ek special preparation process hai jo scientific
+                        principles par based hoti hai, jiska aim sports person ki performance capacity ko improve karna
+                        hota hai.<br>
+                        • <strong>Talent Identification:</strong> Yeh aise players ko recognize karne ki process hai
+                        jinki current performance ke basis par unka future potential predict kiya ja sake. Yeh bina kisi
+                        race ya religion ke bhedbhav ke, selection committee dwara kiya jata hai.
+                    </div>
+                    <div class="footer-meta">
+                        <span class="source-badge">talent id · selection</span>
+                    </div>
+                </div>
+
+                <!-- 2. Sports Training Cycles (Periodization) -->
+                <div class="summary-card">
+                    <div class="card-header">
+                        <span class="q-num">02</span>
+                        <span class="topic-tag">periodization</span>
+                    </div>
+                    <div class="summary-content">
+                        <strong>📅 Sports Training Cycles (Periodization)</strong><br>
+                        Training ko teen main cycles mein divide kiya jata hai:<br>
+                        • <strong>Macro Cycle:</strong> Yeh sabse bada cycle hai jo pure saal bhar (year-long) chalta
+                        hai.<br>
+                        • <strong>Meso Cycle:</strong> Yeh weeks se months tak chalta hai aur speed/strength jaise
+                        specific skills par focus karta hai.<br>
+                        • <strong>Micro Cycle:</strong> Yeh sabse chhota cycle hota hai jo kuch dinon se lekar kuch
+                        weeks tak chalta hai.
+                    </div>
+                    <div class="footer-meta">
+                        <span class="source-badge">macro · meso · micro</span>
+                    </div>
+                </div>
+
+                <!-- 3. Strength (Taqat) -->
+                <div class="summary-card">
+                    <div class="card-header">
+                        <span class="q-num">03</span>
+                        <span class="topic-tag">strength</span>
+                    </div>
+                    <div class="summary-content">
+                        <strong>💪 Strength (Taqat)</strong><br>
+                        Muscle dwara resistance ke against lagaya gaya force Strength hai.<br>
+                        • <strong>Static Strength (Isometric):</strong> Ismein movement dikhayi nahi deta (e.g., plank,
+                        pushing a wall).<br>
+                        • <strong>Dynamic Strength (Isotonic/Isokinetic):</strong> Ismein muscle ka movement visible
+                        hota hai (e.g., weights uthana ya cycling).<br>
+                        • <strong>Types:</strong> maximum strength, explosive strength (jump ke liye), aur strength
+                        endurance (lambe waqt tak force lagana).
+                    </div>
+                    <div class="footer-meta">
+                        <span class="source-badge">static · dynamic</span>
+                    </div>
+                </div>
+
+                <!-- 4. Endurance (Sahan-shakti) -->
+                <div class="summary-card">
+                    <div class="card-header">
+                        <span class="q-num">04</span>
+                        <span class="topic-tag">endurance</span>
+                    </div>
+                    <div class="summary-content">
+                        <strong>🏃 Endurance (Sahan-shakti)</strong><br>
+                        Thakan (fatigue) ke bawajood kisi kaam ko lambe waqt tak karne ki ability.<br>
+                        • <strong>Continuous Training Method:</strong> Bina ruke lambi distance tak daudna (Slow, Fast,
+                        aur Variable types).<br>
+                        • <strong>Interval Training Method:</strong> Ismein workout ke beech-beech mein rest (recovery
+                        period) liya jata hai.<br>
+                        • <strong>Fartlek Training:</strong> Yeh nature ya jungle mein kiya jata hai jahan terrains
+                        badalte rehte hain aur speed bhi change hoti rehti hai.
+                    </div>
+                    <div class="footer-meta">
+                        <span class="source-badge">continuous · interval · fartlek</span>
+                    </div>
+                </div>
+
+                <!-- 5. Speed -->
+                <div class="summary-card">
+                    <div class="card-header">
+                        <span class="q-num">05</span>
+                        <span class="topic-tag">speed</span>
+                    </div>
+                    <div class="summary-content">
+                        <strong>⚡ Speed</strong><br>
+                        Fastest possible rate par body movement karne ki ability. Iske types mein <em>reaction time,
+                            acceleration, aur locomotor ability</em> (maximum speed ko maximum distance tak maintain
+                        karna) aate hain. Isse Acceleration runs aur Pace runs ke zariye improve kiya ja sakta hai.
+                    </div>
+                    <div class="footer-meta">
+                        <span class="source-badge">reaction · acceleration</span>
+                    </div>
+                </div>
+
+                <!-- 6. Flexibility -->
+                <div class="summary-card">
+                    <div class="card-header">
+                        <span class="q-num">06</span>
+                        <span class="topic-tag">flexibility</span>
+                    </div>
+                    <div class="summary-content">
+                        <strong>🧘 Flexibility</strong><br>
+                        Joints ki maximum range of movement.<br>
+                        • <strong>Active Flexibility:</strong> Bina kisi external help ke (e.g., stretching khud
+                        karna).<br>
+                        • <strong>Passive Flexibility:</strong> Partner ya kisi equipment ki help se.<br>
+                        • <strong>PNF (Proprioceptive Neuromuscular Facilitation):</strong> Yeh advanced athletes ke
+                        liye ek stretching technique hai jismein partner ki help li jati hai.
+                    </div>
+                    <div class="footer-meta">
+                        <span class="source-badge">active · passive · PNF</span>
+                    </div>
+                </div>
+
+                <!-- 7. Coordinative Abilities -->
+                <div class="summary-card">
+                    <div class="card-header">
+                        <span class="q-num">07</span>
+                        <span class="topic-tag">coordinative</span>
+                    </div>
+                    <div class="summary-content">
+                        <strong>🔄 Coordinative Abilities</strong><br>
+                        Body movements ko perfection aur efficiency ke saath karne ki ability.<br>
+                        • <strong>Balance Ability:</strong> Body ko stable position mein rakhna.<br>
+                        • <strong>Reaction Ability:</strong> Kisi stimulus par turant respond karna.<br>
+                        • <strong>Coupling Ability:</strong> Body ke alag-alag parts ko ek saath move karke specific
+                        movement karna (e.g., Dhoni ka helicopter shot).
+                    </div>
+                    <div class="footer-meta">
+                        <span class="source-badge">balance · reaction · coupling</span>
+                    </div>
+                </div>
+
+                <!-- 8. Circuit Training -->
+                <div class="summary-card">
+                    <div class="card-header">
+                        <span class="q-num">08</span>
+                        <span class="topic-tag">circuit training</span>
+                    </div>
+                    <div class="summary-content">
+                        <strong>🔄 Circuit Training</strong><br>
+                        Isse 1950 mein <strong>Adamson aur Morgan</strong> ne develop kiya tha. Ismein alag-alag
+                        exercises ka ek set hota hai jismein bina gap liye ya bahut kam time interval mein body ke saare
+                        parts ko target kiya jata hai. Yeh kam time mein strength aur endurance badhane ke liye best
+                        hai.
+                    </div>
+                    <div class="footer-meta">
+                        <span class="source-badge">Adamson & Morgan · 1950</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+
+            // optional: make filter chips non-clickable active (already cursor default, but we keep them visual)
+            // just ensure they don't do anything — but we want that premium feel, so no filter logic (static)
+        </script>
+    </body>
+
+</html>
