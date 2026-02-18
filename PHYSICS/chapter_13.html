@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 13 · Nuclei · Complete Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* definition boxes */
+        .def-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .def-item {
+            background: #1a2a48;
+            border: 2px solid navy;
+            border-radius: 16px;
+            padding: 0.6rem 1rem;
+            flex: 1 1 150px;
+            box-shadow: 0 0 8px navy;
+        }
+
+        .def-item strong {
+            color: #b9d5ff;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⚛️ Chapter 13: Nuclei</h1>
+    <div class="subhead">nucleus structure · isotopes · mass defect · binding energy · fission · fusion</div>
+
+    <div class="grid">
+        <!-- 1. Nucleus ki Sanrachna -->
+        <div class="card">
+            <div class="card-title"><span>💫</span>1. Nucleus ki Sanrachna</div>
+            <ul class="point-list">
+                <li><strong>Nucleus:</strong> Atom ka central core hota hai jisme protons aur neutrons hote hain.</li>
+                <li><strong>Representation:</strong> <span class="formula-inline">X<sub>Z</sub><sup>A</sup></span> jahan Z = atomic number (protons), A = mass number (protons+neutrons)</li>
+                <li><strong>Neutrons:</strong> <span class="formula-inline">N = A − Z</span></li>
+                <li><strong>Nucleons:</strong> Protons + neutrons ko milakar nucleons kehte hain.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Isotopes, Isobars, Isotones -->
+        <div class="card">
+            <div class="card-title"><span>🔬</span>2. Isotopes, Isobars, Isotones</div>
+            <ul class="point-list">
+                <li><strong>Isotopes:</strong> Protons same (Z same), mass number alag (jaise Hydrogen ke isotopes).</li>
+                <li><strong>Isobars:</strong> Mass number same (A same), protons alag.</li>
+                <li><strong>Isotones:</strong> Neutrons ki sankhya same (N same).</li>
+            </ul>
+            <div class="def-box">
+                <div class="def-item"><strong>Isotopes</strong> Z same, A different</div>
+                <div class="def-item"><strong>Isobars</strong> A same, Z different</div>
+                <div class="def-item"><strong>Isotones</strong> N same</div>
+            </div>
+        </div>
+
+        <!-- 3. Atomic Mass Unit aur Energy -->
+        <div class="card">
+            <div class="card-title"><span>⚖️</span>3. Atomic Mass Unit (amu) & Energy</div>
+            <ul class="point-list">
+                <li><strong>1 amu:</strong> Carbon-12 atom ke mass ka 1/12th hissa = <span class="formula-inline">1.66×10⁻²⁷ kg</span></li>
+                <li><strong>Energy Equivalent:</strong> <span class="formula-inline">E = mc²</span> → 1 amu = 931 MeV</li>
+            </ul>
+        </div>
+
+        <!-- 4. Nuclear Size aur Density -->
+        <div class="card">
+            <div class="card-title"><span>📏</span>4. Nuclear Size & Density</div>
+            <ul class="point-list">
+                <li><strong>Radius:</strong> <span class="formula-inline">R = R₀ A¹/³</span>, jahan R₀ ≈ 1.2 fm (fermi)</li>
+                <li><strong>Density:</strong> Nuclear density constant hoti hai — mass number (A) par depend nahi karti. Har element ke nucleus ki density lagbhag ek jaisi hoti hai.</li>
+            </ul>
+        </div>
+
+        <!-- 5. Nuclear Force -->
+        <div class="card">
+            <div class="card-title"><span>⚡</span>5. Nuclear Force</div>
+            <ul class="point-list">
+                <li>Nature ka sabse strong force jo nucleons ko nucleus mein bandhe rakhta hai.</li>
+                <li><strong>Properties:</strong> Short-range (sirf nucleus ke andar), charge-independent, non-central force.</li>
+            </ul>
+        </div>
+
+        <!-- 6. Mass Defect aur Binding Energy -->
+        <div class="card">
+            <div class="card-title"><span>🔗</span>6. Mass Defect & Binding Energy</div>
+            <ul class="point-list">
+                <li><strong>Mass Defect (Δm):</strong> Nucleus ka asli mass, constituent particles ke mass se kam hota hai. Yeh khoya mass energy mein badal jata hai.</li>
+                <li><strong>Binding Energy (B.E.):</strong> <span class="formula-inline">B.E. = Δm × 931 MeV</span></li>
+                <li><strong>Stability:</strong> Iron (Fe) ka nucleus sabse zyada stable hota hai — binding energy per nucleon sabse zyada.</li>
+            </ul>
+        </div>
+
+        <!-- 7. Fission aur Fusion -->
+        <div class="card">
+            <div class="card-title"><span>💥</span>7. Fission & Fusion</div>
+            <ul class="point-list">
+                <li><strong>Nuclear Fission:</strong> Bada unstable nucleus do chhote stable nuclei mein toot-ta hai (jaise Uranium).</li>
+                <li><strong>Nuclear Fusion:</strong> Do chhote nuclei milkar ek bada stable nucleus banate hain (jaise Suraj mein Hydrogen fusion).</li>
+            </ul>
+        </div>
+
+        <!-- extra card: quick revision points -->
+        <div class="card">
+            <div class="card-title"><span>✅</span>8. Quick Revision</div>
+            <ul class="point-list">
+                <li>Nucleus: protons + neutrons (nucleons)</li>
+                <li>Z = protons, A = protons+neutrons, N = A−Z</li>
+                <li>Isotopes: Z same, A different | Isobars: A same | Isotones: N same</li>
+                <li>1 amu = 1.66×10⁻²⁷ kg = 931 MeV</li>
+                <li>Nuclear radius R = R₀ A¹/³, R₀ = 1.2 fm</li>
+                <li>Nuclear density constant (mass number independent)</li>
+                <li>Nuclear force: strongest, short-range, charge-independent</li>
+                <li>Mass defect Δm → Binding energy = Δm × 931 MeV</li>
+                <li>Fe has max binding energy per nucleon → most stable</li>
+                <li>Fission: big splits into small | Fusion: small join to make big</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all key formulas -->
+    <div class="micro-row">
+        <span class="micro-item">N = A − Z</span>
+        <span class="micro-item">1 amu = 1.66×10⁻²⁷ kg</span>
+        <span class="micro-item">1 amu = 931 MeV</span>
+        <span class="micro-item">R = R₀ A¹/³</span>
+        <span class="micro-item">Δm = [Zmₚ + Nmₙ] − M</span>
+        <span class="micro-item">B.E. = Δm × 931 MeV</span>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        ⚛️ Chapter 13 · Nuclei · structure se fusion tak · har point cover
+    </div>
+</div>
+</body>
+</html>

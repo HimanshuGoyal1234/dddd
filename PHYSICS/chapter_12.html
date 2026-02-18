@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12 · Atoms · Complete Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* series boxes */
+        .series-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .series-item {
+            background: #1a2a48;
+            border: 2px solid navy;
+            border-radius: 20px;
+            padding: 0.7rem 1rem;
+            flex: 1 1 140px;
+            box-shadow: 0 0 8px navy;
+        }
+
+        .series-item strong {
+            color: #b9d5ff;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⚛️ Chapter 12: Atoms</h1>
+    <div class="subhead">rutherford · bohr model · hydrogen spectrum · formulas · limitations</div>
+
+    <div class="grid">
+        <!-- 1. Rutherford's Alpha-Particle Scattering Experiment -->
+        <div class="card">
+            <div class="card-title"><span>🎯</span>1. Rutherford's Alpha Scattering</div>
+            <ul class="point-list">
+                <li><strong>Experiment:</strong> Gold foil par alpha particles ki bombardment ki.</li>
+                <li><strong>Observations:</strong> Zyada-tar alpha particles seedhe nikal gaye, kuch thode angle par mude, aur bahut kam (1 in 8000) wapas laut aaye.</li>
+                <li><strong>Conclusion:</strong> Atom ka zyada-tar hissa khali hai aur beech mein ek chhota, heavy, positively charged nucleus hai.</li>
+                <li><strong>Distance of Closest Approach (r₀):</strong> <span class="formula-inline">r₀ = (2kZe²)/K.E.</span></li>
+            </ul>
+        </div>
+
+        <!-- 2. Bohr's Model of Hydrogen Atom -->
+        <div class="card">
+            <div class="card-title"><span>💫</span>2. Bohr's Model · 3 Postulates</div>
+            <ul class="point-list">
+                <li><strong>1. Stable Orbits:</strong> Electrons sirf unhi orbits mein ghumte hain jahan wo energy radiate nahi karte.</li>
+                <li><strong>2. Angular Momentum Quantization:</strong> <span class="formula-inline">L = n(h/2π)</span></li>
+                <li><strong>3. Energy Transition:</strong> <span class="formula-inline">E₂ − E₁ = hf</span> (photon emit/absorb)</li>
+            </ul>
+        </div>
+
+        <!-- 3. Important Formulas (Bohr's Theory) -->
+        <div class="card">
+            <div class="card-title"><span>📐</span>3. Bohr's Important Formulas</div>
+            <ul class="point-list">
+                <li><strong>Radius:</strong> <span class="formula-inline">rₙ = a₀ × n²/Z</span>, jahan a₀ = 0.529 Å (Bohr radius)</li>
+                <li><strong>Velocity:</strong> <span class="formula-inline">vₙ ∝ Z/n</span></li>
+                <li><strong>Energy:</strong> <span class="formula-inline">Eₙ = −13.6 × Z²/n² eV</span> (Hydrogen ke liye)</li>
+                <li><strong>K.E. & P.E.:</strong> K.E. = |Eₙ|, P.E. = 2 × Eₙ</li>
+            </ul>
+        </div>
+
+        <!-- 4. Hydrogen Spectrum -->
+        <div class="card">
+            <div class="card-title"><span>🌈</span>4. Hydrogen Spectrum</div>
+            <ul class="point-list">
+                <li><strong>Rydberg Formula:</strong> <span class="formula-inline">1/λ = R Z² (1/n₁² − 1/n₂²)</span>, R = 1.097×10⁷ m⁻¹</li>
+            </ul>
+            <div class="series-box">
+                <div class="series-item"><strong>Lyman</strong> n₁=1 · UV</div>
+                <div class="series-item"><strong>Balmer</strong> n₁=2 · Visible</div>
+                <div class="series-item"><strong>Paschen</strong> n₁=3 · IR</div>
+                <div class="series-item"><strong>Brackett</strong> n₁=4 · IR</div>
+                <div class="series-item"><strong>Pfund</strong> n₁=5 · IR</div>
+            </div>
+            <div style="margin-top: 0.8rem; color: #b9ceff;">🔴 Balmer series hi visible region mein aati hai (jo hum dekh sakte hain)</div>
+        </div>
+
+        <!-- 5. Limitations of Bohr's Model -->
+        <div class="card">
+            <div class="card-title"><span>⚠️</span>5. Limitations of Bohr's Model</div>
+            <ul class="point-list">
+                <li>Yeh sirf Hydrogen-like atoms (H, He⁺, Li²⁺) ke liye sahi hai.</li>
+                <li>Spectrum lines ki fine structure explain nahi kar paya.</li>
+                <li>Zeeman effect (magnetic field effect) explain nahi kar paya.</li>
+            </ul>
+        </div>
+
+        <!-- extra card: quick revision points -->
+        <div class="card">
+            <div class="card-title"><span>✅</span>6. Quick Revision</div>
+            <ul class="point-list">
+                <li>Rutherford: atom mostly empty, nucleus positive & heavy</li>
+                <li>Distance of closest approach: r₀ = 2kZe²/K.E.</li>
+                <li>Bohr's quantization: L = nh/2π</li>
+                <li>Radius rₙ ∝ n², Energy Eₙ ∝ −1/n²</li>
+                <li>Hydrogen ground state energy = −13.6 eV</li>
+                <li>Lyman (UV), Balmer (Visible), Paschen (IR)</li>
+                <li>Rydberg formula: 1/λ = R(1/n₁² − 1/n₂²)</li>
+                <li>Bohr model fails for multi-electron atoms, fine structure, Zeeman effect</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all key formulas -->
+    <div class="micro-row">
+        <span class="micro-item">r₀ = 2kZe²/K.E.</span>
+        <span class="micro-item">L = nh/2π</span>
+        <span class="micro-item">rₙ = 0.529 n²/Z Å</span>
+        <span class="micro-item">Eₙ = −13.6 Z²/n² eV</span>
+        <span class="micro-item">1/λ = R(1/n₁²−1/n₂²)</span>
+        <span class="micro-item">R = 1.097×10⁷ m⁻¹</span>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        ⚛️ Chapter 12 · Atoms · Rutherford se limitations tak · har point cover
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chapter 3 · Current Electricity · Complete Micro Details</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #0a0c14;
+                font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+                padding: 2rem 1rem;
+                color: #edf2f9;
+                line-height: 1.5;
+            }
+
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+
+            h1 {
+                font-size: 2.3rem;
+                font-weight: 600;
+                background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 0.3rem;
+            }
+
+            .subhead {
+                color: #97abcf;
+                margin-bottom: 2.2rem;
+                padding-left: 1.2rem;
+                border-left: 4px solid #3f60a0;
+                font-size: 1.1rem;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+                gap: 1.4rem;
+            }
+
+            .card {
+                background: #121b2b;
+                border-radius: 28px;
+                padding: 1.6rem 1.4rem;
+                border: 1px solid #253c62;
+                box-shadow: 0 18px 30px -10px #010314;
+                transition: 0.15s;
+            }
+
+            .card:hover {
+                border-color: #3f6ac0;
+            }
+
+            .card-title {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                margin-bottom: 1.2rem;
+                border-bottom: 1px dashed #2e4780;
+                padding-bottom: 0.6rem;
+                font-size: 1.35rem;
+                font-weight: 600;
+                color: #c7dbff;
+            }
+
+            .card-title span {
+                font-size: 1.8rem;
+            }
+
+            .point-list {
+                list-style: none;
+            }
+
+            .point-list li {
+                display: flex;
+                gap: 0.9rem;
+                margin-bottom: 0.85rem;
+                font-size: 0.98rem;
+                color: #deeaff;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                border: 2px solid navy;
+                box-shadow: 0 0 10px navy;
+                border-radius: 15px;
+                padding: 12px;
+            }
+
+            .point-list li::before {
+                content: "▹";
+                color: #6f9cff;
+                font-size: 1.2rem;
+                width: 1.3rem;
+                flex-shrink: 0;
+            }
+
+            .formula-inline {
+                background: #1e2d4a;
+                padding: 0.2rem 0.8rem;
+                border-radius: 30px;
+                font-family: 'JetBrains Mono', monospace;
+                color: #c5ddff;
+                border: 1px solid #365799;
+                white-space: nowrap;
+                font-size: 0.92rem;
+            }
+
+            .badge {
+                background: #1f3257;
+                color: #b9d5ff;
+                border-radius: 40px;
+                padding: 0.15rem 0.8rem;
+                font-size: 0.75rem;
+                border: 1px solid #3a62aa;
+                margin-left: 0.4rem;
+                font-weight: 500;
+            }
+
+            .divider {
+                height: 1px;
+                background: #253f68;
+                margin: 1.2rem 0 1rem 0;
+            }
+
+            .micro-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.2rem;
+                background: #0f172b;
+                border-radius: 40px;
+                padding: 1.2rem 1.8rem;
+                margin: 2rem 0 0.5rem;
+                border: 1px solid #2b4a81;
+                justify-content: center;
+            }
+
+            .micro-item {
+                color: #c1d6ff;
+                font-size: 0.95rem;
+                background: #1b2b48;
+                padding: 0.3rem 1rem;
+                border-radius: 40px;
+                border: 1px solid #385e9e;
+            }
+
+            .footer-note {
+                margin-top: 3rem;
+                text-align: center;
+                color: #607ab3;
+                border-top: 1px solid #1d3157;
+                padding-top: 2rem;
+                font-size: 0.95rem;
+            }
+
+            /* extra emphasis for exact lines */
+            .exact-line {
+                background: #1b253f;
+                border-left: 3px solid #5f8cff;
+                padding: 0.3rem 0.8rem;
+                border-radius: 0 14px 14px 0;
+                margin: 0.6rem 0;
+                font-style: italic;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>⚡ Chapter 3: Current Electricity</h1>
+            <div class="subhead">basic se high-level derivations · har point · choti se choti baat · dark mode</div>
+
+            <div class="grid">
+
+                <!-- 1. Electric Current aur basic formulas (full micro) -->
+                <div class="card">
+                    <div class="card-title"><span>🔋</span>1. Electric Current & basics</div>
+                    <ul class="point-list">
+                        <li><strong>Electric Current (I):</strong> Jab electric charge (electrons) motion mein hota hai,
+                            use current electricity kehte hain. Kisi wire ke cross-sectional area se unit time mein flow
+                            hone wale charge ko current kehte hain: <span class="formula-inline">I = Q/t</span></li>
+                        <li><strong>Instantaneous Current:</strong> Bahut kam samay ke liye current nikalne ke liye
+                            differentiation ka use karte hain: <span class="formula-inline">I = dq/dt</span></li>
+                        <li><strong>Average Current:</strong> Total charge ko total time se divide karne par milta hai:
+                            <span class="formula-inline">I<sub>avg</sub> = ΔQ/ΔT</span></li>
+                        <li><strong>Quantization aur Current:</strong> Charge Q = ne hota hai, isliye current ka formula
+                            <span class="formula-inline">I = ne/t</span> bhi hota hai.</li>
+                        <li><strong>SI Unit:</strong> Current ki unit Ampere (A) hoti hai aur yeh ek tensor quantity hai
+                            kyunki iski direction fixed nahi hoti.</li>
+                    </ul>
+                </div>
+
+                <!-- 2. Ohm’s Law aur Resistance -->
+                <div class="card">
+                    <div class="card-title"><span>⚡</span>2. Ohm’s Law & Resistance</div>
+                    <ul class="point-list">
+                        <li><strong>Ohm’s Law:</strong> Fixed temperature par, wire ke across potential difference (V)
+                            current (I) ke directly proportional hota hai: <span class="formula-inline">V = I R</span>
+                        </li>
+                        <li><strong>Resistance (R):</strong> Yeh current ke raste ki rukawat hai jo electrons ke aapas
+                            mein takrane (collision) ki wajah se paida hoti hai. Formula: <span class="formula-inline">R
+                                = ρL/A</span></li>
+                        <li><strong>Resistivity (ρ):</strong> Yeh material ki property hai jo length ya area par depend
+                            nahi karti, sirf material aur temperature par karti hai.</li>
+                        <li><strong>Conductance (G) aur Conductivity (σ):</strong> Resistance ka ulta conductance <span
+                                class="formula-inline">G = 1/R</span> aur resistivity ka ulta conductivity <span
+                                class="formula-inline">σ = 1/ρ</span> hota hai.</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Drift Velocity aur Mobility -->
+                <div class="card">
+                    <div class="card-title"><span>🏃</span>3. Drift Velocity & Mobility</div>
+                    <ul class="point-list">
+                        <li><strong>Drift Velocity (v<sub>d</sub>):</strong> Jab battery lagayi jati hai, to electrons
+                            jis average velocity se positive terminal ki taraf khichte (drift hote) hain, use drift
+                            velocity kehte hain. Formula: <span class="formula-inline">v<sub>d</sub> = (eE/m)τ</span>
+                        </li>
+                        <li><strong>Relation between I and v<sub>d</sub>:</strong> Current aur drift velocity ka
+                            relation bahut important hai: <span class="formula-inline">I = n A e v<sub>d</sub></span>
+                        </li>
+                        <li><strong>Mobility (μ):</strong> Drift velocity per unit electric field ko mobility kehte
+                            hain: <span class="formula-inline">μ = v<sub>d</sub> / E</span></li>
+                    </ul>
+                </div>
+
+                <!-- 4. Temperature Dependance (exact lines) -->
+                <div class="card">
+                    <div class="card-title"><span>🌡️</span>4. Temperature Dependance</div>
+                    <ul class="point-list">
+                        <li><strong>Conductors:</strong> Temperature badhne par collisions badhte hain, relaxation time
+                            (τ) ghat-ta hai aur resistance/resistivity badh jati hai.</li>
+                        <li><strong>Semiconductors:</strong> Temperature badhne par charge carriers (n) badhte hain aur
+                            resistivity ghat-ti hai.</li>
+                        <li><strong>Alloys:</strong> Inka resistance temperature par bahut kam depend karta hai, isliye
+                            inka use standard resistors banane mein hota hai.</li>
+                        <li><strong>Formula:</strong> <span class="formula-inline">R<sub>2</sub> = R<sub>1</sub> [1 + α
+                                (T<sub>2</sub> − T<sub>1</sub>)]</span></li>
+                    </ul>
+                </div>
+
+                <!-- 5. Cells, EMF aur Internal Resistance -->
+                <div class="card">
+                    <div class="card-title"><span>🔋</span>5. Cells, EMF & Internal Resistance</div>
+                    <ul class="point-list">
+                        <li><strong>EMF (E):</strong> Unit charge ko pure circuit mein ek baar ghumane ka total work
+                            done.</li>
+                        <li><strong>Potential Difference (V):</strong> Do points ke beech charge ko move karne ka work.
+                        </li>
+                        <li><strong>Internal Resistance (r):</strong> Cell ke andar ke chemicals ki rukawat.</li>
+                        <li><strong>Discharging:</strong> <span class="formula-inline">V = E − I r</span></li>
+                        <li><strong>Charging:</strong> <span class="formula-inline">V = E + I r</span></li>
+                        <li><strong>Series Combination:</strong> <span class="formula-inline">E<sub>net</sub> =
+                                E<sub>1</sub> + E<sub>2</sub> + ...</span> aur <span
+                                class="formula-inline">r<sub>net</sub> = r<sub>1</sub> + r<sub>2</sub> + ...</span></li>
+                        <li><strong>Parallel Combination:</strong> <span class="formula-inline">E<sub>eq</sub> /
+                                r<sub>eq</sub> = E<sub>1</sub>/r<sub>1</sub> + E<sub>2</sub>/r<sub>2</sub> + ...</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 6. Kirchhoff’s Laws aur Wheatstone Bridge -->
+                <div class="card">
+                    <div class="card-title"><span>🔄</span>6. Kirchhoff & Wheatstone</div>
+                    <ul class="point-list">
+                        <li><strong>Kirchhoff’s 1st Law (Junction Law):</strong> Kisi junction par total incoming
+                            current = total outgoing current (Conservation of Charge).</li>
+                        <li><strong>Kirchhoff’s 2nd Law (Loop Law):</strong> Kisi closed loop mein total potential
+                            change zero hota hai (Conservation of Energy).</li>
+                        <li><strong>Wheatstone Bridge:</strong> Chaar resistors (P, Q, R, S) ka arrangement. Agar
+                            galvanometer mein current zero (I<sub>g</sub> = 0) ho, to bridge balanced hota hai: <span
+                                class="formula-inline">P/Q = R/S</span></li>
+                    </ul>
+                </div>
+
+                <!-- 7. Heating Effect aur Power -->
+                <div class="card">
+                    <div class="card-title"><span>🔥</span>7. Heating Effect & Power</div>
+                    <ul class="point-list">
+                        <li><strong>Joule’s Law of Heating:</strong> Resistor mein heat ka formula <span
+                                class="formula-inline">H = I² R t</span> hota hai.</li>
+                        <li><strong>Power (P):</strong> Rate of electrical energy consumption. <span
+                                class="formula-inline">P = V I = I² R = V² / R</span></li>
+                        <li><strong>Fuse:</strong> Ek safety device jiska resistance high aur melting point low hota hai
+                            taaki high current aane par pighal jaye.</li>
+                    </ul>
+                </div>
+
+                <!-- extra card: drift derivation & subtle points (micro details) -->
+                <div class="card">
+                    <div class="card-title"><span>🔬</span>8. Microscopic details (extra)</div>
+                    <ul class="point-list">
+                        <li>Relaxation time τ = mean free path / v<sub>rms</sub> → collisions se directly related.</li>
+                        <li>v<sub>d</sub> = aτ = (eE/m) τ</li>
+                        <li>I = n e A v<sub>d</sub> ⇒ I = (n e² A τ / m) E</li>
+                        <li>Resistivity ρ = m / (n e² τ) → τ increase → ρ decrease.</li>
+                        <li>Conductivity σ = n e² τ / m = 1/ρ</li>
+                        <li>Mobility μ = eτ/m = v<sub>d</sub>/E</li>
+                    </ul>
+                </div>
+
+                <!-- exact line card: temperature & alloys (repeat nahi, but confirmation) -->
+                <div class="card">
+                    <div class="card-title"><span>🧪</span>9. temperature specifics (your lines)</div>
+                    <ul class="point-list">
+                        <li><em>"Temperature badhne par collisions badhte hain, relaxation time (τ) ghat-ta hai aur
+                                resistance/resistivity badh jati hai."</em></li>
+                        <li><em>"Temperature badhne par charge carriers (n) badhte hain aur resistivity ghat-ti
+                                hai."</em></li>
+                        <li><em>"Alloys: Inka resistance temperature par bahut kam depend karta hai, isliye inka use
+                                standard resistors banane mein hota hai."</em></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- micro row : choti se choti formula / baat -->
+            <div class="micro-row">
+                <span class="micro-item">I = ne/t</span>
+                <span class="micro-item">G = 1/R</span>
+                <span class="micro-item">σ = 1/ρ</span>
+                <span class="micro-item">μ = v<sub>d</sub>/E</span>
+                <span class="micro-item">V = E ± Ir</span>
+                <span class="micro-item">P/Q = R/S</span>
+                <span class="micro-item">H = I²Rt</span>
+                <span class="micro-item">P = V²/R</span>
+            </div>
+
+            <!-- full detail: series parallel combination extra line -->
+            <div
+                style="background: #0f1a30; border-radius: 40px; padding: 1.2rem 2rem; margin-top: 1.8rem; border: 1px solid #2d4a82;">
+                <p style="color: #d3e3ff; display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <span><strong>⚡ discharging:</strong> V = E − I r</span>
+                    <span><strong>⚡ charging:</strong> V = E + I r</span>
+                    <span><strong>⚡ series cells:</strong> E<sub>net</sub> = E₁+E₂ , r<sub>net</sub> = r₁+r₂</span>
+                    <span><strong>⚡ parallel cells:</strong> E<sub>eq</sub>/r<sub>eq</sub> = E₁/r₁ + E₂/r₂</span>
+                </p>
+            </div>
+
+            <!-- footer note: sab kuch add -->
+            <div class="footer-note">
+                ⚡ bhai, ab har point cover ho gaya · electric current se fuse tak · choti se choti line add · dark mode
+            </div>
+        </div>
+    </body>
+
+</html>

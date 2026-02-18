@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5 · Magnetism and Matter · Complete 1-Liners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* analogy table styling */
+        .analogy-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            color: #deeaff;
+        }
+
+        .analogy-item {
+            background: #1a2645;
+            border-radius: 20px;
+            padding: 0.8rem 1rem;
+            border: 2px solid navy;
+            box-shadow: 0 0 8px navy;
+            font-size: 0.95rem;
+        }
+
+        .analogy-item strong {
+            color: #b9d5ff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🧲 Chapter 5: Magnetism and Matter</h1>
+    <div class="subhead">classification · definitions · laws · permanent vs electromagnets · analogy · 1‑liners</div>
+
+    <div class="grid">
+        <!-- 1. Magnetic Substances (Classification) -->
+        <div class="card">
+            <div class="card-title"><span>🧲</span>1. Magnetic Substances · Classification</div>
+            <ul class="point-list">
+                <li><strong>Diamagnetic:</strong> Weakly repel, magnetic moment applied field ke opposite. (Example: Bismuth, Copper, Silver)</li>
+                <li><strong>Paramagnetic:</strong> Weakly attract, small permanent magnetic moment. (Example: Aluminium, Platinum)</li>
+                <li><strong>Ferromagnetic:</strong> Strongly attract, large permanent magnetic moment. (Example: Iron, Cobalt, Nickel)</li>
+            </ul>
+        </div>
+
+        <!-- 2. Important Definitions -->
+        <div class="card">
+            <div class="card-title"><span>📌</span>2. Important Definitions</div>
+            <ul class="point-list">
+                <li><strong>Magnetic Moment (μ):</strong> Pole strength × distance (2a) ya <span class="formula-inline">M = N I A</span></li>
+                <li><strong>Magnetizing Field (H):</strong> <span class="formula-inline">H = n i</span> (n = turns per unit length)</li>
+                <li><strong>Magnetization (M):</strong> Magnetic moment per unit volume <span class="formula-inline">M = μ / V</span></li>
+                <li><strong>Magnetic Susceptibility (χ):</strong> <span class="formula-inline">χ = M / H</span> (material ke magnet banne ki kshamta)</li>
+            </ul>
+        </div>
+
+        <!-- 3. Laws and Relations -->
+        <div class="card">
+            <div class="card-title"><span>⚖️</span>3. Laws and Relations</div>
+            <ul class="point-list">
+                <li><strong>Curie’s Law:</strong> Paramagnetic materials ke liye χ ∝ 1/T (temperature ke inversely proportional)</li>
+                <li><strong>Curie Temperature (T<sub>c</sub>):</strong> Woh temperature jis se upar ferromagnetic → paramagnetic ban jata hai.</li>
+                <li><strong>Total magnetic field:</strong> <span class="formula-inline">B = μ₀ (H + M)</span></li>
+                <li><strong>Relative Permeability Relation:</strong> <span class="formula-inline">μ<sub>r</sub> = 1 + χ</span> (sabse important)</li>
+            </ul>
+        </div>
+
+        <!-- 4. Permanent Magnets vs Electromagnets -->
+        <div class="card">
+            <div class="card-title"><span>🔩</span>4. Permanent vs Electromagnets</div>
+            <ul class="point-list">
+                <li><strong>Permanent Magnets:</strong> Steel (Hard Steel) se bante hain. Retentivity aur Coercivity dono high honi chahiye.</li>
+                <li><strong>Electromagnets:</strong> Soft Iron se bante hain. Retentivity low chahiye taaki field hat-te hi magnetism khatam ho jaye.</li>
+            </ul>
+        </div>
+
+        <!-- 5. Analogy Table (Electrostatics vs Magnetism) -->
+        <div class="card">
+            <div class="card-title"><span>📊</span>5. Analogy Table · Electrostatics vs Magnetism</div>
+            <div class="analogy-table">
+                <div class="analogy-item"><strong>Constant:</strong> 1/4πϵ₀ → <span class="formula-inline">μ₀/4π</span></div>
+                <div class="analogy-item"><strong>Dipole moment:</strong> p (electric) → μ (magnetic)</div>
+                <div class="analogy-item"><strong>Axial field:</strong> 2kp/r³ → <span class="formula-inline">2kμ/r³</span></div>
+                <div class="analogy-item"><strong>Equatorial field:</strong> −kp/r³ → <span class="formula-inline">−kμ/r³</span></div>
+            </div>
+            <div style="margin-top: 1rem; color: #b9ceff; font-size: 0.9rem; border-left: 2px solid #3f6ac0; padding-left: 1rem;">
+                ⚡ k = μ₀/4π (magnetism me) ; Electrostatics me k = 1/4πϵ₀
+            </div>
+        </div>
+
+        <!-- extra card: quick revision one-liners -->
+        <div class="card">
+            <div class="card-title"><span>✅</span>6. Extra 1‑liners (revision)</div>
+            <ul class="point-list">
+                <li>Diamagnetic: χ negative & small, μ<sub>r</sub> &lt; 1</li>
+                <li>Paramagnetic: χ positive & small, μ<sub>r</sub> &gt; 1</li>
+                <li>Ferromagnetic: χ positive & large, μ<sub>r</sub> ≫ 1</li>
+                <li>Curie temperature ke baad ferromagnetic paramagnetic ban jata hai.</li>
+                <li>Soft iron ki coercivity low hoti hai → electromagnet ke liye best.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all key formulas -->
+    <div class="micro-row">
+        <span class="micro-item">χ = M/H</span>
+        <span class="micro-item">μ<sub>r</sub> = 1+χ</span>
+        <span class="micro-item">B = μ₀(H+M)</span>
+        <span class="micro-item">M = NIA</span>
+        <span class="micro-item">H = n i</span>
+        <span class="micro-item">χ ∝ 1/T</span>
+    </div>
+
+    <!-- footer note + quiz trigger -->
+    <div class="footer-note">
+        🧲 Chapter 5 · Magnetism and Matter · har point cover · ab exam mein 5 marks pakke!<br>
+        ⚡ Kya aap chahte hain ki main is chapter ka ek Short Quiz generate karun?
+    </div>
+</div>
+</body>
+</html>

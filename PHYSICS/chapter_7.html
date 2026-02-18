@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 7 · Alternating Current (AC) · Complete Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⚡ Chapter 7: Alternating Current (AC)</h1>
+    <div class="subhead">AC vs DC · RMS · reactance · LCR · resonance · quality factor · 1‑liners</div>
+
+    <div class="grid">
+        <!-- 1. AC aur DC ka Antar -->
+        <div class="card">
+            <div class="card-title"><span>🔋</span>1. AC aur DC ka Antar</div>
+            <ul class="point-list">
+                <li><strong>Direct Current (DC):</strong> Aisa current jiska magnitude samay ke saath constant rehta hai aur direction nahi badalti.</li>
+                <li><strong>Alternating Current (AC):</strong> Aisa current jiska magnitude aur direction samay ke saath badalte rehte hain.</li>
+                <li><strong>Full Cycle Average:</strong> Ek poori cycle (0 se T) ke liye AC ki average value hamesha zero hoti hai.</li>
+                <li><strong>Half Cycle Average:</strong> Adhi cycle ke liye average current peak value ka 0.637 (ya lagbhag 0.67) guna hota hai: <span class="formula-inline">I<sub>avg</sub> = 0.637 I₀</span></li>
+            </ul>
+        </div>
+
+        <!-- 2. RMS aur Effective Value -->
+        <div class="card">
+            <div class="card-title"><span>📊</span>2. RMS aur Effective Value</div>
+            <ul class="point-list">
+                <li><strong>Root Mean Square (RMS) Value:</strong> Yeh AC ki woh effective value hai jo DC ke barabar heating effect paida karti hai.</li>
+                <li><strong>RMS Formula:</strong> AC ki RMS value peak value ko √2 se divide karne par milti hai: <span class="formula-inline">I<sub>rms</sub> = I₀ / √2</span></li>
+                <li><strong>Gharelu Current:</strong> Hamare gharon mein aane wala current RMS current hota hai.</li>
+            </ul>
+        </div>
+
+        <!-- 3. AC Circuits (Pure Components) -->
+        <div class="card">
+            <div class="card-title"><span>🔌</span>3. AC Circuits · Pure Components</div>
+            <ul class="point-list">
+                <li><strong>Pure Resistor:</strong> Resistor mein voltage aur current dono same phase mein hote hain (ϕ = 0).</li>
+                <li><strong>Pure Inductor:</strong> Inductor mein current voltage se 90° (π/2) peeche (lag) rehta hai.</li>
+                <li><strong>Inductive Reactance (X<sub>L</sub>):</strong> Inductor dwara di gayi rukawat: <span class="formula-inline">X<sub>L</sub> = ωL = 2πfL</span></li>
+                <li><strong>Pure Capacitor:</strong> Capacitor mein current voltage se 90° (π/2) aage (lead) rehta hai.</li>
+                <li><strong>Capacitive Reactance (X<sub>C</sub>):</strong> Capacitor ki rukawat: <span class="formula-inline">X<sub>C</sub> = 1/ωC = 1/(2πfC)</span></li>
+            </ul>
+        </div>
+
+        <!-- 4. Combined aur LCR Circuits -->
+        <div class="card">
+            <div class="card-title"><span>🔄</span>4. LCR Circuits · Impedance</div>
+            <ul class="point-list">
+                <li><strong>Impedance (Z):</strong> Kisi bhi AC circuit ki total effective rukawat ko Impedance kehte hain.</li>
+                <li><strong>Series LCR Circuit:</strong> Net impedance: <span class="formula-inline">Z = √[R² + (X<sub>L</sub> − X<sub>C</sub>)²]</span></li>
+                <li><strong>Phase Difference (ϕ):</strong> LCR circuit mein voltage aur current ke beech ka angle: <span class="formula-inline">tan ϕ = (X<sub>L</sub> − X<sub>C</sub>) / R</span></li>
+            </ul>
+        </div>
+
+        <!-- 5. Resonance aur Sharpness -->
+        <div class="card">
+            <div class="card-title"><span>🎯</span>5. Resonance & Sharpness</div>
+            <ul class="point-list">
+                <li><strong>Resonance Condition:</strong> Jab X<sub>L</sub> = X<sub>C</sub> ho jaye, tab circuit mein maximum current flow hota hai.</li>
+                <li><strong>Resonant Frequency:</strong> Resonance par angular frequency <span class="formula-inline">ω = 1/√(LC)</span> aur frequency <span class="formula-inline">f = 1/(2π√(LC))</span> hoti hai.</li>
+                <li><strong>Quality Factor (Q):</strong> Resonance ki sharpness batata hai: <span class="formula-inline">Q = (1/R) √(L/C)</span></li>
+                <li><strong>Bandwidth:</strong> Resonance curve ki chaudai (ω₂ − ω₁); bandwidth jitni kam hogi, quality utni achhi hogi.</li>
+            </ul>
+        </div>
+
+        <!-- extra card: quick revision points -->
+        <div class="card">
+            <div class="card-title"><span>✅</span>6. Quick Revision</div>
+            <ul class="point-list">
+                <li>AC ka full cycle average = 0, half cycle average = 0.637 × peak</li>
+                <li>RMS = peak/√2 → heating effect DC ke barabar</li>
+                <li>Resistor: V aur I same phase; Inductor: I lags V by 90°; Capacitor: I leads V by 90°</li>
+                <li>X<sub>L</sub> ∝ f, X<sub>C</sub> ∝ 1/f</li>
+                <li>Resonance par Z = R (minimum), I = maximum</li>
+                <li>Q factor jyada → bandwidth kam → sharper resonance</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all key formulas -->
+    <div class="micro-row">
+        <span class="micro-item">I<sub>avg</sub> = 0.637 I₀</span>
+        <span class="micro-item">I<sub>rms</sub> = I₀/√2</span>
+        <span class="micro-item">X<sub>L</sub> = ωL</span>
+        <span class="micro-item">X<sub>C</sub> = 1/ωC</span>
+        <span class="micro-item">Z = √[R²+(X<sub>L</sub>−X<sub>C</sub>)²]</span>
+        <span class="micro-item">tanϕ = (X<sub>L</sub>−X<sub>C</sub>)/R</span>
+        <span class="micro-item">ω = 1/√(LC)</span>
+        <span class="micro-item">Q = (1/R)√(L/C)</span>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        ⚡ Chapter 7 · Alternating Current · AC se resonance tak · har point cover
+    </div>
+</div>
+</body>
+</html>

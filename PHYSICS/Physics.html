@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 12 Physics · Complete Study Material</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+            background-image: radial-gradient(circle at 10% 20%, rgba(25, 60, 120, 0.15) 0%, transparent 30%),
+                              radial-gradient(circle at 90% 70%, rgba(70, 130, 255, 0.1) 0%, transparent 40%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff, #6f9cff, #4a7cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(75, 130, 255, 0.3);
+        }
+
+        .subhead {
+            color: #97abcf;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px dashed #3f60a0;
+            padding-bottom: 1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            background: #121b2bcc;
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
+            border-radius: 60px;
+            border: 2px solid navy;
+            box-shadow: 0 0 25px navy;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #b9d5ff;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #7f9fcf;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .tab-btn {
+            background: #1e2f55;
+            border: 2px solid #385e9e;
+            color: #deeaff;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 0 10px #385e9e;
+        }
+
+        .tab-btn.active {
+            background: #2a4080;
+            border-color: #6f9cff;
+            color: white;
+            box-shadow: 0 0 20px #6f9cff;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px #6f9cff;
+        }
+
+        /* Chapters Grid */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .chapter-card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem;
+            border: 3px solid navy;
+            box-shadow: 0 0 20px navy;
+            transition: 0.25s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-8px);
+            border-color: #4a7cff;
+            box-shadow: 0 0 35px #4a7cff;
+        }
+
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #6f9cff, #b3ccff, #6f9cff);
+        }
+
+        .chapter-number {
+            font-size: 1rem;
+            color: #b9d5ff;
+            background: #1e3155;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            border: 1px solid #3f6ac0;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .chapter-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #c7dbff;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .chapter-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-desc {
+            color: #b0c4e9;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .resource-links {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .resource-link {
+            background: #1e2f55;
+            border: 1px solid #385e9e;
+            border-radius: 30px;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+            color: #c5d6ff;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .resource-link:hover {
+            background: #2a4080;
+            border-color: #6f9cff;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Mindmap Special Card */
+        .mindmap-section {
+            margin-bottom: 3rem;
+        }
+
+        .mindmap-card {
+            background: linear-gradient(145deg, #1a2740, #121b2b);
+            border-radius: 40px;
+            padding: 2rem;
+            border: 3px solid #4a7cff;
+            box-shadow: 0 0 30px #4a7cff;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .mindmap-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .mindmap-content h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px #6f9cff;
+        }
+
+        .mindmap-content p {
+            font-size: 1.1rem;
+            color: #b9d5ff;
+            margin-bottom: 1.5rem;
+        }
+
+        .mindmap-btn {
+            background: #4a7cff;
+            border: none;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 0 20px #4a7cff;
+            border: 2px solid #b3ccff;
+        }
+
+        .mindmap-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px #4a7cff;
+            background: #5f8cff;
+        }
+
+        .mindmap-icon {
+            font-size: 6rem;
+            filter: drop-shadow(0 0 20px #4a7cff);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #8fa8dd;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            color: #b9d5ff;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .chapter-title {
+                font-size: 1.4rem;
+            }
+            .mindmap-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>⚛️ Class 12 Physics</h1>
+            <div class="subhead">Complete Study Material · Chapter-wise Notes & Mindmaps</div>
+            
+            <!-- Stats -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Chapters</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Concepts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Formulas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Mindmap</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Tabs (just for show) -->
+        <div class="nav-tabs">
+            <div class="tab-btn active">📚 All Chapters</div>
+            <div class="tab-btn">🧠 Mindmaps</div>
+            <div class="tab-btn">⭐ Important</div>
+            <div class="tab-btn">📝 Formulas</div>
+        </div>
+
+        <!-- Mindmap Feature Card -->
+        <div class="mindmap-section">
+            <div class="mindmap-card">
+                <div class="mindmap-content">
+                    <h2>🧠 Complete Mindmap</h2>
+                    <p>Chapter 1 to 14 ka ek saath visual revision · All concepts, formulas, and connections in one place</p>
+                    <button class="mindmap-btn" onclick="window.location.href='mind_map.html'">View Mindmap →</button>
+                </div>
+                <div class="mindmap-icon">
+                    🗺️
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapters Grid -->
+        <div class="chapters-grid">
+            <!-- Chapter 1 -->
+            <div class="chapter-card" onclick="window.location.href='Chapter_1.html'">
+                <div class="chapter-icon">⚡</div>
+                <div class="chapter-number">Chapter 01</div>
+                <div class="chapter-title">Electric Charges & Fields</div>
+                <div class="chapter-desc">Coulomb's law, Electric field, Gauss law, Dipole, Charge quantization</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 2 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_2.html'">
+                <div class="chapter-icon">🔋</div>
+                <div class="chapter-number">Chapter 02</div>
+                <div class="chapter-title">Electrostatic Potential & Capacitance</div>
+                <div class="chapter-desc">Potential, Equipotential, Capacitors, Dielectrics, Energy storage</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 3 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_3.html'">
+                <div class="chapter-icon">⚡</div>
+                <div class="chapter-number">Chapter 03</div>
+                <div class="chapter-title">Current Electricity</div>
+                <div class="chapter-desc">Ohm's law, Drift velocity, Kirchhoff, Cells, Wheatstone bridge</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 4 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_4.html'">
+                <div class="chapter-icon">🧲</div>
+                <div class="chapter-number">Chapter 04</div>
+                <div class="chapter-title">Moving Charges & Magnetism</div>
+                <div class="chapter-desc">Biot-Savart, Ampere's law, Lorentz force, Galvanometer</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 5 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_5.html'">
+                <div class="chapter-icon">🧭</div>
+                <div class="chapter-number">Chapter 05</div>
+                <div class="chapter-title">Magnetism & Matter</div>
+                <div class="chapter-desc">Dia/Para/Ferro, Curie law, Magnetic moment, Hysteresis</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 6 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_6.html'">
+                <div class="chapter-icon">⚡</div>
+                <div class="chapter-number">Chapter 06</div>
+                <div class="chapter-title">Electromagnetic Induction</div>
+                <div class="chapter-desc">Flux, Faraday's laws, Lenz law, Motional EMF, Inductance</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 7 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_7.html'">
+                <div class="chapter-icon">🔄</div>
+                <div class="chapter-number">Chapter 07</div>
+                <div class="chapter-title">Alternating Current</div>
+                <div class="chapter-desc">RMS, Reactance, LCR circuits, Resonance, Quality factor</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 8 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_8.html'">
+                <div class="chapter-icon">📡</div>
+                <div class="chapter-number">Chapter 08</div>
+                <div class="chapter-title">Electromagnetic Waves</div>
+                <div class="chapter-desc">EM spectrum, Displacement current, Energy density, Momentum</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 9 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_9.html'">
+                <div class="chapter-icon">🔦</div>
+                <div class="chapter-number">Chapter 09</div>
+                <div class="chapter-title">Ray Optics</div>
+                <div class="chapter-desc">Refraction, TIR, Lens formula, Prism, Optical instruments</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 10 -->
+            <div class="chapter-card" onclick="window.location.href='chpater_10.html'">
+                <div class="chapter-icon">🌈</div>
+                <div class="chapter-number">Chapter 10</div>
+                <div class="chapter-title">Wave Optics</div>
+                <div class="chapter-desc">Wavefront, Huygens, Interference, YDSE, Diffraction</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 11 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_11.html'">
+                <div class="chapter-icon">⚛️</div>
+                <div class="chapter-number">Chapter 11</div>
+                <div class="chapter-title">Dual Nature</div>
+                <div class="chapter-desc">Photons, Photoelectric effect, de Broglie, Wave-particle duality</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 12 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_12.html'">
+                <div class="chapter-icon">⚛️</div>
+                <div class="chapter-number">Chapter 12</div>
+                <div class="chapter-title">Atoms</div>
+                <div class="chapter-desc">Rutherford, Bohr model, Hydrogen spectrum, Energy levels</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 13 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_13.html'">
+                <div class="chapter-icon">💥</div>
+                <div class="chapter-number">Chapter 13</div>
+                <div class="chapter-title">Nuclei</div>
+                <div class="chapter-desc">Nuclear structure, Mass defect, Binding energy, Fission/Fusion</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+
+            <!-- Chapter 14 -->
+            <div class="chapter-card" onclick="window.location.href='chapter_14.html'">
+                <div class="chapter-icon">🔌</div>
+                <div class="chapter-number">Chapter 14</div>
+                <div class="chapter-title">Semiconductors</div>
+                <div class="chapter-desc">Energy bands, Intrinsic/Extrinsic, P-N junction, Rectifiers</div>
+                <div class="resource-links">
+                    <span class="resource-link">📄 Notes</span>
+                    <span class="resource-link">🧮 Formulas</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Access Footer -->
+        <div class="footer">
+            <div class="footer-links">
+                <a href="Physics.html">📘 Physics Main</a>
+                <a href="mind_map.html">🧠 Complete Mindmap</a>
+                <a href="#">📋 Formula Sheet</a>
+                <a href="#">📝 Important Questions</a>
+            </div>
+            <p>© 2026 Class 12 Physics · Chapter 1 to 14 · Complete Study Material</p>
+            <p style="margin-top: 0.5rem; color: #4f6b9e;">⚡ Click on any chapter card to open detailed notes</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple tab switching effect (just for UI, not functional)
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

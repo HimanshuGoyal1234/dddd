@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 9 · Ray Optics and Optical Instruments · Complete Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* VIBGYOR styling */
+        .vibgyor-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.8rem 0;
+            justify-content: center;
+        }
+
+        .color-box {
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            background: #1e2f55;
+            border: 1px solid #4a70b0;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔦 Chapter 9: Ray Optics and Optical Instruments</h1>
+    <div class="subhead">refraction · Snell's law · TIR · lens formula · prism · dispersion · instruments</div>
+
+    <div class="grid">
+        <!-- 1. Refraction aur Niyam -->
+        <div class="card">
+            <div class="card-title"><span>💧</span>1. Refraction (Apvartan) & Niyam</div>
+            <ul class="point-list">
+                <li><strong>Refraction:</strong> Jab light ek medium se dusre medium mein jati hai, toh uski speed badal jati hai jiske kaaran woh mud jati hai (bending).</li>
+                <li><strong>Refractive Index (n ya μ):</strong> Yeh kisi medium ki woh power hai jo light ki speed ko kam karti hai: <span class="formula-inline">n = c/v</span></li>
+                <li><strong>Snell's Law:</strong> Refraction ke liye mukhya niyam: <span class="formula-inline">n₁ sin i = n₂ sin r</span></li>
+            </ul>
+        </div>
+
+        <!-- 2. Total Internal Reflection (TIR) -->
+        <div class="card">
+            <div class="card-title"><span>💎</span>2. Total Internal Reflection (TIR)</div>
+            <ul class="point-list">
+                <li><strong>TIR:</strong> Jab light Denser se Rarer medium mein jati hai aur angle of incidence, Critical Angle (i<sub>c</sub>) se bada hota hai, toh light wapas usi medium mein laut aati hai.</li>
+                <li><strong>Critical Angle:</strong> Woh angle jiske liye refraction angle 90° ho jaye: <span class="formula-inline">n = 1 / sin i<sub>c</sub></span></li>
+                <li><strong>Applications:</strong> Optical Fibers (internet signals), Diamonds ki chamak.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Lens aur Lens Maker Formula -->
+        <div class="card">
+            <div class="card-title"><span>🔍</span>3. Lens & Lens Maker Formula</div>
+            <ul class="point-list">
+                <li><strong>Lens Maker Formula:</strong> Focal length nikalne ka sabse important formula hai: <span class="formula-inline">1/f = (n₂/n₁ − 1) (1/R₁ − 1/R₂)</span></li>
+                <li><strong>Magnification (m):</strong> Image ki height aur object ki height ka ratio: <span class="formula-inline">m = h₂/h₁ = v/u</span></li>
+                <li><strong>Power (P):</strong> Focal length ke reciprocal ko power kehte hain: <span class="formula-inline">P = 1/f</span>, jise Dioptre (D) mein naapa jata hai.</li>
+            </ul>
+        </div>
+
+        <!-- 4. Prism aur Dispersion -->
+        <div class="card">
+            <div class="card-title"><span>🌈</span>4. Prism & Dispersion</div>
+            <ul class="point-list">
+                <li><strong>Angle of Deviation (δ):</strong> Prism mein light apne asli raste se kitna bhatak jati hai: <span class="formula-inline">δ = i + e − A</span></li>
+                <li><strong>Dispersion:</strong> White light ka 7 rangon (VIBGYOR) mein tootna. Sabse kam deviation Red ka aur sabse zyada Violet ka hota hai kyunki Violet ka refractive index zyada hota hai.</li>
+            </ul>
+            <div class="vibgyor-row">
+                <span class="color-box" style="background: #9400d3;">Violet</span>
+                <span class="color-box" style="background: #4b0082;">Indigo</span>
+                <span class="color-box" style="background: #0000ff;">Blue</span>
+                <span class="color-box" style="background: #00ff00; color: #000;">Green</span>
+                <span class="color-box" style="background: #ffff00; color: #000;">Yellow</span>
+                <span class="color-box" style="background: #ff7f00;">Orange</span>
+                <span class="color-box" style="background: #ff0000;">Red</span>
+            </div>
+            <div style="margin-top: 0.5rem; color: #b9ceff;">🔴 Red μ min, deviation min | 🟣 Violet μ max, deviation max</div>
+        </div>
+
+        <!-- 5. Optical Instruments -->
+        <div class="card">
+            <div class="card-title"><span>🔬</span>5. Optical Instruments</div>
+            <ul class="point-list">
+                <li><strong>Microscope:</strong> Chhoti cheezon ko bada dekhne ke liye.</li>
+                <li><strong>Telescope:</strong> Door ki cheezon ko dekhne ke liye.</li>
+                <li>Dono instruments mein lenses ka combination use hota hai.</li>
+            </ul>
+        </div>
+
+        <!-- extra card: quick revision points -->
+        <div class="card">
+            <div class="card-title"><span>✅</span>6. Quick Revision</div>
+            <ul class="point-list">
+                <li>Refraction mein speed change hoti hai → bending hota hai</li>
+                <li>Snell's law: n₁ sin i = n₂ sin r</li>
+                <li>TIR ke liye: μ = 1/sin i<sub>c</sub> (denser medium se rarer mein)</li>
+                <li>Lens maker formula: 1/f = (μ − 1)(1/R₁ − 1/R₂)</li>
+                <li>Power (D) = 1/f (f meter mein)</li>
+                <li>Prism deviation: δ = i + e − A</li>
+                <li>VIBGYOR: Violet deviation max, Red min</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all key formulas -->
+    <div class="micro-row">
+        <span class="micro-item">n = c/v</span>
+        <span class="micro-item">n₁ sin i = n₂ sin r</span>
+        <span class="micro-item">n = 1/sin i<sub>c</sub></span>
+        <span class="micro-item">1/f = (μ−1)(1/R₁−1/R₂)</span>
+        <span class="micro-item">m = v/u</span>
+        <span class="micro-item">P = 1/f (D)</span>
+        <span class="micro-item">δ = i + e − A</span>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        🔦 Chapter 9 · Ray Optics · refraction se instruments tak · har point cover
+    </div>
+</div>
+</body>
+</html>

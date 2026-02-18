@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14 · Semiconductor Electronics · Complete Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* comparison boxes */
+        .comp-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .comp-card {
+            background: #1a2a48;
+            border: 2px solid navy;
+            border-radius: 16px;
+            padding: 0.8rem;
+            flex: 1 1 150px;
+            box-shadow: 0 0 8px navy;
+        }
+
+        .comp-card strong {
+            color: #b9d5ff;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🔌 Chapter 14: Semiconductor Electronics</h1>
+    <div class="subhead">conductors · insulators · semiconductors · p-n junction · rectifiers · 7 marks chapter</div>
+
+    <div class="grid">
+        <!-- 1. Semiconductors Kya Hain? -->
+        <div class="card">
+            <div class="card-title"><span>💡</span>1. Semiconductors Kya Hain?</div>
+            <ul class="point-list">
+                <li><strong>Conductors:</strong> Saare valence electrons free → current bohot zyada, but control nahi ho sakta.</li>
+                <li><strong>Insulators:</strong> Koi free electron nahi → current flow nahi karta.</li>
+                <li><strong>Semiconductors (Si, Ge):</strong> 0K par insulator, room T par thode electrons free.</li>
+                <li><strong>Importance:</strong> Modern tech ki backbone — current ko control kar sakte hain.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Energy Band Theory -->
+        <div class="card">
+            <div class="card-title"><span>📊</span>2. Energy Band Theory</div>
+            <ul class="point-list">
+                <li><strong>Valence Band (VB):</strong> Valence electrons wala band.</li>
+                <li><strong>Conduction Band (CB):</strong> Free electrons conduction ke liye.</li>
+                <li><strong>Energy Gap (E<sub>g</sub>):</strong> VB aur CB ke beech ka gap.</li>
+                <li><strong>Insulator:</strong> Gap bohot bada (E<sub>g</sub> > 3 eV) → electrons jump nahi kar paate.</li>
+                <li><strong>Semiconductor:</strong> Gap kam (E<sub>g</sub> < 3 eV) → thodi energy milne par electron jump kar sakta hai.</li>
+                <li><strong>Conductor:</strong> Bands overlap (E<sub>g</sub> ≈ 0).</li>
+            </ul>
+        </div>
+
+        <!-- 3. Intrinsic aur Extrinsic Semiconductors -->
+        <div class="card">
+            <div class="card-title"><span>🧪</span>3. Intrinsic & Extrinsic</div>
+            <ul class="point-list">
+                <li><strong>Intrinsic:</strong> Pure semiconductor, n<sub>e</sub> = n<sub>h</sub> (no doping).</li>
+                <li><strong>Hole:</strong> Electron ke jaane se khali jagah → positive charge ki tarah behave.</li>
+                <li><strong>Extrinsic:</strong> Doping se performance badhane ke liye.</li>
+                <li><strong>N-type:</strong> Pentavalent impurity (P, As) → electrons majority (n<sub>e</sub> >> n<sub>h</sub>), Donor level E<sub>d</sub>.</li>
+                <li><strong>P-type:</strong> Trivalent impurity (Al, B) → holes majority (n<sub>h</sub> >> n<sub>e</sub>), Acceptor level E<sub>a</sub>.</li>
+            </ul>
+        </div>
+
+        <!-- 4. P-N Junction aur Depletion Layer -->
+        <div class="card">
+            <div class="card-title"><span>🔗</span>4. P-N Junction & Depletion Layer</div>
+            <ul class="point-list">
+                <li>P-type aur N-type contact mein aane par concentration difference → diffusion start.</li>
+                <li><strong>Depletion Region:</strong> Junction ke paas charge carriers se free layer.</li>
+                <li><strong>Potential Barrier (V<sub>b</sub>):</strong> Internal electric field jo further motion rokti hai. Si = 0.7V, Ge = 0.3V.</li>
+            </ul>
+        </div>
+
+        <!-- 5. Biasing -->
+        <div class="card">
+            <div class="card-title"><span>⚡</span>5. Biasing</div>
+            <ul class="point-list">
+                <li><strong>Forward Bias (FB):</strong> P → (+), N → (-). Depletion layer width ↓, current flows.</li>
+                <li><strong>Reverse Bias (RB):</strong> P → (-), N → (+). Depletion layer width ↑, current almost zero (breakdown tak).</li>
+            </ul>
+            <div class="comp-row">
+                <div class="comp-card"><strong>Forward Bias</strong> width ↓, current flows</div>
+                <div class="comp-card"><strong>Reverse Bias</strong> width ↑, current ≈ 0</div>
+            </div>
+        </div>
+
+        <!-- 6. Rectifiers -->
+        <div class="card">
+            <div class="card-title"><span>🔄</span>6. Rectifiers (AC → DC)</div>
+            <ul class="point-list">
+                <li><strong>Half-Wave Rectifier:</strong> Ek diode, sirf positive half-cycle pass, negative cycle block.</li>
+                <li><strong>Full-Wave Rectifier:</strong> Do diodes, positive + negative dono cycles mein output → efficiency ↑.</li>
+            </ul>
+        </div>
+
+        <!-- extra card: quick revision points -->
+        <div class="card">
+            <div class="card-title"><span>✅</span>7. Quick Revision</div>
+            <ul class="point-list">
+                <li>Conductor: free electrons, no control | Insulator: no free electrons</li>
+                <li>Semiconductor: Si, Ge, Eg < 3eV, current control possible</li>
+                <li>Intrinsic: ne = nh | Extrinsic: doping se banaye</li>
+                <li>N-type: pentavalent, electrons majority, donor level</li>
+                <li>P-type: trivalent, holes majority, acceptor level</li>
+                <li>P-N junction: depletion layer, potential barrier (Si 0.7V, Ge 0.3V)</li>
+                <li>Forward bias: width ↓, current | Reverse bias: width ↑, no current</li>
+                <li>Half-wave rectifier: 1 diode | Full-wave: 2 diodes, better efficiency</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all key formulas/values -->
+    <div class="micro-row">
+        <span class="micro-item">Si E<sub>g</sub> ≈ 1.1 eV</span>
+        <span class="micro-item">Ge E<sub>g</sub> ≈ 0.7 eV</span>
+        <span class="micro-item">V<sub>b</sub> Si = 0.7V</span>
+        <span class="micro-item">V<sub>b</sub> Ge = 0.3V</span>
+        <span class="micro-item">n<sub>e</sub> = n<sub>h</sub> (intrinsic)</span>
+        <span class="micro-item">n-type: n<sub>e</sub> >> n<sub>h</sub></span>
+        <span class="micro-item">p-type: n<sub>h</sub> >> n<sub>e</sub></span>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        🔌 Chapter 14 · Semiconductor Electronics · basics se rectifiers tak · 7 marks chapter · har point cover
+    </div>
+</div>
+</body>
+</html>

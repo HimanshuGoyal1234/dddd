@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 12 Physics · Detailed Chapter-wise Mindmaps</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff, #6f9cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+            text-align: center;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+            border-bottom: 1px dashed #3f60a0;
+            padding-bottom: 1rem;
+        }
+
+        .mindmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+
+        .mindmap-card {
+            background: #121b2b;
+            border-radius: 36px;
+            padding: 2rem 1.5rem;
+            border: 3px solid navy;
+            box-shadow: 0 0 25px navy, 0 15px 35px -8px #000;
+            transition: 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mindmap-card:hover {
+            transform: translateY(-6px);
+            border-color: #4a7cff;
+            box-shadow: 0 0 35px #4a7cff;
+        }
+
+        .chapter-number {
+            font-size: 1.1rem;
+            color: #b9d5ff;
+            background: #1e3155;
+            display: inline-block;
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+            border: 1px solid #3f6ac0;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .chapter-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #c7dbff;
+            margin-bottom: 1.8rem;
+            border-left: 5px solid #6f9cff;
+            padding-left: 1rem;
+        }
+
+        /* mindmap structure */
+        .mindmap-node {
+            position: relative;
+            margin: 1rem 0;
+        }
+
+        .main-topic {
+            background: #1e2f55;
+            border: 2px solid #3f6ac0;
+            border-radius: 35px;
+            padding: 0.9rem 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            box-shadow: 0 0 15px #3f6ac0;
+            margin-bottom: 1rem;
+            display: inline-block;
+            width: auto;
+            font-size: 1.2rem;
+        }
+
+        .subtopic-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .subtopic-grid::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #6f9cff, #2a4a88, #6f9cff);
+            border-radius: 5px;
+        }
+
+        .subtopic-item {
+            background: #17243c;
+            border: 2px solid #385e9e;
+            border-radius: 30px;
+            padding: 0.7rem 1.2rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            flex: 1 1 auto;
+            min-width: 160px;
+            box-shadow: 0 0 12px #385e9e;
+            position: relative;
+        }
+
+        .sub-subtopic {
+            margin-left: 2.5rem;
+            margin-top: 0.4rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .sub-subitem {
+            background: #1a2848;
+            border: 1px solid #4f7ad0;
+            border-radius: 25px;
+            padding: 0.4rem 1rem;
+            font-size: 0.9rem;
+            color: #c5d6ff;
+            flex: 1 1 auto;
+            min-width: 140px;
+            box-shadow: 0 0 8px #4f7ad0;
+        }
+
+        .formula-tag {
+            background: #1d3152;
+            border: 1px solid #5f8cff;
+            border-radius: 20px;
+            padding: 0.3rem 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #b9d5ff;
+            display: inline-block;
+            margin: 0.2rem 0.3rem;
+        }
+
+        .property-list {
+            margin-left: 2rem;
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .property-item {
+            background: #1b2945;
+            border: 1px dashed #5f8cff;
+            border-radius: 20px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.9rem;
+            color: #c1d6ff;
+        }
+
+        .connector-line {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0.5rem 0 0.5rem 2rem;
+            color: #7f9fcf;
+            font-size: 0.9rem;
+        }
+
+        .connector-line span {
+            background: #1b2945;
+            padding: 0.3rem 1rem;
+            border-radius: 25px;
+            border: 1px dashed #5f8cff;
+        }
+
+        .footer-note {
+            margin-top: 4rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⚛️ Class 12 Physics · Detailed Chapter-wise Mindmaps</h1>
+    <div class="subhead">Chapter 1 to 14 · every detail covered · visual revision · navy glow dark mode</div>
+
+    <div class="mindmap-grid">
+        <!-- Chapter 1: Electric Charges & Fields -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 01</div>
+            <div class="chapter-title">⚡ Electric Charges & Fields</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Electric Charge</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Types: Positive (+), Negative (-)</div>
+                    <div class="subtopic-item">Properties: Quantization (Q = ne), Conservation</div>
+                    <div class="subtopic-item">Additivity: Charges add algebraically</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">n = 1,2,3... ; e = 1.6×10⁻¹⁹ C</div>
+                    <div class="sub-subitem">Total charge isolated system constant</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Coulomb's Law</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">F = k q₁q₂/r²</div>
+                    <div class="subtopic-item">k = 1/(4πϵ₀) = 9×10⁹ Nm²/C²</div>
+                    <div class="subtopic-item">ϵ₀ = 8.85×10⁻¹² C²/Nm²</div>
+                </div>
+                <div class="property-list">
+                    <div class="property-item">Central force</div>
+                    <div class="property-item">Inverse square</div>
+                    <div class="property-item">Conservative</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Electric Field</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">E = F/q (test charge)</div>
+                    <div class="subtopic-item">Point charge: E = kq/r²</div>
+                    <div class="subtopic-item">Electric dipole</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Axial point: E = 2kp/r³</div>
+                    <div class="sub-subitem">Equatorial: E = −kp/r³</div>
+                    <div class="sub-subitem">Dipole moment p = q(2a)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Gauss's Law</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">∮ E·dA = q<sub>enclosed</sub>/ϵ₀</div>
+                    <div class="subtopic-item">Applications</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Spherical shell: E = kQ/r² (outside), 0 (inside)</div>
+                    <div class="sub-subitem">Infinite wire: E = λ/(2πϵ₀r)</div>
+                    <div class="sub-subitem">Infinite sheet: E = σ/(2ϵ₀)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 2: Potential & Capacitance -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 02</div>
+            <div class="chapter-title">🔋 Electrostatic Potential & Capacitance</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Electric Potential</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">V = W/q (work per unit charge)</div>
+                    <div class="subtopic-item">Point charge: V = kq/r</div>
+                    <div class="subtopic-item">Potential difference: ΔV = W<sub>ext</sub>/q</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Dipole axial: V = kp cosθ/r²</div>
+                    <div class="sub-subitem">Dipole equatorial: V = 0</div>
+                    <div class="sub-subitem">Multiple charges: V = Σ kqᵢ/rᵢ</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Equipotential Surface</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Constant V, E ⟂ surface</div>
+                    <div class="subtopic-item">Work done = 0 (moving charge)</div>
+                    <div class="subtopic-item">Never intersect</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Capacitance</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">C = Q/V (capacity to store charge)</div>
+                    <div class="subtopic-item">Parallel plate: C = ϵ₀A/d</div>
+                    <div class="subtopic-item">Spherical: C = 4πϵ₀R</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">With dielectric: C' = KC</div>
+                    <div class="sub-subitem">Partial slab: C = ϵ₀A/(d−t + t/K)</div>
+                    <div class="sub-subitem">Energy stored: U = ½CV² = ½Q²/C</div>
+                </div>
+                <div class="property-list">
+                    <div class="property-item">Series: 1/C<sub>net</sub> = Σ 1/Cᵢ</div>
+                    <div class="property-item">Parallel: C<sub>net</sub> = Σ Cᵢ</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Dielectrics</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Polar (HCl), Non-polar (CO₂)</div>
+                    <div class="subtopic-item">Polarization, dielectric constant K</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 3: Current Electricity -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 03</div>
+            <div class="chapter-title">⚡ Current Electricity</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Electric Current</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">I = Q/t = ne/t</div>
+                    <div class="subtopic-item">Instantaneous: I = dq/dt</div>
+                    <div class="subtopic-item">Average: I<sub>avg</sub> = ΔQ/ΔT</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">SI unit: Ampere (A)</div>
+                    <div class="sub-subitem">Tensor quantity</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Drift Velocity & Mobility</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">v<sub>d</sub> = (eE/m)τ</div>
+                    <div class="subtopic-item">I = nAev<sub>d</sub> (important)</div>
+                    <div class="subtopic-item">Mobility μ = v<sub>d</sub>/E</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Ohm's Law</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">V = IR (at constant temp)</div>
+                    <div class="subtopic-item">R = ρL/A</div>
+                    <div class="subtopic-item">ρ = resistivity (material property)</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Conductance G = 1/R</div>
+                    <div class="sub-subitem">Conductivity σ = 1/ρ</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Temperature Dependence</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Conductors: R ↑ with T (α > 0)</div>
+                    <div class="subtopic-item">Semiconductors: R ↓ with T (α < 0)</div>
+                    <div class="subtopic-item">Alloys: Weak dependence</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">R₂ = R₁[1 + α(T₂−T₁)]</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Cells & EMF</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">EMF (E): total work per unit charge</div>
+                    <div class="subtopic-item">Internal resistance (r)</div>
+                    <div class="subtopic-item">V = E − Ir (discharging)</div>
+                    <div class="subtopic-item">V = E + Ir (charging)</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Series: E<sub>net</sub> = ΣEᵢ, r<sub>net</sub> = Σrᵢ</div>
+                    <div class="sub-subitem">Parallel: E<sub>eq</sub>/r<sub>eq</sub> = Σ(Eᵢ/rᵢ)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Kirchhoff's Laws</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">KCL: ΣI<sub>in</sub> = ΣI<sub>out</sub> (junction)</div>
+                    <div class="subtopic-item">KVL: ΣΔV = 0 (closed loop)</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Wheatstone bridge: P/Q = R/S (balanced)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Heating Effect</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">H = I²Rt (Joule's law)</div>
+                    <div class="subtopic-item">Power: P = VI = I²R = V²/R</div>
+                    <div class="subtopic-item">Fuse: high R, low melting point</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 4: Moving Charges & Magnetism -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 04</div>
+            <div class="chapter-title">🧲 Moving Charges & Magnetism</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Biot-Savart Law</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">dB = (μ₀/4π) I dl sinθ / r²</div>
+                    <div class="subtopic-item">μ₀ = 4π×10⁻⁷ Tm/A</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Circular loop (center): B = μ₀I/2r</div>
+                    <div class="sub-subitem">Circular loop (axis): B = μ₀IR²/2(R²+x²)³/²</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Ampere's Circuital Law</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">∮ B·dl = μ₀I<sub>enclosed</sub></div>
+                    <div class="subtopic-item">Long wire: B = μ₀I/(2πr)</div>
+                    <div class="subtopic-item">Solenoid: B = μ₀nI (inside)</div>
+                    <div class="subtopic-item">Toroid: B = μ₀nI</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Lorentz Force</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">F = q(v × B)</div>
+                    <div class="subtopic-item">Current wire: F = I l B sinθ</div>
+                    <div class="subtopic-item">Parallel wires: F/L = μ₀I₁I₂/(2πd)</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Velocity selector: v = E/B</div>
+                    <div class="sub-subitem">Circular path: r = mv/qB</div>
+                    <div class="sub-subitem">Helical path: pitch = 2πmv cosθ/qB</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Torque on Coil</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">τ = NIAB sinθ (NIBBA sinθ)</div>
+                    <div class="subtopic-item">Magnetic moment: M = NIA</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Galvanometer</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Current sensitivity = NBA/k</div>
+                    <div class="subtopic-item">Radial field → θ always 90°</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Ammeter: shunt (parallel)</div>
+                    <div class="sub-subitem">Voltmeter: series resistance</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 5: Magnetism & Matter -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 05</div>
+            <div class="chapter-title">🧭 Magnetism & Matter</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Magnetic Materials</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Diamagnetic:</strong> Weakly repel, χ negative, μ<sub>r</sub> < 1 (Bi, Cu, Ag)</div>
+                    <div class="subtopic-item"><strong>Paramagnetic:</strong> Weakly attract, χ small positive, μ<sub>r</sub> > 1 (Al, Pt)</div>
+                    <div class="subtopic-item"><strong>Ferromagnetic:</strong> Strongly attract, χ large, μ<sub>r</sub> ≫ 1 (Fe, Co, Ni)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Important Definitions</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Magnetic moment M = NIA</div>
+                    <div class="subtopic-item">Magnetizing field H = ni</div>
+                    <div class="subtopic-item">Magnetization M = μ/V</div>
+                    <div class="subtopic-item">Susceptibility χ = M/H</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">B = μ₀(H + M)</div>
+                    <div class="sub-subitem">μ<sub>r</sub> = 1 + χ (most important)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Curie's Law</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">χ ∝ 1/T (paramagnetic)</div>
+                    <div class="subtopic-item">Curie temperature T<sub>c</sub> (ferro → para)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Permanent vs Electromagnets</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Permanent:</strong> Steel (hard), high retentivity & coercivity</div>
+                    <div class="subtopic-item"><strong>Electromagnets:</strong> Soft iron, low retentivity</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Analogy Electrostatics vs Magnetism</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">1/4πϵ₀ → μ₀/4π</div>
+                    <div class="subtopic-item">Electric dipole p → Magnetic dipole μ</div>
+                    <div class="subtopic-item">Axial field: 2kp/r³ → 2kμ/r³</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 6: EMI -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 06</div>
+            <div class="chapter-title">⚡ Electromagnetic Induction</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Magnetic Flux</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">ϕ = B·A = BA cosθ</div>
+                    <div class="subtopic-item">Unit: Weber (Wb)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Faraday's Laws</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">1st: EMF induced when flux changes</div>
+                    <div class="subtopic-item">2nd: e = −dϕ/dt (magnitude = rate of change)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Lenz's Law</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Induced current opposes the cause</div>
+                    <div class="subtopic-item">Energy conservation principle</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Motional EMF</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Straight rod: e = Blv</div>
+                    <div class="subtopic-item">Rotating rod: e = ½Bl²ω</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Inductance</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Self:</strong> ϕ = LI, L = μ₀n²Al (solenoid)</div>
+                    <div class="subtopic-item"><strong>Mutual:</strong> ϕ₂ = MI₁, M = μ₀n₁n₂Al</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Unit: Henry (H)</div>
+                    <div class="sub-subitem">Energy in inductor: U = ½LI²</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 AC Generator</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">e = NBAω sin(ωt) = e₀ sin(ωt)</div>
+                    <div class="subtopic-item">Mechanical → Electrical energy</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 7: Alternating Current -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 07</div>
+            <div class="chapter-title">🔄 Alternating Current</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 AC vs DC</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">DC: Constant magnitude & direction</div>
+                    <div class="subtopic-item">AC: Magnitude & direction change with time</div>
+                    <div class="subtopic-item">Full cycle average = 0</div>
+                    <div class="subtopic-item">Half cycle average = 0.637 I₀</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 RMS Value</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">I<sub>rms</sub> = I₀/√2 (heating effect equivalent)</div>
+                    <div class="subtopic-item">V<sub>rms</sub> = V₀/√2</div>
+                    <div class="subtopic-item">Household current = RMS value (220V)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Pure Components</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Resistor:</strong> V & I same phase (ϕ = 0)</div>
+                    <div class="subtopic-item"><strong>Inductor:</strong> I lags V by 90°, X<sub>L</sub> = ωL</div>
+                    <div class="subtopic-item"><strong>Capacitor:</strong> I leads V by 90°, X<sub>C</sub> = 1/ωC</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 LCR Series Circuit</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Impedance Z = √[R² + (X<sub>L</sub>−X<sub>C</sub>)²]</div>
+                    <div class="subtopic-item">Phase tanϕ = (X<sub>L</sub>−X<sub>C</sub>)/R</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Resonance</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Condition: X<sub>L</sub> = X<sub>C</sub></div>
+                    <div class="subtopic-item">ω = 1/√(LC), f = 1/(2π√LC)</div>
+                    <div class="subtopic-item">Quality factor Q = (1/R)√(L/C)</div>
+                    <div class="subtopic-item">Bandwidth = ω₂ − ω₁</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 8: EM Waves -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 08</div>
+            <div class="chapter-title">📡 Electromagnetic Waves</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Nature of EM Waves</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Transverse: E ⟂ B ⟝ propagation</div>
+                    <div class="subtopic-item">Speed c = 3×10⁸ m/s</div>
+                    <div class="subtopic-item">c = 1/√(μ₀ϵ₀)</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">c = fλ (relation)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 E & B Field Relation</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">E₀/B₀ = c</div>
+                    <div class="subtopic-item">E = E₀ sin(kx−ωt)</div>
+                    <div class="subtopic-item">B = B₀ sin(kx−ωt)</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">k = 2π/λ (propagation constant)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Displacement Current</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">I<sub>d</sub> = ϵ₀ dϕ<sub>E</sub>/dt</div>
+                    <div class="subtopic-item">Maxwell's modification: I = I<sub>c</sub> + I<sub>d</sub></div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 EM Spectrum</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Increasing frequency →</strong></div>
+                    <div class="subtopic-item">Radio → Micro → IR → Visible → UV → X-rays → Gamma</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Gamma: highest f, highest energy, most dangerous</div>
+                    <div class="sub-subitem">Radio: longest λ, communication</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Energy & Momentum</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">u<sub>E</sub> = ½ϵ₀E², u<sub>B</sub> = ½B²/μ₀</div>
+                    <div class="subtopic-item">Total energy density u = ϵ₀E<sub>rms</sub>²</div>
+                    <div class="subtopic-item">Momentum p = U/c</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 9: Ray Optics -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 09</div>
+            <div class="chapter-title">🔦 Ray Optics</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Refraction</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Refractive index n = c/v</div>
+                    <div class="subtopic-item">Snell's law: n₁ sin i = n₂ sin r</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Total Internal Reflection</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Condition: denser → rarer, i > i<sub>c</sub></div>
+                    <div class="subtopic-item">Critical angle: n = 1/sin i<sub>c</sub></div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Applications: Optical fibers, diamonds</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Lens</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Lens maker: 1/f = (μ−1)(1/R₁−1/R₂)</div>
+                    <div class="subtopic-item">Magnification m = v/u</div>
+                    <div class="subtopic-item">Power P = 1/f (Dioptre)</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Lens formula: 1/f = 1/v − 1/u</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Prism</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Angle of deviation δ = i + e − A</div>
+                    <div class="subtopic-item">Dispersion: VIBGYOR (Violet deviates most)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Optical Instruments</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Microscope: small objects</div>
+                    <div class="subtopic-item">Telescope: distant objects</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 10: Wave Optics -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 10</div>
+            <div class="chapter-title">🌈 Wave Optics</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Wavefront</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Spherical (point source)</div>
+                    <div class="subtopic-item">Cylindrical (line source)</div>
+                    <div class="subtopic-item">Plane (distant source)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Huygens Principle</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Every point on wavefront = new source</div>
+                    <div class="subtopic-item">Forward envelop = new wavefront</div>
+                    <div class="subtopic-item">Proves reflection & refraction</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Interference</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Constructive: ϕ = 2nπ, Δp = nλ (bright)</div>
+                    <div class="subtopic-item">Destructive: ϕ = (2n−1)π, Δp = (2n−1)λ/2 (dark)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 YDSE</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Path difference Δp = yd/D</div>
+                    <div class="subtopic-item">Fringe width β = λD/d</div>
+                    <div class="subtopic-item">Medium: β<sub>med</sub> = β/n</div>
+                    <div class="subtopic-item">Coherent sources needed</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Diffraction (Single Slit)</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Minima: a sinθ = nλ</div>
+                    <div class="subtopic-item">Maxima: a sinθ = (2n+1)λ/2</div>
+                    <div class="subtopic-item">Central max width = 2λD/a</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Wavefront through Elements</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Prism: bends</div>
+                    <div class="subtopic-item">Convex lens: converges</div>
+                    <div class="subtopic-item">Concave mirror: converges</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 11: Dual Nature -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 11</div>
+            <div class="chapter-title">⚛️ Dual Nature of Radiation & Matter</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Dual Nature</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Light: wave (optics) + particle (PEE)</div>
+                    <div class="subtopic-item">Matter: particle + wave (de Broglie)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Photons</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Energy E = hf</div>
+                    <div class="subtopic-item">h = 6.63×10⁻³⁴ Js</div>
+                    <div class="subtopic-item">Neutral, speed c</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Photoelectric Effect</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Work function ϕ₀ = hf₀</div>
+                    <div class="subtopic-item">Threshold frequency f₀</div>
+                    <div class="subtopic-item">Einstein eq: hf = ϕ₀ + K.E.<sub>max</sub></div>
+                    <div class="subtopic-item">K.E.<sub>max</sub> = eV₀ (stopping potential)</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Intensity ↑ → electrons ↑, K.E. same</div>
+                    <div class="sub-subitem">Frequency ↑ → K.E. ↑, stopping potential ↑</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 De Broglie Hypothesis</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">λ = h/mv = h/p (matter waves)</div>
+                    <div class="subtopic-item">Electron: λ = 12.3/√V Å</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Wave Theory Failure</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Couldn't explain threshold frequency</div>
+                    <div class="subtopic-item">Couldn't explain instantaneous emission</div>
+                    <div class="subtopic-item">Predicted K.E. ∝ intensity (wrong)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 12: Atoms -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 12</div>
+            <div class="chapter-title">⚛️ Atoms</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Rutherford Experiment</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Most α passed straight</div>
+                    <div class="subtopic-item">Few deflected, 1 in 8000 bounced back</div>
+                    <div class="subtopic-item">Conclusion: nucleus (small, heavy, +ve), mostly empty</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Distance of closest approach: r₀ = 2kZe²/K.E.</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Bohr's Postulates</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">1. Stable orbits (no radiation)</div>
+                    <div class="subtopic-item">2. Angular momentum L = nh/2π</div>
+                    <div class="subtopic-item">3. E₂ − E₁ = hf (transition)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Bohr's Formulas</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Radius: rₙ = a₀ n²/Z, a₀ = 0.529 Å</div>
+                    <div class="subtopic-item">Velocity: vₙ ∝ Z/n</div>
+                    <div class="subtopic-item">Energy: Eₙ = −13.6 Z²/n² eV</div>
+                    <div class="subtopic-item">K.E. = |Eₙ|, P.E. = 2Eₙ</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Hydrogen Spectrum</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Rydberg: 1/λ = RZ²(1/n₁² − 1/n₂²)</div>
+                    <div class="subtopic-item">R = 1.097×10⁷ m⁻¹</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Lyman (n₁=1): UV</div>
+                    <div class="sub-subitem">Balmer (n₁=2): Visible</div>
+                    <div class="sub-subitem">Paschen (n₁=3): IR</div>
+                    <div class="sub-subitem">Brackett (n₁=4): IR</div>
+                    <div class="sub-subitem">Pfund (n₁=5): IR</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Limitations</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Only for H-like atoms (H, He⁺, Li²⁺)</div>
+                    <div class="subtopic-item">No fine structure</div>
+                    <div class="subtopic-item">No Zeeman effect</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 13: Nuclei -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 13</div>
+            <div class="chapter-title">💥 Nuclei</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Nucleus Structure</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Protons (Z) + Neutrons (N) = Nucleons (A)</div>
+                    <div class="subtopic-item">Representation: X<sub>Z</sub><sup>A</sup></div>
+                    <div class="subtopic-item">N = A − Z</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Isotopes, Isobars, Isotones</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Isotopes:</strong> Z same, A different</div>
+                    <div class="subtopic-item"><strong>Isobars:</strong> A same, Z different</div>
+                    <div class="subtopic-item"><strong>Isotones:</strong> N same</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Mass & Energy</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">1 amu = 1.66×10⁻²⁷ kg = 931 MeV</div>
+                    <div class="subtopic-item">Mass defect Δm = [Zm<sub>p</sub> + Nm<sub>n</sub>] − M<sub>nucleus</sub></div>
+                    <div class="subtopic-item">Binding energy = Δm × 931 MeV</div>
+                    <div class="subtopic-item">Iron (Fe) has max BE/nucleon → most stable</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Nuclear Size & Density</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Radius R = R₀ A¹/³, R₀ ≈ 1.2 fm</div>
+                    <div class="subtopic-item">Density constant (independent of A)</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Nuclear Force</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Strongest force in nature</div>
+                    <div class="subtopic-item">Short-range (nucleus only)</div>
+                    <div class="subtopic-item">Charge-independent</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Fission & Fusion</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Fission:</strong> Heavy nucleus splits (Uranium)</div>
+                    <div class="subtopic-item"><strong>Fusion:</strong> Light nuclei combine (Sun - H fusion)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter 14: Semiconductors -->
+        <div class="mindmap-card">
+            <div class="chapter-number">Chapter 14</div>
+            <div class="chapter-title">🔌 Semiconductor Electronics</div>
+            
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Material Classification</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Conductors:</strong> Free electrons, no control</div>
+                    <div class="subtopic-item"><strong>Insulators:</strong> No free electrons, E<sub>g</sub> > 3 eV</div>
+                    <div class="subtopic-item"><strong>Semiconductors:</strong> Si, Ge, E<sub>g</sub> < 3 eV, current controllable</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Energy Bands</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Valence Band (VB), Conduction Band (CB)</div>
+                    <div class="subtopic-item">Forbidden gap E<sub>g</sub></div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem">Si: 1.1 eV, Ge: 0.7 eV</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Intrinsic vs Extrinsic</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Intrinsic:</strong> Pure, n<sub>e</sub> = n<sub>h</sub></div>
+                    <div class="subtopic-item"><strong>Hole:</strong> Positive charge (electron absence)</div>
+                </div>
+                <div class="sub-subtopic">
+                    <div class="sub-subitem"><strong>N-type:</strong> Pentavalent impurity (P, As), electrons majority, donor level</div>
+                    <div class="sub-subitem"><strong>P-type:</strong> Trivalent impurity (Al, B), holes majority, acceptor level</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 P-N Junction</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item">Depletion layer (no carriers)</div>
+                    <div class="subtopic-item">Potential barrier V<sub>b</sub>: Si 0.7V, Ge 0.3V</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Biasing</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Forward bias:</strong> P→(+), N→(-), width ↓, current flows</div>
+                    <div class="subtopic-item"><strong>Reverse bias:</strong> P→(-), N→(+), width ↑, current ≈ 0</div>
+                </div>
+            </div>
+
+            <div class="mindmap-node">
+                <div class="main-topic">🔹 Rectifiers</div>
+                <div class="subtopic-grid">
+                    <div class="subtopic-item"><strong>Half-wave:</strong> 1 diode, only positive half</div>
+                    <div class="subtopic-item"><strong>Full-wave:</strong> 2 diodes, both halves, better efficiency</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        🧠 Chapter 1 to 14 · ultra-detailed mindmaps · every concept covered · Class 12 Physics
+    </div>
+</div>
+</body>
+</html>

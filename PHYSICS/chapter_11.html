@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 11 · Dual Nature of Radiation and Matter · Complete Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* comparison table styling */
+        .comparison-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .comp-item {
+            background: #1e2f55;
+            border: 2px solid navy;
+            border-radius: 16px;
+            padding: 0.8rem;
+            flex: 1 1 200px;
+            box-shadow: 0 0 8px navy;
+        }
+
+        .comp-item strong {
+            color: #b9d5ff;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⚛️ Chapter 11: Dual Nature of Radiation and Matter</h1>
+    <div class="subhead">dual nature · photons · photoelectric effect · de broglie · scoring chapter</div>
+
+    <div class="grid">
+        <!-- 1. Dual Nature ka Basic Concept -->
+        <div class="card">
+            <div class="card-title"><span>✨</span>1. Dual Nature · Basic Concept</div>
+            <ul class="point-list">
+                <li><strong>Dual Nature:</strong> Matter (jaise electrons) aur Radiation (jaise light) dono ke paas do nature hote hain — Particle nature aur Wave nature.</li>
+                <li>Light ka wave nature → Wave Optics, particle nature → Photoelectric effect se prove hota hai.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Photons aur Planck's Theory -->
+        <div class="card">
+            <div class="card-title"><span>💡</span>2. Photons & Planck's Theory</div>
+            <ul class="point-list">
+                <li><strong>Photons:</strong> Light energy ke chhote-chhote packets ke roop mein chalti hai, jinhe Photons ya Quanta kehte hain.</li>
+                <li><strong>Photon Energy:</strong> <span class="formula-inline">E = hf</span> (h = Planck's constant, f = frequency)</li>
+                <li><strong>Properties:</strong> Photons charge-less (neutral) hote hain aur light ki speed se travel karte hain.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Photoelectric Effect (PEE) -->
+        <div class="card">
+            <div class="card-title"><span>🔆</span>3. Photoelectric Effect</div>
+            <ul class="point-list">
+                <li><strong>Definition:</strong> Jab kisi metal surface par suitable frequency ki light girti hai, toh wahan se electrons bahar nikalte hain.</li>
+                <li><strong>Work Function (ϕ₀):</strong> Electron ko metal surface se bahar nikalne ki minimum energy.</li>
+                <li><strong>Threshold Frequency (f₀):</strong> Wo minimum frequency jiske niche PEE possible nahi.</li>
+            </ul>
+        </div>
+
+        <!-- 4. Einstein's Photoelectric Equation -->
+        <div class="card">
+            <div class="card-title"><span>📐</span>4. Einstein's Photoelectric Equation</div>
+            <ul class="point-list">
+                <li>Photon ki total energy do kaam karti hai: (1) Electron ko bahar nikalna (ϕ₀) (2) Bachi energy electron ko (K.E.<sub>max</sub>)</li>
+                <li><strong>Formula:</strong> <span class="formula-inline">hf = ϕ₀ + K.E.<sub>max</sub></span></li>
+            </ul>
+        </div>
+
+        <!-- 5. Stopping Potential (V₀) -->
+        <div class="card">
+            <div class="card-title"><span>⏹️</span>5. Stopping Potential (V₀)</div>
+            <ul class="point-list">
+                <li><strong>Definition:</strong> Wo negative potential jo electron ko collector tak pahunchne se rok de aur photocurrent zero ho jaye.</li>
+                <li><strong>Relation:</strong> <span class="formula-inline">K.E.<sub>max</sub> = e V₀</span></li>
+                <li><strong>Key Point:</strong> Stopping potential sirf frequency par depend karta hai, intensity par nahi.</li>
+            </ul>
+        </div>
+
+        <!-- 6. Intensity vs Frequency ka Khel -->
+        <div class="card">
+            <div class="card-title"><span>📊</span>6. Intensity vs Frequency</div>
+            <ul class="point-list">
+                <li><strong>Intensity ↑:</strong> Number of electrons ↑, photocurrent ↑, but K.E. same.</li>
+                <li><strong>Frequency ↑:</strong> K.E. ↑, Stopping Potential ↑, but current same.</li>
+            </ul>
+            <div class="comparison-box">
+                <div class="comp-item"><strong>Intensity badhe</strong> → electrons zyada, energy same</div>
+                <div class="comp-item"><strong>Frequency badhe</strong> → energy zyada, count same</div>
+            </div>
+        </div>
+
+        <!-- 7. De Broglie Hypothesis (Matter Waves) -->
+        <div class="card">
+            <div class="card-title"><span>🌊</span>7. De Broglie Hypothesis</div>
+            <ul class="point-list">
+                <li><strong>Concept:</strong> Agar light particle ki tarah behave kar sakti hai, toh moving matter (electron) bhi wave ki tarah behave kar sakta hai.</li>
+                <li><strong>De Broglie Wavelength:</strong> <span class="formula-inline">λ = h/mv = h/p</span></li>
+                <li><strong>Electron Shortcut:</strong> V voltage accelerate karne par <span class="formula-inline">λ = 12.3/√V Å</span></li>
+            </ul>
+        </div>
+
+        <!-- 8. Wave Theory ka Failure -->
+        <div class="card">
+            <div class="card-title"><span>❌</span>8. Wave Theory ka Failure</div>
+            <ul class="point-list">
+                <li>Wave theory Photoelectric effect explain nahi kar payi kyunki:</li>
+                <li>1. Wo kehti thi ki K.E. intensity par depend karni chahiye (jo galat tha).</li>
+                <li>2. Wo Threshold Frequency concept nahi bata saki.</li>
+                <li>3. Wo kehti thi ki electron nikalne mein time lagta hai, jabki PEE instantaneous process hai.</li>
+            </ul>
+        </div>
+
+        <!-- extra card: quick revision points -->
+        <div class="card">
+            <div class="card-title"><span>✅</span>9. Quick Revision</div>
+            <ul class="point-list">
+                <li>Dual nature: particle + wave (light & matter)</li>
+                <li>Photon energy E = hf, neutral, speed c</li>
+                <li>Work function ϕ₀ = hf₀</li>
+                <li>Einstein eq: hf = ϕ₀ + K.E.<sub>max</sub></li>
+                <li>Stopping potential: K.E.<sub>max</sub> = eV₀</li>
+                <li>De Broglie λ = h/p, electron λ = 12.3/√V Å</li>
+                <li>Wave theory fail: intensity × energy, threshold, time lag</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all key formulas -->
+    <div class="micro-row">
+        <span class="micro-item">E = hf</span>
+        <span class="micro-item">ϕ₀ = hf₀</span>
+        <span class="micro-item">hf = ϕ₀ + K.E.<sub>max</sub></span>
+        <span class="micro-item">K.E.<sub>max</sub> = eV₀</span>
+        <span class="micro-item">λ = h/p</span>
+        <span class="micro-item">λ = 12.3/√V Å</span>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        ⚛️ Chapter 11 · Dual Nature · photons se de broglie tak · har point cover · boards mein scoring chapter
+    </div>
+</div>
+</body>
+</html>

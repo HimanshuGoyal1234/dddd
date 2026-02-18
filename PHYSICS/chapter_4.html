@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4 · Moving Charges and Magnetism · Complete Micro Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* extra emphasis for exact lines */
+        .exact-line {
+            background: #1b253f;
+            border-left: 3px solid #5f8cff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 0 14px 14px 0;
+            margin: 0.6rem 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🧲 Chapter 4: Moving Charges and Magnetism</h1>
+    <div class="subhead">Biot-Savart se Galvanometer tak · har ek point · navy border glow · dark mode</div>
+
+    <div class="grid">
+        <!-- 1. Magnetic Field ka Basic Concept -->
+        <div class="card">
+            <div class="card-title"><span>🧲</span>1. Magnetic Field · Basic Concept</div>
+            <ul class="point-list">
+                <li><strong>Magnetic Field:</strong> magnet ke aas-pass ya current-carrying wire ke aas-pass ki woh jagah hai jahan magnetic force (attraction ya repulsion) feel kiya ja sake.</li>
+                <li><strong>Oersted Experiment:</strong> Oersted ne experiment se prove kiya tha ki jab kisi wire mein current flow hota hai, toh woh magnet ki tarah behave karta hai.</li>
+                <li><strong>Right Hand Thumb Rule:</strong> Magnetic field ki direction nikalne ke liye Right Hand Thumb Rule ka use hota hai, jahan thumb current ki direction mein hota hai aur fingers ka curvature magnetic field batata hai.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Biot-Savart Law aur Applications -->
+        <div class="card">
+            <div class="card-title"><span>📐</span>2. Biot-Savart Law & Applications</div>
+            <ul class="point-list">
+                <li><strong>Biot-Savart Law:</strong> Kisi chhote length element (dl) ki wajah se magnetic field (dB) batata hai: <span class="formula-inline">dB = (μ₀/4π) · (I dl sinθ / r²)</span></li>
+                <li><strong>Circular Loop ke Center par:</strong> Magnetic field ka formula <span class="formula-inline">B = μ₀I / 2r</span> hota hai.</li>
+                <li><strong>Ring ki Axis par:</strong> Center se x distance par magnetic field <span class="formula-inline">B = (μ₀ I R²) / 2(R² + x²)<sup>3/2</sup></span> hota hai.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Ampere's Circuital Law -->
+        <div class="card">
+            <div class="card-title"><span>🔄</span>3. Ampere's Circuital Law (ACL)</div>
+            <ul class="point-list">
+                <li><strong>Ampere's Circuital Law:</strong> Magnetic field ka line integral (∮B·dl) hamesha μ₀ times total current (I) ke barabar hota hai.</li>
+                <li><strong>Long Straight Wire:</strong> ACL ka use karke magnetic field ka formula <span class="formula-inline">B = μ₀I / 2πr</span> nikalta hai.</li>
+                <li><strong>Solenoid:</strong> Iske andar magnetic field hamesha constant hota hai aur iska formula <span class="formula-inline">B = μ₀ n I</span> hai, jahan n number of turns per unit length hai.</li>
+            </ul>
+        </div>
+
+        <!-- 4. Magnetic Force (Lorentz Force) -->
+        <div class="card">
+            <div class="card-title"><span>⚡</span>4. Magnetic Force · Lorentz Force</div>
+            <ul class="point-list">
+                <li><strong>Moving Charge par Force:</strong> Jab koi charge q velocity v ke sath magnetic field B mein move karta hai, toh uspar force lagta hai: <span class="formula-inline">F = q(v × B)</span></li>
+                <li><strong>Motion ka Path:</strong> Agar velocity aur field mein 90° ka angle ho toh path circular hoga. Agar koi aur angle ho toh path helical (spring jaisa) ho jata hai.</li>
+                <li><strong>Velocity Selector:</strong> Agar electric aur magnetic force equal ho jayein (v = E/B), toh charge particle bina deviate hue seedha nikal jata hai.</li>
+                <li><strong>Current-carrying wire par Force:</strong> Iska formula <span class="formula-inline">F = I l B sinθ</span> ya shortcut mein "Bil" hota hai.</li>
+                <li><strong>Do Parallel Wires ke beech Force:</strong> Do wires jinmein current I₁ aur I₂ ho, unke beech force per unit length ka formula <span class="formula-inline">F/L = (μ₀ I₁ I₂) / (2πd)</span> hota hai.</li>
+            </ul>
+        </div>
+
+        <!-- 5. Torque aur Magnetic Moment -->
+        <div class="card">
+            <div class="card-title"><span>🔄</span>5. Torque & Magnetic Moment</div>
+            <ul class="point-list">
+                <li><strong>Torque on a Coil:</strong> Magnetic field mein rakhi hui coil par torque lagta hai, jiska formula <span class="formula-inline">τ = N I A B sinθ</span> hai (ise sources mein "Nibba sin theta" trick se yaad karwaya gaya hai).</li>
+                <li><strong>Magnetic Moment (M):</strong> Iska formula <span class="formula-inline">M = N I A</span> hota hai.</li>
+            </ul>
+        </div>
+
+        <!-- 6. Moving Coil Galvanometer -->
+        <div class="card">
+            <div class="card-title"><span>📏</span>6. Moving Coil Galvanometer</div>
+            <ul class="point-list">
+                <li><strong>Galvanometer:</strong> Yeh ek sensitive device hai jo current measure karne ke kaam aata hai.</li>
+                <li><strong>Radial Magnetic Field:</strong> Isme Radial Magnetic Field ka use hota hai taaki angle hamesha 90° rahe aur torque maximum mile.</li>
+                <li><strong>Current Sensitivity:</strong> Iska formula <span class="formula-inline">θ/I = NBA / k</span> hota hai.</li>
+            </ul>
+        </div>
+
+        <!-- 7. Conversion of Galvanometer -->
+        <div class="card">
+            <div class="card-title"><span>🔧</span>7. Conversion of Galvanometer</div>
+            <ul class="point-list">
+                <li><strong>Ammeter mein badalna:</strong> Galvanometer ke parallel mein ek low resistance (Shunt) joda jata hai.</li>
+                <li><strong>Voltmeter mein badalna:</strong> Galvanometer ke series mein ek high resistance joda jata hai.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all important formulas -->
+    <div class="micro-row">
+        <span class="micro-item">B = μ₀I/2r</span>
+        <span class="micro-item">B = μ₀nI</span>
+        <span class="micro-item">F = q(v×B)</span>
+        <span class="micro-item">F = I l B</span>
+        <span class="micro-item">τ = N I A B</span>
+        <span class="micro-item">M = N I A</span>
+        <span class="micro-item">v = E/B</span>
+        <span class="micro-item">F/L = μ₀I₁I₂/2πd</span>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        🧲 bhai, Chapter 4 ke har point cover kar diye · Moving Charges and Magnetism · navy border glow ke saath
+    </div>
+</div>
+</body>
+</html>

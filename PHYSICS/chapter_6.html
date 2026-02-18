@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6 · Electromagnetic Induction · Complete EMI Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⚡ Chapter 6: Electromagnetic Induction (EMI)</h1>
+    <div class="subhead">magnetic flux · faraday · lenz · motional emf · ac generator · full 1‑liners</div>
+
+    <div class="grid">
+        <!-- 1. Magnetic Flux -->
+        <div class="card">
+            <div class="card-title"><span>🧲</span>1. Magnetic Flux (ϕ)</div>
+            <ul class="point-list">
+                <li><strong>Definition:</strong> Kisi surface area se normal (perpendicular) pass hone wali magnetic field lines ki counting ko magnetic flux kehte hain.</li>
+                <li><strong>Formula:</strong> <span class="formula-inline">ϕ = B A cosθ</span> jahan B magnetic field, A area, θ magnetic field aur area vector ke beech ka angle hai.</li>
+            </ul>
+        </div>
+
+        <!-- 2. EMI Kya Hai? -->
+        <div class="card">
+            <div class="card-title"><span>💡</span>2. EMI Kya Hai?</div>
+            <ul class="point-list">
+                <li>Jab bhi kisi loop se juda magnetic flux change hota hai, toh us loop mein ek current aur EMF paida hota hai.</li>
+                <li><strong>Flux badalne ke teen tarike:</strong> Magnetic field (B) badal kar, Area (A) badal kar, ya Angle (θ) badal kar.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Faraday's Laws -->
+        <div class="card">
+            <div class="card-title"><span>📜</span>3. Faraday's Laws of EMI</div>
+            <ul class="point-list">
+                <li><strong>First Law:</strong> Jab bhi coil se linked flux badlega, EMF induce hoga.</li>
+                <li><strong>Second Law:</strong> Induced EMF ka magnitude flux ke badalne ki raftaar (rate of change) ke barabar hota hai: <span class="formula-inline">e = −dϕ/dt</span></li>
+            </ul>
+        </div>
+
+        <!-- 4. Lenz's Law -->
+        <div class="card">
+            <div class="card-title"><span>🔄</span>4. Lenz's Law</div>
+            <ul class="point-list">
+                <li>Induced current ki direction aisi hoti hai ki woh usi "kaaran" (cause) ka virodh (oppose) karta hai jisne use paida kiya hai.</li>
+                <li>Yeh law energy conservation ke principle par based hai.</li>
+            </ul>
+        </div>
+
+        <!-- 5. Motional EMF -->
+        <div class="card">
+            <div class="card-title"><span>🚂</span>5. Motional EMF</div>
+            <ul class="point-list">
+                <li><strong>Straight Rod:</strong> Agar l length ki rod v velocity se magnetic field B mein move kare, toh paida hone wala EMF <span class="formula-inline">e = B l v</span> hota hai.</li>
+                <li><strong>Rotating Rod:</strong> Agar rod ko ek end se fix karke ω speed se ghumaya jaye, toh EMF <span class="formula-inline">e = ½ B l² ω</span> hota hai.</li>
+            </ul>
+        </div>
+
+        <!-- 6. Self aur Mutual Induction -->
+        <div class="card">
+            <div class="card-title"><span>🔄</span>6. Self & Mutual Induction</div>
+            <ul class="point-list">
+                <li><strong>Self Induction:</strong> Ek hi coil mein current badalne se usi coil mein back EMF paida ho jaye. Relation: <span class="formula-inline">ϕ = L I</span>, jahan L = Coefficient of Self Inductance.</li>
+                <li><strong>Solenoid ka L:</strong> <span class="formula-inline">L = μ₀ n² A l</span></li>
+                <li><strong>Mutual Induction:</strong> Ek coil (Primary) mein current badalne se padosi coil (Secondary) mein current paida ho jaye. Formula: <span class="formula-inline">ϕ₂ = M I₁</span></li>
+                <li><strong>Unit:</strong> Dono ki unit Henry (H) hoti hai.</li>
+            </ul>
+        </div>
+
+        <!-- 7. AC Generator -->
+        <div class="card">
+            <div class="card-title"><span>⚙️</span>7. AC Generator</div>
+            <ul class="point-list">
+                <li><strong>Definition:</strong> Mechanical energy ko electrical energy mein badalta hai.</li>
+                <li><strong>Working:</strong> Magnetic field ke beech coil ko ghumaya jata hai, jisse angle (θ = ωt) badalta hai aur flux change hokar alternating EMF paida hota hai.</li>
+                <li><strong>Formula:</strong> <span class="formula-inline">e = e₀ sin(ωt)</span>, jahan <span class="formula-inline">e₀ = N B A ω</span> peak value hai.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all key formulas -->
+    <div class="micro-row">
+        <span class="micro-item">ϕ = B·A = BA cosθ</span>
+        <span class="micro-item">e = −dϕ/dt</span>
+        <span class="micro-item">e = Blv</span>
+        <span class="micro-item">e = ½Bl²ω</span>
+        <span class="micro-item">ϕ = LI</span>
+        <span class="micro-item">L = μ₀n²Al</span>
+        <span class="micro-item">ϕ₂ = MI₁</span>
+        <span class="micro-item">e = NBAω sinωt</span>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        ⚡ Chapter 6 · Electromagnetic Induction · flux se AC generator tak · har point cover
+    </div>
+</div>
+</body>
+</html>

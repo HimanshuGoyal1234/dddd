@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8 · Electromagnetic Waves · Complete Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* spectrum styling */
+        .spectrum-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .spectrum-item {
+            background: #1a2a48;
+            border: 2px solid navy;
+            box-shadow: 0 0 8px navy;
+            border-radius: 30px;
+            padding: 0.7rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .wave-type {
+            font-weight: 700;
+            color: #b9d5ff;
+            min-width: 100px;
+        }
+
+        .wave-desc {
+            color: #deeaff;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📡 Chapter 8: Electromagnetic Waves (EM Waves)</h1>
+    <div class="subhead">nature · displacement current · spectrum · energy · momentum · 1‑liners</div>
+
+    <div class="grid">
+        <!-- 1. EM Waves ki Paribhasha aur Nature -->
+        <div class="card">
+            <div class="card-title"><span>🌊</span>1. EM Waves · Definition & Nature</div>
+            <ul class="point-list">
+                <li><strong>EM Waves:</strong> Ye chalti hui energy hain jo electric field aur magnetic field se bani hoti hain.</li>
+                <li><strong>Transverse Nature:</strong> EM waves mein electric field, magnetic field aur wave ke chalne ki direction (propagation) teeno ek-dusre ke perpendicular (90°) hote hain.</li>
+                <li><strong>Speed:</strong> Vacuum mein EM waves ki speed <span class="formula-inline">c = 3×10⁸ m/s</span> hoti hai, jo <span class="formula-inline">c = 1/√(μ₀ϵ₀)</span> se nikali jati hai.</li>
+                <li><strong>Wavelength aur Frequency:</strong> Speed, wavelength (λ) aur frequency (f) ka relation <span class="formula-inline">c = fλ</span> hota hai.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Electric aur Magnetic Field ke Beech Relation -->
+        <div class="card">
+            <div class="card-title"><span>⚡</span>2. E & B Field Relation</div>
+            <ul class="point-list">
+                <li><strong>Amplitude Relation:</strong> Electric field ka amplitude (E₀) hamesha magnetic field (B₀) se bahut bada hota hai: <span class="formula-inline">E₀/B₀ = c</span></li>
+                <li><strong>Equations:</strong> Electric field: <span class="formula-inline">E = E₀ sin(kx − ωt)</span><br>Magnetic field: <span class="formula-inline">B = B₀ sin(kx − ωt)</span><br>jahan <span class="formula-inline">k = 2π/λ</span> propagation constant hai.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Displacement Current -->
+        <div class="card">
+            <div class="card-title"><span>🔄</span>3. Displacement Current (I<sub>d</sub>)</div>
+            <ul class="point-list">
+                <li><strong>Concept:</strong> Ampere's Law mein kami ko poora karne ke liye Maxwell ne bataya ki badalta hua electric field bhi current paida karta hai.</li>
+                <li><strong>Formula:</strong> Capacitor ki plates ke beech paida hone wala current <span class="formula-inline">I<sub>d</sub> = ϵ₀ (dϕ<sub>E</sub>/dt)</span> hota hai, jahan ϕ<sub>E</sub> electric flux hai.</li>
+                <li><strong>Modified Ampere's Law:</strong> Total current <span class="formula-inline">I = I<sub>c</sub> + I<sub>d</sub></span> hota hai, jahan I<sub>c</sub> conduction current hai.</li>
+            </ul>
+        </div>
+
+        <!-- 4. Electromagnetic Spectrum -->
+        <div class="card">
+            <div class="card-title"><span>🌈</span>4. Electromagnetic Spectrum</div>
+            <div class="spectrum-list">
+                <div class="spectrum-item">
+                    <span class="wave-type">Radio waves</span>
+                    <span class="wave-desc">Wavelength sabse lambi, communication mein use</span>
+                </div>
+                <div class="spectrum-item">
+                    <span class="wave-type">Micro waves</span>
+                    <span class="wave-desc">Cooking, radar</span>
+                </div>
+                <div class="spectrum-item">
+                    <span class="wave-type">Infrared</span>
+                    <span class="wave-desc">Heat waves, remote</span>
+                </div>
+                <div class="spectrum-item">
+                    <span class="wave-type">Visible</span>
+                    <span class="wave-desc">Jise hum dekh sakte hain (4000Å - 7000Å)</span>
+                </div>
+                <div class="spectrum-item">
+                    <span class="wave-type">UV</span>
+                    <span class="wave-desc">Ultraviolet, sun se aati hai</span>
+                </div>
+                <div class="spectrum-item">
+                    <span class="wave-type">X-rays</span>
+                    <span class="wave-desc">Medical imaging</span>
+                </div>
+                <div class="spectrum-item">
+                    <span class="wave-type">Gamma rays</span>
+                    <span class="wave-desc">Frequency aur energy sabse zyada, sabse khatarnak</span>
+                </div>
+            </div>
+            <div style="margin-top: 1rem; padding: 0.8rem; background: #1a2a48; border-radius: 20px; border: 1px solid #3f60a0;">
+                <strong>Kram (Order):</strong> Radio < Micro < Infrared < Visible < UV < X-rays < Gamma <br>
+                <span class="formula-inline">λ</span> ghapati hai, <span class="formula-inline">f</span> aur <span class="formula-inline">E</span> badhti hai
+            </div>
+        </div>
+
+        <!-- 5. Energy aur Momentum -->
+        <div class="card">
+            <div class="card-title"><span>⚡</span>5. Energy & Momentum</div>
+            <ul class="point-list">
+                <li><strong>Energy Density:</strong> Electric field: <span class="formula-inline">u<sub>E</sub> = ½ ϵ₀ E<sub>rms</sub>²</span><br>Magnetic field: <span class="formula-inline">u<sub>B</sub> = ½ B<sub>rms</sub>²/μ₀</span></li>
+                <li><strong>Total Energy Density:</strong> <span class="formula-inline">u = u<sub>E</sub> + u<sub>B</sub> = ϵ₀ E<sub>rms</sub>²</span></li>
+                <li><strong>Momentum:</strong> Wave jab kisi surface par girti hai toh momentum deliver karti hai: <span class="formula-inline">p = U/c</span>, jahan U total energy hai.</li>
+            </ul>
+        </div>
+
+        <!-- extra card: quick revision points -->
+        <div class="card">
+            <div class="card-title"><span>✅</span>6. Quick Revision</div>
+            <ul class="point-list">
+                <li>EM waves transverse hoti hain — E ⟂ B ⟂ propagation direction</li>
+                <li>Speed c = 3×10⁸ m/s (vacuum mein)</li>
+                <li>E₀/B₀ = c, E aur B same phase mein hote hain</li>
+                <li>Displacement current I<sub>d</sub> = ϵ₀ dϕ<sub>E</sub>/dt</li>
+                <li>Maxwell ne Ampere's law modify kiya: I = I<sub>c</sub> + I<sub>d</sub></li>
+                <li>Gamma rays — sabse high frequency, high energy, dangerous</li>
+                <li>EM waves momentum transfer karti hain: p = U/c</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all key formulas -->
+    <div class="micro-row">
+        <span class="micro-item">c = fλ</span>
+        <span class="micro-item">c = 1/√(μ₀ϵ₀)</span>
+        <span class="micro-item">E₀/B₀ = c</span>
+        <span class="micro-item">k = 2π/λ</span>
+        <span class="micro-item">I<sub>d</sub> = ϵ₀ dϕ<sub>E</sub>/dt</span>
+        <span class="micro-item">u<sub>E</sub> = ½ϵ₀E²</span>
+        <span class="micro-item">u<sub>B</sub> = ½B²/μ₀</span>
+        <span class="micro-item">p = U/c</span>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        📡 Chapter 8 · Electromagnetic Waves · nature se momentum tak · har point cover
+    </div>
+</div>
+</body>
+</html>

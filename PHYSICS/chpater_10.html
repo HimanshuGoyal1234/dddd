@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 10 · Wave Optics · Complete Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c14;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            padding: 2rem 1rem;
+            color: #edf2f9;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b3ccff, #8bb1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            color: #97abcf;
+            margin-bottom: 2.2rem;
+            padding-left: 1.2rem;
+            border-left: 4px solid #3f60a0;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: #121b2b;
+            border-radius: 28px;
+            padding: 1.6rem 1.4rem;
+            border: 1px solid #253c62;
+            box-shadow: 0 18px 30px -10px #010314;
+            transition: 0.15s;
+        }
+
+        .card:hover {
+            border-color: #3f6ac0;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #2e4780;
+            padding-bottom: 0.6rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #c7dbff;
+        }
+
+        .card-title span {
+            font-size: 1.8rem;
+        }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.98rem;
+            color: #deeaff;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border: 2px solid navy;
+            box-shadow: 0 0 10px navy;
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .point-list li::before {
+            content: "▹";
+            color: #6f9cff;
+            font-size: 1.2rem;
+            width: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-inline {
+            background: #1e2d4a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #c5ddff;
+            border: 1px solid #365799;
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            background: #1f3257;
+            color: #b9d5ff;
+            border-radius: 40px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            border: 1px solid #3a62aa;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: #253f68;
+            margin: 1.2rem 0 1rem 0;
+        }
+
+        .micro-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: #0f172b;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid #2b4a81;
+            justify-content: center;
+        }
+
+        .micro-item {
+            color: #c1d6ff;
+            font-size: 0.95rem;
+            background: #1b2b48;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #385e9e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #607ab3;
+            border-top: 1px solid #1d3157;
+            padding-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* wavefront types styling */
+        .wavefront-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 0.8rem 0;
+        }
+
+        .type-box {
+            background: #1a2a48;
+            border: 2px solid navy;
+            border-radius: 20px;
+            padding: 0.7rem 1.2rem;
+            flex: 1 1 auto;
+            box-shadow: 0 0 8px navy;
+        }
+
+        .type-box strong {
+            color: #b9d5ff;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🌈 Chapter 10: Wave Optics</h1>
+    <div class="subhead">wavefront · huygens · interference · ydse · diffraction · optical elements</div>
+
+    <div class="grid">
+        <!-- 1. Wavefront aur uske Types -->
+        <div class="card">
+            <div class="card-title"><span>🌊</span>1. Wavefront & Types</div>
+            <ul class="point-list">
+                <li><strong>Wavefront:</strong> Un sab points ka locus (location) jo ek hi phase mein vibrate kar rahe hon.</li>
+            </ul>
+            <div class="wavefront-types">
+                <div class="type-box"><strong>Spherical</strong> Jab source ek point ho (jaise chhota bulb).</div>
+                <div class="type-box"><strong>Cylindrical</strong> Jab source ek line ho (jaise tubelight).</div>
+                <div class="type-box"><strong>Plane</strong> Jab light rays bahut door se aa rahi hon.</div>
+            </div>
+        </div>
+
+        <!-- 2. Huygens Principle -->
+        <div class="card">
+            <div class="card-title"><span>🔮</span>2. Huygens Principle</div>
+            <ul class="point-list">
+                <li>Primary wavefront ka har ek point ek naye wave (secondary wavelets) ke source ki tarah behave karta hai, jo light ki speed se aage badhti hai.</li>
+                <li>In secondary wavelets ka <strong>Forward Envelop</strong> naye wavefront ki shape aur location batata hai.</li>
+                <li>Is principle se Reflection (<span class="formula-inline">∠i = ∠r</span>) aur Refraction (<span class="formula-inline">n₁ sin i = n₂ sin r</span>) ke laws proof kiye ja sakte hain.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Superposition aur Interference -->
+        <div class="card">
+            <div class="card-title"><span>✨</span>3. Superposition & Interference</div>
+            <ul class="point-list">
+                <li>Jab do ya zyada waves ek jagah milti hain, net displacement vector sum ke barabar hota hai → energy redistribution = Interference.</li>
+                <li><strong>Constructive (Bright):</strong> Phase diff <span class="formula-inline">ϕ = 2nπ</span></li>
+                <li><strong>Destructive (Dark):</strong> Phase diff <span class="formula-inline">ϕ = (2n−1)π</span></li>
+            </ul>
+        </div>
+
+        <!-- 4. Young's Double Slit Experiment (YDSE) -->
+        <div class="card">
+            <div class="card-title"><span>🔬</span>4. Young's Double Slit Experiment</div>
+            <ul class="point-list">
+                <li><strong>Coherent Sources:</strong> Constant phase difference – interference ke liye zaroori.</li>
+                <li><strong>Path Difference (Δp):</strong> <span class="formula-inline">Δp = y d / D</span></li>
+                <li><strong>Maxima:</strong> <span class="formula-inline">Δp = nλ</span></li>
+                <li><strong>Minima:</strong> <span class="formula-inline">Δp = (2n−1)λ/2</span></li>
+                <li><strong>Fringe Width (β):</strong> <span class="formula-inline">β = λD / d</span></li>
+                <li><strong>Medium ka Asar:</strong> <span class="formula-inline">β<sub>med</sub> = β<sub>vac</sub> / n</span></li>
+            </ul>
+        </div>
+
+        <!-- 5. Diffraction (Single Slit) -->
+        <div class="card">
+            <div class="card-title"><span>🔆</span>5. Diffraction (Single Slit)</div>
+            <ul class="point-list">
+                <li>Light ka sharp corner se takra kar mudna = Diffraction.</li>
+                <li><strong>Minima:</strong> <span class="formula-inline">a sinθ = nλ</span></li>
+                <li><strong>Maxima:</strong> <span class="formula-inline">a sinθ = (2n+1)λ/2</span></li>
+                <li><strong>Central Maxima:</strong> Sabse bright aur chaura. Angular width = <span class="formula-inline">2λ/a</span>, Linear width = <span class="formula-inline">2λD/a</span></li>
+            </ul>
+        </div>
+
+        <!-- 6. Wavefront through Optical Elements -->
+        <div class="card">
+            <div class="card-title"><span>🔍</span>6. Wavefront through Optical Elements</div>
+            <ul class="point-list">
+                <li><strong>Prism:</strong> Plane wavefront ko bend kar deta hai.</li>
+                <li><strong>Convex Lens:</strong> Plane wavefront ko converge karke curved bana deta hai.</li>
+                <li><strong>Concave Mirror:</strong> Plane wavefront isse takra kar converge hone lagta hai.</li>
+            </ul>
+        </div>
+
+        <!-- extra card: quick revision points -->
+        <div class="card">
+            <div class="card-title"><span>✅</span>7. Quick Revision</div>
+            <ul class="point-list">
+                <li>Wavefront = same phase ke points ka locus</li>
+                <li>Huygens: har point secondary source; forward envelop new wavefront</li>
+                <li>Constructive: ϕ = 2nπ, Destructive: ϕ = (2n−1)π</li>
+                <li>YDSE: β = λD/d, medium mein β ghatta hai (β/n)</li>
+                <li>Diffraction minima: a sinθ = nλ (single slit)</li>
+                <li>Central maxima width ∝ λ/a</li>
+                <li>Prism: bend, Lens: converge, Mirror: converge</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- micro row : all key formulas -->
+    <div class="micro-row">
+        <span class="micro-item">Δp = yd/D</span>
+        <span class="micro-item">β = λD/d</span>
+        <span class="micro-item">β<sub>med</sub> = β/n</span>
+        <span class="micro-item">a sinθ = nλ (min)</span>
+        <span class="micro-item">a sinθ = (2n+1)λ/2 (max)</span>
+        <span class="micro-item">2λ/a (angular width)</span>
+        <span class="micro-item">2λD/a (linear width)</span>
+    </div>
+
+    <!-- footer note -->
+    <div class="footer-note">
+        🌈 Chapter 10 · Wave Optics · wavefront se diffraction tak · har point cover
+    </div>
+</div>
+</body>
+</html>

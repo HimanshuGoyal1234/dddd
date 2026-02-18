@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 2 · Potential & Capacitance · one‑liner dark mode</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0b0e14;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+      color: #e9edf2;
+    }
+
+    .container {
+      max-width: 1280px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+      background: linear-gradient(120deg, #c0c9ff, #a0b5f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #8f9bb3;
+      margin-bottom: 2rem;
+      border-left: 3px solid #3b4e7a;
+      padding-left: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.2rem;
+    }
+
+    /* card style — subtle raised dark */
+    .card {
+      background: #141b29;
+      border-radius: 22px;
+      padding: 1.25rem 1.4rem;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 2px 6px rgba(0, 20, 40, 0.5);
+      border: 1px solid #26304a;
+      transition: transform 0.1s ease, border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: #4a608f;
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+      color: #bdd3ff;
+      border-bottom: 1px dashed #2f3c5a;
+      padding-bottom: 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card-title span {
+      background: #202d44;
+      font-size: 1.1rem;
+      padding: 0.15rem 0.7rem;
+      border-radius: 40px;
+      color: #b4ceff;
+    }
+
+    .point-list {
+      list-style: none;
+    }
+
+    .point-list li {
+      display: flex;
+      gap: 0.7rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.96rem;
+      line-height: 1.48;
+      color: #cfdbea;
+      align-items: flex-start;
+    }
+
+    .point-list li::before {
+      content: "▹";
+      color: #5f8aff;
+      font-weight: 600;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      display: inline-block;
+      width: 1.2rem;
+    }
+
+    .inline-code {
+      background: #1d2842;
+      padding: 0.2rem 0.5rem;
+      border-radius: 14px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 0.9rem;
+      color: #c3d5ff;
+      border: 1px solid #31486b;
+      white-space: nowrap;
+    }
+
+    .badge {
+      background: #25324b;
+      color: #b5d0ff;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      margin-left: 0.4rem;
+      border: 1px solid #3d507a;
+      vertical-align: middle;
+    }
+
+    .divider-light {
+      height: 1px;
+      background: #25324b;
+      margin: 1rem 0 0.8rem 0;
+    }
+
+    .footnote {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #5f739b;
+      font-size: 0.9rem;
+      border-top: 1px solid #1e2841;
+      padding-top: 1.8rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>⚡ electrostatic potential & capacitance</h1>
+  <div class="subhead">chapter 2 · one‑liner summaries — pure revision · dark mode</div>
+
+  <div class="grid">
+    <!-- electric potential & potential difference -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> electric potential & diff</div>
+      <ul class="point-list">
+        <li><strong>Electric potential:</strong> work done to bring +1C from infinity to that point.</li>
+        <li><strong>Potential difference:</strong> work done to move +1C between two points.</li>
+        <li><strong>Point charge:</strong> <span class="inline-code">V = kq/r</span></li>
+        <li>Scalar quantity → directly add karte hain.</li>
+        <li>SI unit joule/coulomb = volt (V).</li>
+      </ul>
+    </div>
+
+    <!-- electric dipole potential -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> dipole potential</div>
+      <ul class="point-list">
+        <li><strong>Axial point:</strong> <span class="inline-code">V = kp/r²</span> (short dipole).</li>
+        <li><strong>Equatorial point:</strong> net potential = 0 (always).</li>
+      </ul>
+      <div class="divider-light"></div>
+      <div style="font-size:0.9rem; color:#a5b9da; padding-left:0.2rem;">p = dipole moment, r = distance</div>
+    </div>
+
+    <!-- equipotential surface -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> equipotential surface</div>
+      <ul class="point-list">
+        <li>Har point par potential same rehta hai.</li>
+        <li>Work done = 0 (charge move karne par).</li>
+        <li>Do surfaces kabhi intersect nahi karti.</li>
+        <li>Jahan surfaces close hoti hain, E strong hota hai.</li>
+      </ul>
+    </div>
+
+    <!-- E–V relation -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> E & V relation</div>
+      <ul class="point-list">
+        <li><span class="inline-code">E = – dV/dr</span> (potential gradient ka negative).</li>
+        <li>Numerical trick: <strong>V = E·d</strong> (uniform field).</li>
+      </ul>
+    </div>
+
+    <!-- spherical shell potential -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> spherical shell</div>
+      <ul class="point-list">
+        <li><strong>Inside shell:</strong> potential constant = surface value.</li>
+        <li><strong>At surface:</strong> <span class="inline-code">kQ/R</span></li>
+        <li><strong>Outside (r):</strong> <span class="inline-code">kQ/r</span></li>
+      </ul>
+    </div>
+
+    <!-- potential energy -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> potential energy</div>
+      <ul class="point-list">
+        <li>System of charges: <span class="inline-code">U = k q₁q₂/r</span> (assembly work).</li>
+        <li>Dipole in uniform field: <span class="inline-code">U = –pE cosθ</span></li>
+      </ul>
+    </div>
+
+    <!-- capacitance & capacitors (basics) -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> capacitance intro</div>
+      <ul class="point-list">
+        <li><strong>Capacitor:</strong> device jo electrical energy store karta hai.</li>
+        <li><strong>Capacitance (C):</strong> charge hold karne ki ability → <span class="inline-code">Q = CV</span></li>
+        <li><strong>Spherical capacitor:</strong> <span class="inline-code">C = 4πϵ₀ R</span></li>
+        <li><strong>Parallel plate:</strong> <span class="inline-code">C = ϵ₀ A/d</span></li>
+      </ul>
+    </div>
+
+    <!-- dielectric effect & slab -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> dielectric & slab</div>
+      <ul class="point-list">
+        <li>Dielectric (K) dalne se capacitance <strong>K times</strong> badh jata hai.</li>
+        <li>Partial slab (thickness t): <span class="inline-code">C = ϵ₀A / (d−t + t/K)</span></li>
+        <li><strong>Energy stored:</strong> <span class="inline-code">½CV² = ½Q²/C</span></li>
+      </ul>
+    </div>
+
+    <!-- series & parallel -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> combination rules</div>
+      <ul class="point-list">
+        <li><strong>Series:</strong> <span class="inline-code">1/Cnet = 1/C₁ + 1/C₂ + …</span></li>
+        <li><strong>Parallel:</strong> <span class="inline-code">Cnet = C₁ + C₂ + …</span></li>
+      </ul>
+    </div>
+
+    <!-- dielectrics (polar / non‑polar) -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> dielectrics — type</div>
+      <ul class="point-list">
+        <li><strong>Polar</strong> (eg HCl) & <strong>non‑polar</strong> (eg CO₂).</li>
+        <li>Without external field → net dipole moment = 0.</li>
+        <li>Field lagane par non‑zero ho jata hai (polar / non‑polar both).</li>
+      </ul>
+    </div>
+
+    <!-- extra card: quick formula reminders (optional) -->
+    <div class="card">
+      <div class="card-title"><span>⚡</span> memory triggers</div>
+      <ul class="point-list">
+        <li><strong>Ved trick:</strong> V = Ed (uniform field).</li>
+        <li>Equipotential → E perpendicular hota hai.</li>
+        <li>Dipole equatorial line: V = 0 always.</li>
+        <li>Capacitor energy = ½QV = ½CV² = ½Q²/C</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- footer note -->
+  <div class="footnote">
+    ⚡ bhai, saare ek‑liner points cover kar diye · chapter 2 · potential & capacitance
+  </div>
+</div>
+</body>
+</html>
