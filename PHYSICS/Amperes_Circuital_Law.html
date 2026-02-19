@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ampere’s Circuital Law </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0f17;
+            font-family: 'Segoe UI', 'Nirmala UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+            color: #e1e9f0;
+            line-height: 1.6;
+        }
+
+        .card {
+            max-width: 1000px;
+            width: 100%;
+            background: #141b2b;
+            border-radius: 2rem;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px #2a3440 inset;
+            backdrop-filter: blur(2px);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            background: linear-gradient(145deg, #b3e0ff, #a0b5e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            border-left: 6px solid #3b6c9e;
+            padding-left: 1.5rem;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: #9bb5d4;
+            margin-bottom: 2.5rem;
+            margin-top: -0.2rem;
+            padding-left: 2rem;
+            font-style: italic;
+            border-bottom: 1px dashed #2b4055;
+            padding-bottom: 0.8rem;
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            font-weight: 500;
+            color: #d0e2ff;
+            margin: 2rem 0 1rem 0;
+            display: inline-block;
+            border-bottom: 3px solid #3b6c9e;
+            padding-bottom: 6px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #bedcff;
+            margin: 1.8rem 0 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .box {
+            background: #1e283b;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin: 1.8rem 0;
+            border: 1px solid #31455c;
+            box-shadow: inset 0 0 12px #0e131f, 0 10px 20px #070b10;
+        }
+
+        .formula {
+            background: #0f1622;
+            padding: 1.3rem 2rem;
+            border-radius: 40px;
+            font-family: 'Courier New', 'Fira Code', monospace;
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #ffdba0;
+            border: 1px solid #3f5e7a;
+            text-align: center;
+            margin: 1.2rem 0;
+            box-shadow: 0 0 15px #1d3557;
+            word-break: break-word;
+        }
+
+        .formula small {
+            font-size: 1.1rem;
+            color: #b0caf0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .note {
+            background: #1c253b;
+            border-left: 10px solid #4f8bc9;
+            padding: 1.2rem 2rem;
+            border-radius: 24px;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+            color: #cddcff;
+        }
+
+        ul, ol {
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin: 0.8rem 0;
+            font-size: 1.2rem;
+        }
+
+        li strong {
+            color: #f0c45a;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .pill {
+            background: #26344b;
+            border-radius: 100px;
+            padding: 0.5rem 1.4rem;
+            font-weight: 600;
+            display: inline-block;
+            color: #cde1ff;
+            border: 1px solid #406e9e;
+            box-shadow: 0 2px 6px #04070c;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .trick {
+            background: #1f2d3f;
+            border-radius: 30px;
+            padding: 1.6rem 2rem;
+            border: 2px dashed #527ea8;
+            margin-top: 2rem;
+        }
+
+        .trick p {
+            font-size: 1.3rem;
+        }
+
+        .trick span.highlight {
+            background: #3b4f6e;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            color: #fceea5;
+            font-weight: 600;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #1f374f, #3c6190, #1f374f);
+            margin: 2rem 0;
+        }
+
+        .footer-note {
+            font-size: 1.1rem;
+            color: #88a0c0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 650px) {
+            .card { padding: 1.5rem; }
+            h1 { font-size: 1.9rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .formula { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>⚡ एम्पीयर का सर्किटल लॉ (ACL)</h1>
+        <div class="subhead"> ➤ magnetic field निकालने का सबसे आसान और जरूरी नियम – पूरी कहानी Hinglish में</div>
+
+        <!-- 1. ACL KYA HAI -->
+        <h2>🔹 1. Ampere’s Circuital Law (ACL) Kya Hai?</h2>
+        <div class="box">
+            <p style="font-size:1.3rem;">📌 अगर किसी wire में current <strong>I</strong> flow हो रहा है और हम उसके चारों तरफ एक <strong>closed loop (Amperian loop)</strong> बनाएँ, तो उस loop के लिए magnetic field का line integral, total current के proportional होता है।</p>
+            <div class="formula">
+                ∮ <strong>B</strong> · d<strong>l</strong> = μ<sub>0</sub> I
+            </div>
+            <ul>
+                <li><strong>∮ B⋅dl</strong> → closed path के चारों तरफ magnetic field का line integral.</li>
+                <li><strong>μ<sub>0</sub></strong> → permeability of free space (vacuum की पारगम्यता).</li>
+                <li><strong>I</strong> → loop से गुजरने वाला total current.</li>
+            </ul>
+        </div>
+
+        <!-- 2. APPLICATION: INFINITE WIRE -->
+        <h2>🔹 2. ACL का Application – Infinite Straight Wire</h2>
+        <div class="box" style="background: #1a2338;">
+            <p>एक बहुत लंबी wire में current I है। <strong>r</strong> दूरी पर magnetic field निकालना है:</p>
+            <ol style="list-style-type: decimal; font-weight: 400;">
+                <li><strong>Step 1:</strong> wire के चारों तरफ <em>r</em> radius का एक <strong>Amperian loop</strong> (circle) मान लो।</li>
+                <li><strong>Step 2:</strong> Law लगाओ: <strong>∮ B ⋅ dl = μ₀ I</strong></li>
+                <li><strong>Step 3:</strong> Integration करने पर <strong>dl (पूरे circle की length) = 2πr</strong> हो जाता है।</li>
+                <li><strong>Step 4:</strong> तो <strong>B · (2πr) = μ₀ I</strong>  →  <span style="background: #253a5a; padding: 0.2rem 0.8rem; border-radius: 50px;">B = (μ₀ I) / (2πr)</span></li>
+            </ol>
+            <div class="formula" style="font-size: 1.6rem;">
+                B = \frac{μ_0 I}{2π r}
+            </div>
+        </div>
+
+        <!-- 3. LAW MEIN KAMI (INCONSISTENCY) -->
+        <h2>🔹 3. Law mein Kami (Inconsistency) – Capacitor wala case</h2>
+        <div class="note">
+            <p>⚡ पुराना Ampere’s Law हर जगह सही नहीं था, ख़ासकर <strong>capacitor</strong> के case में।</p>
+            <ul style="margin-top: 10px;">
+                <li><strong>Capacitor की plates के बीच</strong> कोई wire नहीं होती, इसलिए वहाँ conduction current (I<sub>c</sub>) = 0.</li>
+                <li>पुराने law के हिसाब से, वहाँ magnetic field भी <strong>zero</strong> होना चाहिए था।</li>
+                <li>लेकिन <strong>experiments</strong> (compass needle का हिलना) बताते हैं कि plates के बीच <strong>magnetic field मौजूद</strong> होता है।</li>
+                <li>⇒ पुराना law <strong>अधूरा (inconsistent)</strong> था।</li>
+            </ul>
+        </div>
+
+        <!-- 4. MAXWELL'S FIX: DISPLACEMENT CURRENT -->
+        <h2>🔹 4. Maxwell’s Fix – Displacement Current (I<sub>d</sub>)</h2>
+        <div class="box">
+            <p>🧠 Maxwell ने कहा — सिर्फ चलते हुए charges (conduction current) ही magnetic field नहीं बनाते, बल्कि <strong>बदलता हुआ electric field</strong> (electric flux) भी current की तरह behave करता है।</p>
+            <div class="pill">नया current → Displacement Current (I<sub>d</sub>)</div>
+            <div class="formula" style="font-size: 1.6rem;">
+                I<sub>d</sub> = ε₀ · \frac{dΦ_E}{dt}
+            </div>
+            <p>जहाँ Φ<sub>E</sub> = electric flux, और ε₀ = permittivity of free space.</p>
+        </div>
+
+        <!-- 5. MODIFIED AMPERE-MAXWELL LAW -->
+        <h2>🔹 5. Modified Ampere–Maxwell Law (पूरा संस्करण)</h2>
+        <div class="box" style="background: #152031; border-color: #5778a3;">
+            <p>Maxwell ने दोनों currents को जोड़ दिया — <strong>Total current I = I<sub>c</sub> + I<sub>d</sub></strong></p>
+            <div class="formula" style="font-size: 1.8rem; background: #0e1a2a;">
+                ∮ B·dl = μ₀ (I<sub>c</sub> + I<sub>d</sub>)
+            </div>
+            <p>✅ यह law <strong>हर जगह</strong> मान्य है — capacitor के अंदर और बाहर, wire में, कहीं भी।</p>
+        </div>
+
+        <!-- SUMMARY TRICK + VISUAL COMPARISON -->
+        <h2>🧩 Summary Trick – याद रखने का मजेदार तरीका</h2>
+        <div class="grid-2">
+            <div style="background:#1c293e; border-radius: 30px; padding: 1.5rem;">
+                <div style="font-size:1.6rem; margin-bottom: 10px;">⚡ <strong>Wire में</strong></div>
+                <hr style="margin:0.5rem 0; background:#3b5982;">
+                <ul style="list-style-type:circle;">
+                    <li><strong style="color:#ffbe5e;">सिर्फ I<sub>c</sub> (conduction current)</strong> होता है।</li>
+                    <li><strong>I<sub>d</sub> = 0</strong></li>
+                    <li>Magnetic field सिर्फ I<sub>c</sub> की वजह से।</li>
+                </ul>
+            </div>
+            <div style="background:#1c293e; border-radius: 30px; padding: 1.5rem;">
+                <div style="font-size:1.6rem; margin-bottom: 10px;">🧲 <strong>Capacitor plates के बीच</strong></div>
+                <hr style="margin:0.5rem 0; background:#3b5982;">
+                <ul style="list-style-type:circle;">
+                    <li><strong style="color:#ffbe5e;">सिर्फ I<sub>d</sub> (displacement current)</strong> होता है।</li>
+                    <li><strong>I<sub>c</sub> = 0</strong> (कोई wire नहीं)</li>
+                    <li>Magnetic field सिर्फ I<sub>d</sub> की वजह से।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TRICKY SUMMARY LINE -->
+        <div class="trick">
+            <p style="font-size:1.5rem; font-weight:500;">🎯 दोनों को मिलाकर ही <span style="color:#fecc7f;">magnetic field बनता है</span> :</p>
+            <p style="font-size:1.8rem; background:#0a121f; padding: 0.8rem; border-radius: 60px; text-align: center;">
+                <span class="highlight">∮ B·dl = μ₀ ( I<sub>c</sub> + I<sub>d</sub> )</span>
+            </p>
+            <p style="margin-top:1rem;">✔ <strong>Wire में</strong> → I<sub>d</sub> = 0,   ✔ <strong>Capacitor के बीच</strong> → I<sub>c</sub> = 0   <br>बाकी सब जगह दोनों का योगदान।</p>
+        </div>
+
+        <!-- EXTRA NOTES: mu0 / epsilon0 -->
+        <hr>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
+            <div style="background:#1e2a3a; padding: 0.5rem 1.8rem; border-radius: 60px;">μ₀ = 4π × 10⁻⁷ H/m</div>
+            <div style="background:#1e2a3a; padding: 0.5rem 1.8rem; border-radius: 60px;">ε₀ = 8.85 × 10⁻¹² F/m</div>
+            <div style="background:#1e2a3a; padding: 0.5rem 1.8rem; border-radius: 60px;">I<sub>d</sub> = ε₀ (dΦ<sub>E</sub>/dt)</div>
+        </div>
+
+        <!-- BOTTOM LINE -->
+        <div class="footer-note">
+            ⚡ याद रखो : बदलता electric field (I<sub>d</sub>) भी magnetic field पैदा करता है — यही Maxwell की महान देन है। 
+            <br>✨ Ampere–Maxwell law पूरे विद्युत-चुंबकत्व की नींव है।
+        </div>
+    </div>
+</body>
+</html>
